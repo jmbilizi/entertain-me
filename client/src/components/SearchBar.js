@@ -21,7 +21,7 @@ const SearchBar = ({ title, handleInputChange, handleFormSubmit }) => {
                     </form>
                 </Col>
                 <Col m={3}>
-                    <Button className='btn-flat' onClick={handleFormSubmit}>Search</Button>
+                    <Button className='btn-flat' onClick={handleFormSubmit}>GO</Button>
                 </Col>
             </Row>
 
