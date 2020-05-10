@@ -16,6 +16,10 @@ export default {
     movieRatingSearch: function (movieID) {
         return axios.get(`https://api.themoviedb.org/3/movie/${movieID}/release_dates?api_key=${apiKey}`)
     },
+    // API call for similar movies -- need to credit
+    relatedMoviesSearch: function (movieID) {
+        return axios.get(`https://api.themoviedb.org/3/movie/${movieID}/similar?api_key=${apiKey}&language=en-US&page=1`)
+    },
     // API call for TV poster, trailers, network and next episode -- need to credit
     tvTrailerSearch: function (tvID) {
         return axios.get(`https://api.themoviedb.org/3/tv/${tvID}?api_key=${apiKey}&language=en-US&append_to_response=videos`)
