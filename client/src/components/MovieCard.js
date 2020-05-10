@@ -18,7 +18,7 @@ const MovieCard = (props) => {
                     <div className='details'>
                         <h2>{props.title}</h2>
                         <h2>{props.title2}</h2>
-                        <p>Release date: {props.release}</p><br></br> 
+                        <p>Release date: {props.release}</p><br></br>
                         <p className='description'>{props.description}</p>
                     </div>
                 </Col>
