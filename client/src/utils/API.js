@@ -1,5 +1,5 @@
 import axios from 'axios';
-// const apiKey = process.env.REACT_APP_TMDB_API_KEY;
+// const apiKey = process.env.REACT_APP_API_KEY;
 const apiKey = '32a9ec1e57a6839fcf26fa958bca7cf5';
 
 

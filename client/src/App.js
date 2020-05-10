@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import moment from 'moment';
 import 'materialize-css';
-import { Container, Row, Col } from 'react-materialize';
+import { Container, Row, Col, Footer } from 'react-materialize';
 
-import InputField from './components/InputField';
-import MovieCard from './components/MovieCard';
+import { ContainerWrapper } from './styles'
+import NavBar from './components/NavBar';
+import ResultsCard from './components/ResultsCard';
 import SearchBar from './components/SearchBar';
 import Trailer from './components/Trailer';
+import Favorites from './components/Favorites';
+import Trending from './components/Trending';
 import API from './utils/API'
 
 const App = () => {
@@ -26,9 +29,7 @@ const App = () => {
     rating: '',
     trendingMovies: '',
     related: '',
-    input: '',
-
-
+    input: ''
   })
 
   //destructuring to use above values directly
@@ -56,7 +57,7 @@ const App = () => {
           backdrop: `${backdropURL}` + res.data.results[0].backdrop_path,
           genre: res.data.results[0].genre_ids[0],
           score: res.data.results[0].vote_average,
-        });
+        }, console.log(`state:`, state));
         return API.movieTrailerSearch(res.data.results[0].id);
       })
       .then(res => {
@@ -66,7 +67,6 @@ const App = () => {
         //   movieTrailer: `${trailerURL}` + res.data.videos.results[0].key,
         //   runtime: res.data.runtime
         // })
-        return API.movieRatingSearch(res.data.id);
       })
       .then(res => {
         console.log(`API call for movie rating info:`, res);
@@ -105,42 +105,103 @@ const App = () => {
   }
 
   return (
-    <Container>
-      <Row>
-        <Col m={2}></Col>
-        <Col m={8}>
-          <SearchBar
-            movie={movie}
-            handleInputChange={handleInputChange}
-            handleFormSubmit={handleFormSubmit}
+    <ContainerWrapper>
+      <Container>
+        <Row>
+          <NavBar
           />
-          <MovieCard
-            title={movie}
-            title2={tvShow}
-            release={moment(release, 'YYYY-MM-DD').format('MMM Do, YYYY')}
-            description={description}
-            poster={poster}
-            movieID={movieID}
-            backdrop={backdrop}
-            genre={genre}
-            runtime={runtime}
-            score={score}
-            rating={rating}
-            related={related}
-          />
-          <Trailer
-            movieTrailer={movieTrailer}
-          />
-          {/* <InputField
+        </Row>
+
+        <Row>
+          <Col m={4}></Col>
+          <Col m={4}>
+            <SearchBar
+              movie={movie}
+              handleInputChange={handleInputChange}
+              handleFormSubmit={handleFormSubmit}
+            />
+          </Col>
+          <Col m={4}></Col>
+        </Row>
+
+        <Row>
+          <Col m={2}></Col>
+          <Col m={4}>
+            {release ? (
+              <ResultsCard
+                title={movie}
+                title2={tvShow}
+                release={moment(release, 'YYYY-MM-DD').format('MMM Do, YYYY')}
+                description={description}
+                poster={poster}
+                movieID={movieID}
+                backdrop={backdrop}
+                genre={genre}
+                score={score}
+                runtime={runtime}
+                rating={rating}
+                related={related}
+              />
+            ) : (console.log('No title entered.'))}
+            {/* <InputField
             placeholder="Enter a movie or tv show title"
             handleInputChange={handleInputChange}
             handleFormSubmit={handleFormSubmit}
             input={input}
           /> */}
-        </Col>
-        <Col m={2}></Col>
-      </Row>
-    </Container>
+          </Col>
+          <Col m={4}>
+            <Favorites
+              heading={'My Movies'}
+              favoriteType={'Movie'}
+            /><br></br>
+            <Favorites
+              heading={'My TV Shows'}
+              favoriteType={'TV show'}
+            />
+          </Col>
+          <Col m={2}></Col>
+        </Row>
+
+        <Row>
+          <Col m={4}></Col>
+          <Col m={4}>
+            {movieTrailer ? (
+              <Trailer
+                movieTrailer={movieTrailer}
+              />
+            ) : (console.log('No video available.'))}
+
+          </Col>
+          <Col m={4}></Col>
+        </Row>
+
+        <Row>
+          <Col m={2}></Col>
+          <Col m={8}>
+            
+              <Trending />
+
+
+          </Col>
+          <Col m={2}></Col>
+        </Row>
+
+        <Footer
+          className="example"
+          copyrights="© 2020 The 4 Loops"
+          links={<ul><li><a className="grey-text text-lighten-3" href="#!">Link 1</a></li><li><a className="grey-text text-lighten-3" href="#!">Link 2</a></li><li><a className="grey-text text-lighten-3" href="#!">Link 3</a></li><li><a className="grey-text text-lighten-3" href="#!">Link 4</a></li></ul>}
+          moreLinks={<a className="grey-text text-lighten-4 right" href="#!">More Links</a>}
+        >
+          <h5 className="white-text">
+            Footer Content
+  </h5>
+          <p className="grey-text text-lighten-4">
+            You can use rows and columns here to organize your footer content.
+  </p>
+        </Footer>
+      </Container>
+    </ContainerWrapper>
   );
 }
 
