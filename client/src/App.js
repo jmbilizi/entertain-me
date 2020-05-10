@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import moment from 'moment';
 import 'materialize-css';
 import { Container, Row, Col } from 'react-materialize';
@@ -13,24 +13,29 @@ const App = () => {
 
   const [state, setState] = useState({
     movie: '',
+    tvShow: '',
     release: '',
     description: '',
     poster: '',
-    movieID: null,
+    movieID: '',
     backdrop: '',
     genre: '',
     score: '',
-    tvShow: '',
     movieTrailer: '',
+    runtime: '',
+    rating: '',
+    trendingMovies: '',
+    related: '',
     input: '',
-    tvShow: ''
+
+
   })
 
   //destructuring to use above values directly
-  const { movie, release, description, poster, movieID, backdrop, tvShow, movieTrailer, genre, score, input } = state;
+  const { movie, tvShow, release, description, poster, movieID, backdrop, genre, score, movieTrailer, runtime, rating, trendingMovies, related, input } = state;
 
-  const posterURL = 'https://image.tmdb.org/t/p/w500/';
-  const backdropURL = 'https://image.tmdb.org/t/p/w500/';
+  const posterURL = 'https://image.tmdb.org/t/p/w500';
+  const backdropURL = 'https://image.tmdb.org/t/p/w500';
   const trailerURL = 'https://www.youtube.com/embed/'
 
   const mediaSearch = title => {
@@ -40,7 +45,7 @@ const App = () => {
 
     API.mediaSearch(movie)
       .then(res => {
-        console.log(res);
+        console.log(`main call`, res);
         setState({
           movie: res.data.results[0].title,
           tvShow: res.data.results[0].name,
@@ -51,22 +56,40 @@ const App = () => {
           backdrop: `${backdropURL}` + res.data.results[0].backdrop_path,
           genre: res.data.results[0].genre_ids[0],
           score: res.data.results[0].vote_average,
-        })
+        });
+        return API.movieTrailerSearch(res.data.results[0].id);
       })
-      .catch(err => console.log(err))
-  }
-
-  const movieTrailerSearch = title => {
-    // if (!title) {
-    //   return alert("Enter a movie title.");
-    // }
-
-    API.movieTrailerSearch(movieID)
       .then(res => {
-        console.log(res);
-        setState({
-          movieTrailer: `${trailerURL}` + res.data.results[0].key,
-        })
+        console.log(`API call for movie trailer and runtime info: `, res);
+        // setState({
+        //   ...state,
+        //   movieTrailer: `${trailerURL}` + res.data.videos.results[0].key,
+        //   runtime: res.data.runtime
+        // })
+        return API.movieRatingSearch(res.data.id);
+      })
+      .then(res => {
+        console.log(`API call for movie rating info:`, res);
+        // setState({
+        //   ...state,
+        //   rating: res.data.results[0].release_dates[0].certification
+        // })
+        return API.relatedMoviesSearch(res.data.id);
+      })
+      .then(res => {
+        console.log(`API call for related movies`, res);
+        // setState({
+        //   ...state,
+        //   related: res.data.results
+        // })
+        return API.trendingMoviesSearch();
+      })
+      .then(res => {
+        console.log(`API call for trending movies info:`, res);
+        // setState({
+        //   ...state,
+        //   trendingMovies: res.data.results,
+        // })
       })
       .catch(err => console.log(err))
   }
@@ -79,7 +102,6 @@ const App = () => {
   const handleFormSubmit = e => {
     e.preventDefault();
     mediaSearch(movie);
-    // movieTrailerSearch(movieID);
   }
 
   return (
@@ -101,7 +123,10 @@ const App = () => {
             movieID={movieID}
             backdrop={backdrop}
             genre={genre}
+            runtime={runtime}
             score={score}
+            rating={rating}
+            related={related}
           />
           <Trailer
             movieTrailer={movieTrailer}

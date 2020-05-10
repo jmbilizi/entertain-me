@@ -2,15 +2,13 @@ import React from 'react';
 
 const Poster = (props) => {
 
-    const getTrailer =()=>{
-      
-        alert('TRAILER');
-
+    const addFavorite =()=>{      
+        alert('ADD TO FAVORITES');
         }
 
     return (
         <>
-            <img id='trailer' className='poster' src={props.poster} alt={props.title} />
+            <img className='poster' onClick={addFavorite} src={props.poster} alt={props.title} />
         </>
     )
 }
