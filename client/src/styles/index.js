@@ -1,12 +1,6 @@
 import styled from 'styled-components';
 import { Card, Button, Container } from 'react-materialize'
 
-const teal = "#008080"
-const lightGray = "rgba(0,0,0,.03)"
-const darkGray = "rgba(0,0,0,.125)"
-
-
-
 export const ResultsWrapper = styled(Card)`
 .results-card{
     min-height: 35em;
@@ -37,7 +31,7 @@ export const ResultsWrapper = styled(Card)`
    position: relative;
    bottom: 2.75em;
     width: 95%;
-    min-height: 7.5em;
+    min-height: 7.75em;
     max-height: 7.5em;
     overflow: hidden;
     text-overflow: ellipsis;

@@ -21,6 +21,7 @@ const App = () => {
     description: '',
     poster: '',
     movieID: '',
+    tvID: '',
     backdrop: '',
     genre: '',
     score: '',
@@ -33,7 +34,7 @@ const App = () => {
   })
 
   //destructuring to use above values directly
-  const { movie, tvShow, release, description, poster, movieID, backdrop, genre, score, movieTrailer, runtime, rating, trendingMovies, related, input } = state;
+  const { movie, tvShow, release, description, poster, movieID, tvID, backdrop, genre, score, movieTrailer, runtime, rating, trendingMovies, related } = state;
 
   const posterURL = 'https://image.tmdb.org/t/p/w500';
   const backdropURL = 'https://image.tmdb.org/t/p/w500';
@@ -48,12 +49,14 @@ const App = () => {
       .then(res => {
         console.log(`main call`, res);
         setState({
+          ...state,
           movie: res.data.results[0].title,
           tvShow: res.data.results[0].name,
           release: res.data.results[0].release_date,
           description: res.data.results[0].overview,
           poster: `${posterURL}` + res.data.results[0].poster_path,
           movieID: res.data.results[0].id,
+          tvID: res.data.results[0].id,
           backdrop: `${backdropURL}` + res.data.results[0].backdrop_path,
           genre: res.data.results[0].genre_ids[0],
           score: res.data.results[0].vote_average,
@@ -67,6 +70,7 @@ const App = () => {
         //   movieTrailer: `${trailerURL}` + res.data.videos.results[0].key,
         //   runtime: res.data.runtime
         // })
+        return API.movieRatingSearch(res.data.id);
       })
       .then(res => {
         console.log(`API call for movie rating info:`, res);
@@ -86,6 +90,7 @@ const App = () => {
       })
       .then(res => {
         console.log(`API call for trending movies info:`, res);
+        console.log(`state:`, state);
         // setState({
         //   ...state,
         //   trendingMovies: res.data.results,
@@ -127,7 +132,7 @@ const App = () => {
         <Row>
           <Col m={2}></Col>
           <Col m={4}>
-            {release ? (
+            {movieID ? (
               <ResultsCard
                 title={movie}
                 title2={tvShow}
@@ -166,7 +171,7 @@ const App = () => {
         <Row>
           <Col m={4}></Col>
           <Col m={4}>
-            {movieTrailer ? (
+            {movieID || tvID ? (
               <Trailer
                 movieTrailer={movieTrailer}
               />

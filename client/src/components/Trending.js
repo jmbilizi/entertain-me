@@ -1,7 +1,7 @@
 import React from 'react';
 import { Carousel } from 'react-materialize';
 
-const Trending = (props) => {
+const Trending = () => {
 
     return (
         <div className='center-align'>

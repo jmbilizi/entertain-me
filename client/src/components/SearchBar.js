@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button, Row, Col } from 'react-materialize';
-import { ButtonWrapper } from '../styles'
 
 const SearchBar = ({ title, handleInputChange, handleFormSubmit }) => {
     return (
