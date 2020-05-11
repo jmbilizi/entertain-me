@@ -2,7 +2,7 @@ import React from 'react';
 import { Navbar, Icon, NavItem, TextInput } from 'react-materialize';
 
 
-const NavBar = (props) => {
+const NavBar = () => {
 
     return (
         <>
@@ -23,16 +23,16 @@ const NavBar = (props) => {
                     preventScrolling: true
                 }}
             >
-                <NavItem href="">
+                <NavItem >
                     Home
           </NavItem>
-                <NavItem href="">
+                <NavItem>
                     Movies / TV Shows
           </NavItem>
-                <NavItem href="">
+                <NavItem >
                     Celebrities
           </NavItem>
-                <NavItem href="">
+                <NavItem>
                     My Profile
           </NavItem>
                 <NavItem>
