@@ -19,8 +19,7 @@ const ResultsCard = (props) => {
                     <Col>
                         <img className='backdrop-image' src={props.backdrop} alt={props.title} />
                         <div className='details'>
-                            <h3 className='results-card-title'>{props.title} <a onClick={addFavorite} ><span className="material-icons favorite">favorite</span></a></h3>
-                            <h3>{props.title2}</h3>
+                            <h3 className='results-card-title'>{props.title}{props.title2} <span onClick={addFavorite} ><span className="material-icons favorite">favorite</span></span></h3>
                             {/* <p>Release date: {props.release}</p><br></br> */}
                             <p className='description'>{props.description}</p>
                         </div>
@@ -35,15 +34,15 @@ const ResultsCard = (props) => {
                         />
                     </Col>
                     <Col m={8}>
-                    <div className='stats'>
-                        <p>Release: <strong>{props.release}</strong></p>
-                        <p>Genre: <strong>{props.genre}</strong></p>
-                        <p>Rating: <strong>{props.rating}</strong></p>
-                        <p>Runtime: <strong>{props.runtime}</strong></p>
-                        <p>Viewer score: <strong>{props.score}</strong></p>
-                        <p>Watch</p>
-                        <span className="material-icons watch">tv</span>
-                        {props.movieID}
+                        <div className='stats'>
+                            <p>Release: <strong>{props.release}</strong></p>
+                            <p>Genre: <strong>{props.genre}</strong></p>
+                            <p>Rating: <strong>{props.rating}</strong></p>
+                            <p>Runtime: <strong>{props.runtime}</strong></p>
+                            <p>Viewer score: <strong>{props.score}</strong></p>
+                            <p>Watch</p>
+                            <span className="material-icons watch">tv</span>
+                            {props.movieID}
                         </div>
                     </Col>
                 </Row>

@@ -15,7 +15,7 @@ const InputField = ({ input, label, type, placeholder, onChange, handleFormSubmi
             <input
                 type={type}
                 input={input}
-                placeholder={placeholder}
+                // placeholder={placeholder}
                 onChange={handleInputChange}
             />
              <button onClick={handleFormSubmit}>Search</button>

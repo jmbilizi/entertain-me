@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Collection, CollectionItem } from 'react-materialize';
+import {Collection, CollectionItem } from 'react-materialize';
 
 
 const Favorites = (props) => {
