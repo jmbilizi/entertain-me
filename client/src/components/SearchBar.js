@@ -1,20 +1,20 @@
 import React from 'react';
 import { Button, Row, Col } from 'react-materialize';
 
-const SearchBar = ({ title, handleInputChange, handleFormSubmit }) => {
+const SearchBar = ({ userInput, handleInputChange, handleFormSubmit }) => {
     return (
 
         <div className='center-align'>
             <Row>
                 <Col m={9}>
                     <form inline='true' onSubmit={handleFormSubmit}>
-                        <label hidden>Search for a movie.</label>
+                        <label hidden>Search for a movie or TV show.</label>
                         <input
                             type='text'
-                            name='movie'
-                            id='movie'
+                            name='userInput'
+                            id='userInput'
                             placeholder='Enter a movie or tv show title'
-                            value={title}
+                            value={userInput}
                             onChange={handleInputChange}
                         />
                     </form>
