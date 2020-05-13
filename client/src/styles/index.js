@@ -56,11 +56,14 @@ export const ResultsWrapper = styled(Card)`
 .watch:hover{
     color: green;
 }
-.favorite{
+.favorite, .notify{
     cursor: pointer;
     color: lightGray;
 }
 .favorite:hover{
+    color: red;
+}
+.notify:hover{
     color: green;
 }
 `

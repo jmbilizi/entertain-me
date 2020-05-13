@@ -27,13 +27,12 @@ const ResultsCard = (props) => {
                 {props.title2}{" "}
                 <span onClick={addFavorite}>
                   <span className="material-icons favorite">favorite</span>
+                  <span className="material-icons notify">notifications</span>
                 </span>
               </h3>
-              {/* <p>Release date: {props.release}</p><br></br> */}
-
               <p className="description">
                 {_.truncate(props.description, {
-                  length: 65,
+                  length: 175,
                   separator: "...",
                 })}
               </p>
@@ -52,7 +51,6 @@ const ResultsCard = (props) => {
                 Release:{" "}
                 <strong>
                   {props.release}
-                  {props.first_air}
                 </strong>
               </p>
               <p>
