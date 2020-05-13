@@ -1,11 +1,12 @@
 import React from 'react';
+import { Button, Row, Col } from 'react-materialize';
 
-const InputField = ({ input, label, type, placeholder, onChange, handleFormSubmit, handleInputChange }) => {
+const InputField = ({ userInput, label, type, name, id, placeholder, onChange, handleFormSubmit }) => {
 
 
     const handleChange = (event) => {
-        const { input } = event.target;
-        onChange(input);
+        const { userInput } = event.target;
+        // onChange(userInput);
     }
 
     return (
@@ -14,9 +15,11 @@ const InputField = ({ input, label, type, placeholder, onChange, handleFormSubmi
             {label && <label>{label}</label>}
             <input
                 type={type}
-                input={input}
-                // placeholder={placeholder}
-                onChange={handleInputChange}
+                name={name}
+                id={id}
+                placeholder={placeholder}
+                value={userInput}
+                onChange={handleChange}
             />
              <button onClick={handleFormSubmit}>Search</button>
         </>

@@ -35,12 +35,12 @@ const NavBar = () => {
                 <NavItem>
                     My Profile
           </NavItem>
-                <NavItem>
+                {/* <NavItem>
                     <TextInput
                         placeholder="Search"
                         inputClassName='nav-search'
                     />
-                </NavItem>
+                </NavItem> */}
             </Navbar>
         </>
 
