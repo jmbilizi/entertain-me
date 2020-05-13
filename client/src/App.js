@@ -26,10 +26,12 @@ const App = () => {
     genre: "",
     score: "",
     trailer: "",
+    tvTrailer: "",
     runtime: "",
     rating: "",
     trendingMovies: "",
-    related: "",
+    relatedMovies: "",
+    relatedTV: ""
   });
 
   //destructuring to use above values directly
@@ -46,24 +48,26 @@ const App = () => {
     genre,
     score,
     trailer,
+    tvTrailer,
     trailerPath,
     runtime,
     rating,
     trendingMovies,
+    relatedMovies,
+    relatedTV,
     related,
-    title
+    title,
   } = state;
 
   const posterURL = "https://image.tmdb.org/t/p/w500";
   const backdropURL = "https://image.tmdb.org/t/p/w500";
   const trailerURL = "https://www.youtube.com/embed/";
-  console.log(`initial state:`, state);
+  console.log(`state: `, state);
   async function mediaSearch(userInput) {
-    
     if (!userInput) {
       return alert("Enter a movie or tv show title.");
     }
-    // console.log({ mainData, movieId, trailerData, ratingData });
+
     const mainData = await API.mediaSearch(userInput);
     const movieInfo = mainData.data.results[0];
     const {
@@ -78,13 +82,32 @@ const App = () => {
       vote_average,
       genre_ids,
     } = movieInfo;
-    const trailerData = await API.trailerSearch(id);
-    const trailInfo = trailerData.data
-    const ratingData = await API.movieRatingSearch(id);
-     const { results } = ratingData.data;
-   const usRating = results.find( el => el.iso_3166_1 === 'US' )
-   const rating = usRating.release_dates.find( el => el.certification !== '' )
-   
+    // const trailerData = await API.trailerSearch(id);
+    // const trailerInfo = trailerData.data;
+    // const ratingData = await API.movieRatingSearch(id);
+    // const { results } = ratingData.data;
+    // const usRating = results.find((el) => el.iso_3166_1 === "US");
+    // const rating = usRating.release_dates.find((el) => el.certification !== "");
+    // const relatedData = await API.relatedMoviesSearch(id);
+    // const relatedInfo = relatedData.data;
+    const relatedTVData = await API.relatedTVSearch(id);
+    const relatedTVInfo = relatedTVData.data;
+    // const tvTrailerData = await API.tvTrailerSearch(id);
+    // const tvTrailerInfo = tvTrailerData.data;
+    const trendingMoviesData = await API.trendingMoviesSearch();
+    const trendingMoviesInfo = trendingMoviesData.data;
+    const trendingTVData = await API.trendingTVSearch();
+    const trendingTVInfo = trendingTVData.data;
+
+    // console.log({ mainData, id, trailerData, ratingData });
+    console.log("main call: ", mainData);
+    // console.log("trailer call: ", trailerData);
+    // console.log("rating call: ", ratingData);
+    // console.log("related movies call: ", relatedData);
+    console.log("related TV call: ", relatedTVData);
+    console.log("trending movies call: ", trendingMoviesData);
+    console.log("trending TV call: ", trendingTVData);
+ 
 
     setState({
       ...state,
@@ -98,43 +121,14 @@ const App = () => {
       backdrop: `${backdropURL}` + backdrop_path,
       genre: genre_ids[0],
       score: vote_average,
-      trailerPath: trailInfo.videos.results[0].key,
-      trailer: `${trailerURL}` + trailInfo.videos.results[0].key,
-      runtime: trailInfo.runtime,
-      rating:  rating.certification
+      // trailerPath: trailerInfo.videos.results[0].key,
+      // trailer: `${trailerURL}` + trailerInfo.videos.results[0].key,
+      // tvTrailer: `${trailerURL}` + tvTrailerInfo.videos.results[0].key,
+      // runtime: trailerInfo.runtime,
+      // rating: rating.certification,
+      // relatedMovies: relatedInfo.results,
+      relatedTV: relatedTVInfo.results,
     });
-
-    //   return API.trailerSearch( id);
-    // })
- 
-    //   return API.movieRatingSearch(res.data.id);
-    // })
-    // .then(res => {
-    //   console.log(`API call for movie rating info:`, res);
-    //   // setState({
-    //   //   ...state,
-    //   //   rating:  release_dates[0].certification
-    //   // })
-    //   return API.relatedMoviesSearch(res.data.id);
-    // })
-    // .then(res => {
-    //   console.log(`API call for related movies`, res);
-    //   // setState({
-    //   //   ...state,
-    //   //   related: res.data.results
-    //   // })
-    //   return API.trendingMoviesSearch();
-    // })
-    // .then(res => {
-    //   console.log(`API call for trending movies info:`, res);
-
-    //   // setState({
-    //   //   ...state,
-    //   //   trendingMovies: res.data.results,
-    //   // })
-    //   console.log(`final state:`, state);
-    // })
-    // .catch(err => console.log(err))
   }
 
   const handleInputChange = (e) => {
@@ -173,7 +167,7 @@ const App = () => {
                 title={movie}
                 title2={tvShow}
                 release={moment(release, "YYYY-MM-DD").format("MMM Do, YYYY")}
-                first_air={moment(first_air, "YYYY-MM-DD").format(
+                release2={moment(first_air, "YYYY-MM-DD").format(
                   "MMM Do, YYYY"
                 )}
                 description={description}
@@ -184,7 +178,8 @@ const App = () => {
                 score={score}
                 runtime={runtime}
                 rating={rating}
-                related={related}
+                relatedMovies={relatedMovies}
+                relatedTV={relatedTV}
               />
             ) : (
               console.log("No title entered.")
@@ -201,10 +196,15 @@ const App = () => {
         <Row>
           <Col m={4}></Col>
           <Col m={4}>
-            {trailerPath ? (
+            {trailer ? (
               <Trailer trailer={trailer} />
             ) : (
-              console.log("No video available.")
+              console.log("No movie trailer available.")
+            )}
+            {tvTrailer ? (
+              <Trailer trailer={tvTrailer} />
+            ) : (
+              console.log("No TV trailer available.")
             )}
           </Col>
           <Col m={4}></Col>
