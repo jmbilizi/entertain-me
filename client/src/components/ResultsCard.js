@@ -35,7 +35,7 @@ const ResultsCard = (props) => {
                     </Col>
                     <Col m={8}>
                         <div className='stats'>
-                            <p>Release: <strong>{props.release}</strong></p>
+                            <p>Release: <strong>{props.release}{props.first_air}</strong></p>
                             <p>Genre: <strong>{props.genre}</strong></p>
                             <p>Rating: <strong>{props.rating}</strong></p>
                             <p>Runtime: <strong>{props.runtime}</strong></p>
