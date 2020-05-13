@@ -57,7 +57,7 @@ const App = () => {
   const posterURL = "https://image.tmdb.org/t/p/w500";
   const backdropURL = "https://image.tmdb.org/t/p/w500";
   const trailerURL = "https://www.youtube.com/embed/";
-  console.log(`initial state:`, state, userInput);
+  console.log(`initial state:`, state);
   async function mediaSearch(userInput) {
     
     if (!userInput) {
@@ -84,7 +84,7 @@ const App = () => {
      const { results } = ratingData.data;
    const usRating = results.find( el => el.iso_3166_1 === 'US' )
    const rating = usRating.release_dates.find( el => el.certification !== '' )
-    console.log({ mainData, id, trailerData, ratingData, usRating, rating });;
+   
 
     setState({
       ...state,
