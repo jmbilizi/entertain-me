@@ -5,7 +5,7 @@ import {Collection, CollectionItem } from 'react-materialize';
 const Favorites = (props) => {
 
     const getDetails = () => {
-        console.log('favorite movie selected');
+        console.log(`favorite ${props.favoriteType} selected`);
     }
 
     return (

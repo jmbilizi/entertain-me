@@ -9,16 +9,16 @@ export default {
         return axios.get(`https://api.themoviedb.org/3/search/multi?api_key=${apiKey}&language=en-US&query=${title}&page=1&include_adult=false`)
     },
     // API call for movie poster, trailers and runtime -- need to credit
-    movieTrailerSearch: function (movieID) {
-        return axios.get(`https://api.themoviedb.org/3/movie/${movieID}?api_key=${apiKey}&language=en-US&append_to_response=videos`)
+    trailerSearch: function (id) {
+        return axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US&append_to_response=videos`)
     },
     // API call for movie rating -- need to credit
-    movieRatingSearch: function (movieID) {
-        return axios.get(`https://api.themoviedb.org/3/movie/${movieID}/release_dates?api_key=${apiKey}`)
+    movieRatingSearch: function (id) {
+        return axios.get(`https://api.themoviedb.org/3/movie/${id}/release_dates?api_key=${apiKey}`)
     },
     // API call for similar movies -- need to credit
-    relatedMoviesSearch: function (movieID) {
-        return axios.get(`https://api.themoviedb.org/3/movie/${movieID}/similar?api_key=${apiKey}&language=en-US&page=1`)
+    relatedMoviesSearch: function (id) {
+        return axios.get(`https://api.themoviedb.org/3/movie/${id}/similar?api_key=${apiKey}&language=en-US&page=1`)
     },
     // API call for TV poster, trailers, network and next episode -- need to credit
     tvTrailerSearch: function (tvID) {
