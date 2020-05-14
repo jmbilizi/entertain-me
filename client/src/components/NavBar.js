@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Icon, NavItem, TextInput } from "react-materialize";
+import { Navbar, Icon, NavItem } from "react-materialize";
 
 const NavBar = () => {
   return (
