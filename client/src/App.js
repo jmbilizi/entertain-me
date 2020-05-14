@@ -19,7 +19,7 @@ const App = () => {
     movie: "",
     tvShow: "",
     release: "",
-    description: "",
+    overview: "",
     poster: "",
     id: "",
     backdrop: "",
@@ -41,7 +41,7 @@ const App = () => {
     tvShow,
     release,
     first_air,
-    description,
+    overview,
     poster,
     id,
     backdrop,
@@ -115,7 +115,7 @@ const App = () => {
       tvShow: name,
       release: release_date,
       first_air: first_air_date,
-      description: overview,
+      overview: overview,
       poster: `${posterURL}` + poster_path,
       id: id,
       backdrop: `${backdropURL}` + backdrop_path,
@@ -170,7 +170,7 @@ const App = () => {
                 release2={moment(first_air, "YYYY-MM-DD").format(
                   "MMM Do, YYYY"
                 )}
-                description={description}
+                overview={overview}
                 poster={poster}
                 id={id}
                 backdrop={backdrop}

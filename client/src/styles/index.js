@@ -27,7 +27,7 @@ export const ResultsWrapper = styled(Card)`
     position: relative;
     right: 1.5em;
 }
-.description {
+.overview {
    position: relative;
    bottom: 2.75em;
     width: 95%;
