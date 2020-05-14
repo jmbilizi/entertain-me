@@ -24,14 +24,14 @@ const ResultsCard = (props) => {
             <div className="details">
               <h3 className="results-card-title">
                 {props.title}
-                {props.title2}{" "}
+                {props.title2}
                 <span onClick={addFavorite}>
                   <span className="material-icons favorite">favorite</span>
                   <span className="material-icons notify">notifications</span>
                 </span>
               </h3>
-              <p className="description">
-                {_.truncate(props.description, {
+              <p className="overview">
+                {_.truncate(props.overview, {
                   length: 175,
                   separator: "...",
                 })}
@@ -51,6 +51,7 @@ const ResultsCard = (props) => {
                 Release:{" "}
                 <strong>
                   {props.release}
+                  {props.release2}
                 </strong>
               </p>
               <p>
