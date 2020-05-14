@@ -5,7 +5,7 @@ import {Collection, CollectionItem } from 'react-materialize';
 const Favorites = (props) => {
 
     const getDetails = () => {
-        console.log(`favorite ${props.favoriteType} selected`);
+        console.log('FAVORITE SELECTED');
     }
 
     return (
@@ -13,19 +13,19 @@ const Favorites = (props) => {
             <h6>{props.heading}</h6>
             <Collection>
                 <CollectionItem onClick={getDetails}>
-                {props.favoriteType} 1
+                FAVORITE 1
             </CollectionItem>
                 <CollectionItem onClick={getDetails}>
-                {props.favoriteType} 2
+                FAVORITE 2
             </CollectionItem>
                 <CollectionItem onClick={getDetails}>
-                {props.favoriteType} 3
+                FAVORITE 3
             </CollectionItem>
                 <CollectionItem onClick={getDetails}>
-                {props.favoriteType} 4
+                FAVORITE 4
             </CollectionItem>
             <CollectionItem onClick={getDetails}>
-                {props.favoriteType} 5
+                FAVORITE 5
             </CollectionItem>
             </Collection>
         </>
