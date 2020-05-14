@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Trailer = (props) => {
-    console.log(`movie trailer: `, props.trailer);
+    console.log(`Trailer: `, props.trailer);
 
     return (
         <>
