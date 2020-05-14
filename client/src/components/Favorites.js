@@ -16,8 +16,7 @@ const Favorites = (props) => {
         <CollectionItem onClick={getDetails}>FAVORITE 2<span className="material-icons remove">remove_circle</span></CollectionItem>
         <CollectionItem onClick={getDetails}>FAVORITE 3<span className="material-icons remove">remove_circle</span></CollectionItem>
         <CollectionItem onClick={getDetails}>FAVORITE 4<span className="material-icons remove">remove_circle</span></CollectionItem>
-        <CollectionItem onClick={getDetails}>FAVORITE 5<span className="material-icons remove">remove_circle</span></CollectionItem>
-      </Collection>
+        </Collection>
     </>
   );
 };

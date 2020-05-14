@@ -34,7 +34,7 @@ const MoviePage = () => {
     trailer: '',
     tvTrailer: '',
     runtime: '',
-    // rating: '',
+    rating: '',
     tvUSRating: '',
     tvRating: '',
     network: '',
