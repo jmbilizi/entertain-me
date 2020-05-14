@@ -1,8 +1,8 @@
-import styled from 'styled-components';
-import { Card, Navbar, Container } from 'react-materialize';
+import styled from "styled-components";
+import { Card, Container } from "react-materialize";
 
 export const ResultsWrapper = styled(Card)`
-  .results-card, {
+  .results-card {
     min-height: 31em;
     max-height: 31em;
   }
@@ -17,14 +17,20 @@ export const ResultsWrapper = styled(Card)`
     height: 165px;
     margin-left: 0.6em;
   }
+  .tmdb {
+    width: 50px;
+    height: 40px;
+    float: right;
+    position: relative;
+    top: 2em;
+    left: 2em;
+  }
   .network-logo {
-    width: 25px;
-    height: 15px;
-    margin-left: 0.55em;
+    width: 45px;
+    height: 25px;
+    float: right;
   }
   .poster {
-    position: relative;
-    bottom: 2.5em;
     width: 90px;
     display: block;
     position: relative;
@@ -45,7 +51,8 @@ export const ResultsWrapper = styled(Card)`
     bottom: 0.5em;
     margin-left: 0.5em;
   }
-  .stats {
+  .stats,
+  .stats2 {
     position: relative;
     bottom: 7em;
     right: 2em;
@@ -86,21 +93,28 @@ export const ContainerWrapper = styled(Container)`
     max-height: 31em;
   }
   .discover-related {
+    background-color: red;
     min-height: 21em;
     max-height: 21em;
   }
-  .trailer {
+  .trending-movies-tv {
+    width: 400px;
+    height: 400px;
+    object-fit: contain;
+  }
+  .remove {
+    cursor: pointer;
+    color: lightGray;
+    float: right;
+  }
+  .remove:hover {
+    color: red;
+  }
+  .related-images {
+    width: 40px;
+    height: 55px;
     position: relative;
-    right: 7em;
-  }
-  .trailer{
-    // position: relative;
-    // left: 1em;
-  }
-  .trending-movies-tv{
-    // width: 400px;
-    // height: 400px;
+    right: 1em;
+    margin: 0 0;
   }
 `;
-
-

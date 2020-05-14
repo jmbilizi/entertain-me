@@ -25,16 +25,17 @@ const ResultsCard = (props) => {
         <Row>
           <Col m={1}></Col>
           <Col>
-            <img
-              className="backdrop-image"
-              src={props.backdrop}
-              alt={props.title}
-            /><br></br>
-            <img
+          <img
               className="network-logo"
               src={props.networkLogo}
               alt={"tv network"}
             />
+            <img
+              className="backdrop-image"
+              src={props.backdrop}
+              alt={props.title}
+            />
+            <br></br>
             <div className="details">
               <h4 className="results-card-title">
                 {props.title}
@@ -69,7 +70,7 @@ const ResultsCard = (props) => {
           <Col m={3}>
             <Poster poster={props.poster} />
           </Col>
-          <Col m={8}>
+          <Col m={4}>
             <div className="stats">
               <p>
                 Release: <strong>{props.release}</strong>
@@ -93,6 +94,19 @@ const ResultsCard = (props) => {
               <p>movie id: {props.id}</p>
             </div>
           </Col>
+          <Col m={4}>
+            <div className="stats2">
+              Last Episode:<br></br>
+              <strong>{props.lastEpisode}</strong>
+              <br></br>
+              Air Date:<br></br>
+              <strong>{props.lastAir}</strong>
+              <img
+              className="tmdb"
+              src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg"
+            />
+            </div>
+           </Col>
         </Row>
       </div>
     </ResultsWrapper>
