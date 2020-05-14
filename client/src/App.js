@@ -1,13 +1,19 @@
 import React, { useState } from "react";
 import moment from "moment";
 import "materialize-css";
-import { Container, Row, Col, Footer } from "react-materialize";
+import {
+  Container,
+  Row,
+  Col,
+  Footer,
+  Card,
+  ProgressBar,
+} from "react-materialize";
 
 import { ContainerWrapper } from "./styles";
 import NavBar from "./components/NavBar";
 import ResultsCard from "./components/ResultsCard";
 import SearchBar from "./components/SearchBar";
-import InputField from "./components/InputField";
 import Trailer from "./components/Trailer";
 import Favorites from "./components/Favorites";
 import Trending from "./components/Trending";
@@ -154,7 +160,7 @@ const App = () => {
     console.log("tvTrailerInfo: ", tvTrailerInfo.networks[0].name);
     console.log("relatedTVData.data ", relatedTVData.data.results[0].name);
     console.log("relatedTVInfo", relatedTVInfo.results[0].name);
-    console.log('trendingTVPoster1: ', trendingTVPoster1);
+    console.log("trendingTVPoster1: ", trendingTVPoster1);
 
     setState({
       ...state,
@@ -251,7 +257,11 @@ const App = () => {
                 networkLogo={networkLogo}
               />
             ) : (
-              console.log("No title entered.")
+              <Card className="blue-grey darken-1 discover" title="DISCOVER">
+                This area will display info about a random movie or TV show that
+                is related to one of the user's favorites.
+              </Card>
+              // console.log('No title entered.')
             )}
           </Col>
           <Col m={3}>
@@ -263,21 +273,39 @@ const App = () => {
             {tvTrailer ? (
               <Trailer trailer={tvTrailer} />
             ) : (
-              console.log("No TV trailer available.")
+              <Card
+                className="blue-grey darken-1 discover-trailers"
+                title="TRAILERS"
+              >
+                This area will display trailers for the discovery feature.
+              </Card>
+              // console.log('No TV trailer available.')
             )}
-            <RelatedCard
-              heading={"RELATED"}
-              relatedTV1={relatedTV1}
-              relatedTV2={relatedTV2}
-              relatedTV3={relatedTV3}
-              relatedTV4={relatedTV4}
-              relatedTV5={relatedTV5}
-            />
+            {id ? (
+              <RelatedCard
+                className="related"
+                heading={"RELATED"}
+                relatedTV1={relatedTV1}
+                relatedTV2={relatedTV2}
+                relatedTV3={relatedTV3}
+                relatedTV4={relatedTV4}
+                relatedTV5={relatedTV5}
+              />
+            ) : (
+              <Card
+                className="blue-grey darken-1 discover-related"
+                title="RELATED"
+              >
+                This area will display a list of movies or TV shows related to
+                the discovery feature.
+              </Card>
+              // console.log('No Title entered.')
+            )}
           </Col>
           <Col m={3}>
-            <Favorites heading={"MY MOVIES"} favoriteType={"Movie"} />
+            <Favorites heading={"MY MOVIES"} />
             <br></br>
-            <Favorites heading={"MY SHOWS"} favoriteType={"TV show"} />
+            <Favorites heading={"MY SHOWS"} />
           </Col>
         </Row>
 

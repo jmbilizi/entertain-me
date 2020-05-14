@@ -1,11 +1,10 @@
-import styled from "styled-components";
-import { Card, Navbar, Container } from "react-materialize";
+import styled from 'styled-components';
+import { Card, Navbar, Container } from 'react-materialize';
 
 export const ResultsWrapper = styled(Card)`
-  .results-card {
+  .results-card, {
     min-height: 31em;
     max-height: 31em;
-    position: relative;
   }
   .results-card-title {
     position: relative;
@@ -82,6 +81,14 @@ export const ContainerWrapper = styled(Container)`
   margin: 0;
   width: 100vw;
   max-width: 2000px;
+  .discover {
+    min-height: 31em;
+    max-height: 31em;
+  }
+  .discover-related {
+    min-height: 21em;
+    max-height: 21em;
+  }
   .trailer {
     position: relative;
     right: 7em;
