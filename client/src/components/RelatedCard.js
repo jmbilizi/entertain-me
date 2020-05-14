@@ -2,35 +2,35 @@ import React from 'react';
 import {Collection, CollectionItem } from 'react-materialize';
 
 
-const Favorites = (props) => {
+const RelatedCard = (props) => {
 
-    const getDetails = () => {
-        console.log(`favorite ${props.favoriteType} selected`);
+    const getDetails = ()=>{
+        alert('RETRIVE DETAILS');
     }
-
+  
     return (
-        <>
-            <h6>{props.heading}</h6>
+        <div className='center-align'>
+              <h6>RELATED</h6>
             <Collection>
                 <CollectionItem onClick={getDetails}>
-                {props.favoriteType} 1
+                {props.relatedTV1} 
             </CollectionItem>
                 <CollectionItem onClick={getDetails}>
-                {props.favoriteType} 2
+                {props.relatedTV2} 
             </CollectionItem>
                 <CollectionItem onClick={getDetails}>
-                {props.favoriteType} 3
+                {props.relatedTV3} 
             </CollectionItem>
                 <CollectionItem onClick={getDetails}>
-                {props.favoriteType} 4
+                {props.relatedTV4} 
             </CollectionItem>
             <CollectionItem onClick={getDetails}>
-                {props.favoriteType} 5
+                {props.relatedTV5} 
             </CollectionItem>
             </Collection>
-        </>
+        </div>
 
     )
 }
 
-export default Favorites;
+export default RelatedCard;

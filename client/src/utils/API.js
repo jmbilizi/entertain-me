@@ -33,6 +33,13 @@ export default {
     );
   },
 
+    // API call for tv ratings -- need to credit
+    tvRatingSearch: function (id) {
+      return axios.get(
+        `https://api.themoviedb.org/3/tv/${id}/content_ratings?api_key=${apiKey}&language=en-US`
+      );
+    },
+
   // API call for similar movies -- need to credit
   relatedTVSearch: function (id) {
     return axios.get(
