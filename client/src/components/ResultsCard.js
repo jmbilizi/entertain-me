@@ -57,7 +57,7 @@ const ResultsCard = (props) => {
               </div>
               <p className="overview">
                 {_.truncate(props.overview, {
-                  length: 190,
+                  length: 185,
                   separator: "...",
                 })}
               </p>
