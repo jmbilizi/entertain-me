@@ -1,89 +1,99 @@
-import styled from 'styled-components';
-import { Card, Button, Container } from 'react-materialize'
+import styled from "styled-components";
+import { Card, Navbar, Container } from "react-materialize";
 
 export const ResultsWrapper = styled(Card)`
-.results-card{
-    min-height: 35em;
-    max-height: 35em;
-}
-.results-card-title{
+  .results-card {
+    min-height: 31em;
+    max-height: 31em;
     position: relative;
-    bottom: .5em;
-    // min-height: 2.25em;
-    max-height: 2.25em;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.backdrop-image{
-    width: 270px;
-    height: 150px;
-    margin-left:.6em;
-}
-.poster{
+  }
+  .results-card-title {
+    position: relative;
+    bottom: 0.5em;
+    margin: 0.75em 0 0.8em 0;
+    font-size: 2em;
+  }
+  .backdrop-image {
+    width: 300px;
+    height: 165px;
+    margin-left: 0.6em;
+  }
+  .network-logo {
+    width: 25px;
+    height: 15px;
+    margin-left: 0.55em;
+  }
+  .poster {
     position: relative;
     bottom: 2.5em;
     width: 90px;
     display: block;
     position: relative;
-    right: 1.5em;
-}
-.overview {
-   position: relative;
-   bottom: 2.75em;
+    right: 1.25em;
+    bottom: 6.75em;
+  }
+  .overview {
+    position: relative;
+    bottom: 2.75em;
     width: 95%;
-    min-height: 7.75em;
+    min-height: 7.5em;
     max-height: 7.5em;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-.details{
+  }
+  .details {
     position: relative;
-    bottom: .5em;
-    margin-left: .5em;
-}
-.stats{
+    bottom: 0.5em;
+    margin-left: 0.5em;
+  }
+  .stats {
     position: relative;
-    bottom: 4em;
-    left: 1.5em;
-}
-.watch{
+    bottom: 7em;
+    right: 2em;
+  }
+  .result-btns {
+    position: relative;
+    bottom: 2.25em;
+    left: 0.5em;
+    margin-bottom: 0.75em;
+  }
+  .favorite,
+  .notify,
+  .watch {
+    margin-right: 0.4em;
+    font-size: 1.15em;
+  }
+  .favorite,
+  .notify,
+  .watch {
     cursor: pointer;
     color: lightGray;
-    position: relative;
-    left: 2em;
-    bottom: .95em;    
-}
-.watch:hover{
-    color: green;
-}
-.favorite, .notify{
-    cursor: pointer;
-    color: lightGray;
-}
-.favorite:hover{
+  }
+  .favorite:hover {
     color: red;
-}
-.notify:hover{
+  }
+  .notify:hover,
+  .watch:hover {
     color: green;
-}
-`
-
-export const ButtonWrapper = styled(Button)`
-text-align: center;
-// border: none;
-// background-color: transparent;
-
-// :hover {   
-//    background-color: green;  
-// }
-`
+  }
+`;
 
 export const ContainerWrapper = styled(Container)`
-margin: 0;
-width: 100vw;
-max-width: 2000px;
-.trailer{
+  margin: 0;
+  width: 100vw;
+  max-width: 2000px;
+  .trailer {
     position: relative;
     right: 7em;
-}
-`
+  }
+  .trailer{
+    // position: relative;
+    // left: 1em;
+  }
+  .trending-movies-tv{
+    // width: 400px;
+    // height: 400px;
+  }
+`;
+
+

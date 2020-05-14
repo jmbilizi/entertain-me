@@ -11,6 +11,7 @@ import InputField from "./components/InputField";
 import Trailer from "./components/Trailer";
 import Favorites from "./components/Favorites";
 import Trending from "./components/Trending";
+import RelatedCard from "./components/RelatedCard";
 import API from "./utils/API";
 
 const App = () => {
@@ -28,10 +29,29 @@ const App = () => {
     trailer: "",
     tvTrailer: "",
     runtime: "",
-    rating: "",
+    // rating: '',
+    tvUSRating: "",
+    tvRating: "",
+    network: "",
+    networkLogo: "",
     trendingMovies: "",
     relatedMovies: "",
-    relatedTV: ""
+    relatedTVInfo: "",
+    relatedTV1: "",
+    relatedTV2: "",
+    relatedTV3: "",
+    relatedTV4: "",
+    relatedTV5: "",
+    trendingTV1: "",
+    trendingTV2: "",
+    trendingTV3: "",
+    trendingTV4: "",
+    trendingTV5: "",
+    trendingTVPoster1: "",
+    trendingTVPoster2: "",
+    trendingTVPoster3: "",
+    trendingTVPoster4: "",
+    trendingTVPoster5: "",
   });
 
   //destructuring to use above values directly
@@ -52,15 +72,33 @@ const App = () => {
     trailerPath,
     runtime,
     rating,
+    tvUSRating,
+    tvRating,
+    network,
+    networkLogo,
     trendingMovies,
     relatedMovies,
-    relatedTV,
+    relatedTVInfo,
     related,
+    relatedTV1,
+    relatedTV2,
+    relatedTV3,
+    relatedTV4,
+    relatedTV5,
+    trendingTV1,
+    trendingTV2,
+    trendingTV3,
+    trendingTV4,
+    trendingTV5,
+    trendingTVPoster1,
+    trendingTVPoster2,
+    trendingTVPoster3,
+    trendingTVPoster4,
+    trendingTVPoster5,
     title,
   } = state;
 
-  const posterURL = "https://image.tmdb.org/t/p/w500";
-  const backdropURL = "https://image.tmdb.org/t/p/w500";
+  const imageURL = "https://image.tmdb.org/t/p/w500";
   const trailerURL = "https://www.youtube.com/embed/";
   console.log(`state: `, state);
   async function mediaSearch(userInput) {
@@ -86,14 +124,18 @@ const App = () => {
     // const trailerInfo = trailerData.data;
     // const ratingData = await API.movieRatingSearch(id);
     // const { results } = ratingData.data;
-    // const usRating = results.find((el) => el.iso_3166_1 === "US");
-    // const rating = usRating.release_dates.find((el) => el.certification !== "");
+    // const usRating = results.find((el) => el.iso_3166_1 === 'US');
+    // const rating = usRating.release_dates.find((el) => el.certification !== '');
     // const relatedData = await API.relatedMoviesSearch(id);
     // const relatedInfo = relatedData.data;
+    const tvRatingData = await API.tvRatingSearch(id);
+    const { results } = tvRatingData.data;
+    const tvUSRating = results.find((el) => el.iso_3166_1 === "US");
+
     const relatedTVData = await API.relatedTVSearch(id);
     const relatedTVInfo = relatedTVData.data;
-    // const tvTrailerData = await API.tvTrailerSearch(id);
-    // const tvTrailerInfo = tvTrailerData.data;
+    const tvTrailerData = await API.tvTrailerSearch(id);
+    const tvTrailerInfo = tvTrailerData.data;
     const trendingMoviesData = await API.trendingMoviesSearch();
     const trendingMoviesInfo = trendingMoviesData.data;
     const trendingTVData = await API.trendingTVSearch();
@@ -101,13 +143,18 @@ const App = () => {
 
     // console.log({ mainData, id, trailerData, ratingData });
     console.log("main call: ", mainData);
-    // console.log("trailer call: ", trailerData);
-    // console.log("rating call: ", ratingData);
-    // console.log("related movies call: ", relatedData);
+    // console.log('trailer call: ', trailerData);
+    console.log("TV trailer call: ", tvTrailerData);
+    // console.log('rating call: ', ratingData);
+    // console.log('related movies call: ', relatedData);
     console.log("related TV call: ", relatedTVData);
     console.log("trending movies call: ", trendingMoviesData);
     console.log("trending TV call: ", trendingTVData);
- 
+    console.log("TV rating call: ", tvRatingData);
+    console.log("tvTrailerInfo: ", tvTrailerInfo.networks[0].name);
+    console.log("relatedTVData.data ", relatedTVData.data.results[0].name);
+    console.log("relatedTVInfo", relatedTVInfo.results[0].name);
+    console.log('trendingTVPoster1: ', trendingTVPoster1);
 
     setState({
       ...state,
@@ -116,18 +163,39 @@ const App = () => {
       release: release_date,
       first_air: first_air_date,
       overview: overview,
-      poster: `${posterURL}` + poster_path,
+      poster: `${imageURL}` + poster_path,
       id: id,
-      backdrop: `${backdropURL}` + backdrop_path,
+      backdrop: `${imageURL}` + backdrop_path,
       genre: genre_ids[0],
       score: vote_average,
       // trailerPath: trailerInfo.videos.results[0].key,
       // trailer: `${trailerURL}` + trailerInfo.videos.results[0].key,
-      // tvTrailer: `${trailerURL}` + tvTrailerInfo.videos.results[0].key,
+      tvTrailer: `${trailerURL}` + tvTrailerInfo.videos.results[0].key,
       // runtime: trailerInfo.runtime,
       // rating: rating.certification,
+      tvRating: tvUSRating.rating,
+      networkLogo: `${imageURL}` + tvTrailerInfo.networks[0].logo_path,
+      network: tvTrailerInfo.networks[0].name,
+
       // relatedMovies: relatedInfo.results,
-      relatedTV: relatedTVInfo.results,
+      relatedTVInfo: relatedTVInfo,
+      relatedTV1: relatedTVInfo.results[0].name,
+      relatedTV2: relatedTVInfo.results[1].name,
+      relatedTV3: relatedTVInfo.results[2].name,
+      relatedTV4: relatedTVInfo.results[3].name,
+      relatedTV5: relatedTVInfo.results[4].name,
+
+      trendingTV1: trendingTVInfo.results[0].name,
+      trendingTV2: trendingTVInfo.results[1].name,
+      trendingTV3: trendingTVInfo.results[2].name,
+      trendingTV4: trendingTVInfo.results[3].name,
+      trendingTV5: trendingTVInfo.results[4].name,
+
+      trendingTVPoster1: `${imageURL}` + trendingTVInfo.results[0].poster_path,
+      trendingTVPoster2: `${imageURL}` + trendingTVInfo.results[1].poster_path,
+      trendingTVPoster3: `${imageURL}` + trendingTVInfo.results[2].poster_path,
+      trendingTVPoster4: `${imageURL}` + trendingTVInfo.results[3].poster_path,
+      trendingTVPoster5: `${imageURL}` + trendingTVInfo.results[4].poster_path,
     });
   }
 
@@ -160,8 +228,7 @@ const App = () => {
         </Row>
 
         <Row>
-          <Col m={2}></Col>
-          <Col m={4}>
+          <Col m={6}>
             {id ? (
               <ResultsCard
                 title={movie}
@@ -178,24 +245,16 @@ const App = () => {
                 score={score}
                 runtime={runtime}
                 rating={rating}
+                tvRating={tvRating}
                 relatedMovies={relatedMovies}
-                relatedTV={relatedTV}
+                network={network}
+                networkLogo={networkLogo}
               />
             ) : (
               console.log("No title entered.")
             )}
           </Col>
-          <Col m={4}>
-            <Favorites heading={"My Movies"} favoriteType={"Movie"} />
-            <br></br>
-            <Favorites heading={"My TV Shows"} favoriteType={"TV show"} />
-          </Col>
-          <Col m={2}></Col>
-        </Row>
-
-        <Row>
-          <Col m={4}></Col>
-          <Col m={4}>
+          <Col m={3}>
             {trailer ? (
               <Trailer trailer={trailer} />
             ) : (
@@ -206,20 +265,43 @@ const App = () => {
             ) : (
               console.log("No TV trailer available.")
             )}
+            <RelatedCard
+              heading={"RELATED"}
+              relatedTV1={relatedTV1}
+              relatedTV2={relatedTV2}
+              relatedTV3={relatedTV3}
+              relatedTV4={relatedTV4}
+              relatedTV5={relatedTV5}
+            />
           </Col>
-          <Col m={4}></Col>
+          <Col m={3}>
+            <Favorites heading={"MY MOVIES"} favoriteType={"Movie"} />
+            <br></br>
+            <Favorites heading={"MY SHOWS"} favoriteType={"TV show"} />
+          </Col>
         </Row>
 
         <Row>
-          <Col m={2}></Col>
-          <Col m={8}>
-            <Trending />
+          <Col m={6}>
+            <Trending
+              trendingTV1={trendingTV1}
+              trendingTV2={trendingTV2}
+              trendingTV3={trendingTV3}
+              trendingTV4={trendingTV4}
+              trendingTV5={trendingTV5}
+              trendingTVPoster1={trendingTVPoster1}
+              trendingTVPoster2={trendingTVPoster2}
+              trendingTVPoster3={trendingTVPoster3}
+              trendingTVPoster4={trendingTVPoster4}
+              trendingTVPoster5={trendingTVPoster5}
+            />
           </Col>
-          <Col m={2}></Col>
+          <Col m={3}></Col>
+          <Col m={3}></Col>
         </Row>
 
         <Footer
-          className="example"
+          className="red"
           copyrights="© 2020 The 4 Loops"
           links={
             <ul>

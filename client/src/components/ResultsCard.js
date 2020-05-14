@@ -7,7 +7,16 @@ import Poster from "./Poster";
 
 const ResultsCard = (props) => {
   const addFavorite = () => {
-    alert("ADD TO FAVORITES");
+    alert("ADDED TO FAVORITES");
+  };
+  const setNotification = () => {
+    alert("NOTIFICATION SET");
+  };
+  const watchContent = () => {
+    alert("GO TO CONTENT PROVIDER");
+  };
+  const shareContent = () => {
+    alert("CONTENT SHARED");
   };
 
   return (
@@ -20,19 +29,34 @@ const ResultsCard = (props) => {
               className="backdrop-image"
               src={props.backdrop}
               alt={props.title}
+            /><br></br>
+            <img
+              className="network-logo"
+              src={props.networkLogo}
+              alt={"tv network"}
             />
             <div className="details">
-              <h3 className="results-card-title">
+              <h4 className="results-card-title">
                 {props.title}
                 {props.title2}
+              </h4>
+              <div className="result-btns">
                 <span onClick={addFavorite}>
                   <span className="material-icons favorite">favorite</span>
+                </span>
+                <span onClick={setNotification}>
                   <span className="material-icons notify">notifications</span>
                 </span>
-              </h3>
+                <span onClick={watchContent}>
+                  <span className="material-icons watch">tv</span>
+                </span>
+                <span onClick={shareContent}>
+                  <span className="material-icons watch">share</span>
+                </span>
+              </div>
               <p className="overview">
                 {_.truncate(props.overview, {
-                  length: 175,
+                  length: 190,
                   separator: "...",
                 })}
               </p>
@@ -48,17 +72,17 @@ const ResultsCard = (props) => {
           <Col m={8}>
             <div className="stats">
               <p>
-                Release:{" "}
-                <strong>
-                  {props.release}
-                  {props.release2}
-                </strong>
+                Release: <strong>{props.release}</strong>
               </p>
               <p>
                 Genre: <strong>{props.genre}</strong>
               </p>
               <p>
-                Rating: <strong>{props.rating}</strong>
+                Rating:{" "}
+                <strong>
+                  {props.rating}
+                  {props.tvRating}
+                </strong>
               </p>
               <p>
                 Runtime: <strong>{props.runtime}</strong>
@@ -66,9 +90,7 @@ const ResultsCard = (props) => {
               <p>
                 Viewer score: <strong>{props.score}</strong>
               </p>
-              <p>Watch</p>
-              <span className="material-icons watch">tv</span>
-              {props.movieID}
+              <p>movie id: {props.id}</p>
             </div>
           </Col>
         </Row>
