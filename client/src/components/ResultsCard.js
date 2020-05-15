@@ -28,7 +28,7 @@ const ResultsCard = (props) => {
           <img
               className="network-logo"
               src={props.logo}
-              alt={"tv network"}
+              alt={props.provider}
             />
             <img
               className="backdrop-image"
@@ -39,7 +39,6 @@ const ResultsCard = (props) => {
             <div className="details">
               <h4 className="results-card-title">
                 {props.title}
-                {props.title2}
               </h4>
               <div className="result-btns">
                 <span onClick={addFavorite}>
