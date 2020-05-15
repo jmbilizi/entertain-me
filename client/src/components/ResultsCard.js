@@ -27,7 +27,7 @@ const ResultsCard = (props) => {
           <Col>
           <img
               className="network-logo"
-              src={props.networkLogo}
+              src={props.logo}
               alt={"tv network"}
             />
             <img
@@ -82,11 +82,11 @@ const ResultsCard = (props) => {
                 Rating:{" "}
                 <strong>
                   {props.rating}
-                  {props.tvRating}
+                  {/* {props.tvRating} */}
                 </strong>
               </p>
               <p>
-                Runtime: <strong>{props.runtime}</strong>
+                Runtime: <strong>{props.runtime} min</strong>
               </p>
               <p>
                 Viewer score: <strong>{props.score}</strong>
@@ -99,7 +99,7 @@ const ResultsCard = (props) => {
               Last Episode:<br></br>
               <strong>{props.lastEpisode}</strong>
               <br></br>
-              Air Date:<br></br>
+              Aired:<br></br>
               <strong>{props.lastAir}</strong>
               <img
               className="tmdb"
