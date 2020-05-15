@@ -41,7 +41,7 @@ export default {
     },
 
   // API call for similar movies -- need to credit
-  relatedTVSearch: function (id, mediaType) {
+  relatedSearch: function (id, mediaType) {
     return axios.get(
       `https://api.themoviedb.org/3/${mediaType}/${id}/similar?api_key=${apiKey}&language=en-US&page=1`
     );
