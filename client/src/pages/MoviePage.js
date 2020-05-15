@@ -9,14 +9,15 @@ import {
   Card
 } from 'react-materialize';
 
+
 import { ContainerWrapper } from '../styles';
-import NavBar from './NavBar';
-import ResultsCard from './ResultsCard';
-import SearchBar from './SearchBar';
-import Trailer from './Trailer';
-import Favorites from './Favorites';
-import Trending from './Trending';
-import RelatedCard from './RelatedCard';
+// import NavBar from '../components/NavBar';
+import ResultsCard from '../components/ResultsCard';
+import SearchBar from '../components/SearchBar';
+import Trailer from '../components/Trailer';
+import Favorites from '../components/Favorites';
+import Trending from '../components/Trending';
+import RelatedCard from '../components/RelatedCard';
 import API from '../utils/API';
 
 const MoviePage = () => {
@@ -256,9 +257,9 @@ const MoviePage = () => {
   return (
     <ContainerWrapper>
       <Container>
-        <Row>
+        {/* <Row>
           <NavBar />
-        </Row>
+        </Row> */}
 
         <Row>
           <Col m={4}></Col>
@@ -383,44 +384,6 @@ const MoviePage = () => {
           <Col m={3}></Col>
         </Row>
 
-        <Footer
-          className='red'
-          copyrights='© 2020 The 4 Loops'
-          links={
-            <ul>
-              <li>
-                <a className='grey-text text-lighten-3' href='#!'>
-                  Link 1
-                </a>
-              </li>
-              <li>
-                <a className='grey-text text-lighten-3' href='#!'>
-                  Link 2
-                </a>
-              </li>
-              <li>
-                <a className='grey-text text-lighten-3' href='#!'>
-                  Link 3
-                </a>
-              </li>
-              <li>
-                <a className='grey-text text-lighten-3' href='#!'>
-                  Link 4
-                </a>
-              </li>
-            </ul>
-          }
-          moreLinks={
-            <a className='grey-text text-lighten-4 right' href='#!'>
-              More Links
-            </a>
-          }
-        >
-          <h5 className='white-text'>Footer Content</h5>
-          <p className='grey-text text-lighten-4'>
-            You can use rows and columns here to organize your footer content.
-          </p>
-        </Footer>
       </Container>
     </ContainerWrapper>
   );

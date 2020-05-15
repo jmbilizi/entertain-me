@@ -1,5 +1,6 @@
 import React from "react";
 import { Navbar, Icon, NavItem } from "react-materialize";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -26,10 +27,18 @@ const NavBar = () => {
           preventScrolling: true,
         }}
       >
-        <NavItem>Home</NavItem>
-        <NavItem>Movies / TV Shows</NavItem>
-        <NavItem>Celebrities</NavItem>
-        <NavItem>My Profile</NavItem>
+        <NavItem>
+          <Link className="nav-link active" to="/">Home</Link>
+        </NavItem>
+        <NavItem>
+          <Link className="nav-link" to="/movies">Movies / TV Shows</Link>
+        </NavItem>
+        <NavItem>
+          <Link className="nav-link" to="/celebrities">Celebrities</Link>
+        </NavItem>
+        <NavItem>
+        <Link className="nav-link" to="/profile">My Profile</Link>
+        </NavItem>
         {/* <NavItem>
                     <TextInput
                         placeholder="Search"
