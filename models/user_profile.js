@@ -14,8 +14,8 @@ const userProfileSchema = new Schema({
   date: { type: Date, default: Date.now }
 });
 
-const userProfile = mongoose.model("UserProfile", userProfileSchema);
+const User = mongoose.model("User", userProfileSchema);
 
-module.exports = userProfile;
+module.exports = User;
 
 // how to incorporate login information?

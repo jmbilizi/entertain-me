@@ -25,7 +25,7 @@ app.get("*", (req, res) => {
 
 // mongo
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/entertain-me", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/entertainme", {
   useNewUrlParser: true,
   useFindAndModify: false
 });
