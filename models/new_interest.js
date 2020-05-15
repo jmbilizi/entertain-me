@@ -2,13 +2,13 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const newInterestSchema = new Schema({
-  interest: { type: String, required: true },
+  interest: { type: String },
   date: { type: Date, default: Date.now }
 });
 
-const newInterest = mongoose.model("newInterest", newInterestSchema);
+const Interest = mongoose.model("Interest", newInterestSchema);
 
-module.exports = newInterest;
+module.exports = Interest;
 
 
 // how to incorporate login information id? or push to user profile

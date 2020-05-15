@@ -3,6 +3,7 @@ import moment from "moment";
 import "materialize-css";
 import { Container, Row, Col, Footer, Card } from "react-materialize";
 
+<<<<<<< HEAD:client/src/components/MoviePage.js
 import { ContainerWrapper } from "../styles";
 import NavBar from "./NavBar";
 import ResultsCard from "./ResultsCard";
@@ -12,6 +13,18 @@ import Favorites from "./Favorites";
 import Trending from "./Trending";
 import RelatedCard from "./RelatedCard";
 import API from "../utils/API";
+=======
+
+import { ContainerWrapper } from '../styles';
+// import NavBar from '../components/NavBar';
+import ResultsCard from '../components/ResultsCard';
+import SearchBar from '../components/SearchBar';
+import Trailer from '../components/Trailer';
+import Favorites from '../components/Favorites';
+import Trending from '../components/Trending';
+import RelatedCard from '../components/RelatedCard';
+import API from '../utils/API';
+>>>>>>> master:client/src/pages/MoviePage.js
 
 const MoviePage = () => {
   const [state, setState] = useState({
@@ -297,9 +310,9 @@ const MoviePage = () => {
   return (
     <ContainerWrapper>
       <Container>
-        <Row>
+        {/* <Row>
           <NavBar />
-        </Row>
+        </Row> */}
 
         <Row>
           <Col m={4}></Col>
@@ -413,6 +426,7 @@ const MoviePage = () => {
           <Col m={3}></Col>
         </Row>
 
+<<<<<<< HEAD:client/src/components/MoviePage.js
         <Footer
           className="red"
           copyrights="© 2020 The 4 Loops"
@@ -451,6 +465,8 @@ const MoviePage = () => {
             You can use rows and columns here to organize your footer content.
           </p>
         </Footer>
+=======
+>>>>>>> master:client/src/pages/MoviePage.js
       </Container>
     </ContainerWrapper>
   );
