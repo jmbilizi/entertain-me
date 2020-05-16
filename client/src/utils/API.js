@@ -41,7 +41,7 @@ export default {
     },
 
   // API call for similar movies -- need to credit
-  relatedTVSearch: function (id, mediaType) {
+  relatedSearch: function (id, mediaType) {
     return axios.get(
       `https://api.themoviedb.org/3/${mediaType}/${id}/similar?api_key=${apiKey}&language=en-US&page=1`
     );
@@ -53,16 +53,14 @@ export default {
     );
   },
   // API call for trending movies -- need to credit
-  trendingMoviesSearch: function () {
-    return axios.get(
-      `https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}`
-    );
-  },
+  // trendingMoviesSearch: function () {
+  //   return axios.get(
+  //     `https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}`
+  //   );
+  // },
   // API call for trending tv shows -- need to credit
-  trendingTVSearch: function () {
-    return axios.get(
-      `https://api.themoviedb.org/3/trending/tv/week?api_key=${apiKey}`
-    );
+  trendingSearch: function (mediaType) {
+    return axios.get(`https://api.themoviedb.org/3/trending/${mediaType}/week?api_key=${apiKey}`);
   },
 
 // API call for trending tv shows -- need to credit

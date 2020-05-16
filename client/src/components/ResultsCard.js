@@ -28,7 +28,7 @@ const ResultsCard = (props) => {
           <img
               className="network-logo"
               src={props.logo}
-              alt={"tv network"}
+              alt={props.provider}
             />
             <img
               className="backdrop-image"
@@ -39,7 +39,6 @@ const ResultsCard = (props) => {
             <div className="details">
               <h4 className="results-card-title">
                 {props.title}
-                {props.title2}
               </h4>
               <div className="result-btns">
                 <span onClick={addFavorite}>
@@ -104,6 +103,7 @@ const ResultsCard = (props) => {
               <img
               className="tmdb"
               src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg"
+              alt=''
             />
             </div>
            </Col>

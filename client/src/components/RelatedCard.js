@@ -13,36 +13,36 @@ const RelatedCard = (props) => {
       <h6>RELATED</h6>
       <Collection>
         <CollectionItem onClick={getDetails}>
-        <a href=""> <img className='related-images' src={props.relatedTVPoster1} alt={props.relatedTV1}/></a><span>
-        {_.truncate(props.relatedTV1, {
+        <a href=""> <img className='related-images' src={props.relatedPoster1} alt={props.related1}/></a><span>
+        {_.truncate(props.related1, {
                   length: 26,
                   separator: "...",
                 })}</span>
         </CollectionItem>
         <CollectionItem onClick={getDetails}>
-        <a href=""> <img className='related-images' src={props.relatedTVPoster2} alt={props.relatedTV2}/></a><span> 
-                {_.truncate(props.relatedTV2, {
+        <a href=""> <img className='related-images' src={props.relatedPoster2} alt={props.related2}/></a><span> 
+                {_.truncate(props.related2, {
                   length: 26,
                   separator: "...",
                 })}</span>
         </CollectionItem>
         <CollectionItem onClick={getDetails}>
-        <a href=""> <img className='related-images' src={props.relatedTVPoster3} alt={props.relatedTV3}/></a><span> 
-                {_.truncate(props.relatedTV3, {
+        <a href=""> <img className='related-images' src={props.relatedPoster3} alt={props.related3}/></a><span> 
+                {_.truncate(props.related3, {
                   length: 26,
                   separator: "...",
                 })}</span>
         </CollectionItem>
         <CollectionItem onClick={getDetails}>
-        <a href=""> <img className='related-images' src={props.relatedTVPoster4} alt={props.relatedTV4}/></a><span>  
-               {_.truncate(props.relatedTV4, {
+        <a href=""> <img className='related-images' src={props.relatedPoster4} alt={props.related4}/></a><span>  
+               {_.truncate(props.related4, {
                   length: 26,
                   separator: "...",
                 })}</span>
         </CollectionItem>
         <CollectionItem onClick={getDetails}>
-        <a href=""> <img className='related-images' src={props.relatedTVPoster5} alt={props.relatedTV5}/></a><span>  
-               {_.truncate(props.relatedTV5, {
+        <a href=""> <img className='related-images' src={props.relatedPoster5} alt={props.related5}/></a><span>  
+               {_.truncate(props.related5, {
                   length: 26,
                   separator: "...",
                 })}</span>
