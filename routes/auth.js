@@ -47,7 +47,7 @@ router.post("/login", function (req, res) {
       if (err) throw err;
 
       if (!user) {
-        res.status(401).send({
+        res.status(401).json({
           success: false,
           msg: "Authentication failed. User not found.",
         });
@@ -60,7 +60,7 @@ router.post("/login", function (req, res) {
             // return the information including token as JSON
             res.json({ success: true, token: "JWT " + token });
           } else {
-            res.status(401).send({
+            res.status(401).json({
               success: false,
               msg: "Authentication failed. Wrong password.",
             });

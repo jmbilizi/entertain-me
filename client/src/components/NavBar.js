@@ -2,7 +2,8 @@ import React from "react";
 import { Navbar, Icon, NavItem } from "react-materialize";
 import { Link } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = (props) => {
+  const { token } = props;
   return (
     <>
       <Navbar
@@ -28,23 +29,34 @@ const NavBar = () => {
         }}
       >
         <NavItem>
-          <Link className="nav-link active" to="/">Home</Link>
+          <Link className="nav-link active" to="/">
+            Home
+          </Link>
         </NavItem>
         <NavItem>
-          <Link className="nav-link" to="/movies">Movies / TV Shows</Link>
+          <Link className="nav-link" to="/movies">
+            Movies / TV Shows
+          </Link>
         </NavItem>
         <NavItem>
-          <Link className="nav-link" to="/celebrities">Celebrities</Link>
+          <Link className="nav-link" to="/celebrities">
+            Celebrities
+          </Link>
         </NavItem>
         <NavItem>
-        <Link className="nav-link" to="/profile">My Profile</Link>
+          {token ? (
+            <Link className="nav-link" to="/profile">
+              My Profile
+            </Link>
+          ) : null}
         </NavItem>
-        {/* <NavItem>
-                    <TextInput
-                        placeholder="Search"
-                        inputClassName='nav-search'
-                    />
-                </NavItem> */}
+        <NavItem>
+          {token ? (
+            <Link className="nav-link" to="/logout">
+              Logout
+            </Link>
+          ) : null}
+        </NavItem>
       </Navbar>
     </>
   );

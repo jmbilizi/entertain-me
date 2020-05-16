@@ -5,14 +5,9 @@ import { Redirect } from "react-router-dom";
 import { ContainerWrapper } from "../styles";
 
 const Profile = (props) => {
-  const { token } = props;
-  if (!token) return <Redirect to={"/login"} />;
-
-  return (
-    <ContainerWrapper>
-      <Container></Container>
-    </ContainerWrapper>
-  );
+  const { token, setToken } = props;
+  setToken(null);
+  return <Redirect to={"/login"} />;
 };
 
 export default Profile;
