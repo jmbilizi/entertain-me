@@ -92,8 +92,8 @@ export const ContainerWrapper = styled(Container)`
     min-height: 21em;
     max-height: 21em;
   }
-  .discover-related {
-    background-color: red;
+  .discover-related,
+  .trending {
     min-height: 21em;
     max-height: 21em;
   }
@@ -122,7 +122,7 @@ export const ContainerWrapper = styled(Container)`
 
   .trending-title {
     position: relative;
-    top: 5em;
-    right: .75em;
+    top: 10em;
+    right: 0.75em;
   }
 `;
