@@ -1,21 +1,23 @@
-import React from 'react';
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import 'materialize-css';
+import "materialize-css";
 import Home from "./pages/Home";
 import NavBar from "./components/NavBar";
 import MoviePage from "./pages/MoviePage";
 import Celebrities from "./pages/Celebrities";
 import Profile from "./pages/Profile";
-import Footer from "./components/Footer"
-
+import Footer from "./components/Footer";
+import Login from "./components/loginSignup/Login";
+import Register from "./components/loginSignup/Register";
+import Logout from "./pages/Logout";
 
 const App = () => {
-
-
+  const [token, setToken] = useState(null);
+  console.log({ token });
   return (
     <Router>
       <div>
-        <NavBar />
+        <NavBar token={token} />
         <Switch>
           <Route exact path="/">
             <Home />
@@ -27,13 +29,21 @@ const App = () => {
             <Celebrities />
           </Route>
           <Route exact path="/profile">
-            <Profile />
+            <Profile token={token} />
+          </Route>
+          <Route exact path="/logout">
+            <Logout token={token} setToken={setToken} />
+          </Route>
+          <Route exact path="/login">
+            <Login setToken={setToken} />
+          </Route>
+          <Route exact path="/register">
+            <Register token={token} />
           </Route>
         </Switch>
         <Footer />
       </div>
     </Router>
-
   );
 };
 
