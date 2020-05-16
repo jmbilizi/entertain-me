@@ -1,5 +1,5 @@
 module.exports = {
-    Interest: require("./new_interest"),
-    User: require("./user_profile")
-  };
-  
+  Interest: require("./new_interest"),
+  User: require("./user_profile"),
+  UserAuth: require("./user"),
+};
