@@ -89,8 +89,8 @@ export const ContainerWrapper = styled(Container)`
   width: 100vw;
   max-width: 2000px;
   .discover {
-    min-height: 31em;
-    max-height: 31em;
+    min-height: 21em;
+    max-height: 21em;
   }
   .discover-related {
     background-color: red;
@@ -98,8 +98,10 @@ export const ContainerWrapper = styled(Container)`
     max-height: 21em;
   }
   .trending-movies-tv {
-    width: 400px;
-    height: 400px;
+    position: absolute;
+    top: 10em;
+    width: 375px;
+    height: 375px;
     object-fit: contain;
   }
   .remove {
@@ -116,5 +118,11 @@ export const ContainerWrapper = styled(Container)`
     position: relative;
     right: 1em;
     margin: 0 0;
+  }
+
+  .trending-title {
+    position: relative;
+    top: 5em;
+    right: .75em;
   }
 `;
