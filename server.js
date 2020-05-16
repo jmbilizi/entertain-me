@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 var logger = require("morgan");
 var bodyParser = require("body-parser");
 const connectHistoryApiFallback = require("connect-history-api-fallback");
+const auth = require("./routes/auth");
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -59,7 +60,7 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render("error");
+  res.json({ message: err });
 });
 
 app.listen(PORT, () => {
