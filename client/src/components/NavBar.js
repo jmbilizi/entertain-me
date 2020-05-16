@@ -57,6 +57,13 @@ const NavBar = (props) => {
             </Link>
           ) : null}
         </NavItem>
+        <NavItem>
+          {!token ? (
+            <Link className="nav-link" to="/login">
+              Login
+            </Link>
+          ) : null}
+        </NavItem>
       </Navbar>
     </>
   );
