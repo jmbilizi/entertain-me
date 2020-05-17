@@ -43,6 +43,8 @@ app.get("*", (req, res) => {
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/entertainme", {
   useNewUrlParser: true,
   useFindAndModify: false,
+}, () => {
+  console.log('connected to mongodb');
 });
 
 // catch 404 and forward to error handler
