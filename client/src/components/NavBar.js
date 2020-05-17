@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Icon, NavItem } from "react-materialize";
+import { Navbar, Icon, NavItem, Switch } from "react-materialize";
 import { Link } from "react-router-dom";
 
 const NavBar = (props) => {
@@ -63,6 +63,14 @@ const NavBar = (props) => {
               Login
             </Link>
           ) : null}
+        </NavItem>
+        <NavItem>
+          <Switch
+            id="Switch-11"
+            offLabel="Off"
+            onChange={function noRefCheck() {alert('dark mode')}}
+            onLabel="On" 
+          />
         </NavItem>
       </Navbar>
     </>
