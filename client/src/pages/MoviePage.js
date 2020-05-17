@@ -3,7 +3,7 @@ import moment from "moment";
 import "materialize-css";
 import { Container, Row, Col, Card } from "react-materialize";
 
-import { ContainerWrapper } from "../styles";
+import { ContainerWrapper, DarkWrapper } from "../styles";
 import ResultsCard from "../components/ResultsCard";
 import SearchBar from "../components/SearchBar";
 import Trailer from "../components/Trailer";
@@ -110,7 +110,7 @@ const MoviePage = () => {
 
   const imageURL = "https://image.tmdb.org/t/p/w500";
   const trailerURL = "https://www.youtube.com/embed/";
-  console.log(`state: `, state);
+
   async function mediaSearch(entry) {
     if (!entry) {
       return alert("Enter a movie or tv show title.");
@@ -174,6 +174,7 @@ const MoviePage = () => {
     console.log("relatedData.data ", relatedData.data);
     console.log("relatedInfo", relatedInfo.results[0].name);
     console.log("trendingData: ", trendingData);
+    console.log("selection", selection);
 
     setState({
       ...state,
@@ -357,6 +358,7 @@ const MoviePage = () => {
               trendingInfo.results[9].title,
             ],
     });
+    console.log(`state: `, state);
   }
 
   const handleInputChange = (e) => {
@@ -370,7 +372,9 @@ const MoviePage = () => {
   };
 
   return (
+    
     <ContainerWrapper>
+      {/* <DarkWrapper> */}
       <Container>
         <Row>
           <Col m={4}></Col>
@@ -480,7 +484,9 @@ const MoviePage = () => {
           </Col>
         </Row>
       </Container>
+      {/* </DarkWrapper> */}
     </ContainerWrapper>
+
   );
 };
 

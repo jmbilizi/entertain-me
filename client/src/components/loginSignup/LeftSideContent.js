@@ -1,41 +1,51 @@
 import React from "react";
-import { Carousel } from "react-materialize";
+import { Carousel, Slider, Slide, Caption } from "react-materialize";
 import "./carousel.css";
 
 function LeftSideContent() {
   return (
     <>
-      <Carousel
-        carouselId="Carousel-2"
-        images={[
-          <img
-            className="d-block w-100"
-            src={require("./images/movie.jpg")}
-            alt="First slide"
-          />,
-          <img
-            className="d-block w-100"
-            src={require("./images/show.jpg")}
-            alt="Second slide"
-          />,
-          <img
-            className="d-block w-100"
-            src={require("./images/celebrity.jpg")}
-            alt="Third slide"
-          />,
-        ]}
-        options={{
-          dist: -100,
-          duration: 200,
-          fullWidth: true,
-          indicators: false,
-          noWrap: false,
-          numVisible: 5,
-          onCycleTo: null,
-          padding: 0,
-          shift: 0,
-        }}
-      />
+   <Slider
+  fullscreen={false}
+  options={{
+    duration: 1000,
+    height: 400,
+    indicators: false,
+    interval: 6000
+  }}
+>
+  <Slide image={<img alt="" src={require("./images/movie.jpg")}/>}>
+    <Caption>
+      <h3>
+        This is our big Tagline!
+      </h3>
+      <h5 className="light grey-text text-lighten-3">
+        Here's our small slogan.
+      </h5>
+    </Caption>
+  </Slide>
+  <Slide image={<img alt="" src={require("./images/show.jpg")}/>}>
+    <Caption placement="left">
+      <h3>
+        Left Aligned Caption
+      </h3>
+      <h5 className="light grey-text text-lighten-3">
+        Here's our small slogan.
+      </h5>
+    </Caption>
+  </Slide>
+  <Slide image={<img alt="" src={require("./images/celebrity.jpg")}/>}>
+    <Caption placement="right">
+      <h3>
+        Right Aligned Caption
+      </h3>
+      <h5 className="light grey-text text-lighten-3">
+        Here's our small slogan.
+      </h5>
+    </Caption>
+  </Slide>
+</Slider>
+
     </>
   );
 }

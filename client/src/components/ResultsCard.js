@@ -25,7 +25,7 @@ const ResultsCard = (props) => {
         <Row>
           <Col m={1}></Col>
           <Col>
-          <img
+            <img
               className="network-logo"
               src={props.logo}
               alt={props.provider}
@@ -33,13 +33,11 @@ const ResultsCard = (props) => {
             <img
               className="backdrop-image"
               src={props.backdrop}
-              alt={props.title}
+              alt={props.selection}
             />
             <br></br>
             <div className="details">
-              <h4 className="results-card-title">
-                {props.title}
-              </h4>
+              <h4 className="results-card-title">{props.selection}</h4>
               <div className="result-btns">
                 <span onClick={addFavorite}>
                   <span className="material-icons favorite">favorite</span>
@@ -101,12 +99,12 @@ const ResultsCard = (props) => {
               Aired:<br></br>
               <strong>{props.lastAir}</strong>
               <img
-              className="tmdb"
-              src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg"
-              alt=''
-            />
+                className="tmdb"
+                src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg"
+                alt=""
+              />
             </div>
-           </Col>
+          </Col>
         </Row>
       </div>
     </ResultsWrapper>

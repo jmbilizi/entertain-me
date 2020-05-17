@@ -119,10 +119,26 @@ export const ContainerWrapper = styled(Container)`
     right: 1em;
     margin: 0 0;
   }
-
   .trending-title {
     position: relative;
     top: 10em;
     right: 0.75em;
   }
+  .known,
+  .trending-celeb-images {
+    width: 70px;
+    height: 95px;
+    float: left;
+    margin-right: 0.5em;
+  }
+
+  .celeb-profile-pic {
+    width: 375px;
+    height: 555px;
+  }
+`;
+
+export const DarkWrapper = styled(Container)`
+  background-color: black;
+  color: gray;
 `;
