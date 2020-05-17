@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./Login.css";
-import Header from "./Header";
 import LeftSideContent from "./LeftSideContent";
 import { Redirect } from "react-router-dom";
 
