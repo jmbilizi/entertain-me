@@ -1,7 +1,7 @@
 import React from 'react';
 import Marquee from 'react-double-marquee';
  
-export default function Headlines(speed=0.04 direction='left') {
+export default function Headlines(speed=0.04, direction='left') {
   return (
     <div
       style={{
