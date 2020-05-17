@@ -3,7 +3,7 @@ import moment from "moment";
 import "materialize-css";
 import { Container, Row, Col, Card } from "react-materialize";
 
-import { ContainerWrapper, DarkWrapper } from "../styles";
+import { ContainerWrapper, DarkWrapper } from "../assets/styles";
 import ResultsCard from "../components/ResultsCard";
 import SearchBar from "../components/SearchBar";
 import Trailer from "../components/Trailer";
