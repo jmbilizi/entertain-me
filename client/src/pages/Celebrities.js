@@ -4,7 +4,7 @@ import { Container, Row, Col } from "react-materialize";
 import _ from "lodash";
 
 import CelebSearchBar from "../components/SearchBar";
-import { ContainerWrapper } from "../styles";
+import { ContainerWrapper } from "../assets/styles";
 import API from "../utils/API";
 
 const Celebrities = () => {

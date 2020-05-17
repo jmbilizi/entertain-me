@@ -2,7 +2,7 @@ import React from "react";
 import { Row, Col } from "react-materialize";
 import _ from "lodash";
 
-import { ResultsWrapper } from "../styles";
+import { ResultsWrapper } from "../assets/styles";
 import Poster from "./Poster";
 
 const ResultsCard = (props) => {
