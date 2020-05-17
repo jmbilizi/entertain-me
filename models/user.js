@@ -26,6 +26,24 @@ var UserSchema = new Schema({
     type: String,
     required: true,
   },
+  favorites: [{
+    id: {
+      type: Number,
+      required: true,
+    },
+    media_type: {
+      type: String,
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    addedDate: { 
+      type: Date, 
+      default: Date.now 
+    }
+}]
 });
 
 UserSchema.pre("save", function (next) {
