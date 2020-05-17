@@ -131,7 +131,6 @@ export const ContainerWrapper = styled(Container)`
     float: left;
     margin-right: 0.5em;
   }
-
   .celeb-profile-pic {
     width: 375px;
     height: 555px;
