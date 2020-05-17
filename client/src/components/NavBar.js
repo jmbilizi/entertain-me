@@ -1,17 +1,17 @@
 import React from "react";
 import { Navbar, Icon, NavItem, Switch } from "react-materialize";
 import { Link } from "react-router-dom";
+import img from '../assets/images/logo.png'
 
 const NavBar = (props) => {
   const { token } = props;
   return (
-    <>
       <Navbar
-        className="red"
+        className="nav-bar grey darken-4"
         alignLinks="right"
         brand={
-          <a className="brand-logo" href="#">
-            entertainME
+          <a className="brand-logo" href="/home">
+            <img src={img} alt='entertainME'  width='235px' height='50px'/>
           </a>
         }
         id="mobile-nav"
@@ -78,7 +78,6 @@ const NavBar = (props) => {
           />
         </NavItem>
       </Navbar>
-    </>
   );
 };
 
