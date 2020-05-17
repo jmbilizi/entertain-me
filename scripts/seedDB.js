@@ -8,16 +8,16 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/entertainme", {
 
 const userSeed = [
   {
-    first_name: "John",
-    last_name: "Smith",
-    date_of_birth: "December 1, 1989",
-    city: "Chicago",
-    state: "IL",
-    country: "USA",
-    interest_1: "Top Gun",
-    interest_2: "Lost",
-    interest_3: "Tom Cruise",
-    date: new Date(Date.now())
+    fname: "Jack",
+    lname: "Shephard",
+    username: "jshephard",
+    password: "mypassword123",
+    favorites: [{
+      id: 4607,
+      media_type: "tv",
+      name: "Lost",
+      addedDate: new Date(Date.now())
+    }]
   }
 ];
 

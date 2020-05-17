@@ -8,6 +8,9 @@ import Poster from "./Poster";
 const ResultsCard = (props) => {
   const addFavorite = () => {
     alert("ADDED TO FAVORITES");
+    // hit put route to add favorite to current user
+    // pass in media_type, name, and id, as well as user id
+    // update array in react state that is storing all the favorites
   };
   const setNotification = () => {
     alert("NOTIFICATION SET");
