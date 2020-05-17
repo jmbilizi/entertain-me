@@ -1,20 +1,21 @@
 import React from "react";
-import 'materialize-css';
-import {
-    Container
-} from 'react-materialize';
-import { ContainerWrapper } from '../styles';
-
+import "materialize-css";
+import { Container, Row, Col } from "react-materialize";
+import Headlines from "../components/Headlines";
+import { ContainerWrapper } from "../styles";
 
 const Home = () => {
-
-    return (
-        <ContainerWrapper>
-            <Container>
-
-            </Container>
-        </ContainerWrapper>
-    )
+  return (
+    <ContainerWrapper>
+      <Container>
+        <Row>
+          <Col>
+            <Headlines />
+          </Col>
+        </Row>
+      </Container>
+    </ContainerWrapper>
+  );
 };
 
 export default Home;
