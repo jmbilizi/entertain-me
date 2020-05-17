@@ -3,7 +3,7 @@ import 'materialize-css';
 import {
     Container
 } from 'react-materialize';
-import { ContainerWrapper } from '../styles';
+import { ContainerWrapper, DarkWrapper } from '../styles';
 
 const Celebrities = () => {
 

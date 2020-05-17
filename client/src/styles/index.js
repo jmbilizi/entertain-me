@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Card, Container } from "react-materialize";
+import { Card, Container} from "react-materialize";
 
 export const ResultsWrapper = styled(Card)`
   .results-card {
@@ -126,3 +126,8 @@ export const ContainerWrapper = styled(Container)`
     right: 0.75em;
   }
 `;
+
+export const DarkWrapper = styled(Container)`
+background-color: black;
+color: gray;
+`
