@@ -64,12 +64,17 @@ const NavBar = (props) => {
             </Link>
           ) : null}
         </NavItem>
+        <NavItem></NavItem>
+        <span class="material-icons dark">brightness_medium</span>
         <NavItem>
           <Switch
+            disabled
             id="Switch-11"
             offLabel="Off"
-            onChange={function noRefCheck() {alert('dark mode')}}
-            onLabel="On" 
+            onChange={function noRefCheck() {
+              alert("dark mode");
+            }}
+            onLabel="On"
           />
         </NavItem>
       </Navbar>
