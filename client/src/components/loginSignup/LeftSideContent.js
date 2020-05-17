@@ -1,5 +1,5 @@
 import React from "react";
-import { Carousel, Slider, Slide, Caption } from "react-materialize";
+import { Slider, Slide, Caption } from "react-materialize";
 import "./carousel.css";
 
 function LeftSideContent() {
