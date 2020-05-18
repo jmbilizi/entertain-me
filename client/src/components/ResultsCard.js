@@ -1,64 +1,64 @@
-import React from "react";
-import { Row, Col } from "react-materialize";
-import _ from "lodash";
+import React from 'react';
+import { Row, Col } from 'react-materialize';
+import _ from 'lodash';
 
-import { ResultsWrapper } from "../assets/styles";
-import Poster from "./Poster";
+import { ResultsWrapper } from '../assets/styles';
+import Poster from './Poster';
 
 const ResultsCard = (props) => {
   const addFavorite = () => {
-    alert("ADDED TO FAVORITES");
+    alert('ADDED TO FAVORITES');
     // hit put route to add favorite to current user
     // pass in media_type, name, and id, as well as user id
     // update array in react state that is storing all the favorites
   };
   const setNotification = () => {
-    alert("NOTIFICATION SET");
+    alert('NOTIFICATION SET');
   };
   const watchContent = () => {
-    alert("GO TO CONTENT PROVIDER");
+    alert('GO TO CONTENT PROVIDER');
   };
   const shareContent = () => {
-    alert("CONTENT SHARED");
+    alert('CONTENT SHARED');
   };
 
   return (
     <ResultsWrapper>
-      <div className="results-card">
+      <div className='results-card'>
         <Row>
           <Col m={1}></Col>
           <Col>
             <img
-              className="network-logo"
+              className='network-logo'
               src={props.logo}
               alt={props.provider}
             />
             <img
-              className="backdrop-image"
+              className='backdrop-image'
               src={props.backdrop}
               alt={props.selection}
             />
             <br></br>
-            <div className="details">
-              <h4 className="results-card-title">{props.selection}</h4>
-              <div className="result-btns">
+            <div className='details'>
+              <h4 className='results-card-title'>{props.selection}</h4>
+              <div className='result-btns'>
                 <span onClick={addFavorite}>
-                  <span className="material-icons favorite">favorite</span>
+                  <span className='material-icons favorite'>favorite</span>
                 </span>
                 <span onClick={setNotification}>
-                  <span className="material-icons notify">notifications</span>
+                  <span className='material-icons notify'>notifications</span>
                 </span>
                 <span onClick={watchContent}>
-                  <span className="material-icons watch">tv</span>
+                  <span className='material-icons watch'>tv</span>
                 </span>
                 <span onClick={shareContent}>
-                  <span className="material-icons watch">share</span>
+                  <span className='material-icons watch'>share</span>
                 </span>
               </div>
-              <p className="overview">
+              <p className='overview'>
                 {_.truncate(props.overview, {
                   length: 185,
-                  separator: "...",
+                  separator: '...',
                 })}
               </p>
             </div>
@@ -71,7 +71,7 @@ const ResultsCard = (props) => {
             <Poster poster={props.poster} />
           </Col>
           <Col m={4}>
-            <div className="stats">
+            <div className='stats'>
               <p>
                 Release: <strong>{props.release}</strong>
               </p>
@@ -79,7 +79,7 @@ const ResultsCard = (props) => {
                 Genre: <strong>{props.genre}</strong>
               </p>
               <p>
-                Rating:{" "}
+                Rating:{' '}
                 <strong>
                   {props.rating}
                   {/* {props.tvRating} */}
@@ -95,16 +95,16 @@ const ResultsCard = (props) => {
             </div>
           </Col>
           <Col m={4}>
-            <div className="stats2">
+            <div className='stats2'>
               Last Episode:<br></br>
               <strong>{props.lastEpisode}</strong>
               <br></br>
               Aired:<br></br>
               <strong>{props.lastAir}</strong>
               <img
-                className="tmdb"
-                src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg"
-                alt=""
+                className='tmdb'
+                src='https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg'
+                alt=''
               />
             </div>
           </Col>
