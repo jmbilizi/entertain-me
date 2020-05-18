@@ -32,6 +32,7 @@ export default function Headlines(speed = 0.04, direction = 'left') {
       style={{
         width: '1200px',
         whiteSpace: 'nowrap',
+        color: "white"
       }}
     >
       <Marquee>
