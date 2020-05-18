@@ -10,8 +10,8 @@ const RelatedCard = (props) => {
 
   return (
     <>
-      <h6>RELATED</h6>
-      <Collection>
+      <h6 className='center-align title'>RELATED</h6>
+      <Collection className='frame'>
         <CollectionItem onClick={getDetails}>
         <a href=''> <img className='related-images' src={props.relatedPoster1} alt={props.related1}/></a><span>
         {_.truncate(props.related1, {
