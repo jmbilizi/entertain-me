@@ -88,7 +88,7 @@ export const ContainerWrapper = styled(Container)`
   // -- for testing dark mode--- background-color: black;
   margin: 0;
   width: 100vw;
-  max-width: 2000px;
+  max-width: 1500px;
   .discover {
     min-height: 21em;
     max-height: 21em;
