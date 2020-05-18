@@ -7,7 +7,7 @@ const NavBar = (props) => {
   const { token } = props;
   return (
       <Navbar
-        className="nav-bar grey darken-4"
+        className="nav-bar grey darken-3"
         alignLinks="right"
         brand={
           <a className="brand-logo" href="/home">
