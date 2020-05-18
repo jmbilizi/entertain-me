@@ -4,7 +4,7 @@ import { Card, Container } from "react-materialize";
 export const ResultsWrapper = styled(Card)`
 position: relative;
 top: 2em;
-border: solid 2px #cfb53b;
+border: solid 2px #212121;
   .results-card {
     min-height: 31em;
     max-height: 31em;
@@ -106,13 +106,13 @@ export const ContainerWrapper = styled(Container)`
   .discover {
     min-height: 21em;
     max-height: 21em;
-    border: solid 2px #cfb53b;
+    border: solid 2px #212121;
   }
   .discover-related,
   .trending {
     min-height: 21em;
     max-height: 21em;
-    border: solid 2px #cfb53b;
+    border: solid 2px #212121;
   }
   .remove {
     cursor: pointer;
@@ -140,16 +140,18 @@ export const ContainerWrapper = styled(Container)`
     height: 95px;
     float: left;
     margin-right: 0.5em;
+    border: solid 2px #212121;
   }
   .celeb-profile-pic {
     width: 375px;
     height: 555px;
+    border: solid 2px #212121;
   }
   .title{
     color: #cfb53b;
   }
   .frame{
-    border: #cfb53b 2px solid;
+    border: #212121 2px solid;
   }
 `;
 
