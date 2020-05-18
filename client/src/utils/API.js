@@ -1,6 +1,6 @@
-import axios from "axios";
+import axios from 'axios';
 // const apiKey = process.env.REACT_APP_API_KEY;
-const apiKey = "32a9ec1e57a6839fcf26fa958bca7cf5";
+const apiKey = '32a9ec1e57a6839fcf26fa958bca7cf5';
 
 export default {
   // API call for initial tv or movie details -- need to credit
@@ -26,7 +26,7 @@ export default {
   ratingSearch: function (id, mediaType) {
     return axios.get(
       `https://api.themoviedb.org/3/${mediaType}/${id}/${
-        mediaType === "tv" ? "content_ratings" : "release_dates"
+        mediaType === 'tv' ? 'content_ratings' : 'release_dates'
       }?api_key=${apiKey}&language=en-US`
     );
   },
