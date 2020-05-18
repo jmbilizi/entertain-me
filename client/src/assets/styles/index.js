@@ -1,7 +1,10 @@
-import styled from 'styled-components';
-import { Card, Container } from 'react-materialize';
+import styled from "styled-components";
+import { Card, Container } from "react-materialize";
 
 export const ResultsWrapper = styled(Card)`
+position: relative;
+top: 2em;
+border: solid 2px #212121;
   .results-card {
     min-height: 31em;
     max-height: 31em;
@@ -88,22 +91,28 @@ export const ContainerWrapper = styled(Container)`
   // -- for testing dark mode--- background-color: black;
   margin: 0;
   width: 100vw;
-  max-width: 2000px;
+  max-width: 1500px;
+ 
+  .search-input input[type=text]:focus {
+    border-bottom: 1px solid #cfb53b;
+    box-shadow: 0 1px 0 0 #000;
+  }
+  input {
+    color: white;
+  }
+  .search-input-box::placeholder {
+    color: #424242;
+  }
   .discover {
     min-height: 21em;
     max-height: 21em;
+    border: solid 2px #212121;
   }
   .discover-related,
   .trending {
     min-height: 21em;
     max-height: 21em;
-  }
-  .trending-movies-tv {
-    position: absolute;
-    top: 10em;
-    width: 375px;
-    height: 375px;
-    object-fit: contain;
+    border: solid 2px #212121;
   }
   .remove {
     cursor: pointer;
@@ -131,10 +140,22 @@ export const ContainerWrapper = styled(Container)`
     height: 95px;
     float: left;
     margin-right: 0.5em;
+    border: solid 2px #212121;
+    color: #bdbdbd;
   }
   .celeb-profile-pic {
     width: 375px;
     height: 555px;
+    border: solid 2px #212121;
+  }
+  .celeb-appearances-overview, .celeb-biography,.celeb-title{
+    color: #bdbdbd;
+  }
+  .title{
+    color: #cfb53b;
+  }
+  .frame{
+    border: #212121 2px solid;
   }
 `;
 

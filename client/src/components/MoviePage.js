@@ -1,67 +1,67 @@
-import React, { useState } from 'react';
-import moment from 'moment';
-import 'materialize-css';
-import { Container, Row, Col, Footer, Card } from 'react-materialize';
+import React, { useState } from "react";
+import moment from "moment";
+import "materialize-css";
+import { Container, Row, Col, Footer, Card } from "react-materialize";
 
-import { ContainerWrapper } from '../styles';
-import NavBar from './NavBar';
-import ResultsCard from './ResultsCard';
-import SearchBar from './SearchBar';
-import Trailer from './Trailer';
-import Favorites from './Favorites';
-import Trending from './Trending';
-import RelatedCard from './RelatedCard';
-import API from '../utils/API';
+import { ContainerWrapper } from "../styles";
+import NavBar from "./NavBar";
+import ResultsCard from "./ResultsCard";
+import SearchBar from "./SearchBar";
+import Trailer from "./Trailer";
+import Favorites from "./Favorites";
+import Trending from "./Trending";
+import RelatedCard from "./RelatedCard";
+import API from "../utils/API";
 
 const MoviePage = () => {
   const [state, setState] = useState({
-    userInput: '',
-    mediaType: '',
-    movie: '',
-    tvShow: '',
-    release: '',
-    overview: '',
-    poster: '',
-    id: '',
-    backdrop: '',
-    genre: '',
-    score: '',
-    trailer: '',
-    tvTrailer: '',
-    runtime: '',
-    rating: '',
-    tvUSRating: '',
-    tvRating: '',
-    network: '',
-    networkLogo: '',
-    studio: '',
-    studioLogo: '',
-    lastAir: '',
-    lastEpisode: '',
-    trendingMovies: '',
-    relatedMovies: '',
-    relatedTVInfo: '',
-    relatedTV1: '',
-    relatedTV2: '',
-    relatedTV3: '',
-    relatedTV4: '',
-    relatedTV5: '',
-    trendingTV1: '',
-    trendingTV2: '',
-    trendingTV3: '',
-    trendingTV4: '',
-    trendingTV5: '',
-    trendingTVPoster1: '',
-    trendingTVPoster2: '',
-    trendingTVPoster3: '',
-    trendingTVPoster4: '',
-    trendingTVPoster5: '',
-    relatedTVPoster1: '',
-    relatedTVPoster2: '',
-    relatedTVPoster3: '',
-    relatedTVPoster4: '',
-    relatedTVPoster5: '',
-    logo: '',
+    userInput: "",
+    mediaType: "",
+    movie: "",
+    tvShow: "",
+    release: "",
+    overview: "",
+    poster: "",
+    id: "",
+    backdrop: "",
+    genre: "",
+    score: "",
+    trailer: "",
+    tvTrailer: "",
+    runtime: "",
+    rating: "",
+    tvUSRating: "",
+    tvRating: "",
+    network: "",
+    networkLogo: "",
+    studio: "",
+    studioLogo: "",
+    lastAir: "",
+    lastEpisode: "",
+    trendingMovies: "",
+    relatedMovies: "",
+    relatedTVInfo: "",
+    relatedTV1: "",
+    relatedTV2: "",
+    relatedTV3: "",
+    relatedTV4: "",
+    relatedTV5: "",
+    trendingTV1: "",
+    trendingTV2: "",
+    trendingTV3: "",
+    trendingTV4: "",
+    trendingTV5: "",
+    trendingTVPoster1: "",
+    trendingTVPoster2: "",
+    trendingTVPoster3: "",
+    trendingTVPoster4: "",
+    trendingTVPoster5: "",
+    relatedTVPoster1: "",
+    relatedTVPoster2: "",
+    relatedTVPoster3: "",
+    relatedTVPoster4: "",
+    relatedTVPoster5: "",
+    logo: "",
   });
 
   //destructuring to use above values directly
@@ -112,12 +112,12 @@ const MoviePage = () => {
     logo,
   } = state;
 
-  const imageURL = 'https://image.tmdb.org/t/p/w500';
-  const trailerURL = 'https://www.youtube.com/embed/';
+  const imageURL = "https://image.tmdb.org/t/p/w500";
+  const trailerURL = "https://www.youtube.com/embed/";
   console.log(`state: `, state);
   async function mediaSearch(title) {
     if (!title) {
-      return alert('Enter a movie or tv show title.');
+      return alert("Enter a movie or tv show title.");
     }
 
     const mainData = await API.mediaSearch(title);
@@ -161,18 +161,18 @@ const MoviePage = () => {
     const trendingTVData = await API.trendingTVSearch();
     const trendingTVInfo = trendingTVData.data;
 
-    console.log('main call: ', mainData);
-    console.log('trailer call: ', trailerData);
-    console.log('TV trailer call: ', tvTrailerData);
-    console.log('related movies call: ', relatedData);
-    console.log('related TV call: ', relatedTVData);
-    console.log('trending movies call: ', trendingMoviesData);
-    console.log('trending TV call: ', trendingTVData);
-    console.log('tvTrailerInfo: ', tvTrailerInfo.data);
-    console.log('relatedTVData.data ', relatedTVData.data);
-    console.log('relatedTVInfo', relatedTVInfo.results[0].name);
-    console.log('trendingTVPoster1: ', trendingTVPoster1);
-    console.log('lastEpisode: ', lastEpisode);
+    console.log("main call: ", mainData);
+    console.log("trailer call: ", trailerData);
+    console.log("TV trailer call: ", tvTrailerData);
+    console.log("related movies call: ", relatedData);
+    console.log("related TV call: ", relatedTVData);
+    console.log("trending movies call: ", trendingMoviesData);
+    console.log("trending TV call: ", trendingTVData);
+    console.log("tvTrailerInfo: ", tvTrailerInfo.data);
+    console.log("relatedTVData.data ", relatedTVData.data);
+    console.log("relatedTVInfo", relatedTVInfo.results[0].name);
+    console.log("trendingTVPoster1: ", trendingTVPoster1);
+    console.log("lastEpisode: ", lastEpisode);
 
     setState({
       ...state,
@@ -192,25 +192,25 @@ const MoviePage = () => {
       tvTrailer: `${trailerURL}` + tvTrailerInfo.videos.results[0].key,
       runtime: trailerInfo.runtime,
       logo:
-        mainData.data.results[0].media_type === 'movie'
+        mainData.data.results[0].media_type === "movie"
           ? `${imageURL}` + trailerInfo.production_companies[1].logo_path
           : `${imageURL}` + tvTrailerInfo.networks[0].logo_path,
       network:
-        mainData.data.results[0].media_type === 'tv'
+        mainData.data.results[0].media_type === "tv"
           ? tvTrailerInfo.networks[0].name
-          : 'tv studio icon goes here',
+          : "tv studio icon goes here",
       studio:
-        mainData.data.results[0].media_type === 'movie'
+        mainData.data.results[0].media_type === "movie"
           ? trailerInfo.production_companies[0].name
-          : 'movie studio icon goes here',
+          : "movie studio icon goes here",
       lastAir:
-        mainData.data.results[0].media_type === 'tv'
+        mainData.data.results[0].media_type === "tv"
           ? tvTrailerInfo.last_air_date
-          : ' no last air date for movies',
+          : " no last air date for movies",
       lastEpisode:
-        mainData.data.results[0].media_type === 'tv'
+        mainData.data.results[0].media_type === "tv"
           ? tvTrailerInfo.last_episode_to_air.name
-          : ' no last episode for movies',
+          : " no last episode for movies",
 
       relatedMovies: relatedInfo.results,
 
@@ -270,15 +270,14 @@ const MoviePage = () => {
 
         <Row>
           <Col m={6}>
-            {/* { mediaType==='movie' ? ( logos='studio'): ( logos='network'), */}
-
+          <br></br>
             {id ? (
               <ResultsCard
                 title={movie}
                 title2={tvShow}
-                release={moment(release, 'YYYY-MM-DD').format('MMM Do, YYYY')}
-                release2={moment(first_air, 'YYYY-MM-DD').format(
-                  'MMM Do, YYYY'
+                release={moment(release, "YYYY-MM-DD").format("MMM Do, YYYY")}
+                release2={moment(first_air, "YYYY-MM-DD").format(
+                  "MMM Do, YYYY"
                 )}
                 overview={overview}
                 poster={poster}
@@ -299,7 +298,7 @@ const MoviePage = () => {
                 lastEpisode={lastEpisode}
               />
             ) : (
-              <Card className='blue-grey darken-1 discover' title='DISCOVER'>
+              <Card className="blue-grey darken-1 discover" title="DISCOVER">
                 This area will display info about a random movie or TV show that
                 is related to one of the user's favorites.
               </Card>
@@ -308,27 +307,27 @@ const MoviePage = () => {
           </Col>
           <Col m={3}>
             {!mediaType ? (
-              <Card className='blue-grey darken-1 discover' title='DISCOVER'>
+              <Card className="blue-grey darken-1 discover" title="DISCOVER">
                 This area will display trailers for the discovery feature.
               </Card>
             ) : (
-              console.log('.')
+              console.log(".")
             )}
 
-            {mediaType === 'tv' ? (
+            {mediaType === "tv" ? (
               <Trailer trailer={tvTrailer} />
             ) : (
-              console.log('No movie trailer available.')
+              console.log("No movie trailer available.")
             )}
-            {mediaType === 'movie' ? (
+            {mediaType === "movie" ? (
               <Trailer trailer={trailer} />
             ) : (
-              console.log('No TV trailer available.')
+              console.log("No TV trailer available.")
             )}
             {id ? (
               <RelatedCard
-                className='related'
-                heading={'RELATED'}
+                className="related"
+                heading={"RELATED"}
                 relatedTV1={relatedTV1}
                 relatedTV2={relatedTV2}
                 relatedTV3={relatedTV3}
@@ -342,8 +341,8 @@ const MoviePage = () => {
               />
             ) : (
               <Card
-                className='blue-grey darken-1 discover-related'
-                title='RELATED'
+                className="blue-grey darken-1 discover-related"
+                title="RELATED"
               >
                 This area will display a list of movies or TV shows related to
                 the discovery feature.
@@ -352,9 +351,9 @@ const MoviePage = () => {
             )}
           </Col>
           <Col m={3}>
-            <Favorites heading={'MY MOVIES'} />
+            <Favorites heading={"MY MOVIES"} />
             <br></br>
-            <Favorites heading={'MY SHOWS'} />
+            <Favorites heading={"MY SHOWS"} />
           </Col>
         </Row>
 
@@ -378,40 +377,40 @@ const MoviePage = () => {
         </Row>
 
         <Footer
-          className='red'
-          copyrights='© 2020 The 4 Loops'
+          className="red"
+          copyrights="© 2020 The 4 Loops"
           links={
             <ul>
               <li>
-                <a className='grey-text text-lighten-3' href='#!'>
+                <a className="grey-text text-lighten-3" href="#!">
                   Link 1
                 </a>
               </li>
               <li>
-                <a className='grey-text text-lighten-3' href='#!'>
+                <a className="grey-text text-lighten-3" href="#!">
                   Link 2
                 </a>
               </li>
               <li>
-                <a className='grey-text text-lighten-3' href='#!'>
+                <a className="grey-text text-lighten-3" href="#!">
                   Link 3
                 </a>
               </li>
               <li>
-                <a className='grey-text text-lighten-3' href='#!'>
+                <a className="grey-text text-lighten-3" href="#!">
                   Link 4
                 </a>
               </li>
             </ul>
           }
           moreLinks={
-            <a className='grey-text text-lighten-4 right' href='#!'>
+            <a className="grey-text text-lighten-4 right" href="#!">
               More Links
             </a>
           }
         >
-          <h5 className='white-text'>Footer Content</h5>
-          <p className='grey-text text-lighten-4'>
+          <h5 className="white-text">Footer Content</h5>
+          <p className="grey-text text-lighten-4">
             You can use rows and columns here to organize your footer content.
           </p>
         </Footer>
