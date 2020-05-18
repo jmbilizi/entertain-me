@@ -2,6 +2,9 @@ import styled from "styled-components";
 import { Card, Container } from "react-materialize";
 
 export const ResultsWrapper = styled(Card)`
+position: relative;
+top: 2em;
+border: solid 2px #cfb53b;
   .results-card {
     min-height: 31em;
     max-height: 31em;
@@ -90,27 +93,26 @@ export const ContainerWrapper = styled(Container)`
   width: 100vw;
   max-width: 1500px;
 
+  .search-input input[type=text]:focus {
+    border-bottom: 1px solid #cfb53b;
+    box-shadow: 0 1px 0 0 #000;
+  }
   input {
     color: white;
   }
-  .search-input::placeholder {
+  .search-input-box::placeholder {
     color: #424242;
   }
   .discover {
     min-height: 21em;
     max-height: 21em;
+    border: solid 2px #cfb53b;
   }
   .discover-related,
   .trending {
     min-height: 21em;
     max-height: 21em;
-  }
-  .trending-movies-tv {
-    position: absolute;
-    top: 10em;
-    width: 375px;
-    height: 375px;
-    object-fit: contain;
+    border: solid 2px #cfb53b;
   }
   .remove {
     cursor: pointer;
@@ -142,6 +144,12 @@ export const ContainerWrapper = styled(Container)`
   .celeb-profile-pic {
     width: 375px;
     height: 555px;
+  }
+  .title{
+    color: #cfb53b;
+  }
+  .frame{
+    border: #cfb53b 2px solid;
   }
 `;
 

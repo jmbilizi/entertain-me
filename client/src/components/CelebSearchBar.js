@@ -6,10 +6,14 @@ const CelebSearchBar = ({ userInput, handleInputChange, handleFormSubmit }) => {
     <div className="center-align">
       <Row>
         <Col m={9}>
-          <form inline="true" onSubmit={handleFormSubmit}>
+          <form
+            inline="true"
+            className="search-input"
+            onSubmit={handleFormSubmit}
+          >
             <label hidden>Search for a celebrity.</label>
             <input
-              className="search-input"
+             className="search-input-box"
               type="text"
               name="userInput"
               id="userInput"
