@@ -1,13 +1,7 @@
 import React, { useState } from 'react';
 import moment from 'moment';
 import 'materialize-css';
-import {
-  Container,
-  Row,
-  Col,
-  Footer,
-  Card
-} from 'react-materialize';
+import { Container, Row, Col, Footer, Card } from 'react-materialize';
 
 import { ContainerWrapper } from '../styles';
 import NavBar from './NavBar';
@@ -67,7 +61,7 @@ const MoviePage = () => {
     relatedTVPoster3: '',
     relatedTVPoster4: '',
     relatedTVPoster5: '',
-    logo: ''
+    logo: '',
   });
 
   //destructuring to use above values directly
@@ -86,21 +80,15 @@ const MoviePage = () => {
     score,
     trailer,
     tvTrailer,
-    trailerPath,
     runtime,
     rating,
-    tvUSRating,
-    tvRating,
     network,
     networkLogo,
     studio,
     studioLogo,
-      lastAir,
-      lastEpisode,
-    trendingMovies,
+    lastAir,
+    lastEpisode,
     relatedMovies,
-    relatedTVInfo,
-    related,
     relatedTV1,
     relatedTV2,
     relatedTV3,
@@ -121,8 +109,7 @@ const MoviePage = () => {
     relatedTVPoster3,
     relatedTVPoster4,
     relatedTVPoster5,
-    title,
-    logo
+    logo,
   } = state;
 
   const imageURL = 'https://image.tmdb.org/t/p/w500';
@@ -136,9 +123,7 @@ const MoviePage = () => {
     const mainData = await API.mediaSearch(title);
     const movieInfo = mainData.data.results[0];
     const {
-      userInput,
       id,
-      mediaType,
       title: movieTitle,
       name,
       release_date,
@@ -149,44 +134,45 @@ const MoviePage = () => {
       vote_average,
       genre_ids,
     } = movieInfo;
-    const trailerData = await API.trailerSearch(id, mainData.data.results[0].media_type);
+    const trailerData = await API.trailerSearch(
+      id,
+      mainData.data.results[0].media_type
+    );
     const trailerInfo = trailerData.data;
-    const ratingData = await API.ratingSearch(id, mainData.data.results[0].media_type);
-    // const { results } = ratingData.data;
-    // const usRating = results.find((el) => el.iso_3166_1 === 'US');
-    // const rating = usRating.release_dates.find((el) => el.certification !== '');
+    // const ratingData = await API.ratingSearch(
+    //   id,
+    //   mainData.data.results[0].media_type
+    // );
     const relatedData = await API.relatedMoviesSearch(id);
     const relatedInfo = relatedData.data;
-    // const tvRatingData = await API.ratingSearch(id, mainData.data.results[0].media_type);
-    // const { results2 } = tvRatingData.data;
-    // const tvUSRating = results2.find((el) => el.iso_3166_1 === 'US');
-    // const tvRating = tvUSRating;
-    const relatedTVData = await API.relatedTVSearch(id, mainData.data.results[0].media_type);
+
+    const relatedTVData = await API.relatedTVSearch(
+      id,
+      mainData.data.results[0].media_type
+    );
     const relatedTVInfo = relatedTVData.data;
-    const tvTrailerData = await API.tvTrailerSearch(id, mainData.data.results[0].media_type);
+    const tvTrailerData = await API.tvTrailerSearch(
+      id,
+      mainData.data.results[0].media_type
+    );
     const tvTrailerInfo = tvTrailerData.data;
     const trendingMoviesData = await API.trendingMoviesSearch();
-    const trendingMoviesInfo = trendingMoviesData.data;
+    // const trendingMoviesInfo = trendingMoviesData.data;
     const trendingTVData = await API.trendingTVSearch();
     const trendingTVInfo = trendingTVData.data;
 
-    // console.log({ mainData, id, trailerData, ratingData });
     console.log('main call: ', mainData);
     console.log('trailer call: ', trailerData);
     console.log('TV trailer call: ', tvTrailerData);
-    // console.log('rating call: ', ratingData);
     console.log('related movies call: ', relatedData);
     console.log('related TV call: ', relatedTVData);
     console.log('trending movies call: ', trendingMoviesData);
     console.log('trending TV call: ', trendingTVData);
-    // console.log('TV rating call: ', tvRatingData);
     console.log('tvTrailerInfo: ', tvTrailerInfo.data);
     console.log('relatedTVData.data ', relatedTVData.data);
     console.log('relatedTVInfo', relatedTVInfo.results[0].name);
     console.log('trendingTVPoster1: ', trendingTVPoster1);
     console.log('lastEpisode: ', lastEpisode);
-    // console.log('tvRatingData.data: ', tvRatingData.data);
- 
 
     setState({
       ...state,
@@ -205,18 +191,29 @@ const MoviePage = () => {
       trailer: `${trailerURL}` + trailerInfo.videos.results[0].key,
       tvTrailer: `${trailerURL}` + tvTrailerInfo.videos.results[0].key,
       runtime: trailerInfo.runtime,
-      // rating: rating.certification,
-      // tvRating: tvUSRating.rating,
-      // rating: mainData.data.results[0].media_type === 'movie' ? rating.certification : tvUSRating.rating,
-      logo: mainData.data.results[0].media_type === 'movie' ? `${imageURL}` + trailerInfo.production_companies[1].logo_path : `${imageURL}` + tvTrailerInfo.networks[0].logo_path ,
-      // networkLogo: mainData.data.results[0].media_type === 'tv' ? `${imageURL}` + tvTrailerInfo.networks[0].logo_path : 'movie path to icon goes here',
-      network: mainData.data.results[0].media_type === 'tv' ? tvTrailerInfo.networks[0].name : 'tv studio icon goes here',
-      studio: mainData.data.results[0].media_type === 'movie' ? trailerInfo.production_companies[0].name : 'movie studio icon goes here',
-      lastAir: mainData.data.results[0].media_type === 'tv' ? tvTrailerInfo.last_air_date : ' no last air date for movies',
-      lastEpisode: mainData.data.results[0].media_type === 'tv' ? tvTrailerInfo.last_episode_to_air.name : ' no last episode for movies',
-      
+      logo:
+        mainData.data.results[0].media_type === 'movie'
+          ? `${imageURL}` + trailerInfo.production_companies[1].logo_path
+          : `${imageURL}` + tvTrailerInfo.networks[0].logo_path,
+      network:
+        mainData.data.results[0].media_type === 'tv'
+          ? tvTrailerInfo.networks[0].name
+          : 'tv studio icon goes here',
+      studio:
+        mainData.data.results[0].media_type === 'movie'
+          ? trailerInfo.production_companies[0].name
+          : 'movie studio icon goes here',
+      lastAir:
+        mainData.data.results[0].media_type === 'tv'
+          ? tvTrailerInfo.last_air_date
+          : ' no last air date for movies',
+      lastEpisode:
+        mainData.data.results[0].media_type === 'tv'
+          ? tvTrailerInfo.last_episode_to_air.name
+          : ' no last episode for movies',
+
       relatedMovies: relatedInfo.results,
-      
+
       relatedTV1: relatedTVInfo.results[0].name,
       relatedTV2: relatedTVInfo.results[1].name,
       relatedTV3: relatedTVInfo.results[2].name,
@@ -274,9 +271,8 @@ const MoviePage = () => {
         <Row>
           <Col m={6}>
             {/* { mediaType==='movie' ? ( logos='studio'): ( logos='network'), */}
-         
-            {
-            id ? (
+
+            {id ? (
               <ResultsCard
                 title={movie}
                 title2={tvShow}
@@ -311,22 +307,20 @@ const MoviePage = () => {
             )}
           </Col>
           <Col m={3}>
-
-          {!mediaType ? (
+            {!mediaType ? (
               <Card className='blue-grey darken-1 discover' title='DISCOVER'>
-              This area will display trailers for the discovery feature.
-            </Card>
+                This area will display trailers for the discovery feature.
+              </Card>
             ) : (
               console.log('.')
             )}
 
-
-            {mediaType ==='tv' ? (
+            {mediaType === 'tv' ? (
               <Trailer trailer={tvTrailer} />
             ) : (
               console.log('No movie trailer available.')
             )}
-            {mediaType ==='movie' ? (
+            {mediaType === 'movie' ? (
               <Trailer trailer={trailer} />
             ) : (
               console.log('No TV trailer available.')
