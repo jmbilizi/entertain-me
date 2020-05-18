@@ -127,8 +127,8 @@ const Celebrities = () => {
             />
           </Col>
           <Col m={4}>
-            <h2>{state.name}</h2>
-            <h6>Appearances</h6>
+            <h2 className='celeb-title'>{state.name}</h2>
+            <h6 className='title'>Appearances</h6>
             <a href={state.known1Img}>
               <img
                 className='known'
@@ -171,17 +171,15 @@ const Celebrities = () => {
             <br></br>
           </Col>
           <Col m={3}>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <h6>Biography</h6>
+
+            <h6 className='title'>Biography</h6>
+            <p className='celeb-biography'>
             {_.truncate(state.biography, {
               length: 300,
               separator: '...',
             })}
-            <h6>Trending Celebrities</h6>
+            </p>
+            <h6 className='title'>Trending Celebrities</h6>
 
             <img
               className='trending-celeb-images'

@@ -92,7 +92,7 @@ export const ContainerWrapper = styled(Container)`
   margin: 0;
   width: 100vw;
   max-width: 1500px;
-
+ 
   .search-input input[type=text]:focus {
     border-bottom: 1px solid #cfb53b;
     box-shadow: 0 1px 0 0 #000;
@@ -141,11 +141,15 @@ export const ContainerWrapper = styled(Container)`
     float: left;
     margin-right: 0.5em;
     border: solid 2px #212121;
+    color: #bdbdbd;
   }
   .celeb-profile-pic {
     width: 375px;
     height: 555px;
     border: solid 2px #212121;
+  }
+  .celeb-appearances-overview, .celeb-biography,.celeb-title{
+    color: #bdbdbd;
   }
   .title{
     color: #cfb53b;
