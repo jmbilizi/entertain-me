@@ -1,14 +1,14 @@
-// var mongoose = require("mongoose");
-var passport = require("passport");
-var settings = require("../config/settings");
-require("../config/passport")(passport);
-var express = require("express");
-var jwt = require("jsonwebtoken");
+// var mongoose = require('mongoose');
+var passport = require('passport');
+var settings = require('../config/settings');
+require('../config/passport')(passport);
+var express = require('express');
+var jwt = require('jsonwebtoken');
 var router = express.Router();
-var User = require("../models/user");
+var User = require('../models/user');
 
 // Create a router for signup or register the new user.
-router.post("/register", function (req, res) {
+router.post('/register', function (req, res) {
   if (
     !req.body.username ||
     !req.body.password ||
@@ -17,7 +17,7 @@ router.post("/register", function (req, res) {
   ) {
     res.json({
       success: false,
-      msg: "Please pass first name, last name, username and password.",
+      msg: 'Please pass first name, last name, username and password.',
     });
   } else {
     var newUser = new User({
@@ -29,16 +29,16 @@ router.post("/register", function (req, res) {
     // save the user
     newUser.save(function (err) {
       if (err) {
-        return res.json({ success: false, msg: "Username already exists." });
+        return res.json({ success: false, msg: 'Username already exists.' });
       }
-      res.json({ success: true, msg: "Successful created new user." });
+      res.json({ success: true, msg: 'Successful created new user.' });
     });
   }
 });
 
 // Create a router for login or sign-in.
 
-router.post("/login", function (req, res) {
+router.post('/login', function (req, res) {
   User.findOne(
     {
       username: req.body.username,
@@ -49,7 +49,7 @@ router.post("/login", function (req, res) {
       if (!user) {
         res.status(401).json({
           success: false,
-          msg: "Authentication failed. User not found.",
+          msg: 'Authentication failed. User not found.',
         });
       } else {
         // check if password matches
@@ -58,11 +58,11 @@ router.post("/login", function (req, res) {
             // if user is found and password is right create a token
             var token = jwt.sign(user.toJSON(), settings.secret);
             // return the information including token as JSON
-            res.json({ success: true, token: "JWT " + token });
+            res.json({ success: true, token: 'JWT ' + token });
           } else {
             res.status(401).json({
               success: false,
-              msg: "Authentication failed. Wrong password.",
+              msg: 'Authentication failed. Wrong password.',
             });
           }
         });
