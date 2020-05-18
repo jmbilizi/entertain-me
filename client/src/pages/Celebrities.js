@@ -3,7 +3,7 @@ import 'materialize-css';
 import { Container, Row, Col } from 'react-materialize';
 import _ from 'lodash';
 
-import CelebSearchBar from '../components/SearchBar';
+import CelebSearchBar from '../components/CelebSearchBar';
 import { ContainerWrapper } from '../assets/styles';
 import API from '../utils/API';
 
