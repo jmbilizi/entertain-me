@@ -7,9 +7,13 @@ import { ContainerWrapper, DarkWrapper } from '../assets/styles';
 import ResultsCard from '../components/ResultsCard';
 import SearchBar from '../components/SearchBar';
 import Trailer from '../components/Trailer';
+import TrailerDefault from '../components/TrailerDefault';
 import Favorites from '../components/Favorites';
+import TrendingDefault from '../components/TrendingDefault';
 import Trending from '../components/Trending';
 import RelatedCard from '../components/RelatedCard';
+import RelatedCardDefault from '../components/RelatedCardDefault';
+import DiscoverCardDefault from '../components/DiscoverCardDefault';
 import API from '../utils/API';
 
 const MoviePage = () => {
@@ -372,7 +376,6 @@ const MoviePage = () => {
   };
 
   return (
-    
     <ContainerWrapper>
       {/* <DarkWrapper> */}
       <Container>
@@ -408,10 +411,7 @@ const MoviePage = () => {
                 lastEpisode={lastEpisode}
               />
             ) : (
-              <Card className='blue-grey darken-1 discover' title='DISCOVER'>
-                This area will display info about a random movie or TV show that
-                is related to one of the user's favorites.
-              </Card>
+              <DiscoverCardDefault />
             )}
 
             {id ? (
@@ -428,19 +428,22 @@ const MoviePage = () => {
                 trending10={trending10}
               />
             ) : (
-              <Card className='blue-grey darken-1 trending' title='TRENDING'>
-                This area will display general trending info.
-              </Card>
+              <TrendingDefault
+                trending1={trending1}
+                trending2={trending2}
+                trending3={trending3}
+                trending4={trending4}
+                trending5={trending5}
+                trending6={trending6}
+                trending7={trending7}
+                trending8={trending8}
+                trending9={trending9}
+                trending10={trending10}
+              />
             )}
           </Col>
           <Col m={3}>
-            {!mediaType ? (
-              <Card className='blue-grey darken-1 discover' title='DISCOVER'>
-                This area will display trailers for the discovery feature.
-              </Card>
-            ) : (
-              console.log('.')
-            )}
+            {!mediaType ? <TrailerDefault /> : console.log('.')}
 
             {mediaType === 'tv' ? (
               <Trailer trailer={tvTrailer} />
@@ -468,13 +471,7 @@ const MoviePage = () => {
                 relatedPoster5={relatedPoster5}
               />
             ) : (
-              <Card
-                className='blue-grey darken-1 discover-related'
-                title='RELATED'
-              >
-                This area will display a list of movies or TV shows related to
-                the discovery feature.
-              </Card>
+              <RelatedCardDefault />
             )}
           </Col>
           <Col m={3}>
@@ -486,7 +483,6 @@ const MoviePage = () => {
       </Container>
       {/* </DarkWrapper> */}
     </ContainerWrapper>
-
   );
 };
 
