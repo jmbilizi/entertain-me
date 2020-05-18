@@ -10,6 +10,7 @@ const SearchBar = ({ userInput, handleInputChange, handleFormSubmit }) => {
                     <form inline='true' onSubmit={handleFormSubmit}>
                         <label hidden>Search for a movie or TV show.</label>
                         <input
+                        className='search-input'
                             type='text'
                             name='userInput'
                             id='userInput'

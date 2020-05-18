@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { Card, Container } from 'react-materialize';
+import styled from "styled-components";
+import { Card, Container } from "react-materialize";
 
 export const ResultsWrapper = styled(Card)`
   .results-card {
@@ -89,6 +89,13 @@ export const ContainerWrapper = styled(Container)`
   margin: 0;
   width: 100vw;
   max-width: 1500px;
+
+  input {
+    color: white;
+  }
+  .search-input::placeholder {
+    color: #424242;
+  }
   .discover {
     min-height: 21em;
     max-height: 21em;
