@@ -10,7 +10,7 @@ const userSeed = [
   {
     fname: 'Jack',
     lname: 'Shephard',
-    username: 'jshephard',
+    username: 'jshephard@gmail.com',
     password: 'mypassword123',
     favorites: [{
       id: 4607,
