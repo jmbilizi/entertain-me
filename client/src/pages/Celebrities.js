@@ -124,7 +124,7 @@ const Celebrities = () => {
 
         <Row>
           <Col m={5}>
-            {userInput ? (
+            {state.name ? (
               <img
                 className="celeb-profile-pic"
                 src={state.profile}
@@ -135,13 +135,13 @@ const Celebrities = () => {
             )}
           </Col>
           <Col m={4}>
-            {userInput ? (
+            {state.name ? (
               <h2 className="celeb-title">{state.name}</h2>
             ) : (
               <h2 className="celeb-title">Celebrities</h2>
             )}
             <h6 className="title">Appearances</h6>
-            {userInput ? (
+            {state.name ? (
               <>
                 <a href={state.known1Img}>
                   <img
@@ -189,7 +189,7 @@ const Celebrities = () => {
              </Col>
           <Col m={3}>
             <h6 className="title">Biography</h6>
-            {userInput ? (
+            {state.name ? (
               <p className="celeb-biography">
                 {_.truncate(state.biography, {
                   length: 300,
@@ -206,7 +206,7 @@ const Celebrities = () => {
             <h6 className="title">Trending Celebrities</h6>
             <br></br>
         
-            {userInput ? (
+            {state.name ? (
               <>
                 <img
                   className="trending-celeb-images"
