@@ -13,10 +13,10 @@ const userSeed = [
     username: 'jshephard@gmail.com',
     password: 'mypassword123',
     favorites: [{
-      id: 4607,
+      media_id: 4607,
       media_type: 'tv',
-      name: 'Lost',
-      addedDate: new Date(Date.now())
+      media_name: 'Lost',
+      added_date: new Date(Date.now())
     }]
   }
 ];
