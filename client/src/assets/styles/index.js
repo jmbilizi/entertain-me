@@ -114,6 +114,10 @@ export const ContainerWrapper = styled(Container)`
     max-height: 21em;
     border: solid 2px #212121;
   }
+  .trailers-default {
+    min-height: 10em;
+    max-height: 10em;
+  }
   .remove {
     cursor: pointer;
     color: lightGray;
@@ -148,7 +152,7 @@ export const ContainerWrapper = styled(Container)`
     height: 555px;
     border: solid 2px #212121;
   }
-  .celeb-appearances-overview, .celeb-biography,.celeb-title{
+  .celeb-appearances-overview, .celeb-biography,.celeb-title, .default-text{
     color: #bdbdbd;
   }
   .title{
