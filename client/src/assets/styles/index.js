@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { Card, Container } from 'react-materialize';
+import styled from "styled-components";
+import { Card, Container } from "react-materialize";
 
 export const ResultsWrapper = styled(Card)`
   position: relative;
@@ -93,7 +93,7 @@ export const ContainerWrapper = styled(Container)`
   width: 100vw;
   max-width: 1500px;
 
-  .search-input input[type='text']:focus {
+  .search-input input[type="text"]:focus {
     border-bottom: 1px solid #cfb53b;
     box-shadow: 0 1px 0 0 #000;
   }
@@ -164,9 +164,10 @@ export const ContainerWrapper = styled(Container)`
   .frame {
     border: #212121 2px solid;
   }
-`;
 
-// export const DarkWrapper = styled(Container)`
-//   background-color: black;
-//   color: gray;
-// `;
+  .home-placeholder {
+    width: 325px;
+    height: 225px;
+   
+  }
+`;

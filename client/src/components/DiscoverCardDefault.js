@@ -1,11 +1,8 @@
 import React from 'react';
-import { Row, Col, Card, MediaBox } from 'react-materialize';
+import { MediaBox } from 'react-materialize';
 import _ from 'lodash';
 
-import { ResultsWrapper } from '../assets/styles';
-import Poster from './Poster';
-
-const ResultsCardDefault = (props) => {
+const ResultsCardDefault = () => {
    return (
     <MediaBox
     id="MediaBox_7"
