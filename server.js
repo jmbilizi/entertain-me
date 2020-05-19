@@ -7,6 +7,7 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 const connectHistoryApiFallback = require('connect-history-api-fallback');
 const auth = require('./routes/auth');
+const favorites = require('./routes/favorites');
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -26,6 +27,8 @@ app.use(
   })
 );
 app.use('/api/auth', auth);
+
+app.use('/api/favorites', favorites);
 
 // Define API routes here
 app.get('/test', (req, res) => {
