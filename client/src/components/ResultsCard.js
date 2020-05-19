@@ -29,9 +29,10 @@ const ResultsCard = (props) => {
       .then((result) => {
         // to do
         // update react state so that media return shows up in array 
+        console.log(result);
       })
       .catch((error) => {
-        
+        debugger;
       });
 
     // pass in media_type, name, and id, as well as user id
