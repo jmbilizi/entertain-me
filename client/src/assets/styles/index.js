@@ -1,10 +1,10 @@
-import styled from "styled-components";
-import { Card, Container } from "react-materialize";
+import styled from 'styled-components';
+import { Card, Container } from 'react-materialize';
 
 export const ResultsWrapper = styled(Card)`
-position: relative;
-top: 2em;
-border: solid 2px #212121;
+  position: relative;
+  top: 2em;
+  border: solid 2px #212121;
   .results-card {
     min-height: 31em;
     max-height: 31em;
@@ -92,8 +92,8 @@ export const ContainerWrapper = styled(Container)`
   margin: 0;
   width: 100vw;
   max-width: 1500px;
- 
-  .search-input input[type=text]:focus {
+
+  .search-input input[type='text']:focus {
     border-bottom: 1px solid #cfb53b;
     box-shadow: 0 1px 0 0 #000;
   }
@@ -152,13 +152,16 @@ export const ContainerWrapper = styled(Container)`
     height: 555px;
     border: solid 2px #212121;
   }
-  .celeb-appearances-overview, .celeb-biography,.celeb-title, .default-text{
+  .celeb-appearances-overview,
+  .celeb-biography,
+  .celeb-title,
+  .default-text {
     color: #bdbdbd;
   }
-  .title{
+  .title {
     color: #cfb53b;
   }
-  .frame{
+  .frame {
     border: #212121 2px solid;
   }
 `;
