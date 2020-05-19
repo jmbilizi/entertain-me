@@ -27,19 +27,18 @@ var UserSchema = new Schema({
     required: true,
   },
   favorites: [{
-    id: {
+    media_id: {
       type: Number,
       required: true,
     },
     media_type: {
       type: String,
-      required: true,
     },
-    name: {
+    media_name: {
       type: String,
       required: true,
     },
-    addedDate: { 
+    added_date: { 
       type: Date, 
       default: Date.now 
     }
