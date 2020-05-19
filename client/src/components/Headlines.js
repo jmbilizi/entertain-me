@@ -30,7 +30,7 @@ export default function Headlines(speed = 0.04, direction = 'left') {
   return (
     <div
       style={{
-        width: '1200px',
+        width: '1050px',
         whiteSpace: 'nowrap',
         color: 'white',
       }}
