@@ -28,7 +28,8 @@ const MoviePage = () => {
     id: '',
     backdrop: '',
     genre: '',
-    score: '',
+    genre2:''
+ ,   score: '',
     trailer: '',
     tvTrailer: '',
     runtime: '',
@@ -78,6 +79,7 @@ const MoviePage = () => {
     id,
     backdrop,
     genre,
+    genre2,
     score,
     trailer,
     tvTrailer,
@@ -195,7 +197,8 @@ const MoviePage = () => {
       poster: `${imageURL}` + poster_path,
       id: id,
       backdrop: `${imageURL}` + backdrop_path,
-      genre: trailerInfo.genres[0].name + ', ' + trailerInfo.genres[1].name,
+      genre: trailerInfo.genres[0].name,
+      // genre2: trailerInfo.genres[1].name,
       score: vote_average,
       trailerPath: trailerInfo.videos.results[0].key,
       trailer: `${trailerURL}` + trailerInfo.videos.results[0].key,
@@ -209,10 +212,10 @@ const MoviePage = () => {
         mainData.data.results[0].media_type === 'movie'
           ? rating.certification
           : usRating.rating,
-      logo:
-        mainData.data.results[0].media_type === 'movie'
-          ? `${imageURL}` + tvTrailerInfo.production_companies[1].logo_path
-          : `${imageURL}` + tvTrailerInfo.networks[0].logo_path,
+      // logo:
+      //   mainData.data.results[0].media_type === 'movie'
+      //     ? `${imageURL}` + tvTrailerInfo.production_companies[1].logo_path
+      //     : `${imageURL}` + tvTrailerInfo.networks[0].logo_path,
       network:
         mainData.data.results[0].media_type === 'tv'
           ? tvTrailerInfo.networks[0].name
@@ -272,7 +275,7 @@ const MoviePage = () => {
               trendingInfo.results[0].title,
             ],
       trending2:
-        mainData.data.results[1].media_type === 'tv'
+      mainData.data.results[0].media_type === 'tv'
           ? [
               `${imageURL}` + trendingInfo.results[1].poster_path,
               trendingInfo.results[1].name,
@@ -282,7 +285,7 @@ const MoviePage = () => {
               trendingInfo.results[1].title,
             ],
       trending3:
-        mainData.data.results[2].media_type === 'tv'
+      mainData.data.results[0].media_type === 'tv'
           ? [
               `${imageURL}` + trendingInfo.results[2].poster_path,
               trendingInfo.results[2].name,
@@ -292,7 +295,7 @@ const MoviePage = () => {
               trendingInfo.results[2].title,
             ],
       trending4:
-        mainData.data.results[3].media_type === 'tv'
+      mainData.data.results[0].media_type === 'tv'
           ? [
               `${imageURL}` + trendingInfo.results[3].poster_path,
               trendingInfo.results[3].name,
@@ -302,7 +305,7 @@ const MoviePage = () => {
               trendingInfo.results[3].title,
             ],
       trending5:
-        mainData.data.results[4].media_type === 'tv'
+      mainData.data.results[0].media_type === 'tv'
           ? [
               `${imageURL}` + trendingInfo.results[4].poster_path,
               trendingInfo.results[4].name,
@@ -312,7 +315,7 @@ const MoviePage = () => {
               trendingInfo.results[4].title,
             ],
       trending6:
-        mainData.data.results[5].media_type === 'tv'
+      mainData.data.results[0].media_type === 'tv'
           ? [
               `${imageURL}` + trendingInfo.results[5].poster_path,
               trendingInfo.results[5].name,
@@ -322,7 +325,7 @@ const MoviePage = () => {
               trendingInfo.results[5].title,
             ],
       trending7:
-        mainData.data.results[6].media_type === 'tv'
+      mainData.data.results[0].media_type === 'tv'
           ? [
               `${imageURL}` + trendingInfo.results[6].poster_path,
               trendingInfo.results[6].name,
@@ -332,7 +335,7 @@ const MoviePage = () => {
               trendingInfo.results[6].title,
             ],
       trending8:
-        mainData.data.results[7].media_type === 'tv'
+      mainData.data.results[0].media_type === 'tv'
           ? [
               `${imageURL}` + trendingInfo.results[7].poster_path,
               trendingInfo.results[7].name,
@@ -342,7 +345,7 @@ const MoviePage = () => {
               trendingInfo.results[7].title,
             ],
       trending9:
-        mainData.data.results[8].media_type === 'tv'
+      mainData.data.results[0].media_type === 'tv'
           ? [
               `${imageURL}` + trendingInfo.results[8].poster_path,
               trendingInfo.results[8].name,
@@ -352,7 +355,7 @@ const MoviePage = () => {
               trendingInfo.results[8].title,
             ],
       trending10:
-        mainData.data.results[9].media_type === 'tv'
+      mainData.data.results[0].media_type === 'tv'
           ? [
               `${imageURL}` + trendingInfo.results[9].poster_path,
               trendingInfo.results[9].name,
@@ -406,7 +409,7 @@ const MoviePage = () => {
                 rating={rating}
                 network={network}
                 provider={provider}
-                logo={logo}
+                // logo={logo}
                 lastAir={lastAir}
                 lastEpisode={lastEpisode}
               />

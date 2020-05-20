@@ -28,11 +28,11 @@ const ResultsCard = (props) => {
         <Row>
           <Col m={1}></Col>
           <Col>
-            <img
+            {/* <img
               className='network-logo'
               src={props.logo}
               alt={props.provider}
-            />
+            /> */}
             <img
               className='backdrop-image'
               src={props.backdrop}
