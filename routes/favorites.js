@@ -6,6 +6,7 @@ var User = require('../models/user');
 router.put('/', function (req, res) {
     const givenId = req.body.userId;
     const givenMediaId = req.body.mediaId;
+    const givenMediaName = req.body.mediaName;
     // find user and update
 
     console.log(req.body);
@@ -21,7 +22,7 @@ router.put('/', function (req, res) {
     db.User.findOneAndUpdate({_id: givenId}, {
         $push: { favorites: 
             { 
-              media_name: mediaName, 
+              media_name: givenMediaName, 
               media_id: givenMediaId, 
               media_type: "tv" 
             }
