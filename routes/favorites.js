@@ -37,5 +37,20 @@ router.put('/', function (req, res) {
           });
 
 });
+// this might not belong in favorites router file, may require more auth
+router.get('/', function (req, res) {
+    const givenId = req.params.userId;
+
+    db.User.findById(givenId)
+      .then(user => {
+        const favorites = user.favorites;
+        res.json(favorites);
+      })
+      .catch(err => {
+        res.status(400).json(err);
+      });
+
+
+});
 
 module.exports = router;
