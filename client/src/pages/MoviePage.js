@@ -16,7 +16,7 @@ import RelatedCardDefault from '../components/RelatedCardDefault';
 import DiscoverCardDefault from '../components/DiscoverCardDefault';
 import API from '../utils/API';
 
-const MoviePage = () => {
+const MoviePage = ({ favorites }) => {
   const [state, setState] = useState({
     userInput: '',
     mediaType: '',
@@ -486,9 +486,9 @@ const MoviePage = () => {
               )}
           </Col>
           <Col m={3}>
-            <Favorites heading={'MY MOVIES'} />
+            <Favorites heading={'MY MOVIES'} favorites={ favorites } />
             {/* <br></br> */}
-            <Favorites heading={'MY SHOWS'} />
+            <Favorites heading={'MY SHOWS'} favorites={ favorites } />
           </Col>
         </Row>
       </Container>
