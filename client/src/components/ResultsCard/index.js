@@ -1,38 +1,30 @@
 import React from 'react';
 import { Row, Col } from 'react-materialize';
 import _ from 'lodash';
-// import jwt from 'jsonwebtoken';
-import jwtDecode from 'jwt-decode';
 import axios from "axios";
+import helpers from "../../utils/helpers";
 
 import { ResultsWrapper } from '../../assets/styles';
 import Poster from '../Poster';
 
-function getCurrentUserId() {
-  const userToken = localStorage.getItem("jwtToken");
-  console.log(userToken);
-  const decodedToken = jwtDecode(userToken);
-  console.log(decodedToken);
-  return decodedToken._id
-}
-
 const ResultsCard = (props) => {
   const addFavorite = () => {
     alert('ADDED TO FAVORITES');
-    const userId = getCurrentUserId();
-    console.log(userId);
+    const userId = helpers.getCurrentUserId();
+    console.log("props: ", props);
     const mediaName = props.selection;
+    const mediaType = props.mediaType;
     // hit put route to add favorite to current user
     console.log(props);
     axios
-      .put("/api/favorites", { userId, mediaName, mediaId: props.id })
+      .put("/api/favorites", { userId, mediaName, mediaId: props.id, mediaType })
       .then((result) => {
         // to do
         // update react state so that media return shows up in array 
         console.log(result);
       })
       .catch((error) => {
-        debugger;
+        console.log(error);
       });
 
     // pass in media_type, name, and id, as well as user id
