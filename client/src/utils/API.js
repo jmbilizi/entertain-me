@@ -4,7 +4,7 @@ const apiKey = keys.tmdbApiKey
 
 export default {
   // API call for initial tv or movie details -- need to credit
-  mediaSearch: function (title) {
+  mainSearch: function (title) {
     return axios.get(
       `https://api.themoviedb.org/3/search/multi?api_key=${apiKey}&language=en-US&query=${title}&page=1&include_adult=false`
     );

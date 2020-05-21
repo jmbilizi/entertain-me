@@ -58,11 +58,6 @@ const MoviePage = () => {
     trending8: '',
     trending9: '',
     trending10: '',
-    relatedPoster1: '',
-    relatedPoster2: '',
-    relatedPoster3: '',
-    relatedPoster4: '',
-    relatedPoster5: '',
     star1: '',
     star2: '',
     director: '',
@@ -106,11 +101,6 @@ const MoviePage = () => {
     trending8,
     trending9,
     trending10,
-    relatedPoster1,
-    relatedPoster2,
-    relatedPoster3,
-    relatedPoster4,
-    relatedPoster5,
     star1,
     star2,
     director,
@@ -127,7 +117,7 @@ const MoviePage = () => {
       return alert('Enter a movie or tv show title.');
     }
 
-    const mainData = await API.mediaSearch(entry);
+    const mainData = await API.mainSearch(entry);
     const searchInfo = mainData.data.results[0];
     const {
       id,
@@ -259,29 +249,23 @@ const MoviePage = () => {
       related1:
         mainData.data.results[0].media_type === 'tv'
           ? relatedInfo.results[0].name
-          : relatedInfo.results[0].original_title,
+          : [relatedInfo.results[0].original_title,`${imageURL}` + relatedInfo.results[0].poster_path],
       related2:
         mainData.data.results[0].media_type === 'tv'
           ? relatedInfo.results[1].name
-          : relatedInfo.results[1].original_title,
+          : [relatedInfo.results[1].original_title, `${imageURL}` + relatedInfo.results[1].poster_path],
       related3:
         mainData.data.results[0].media_type === 'tv'
           ? relatedInfo.results[2].name
-          : relatedInfo.results[2].original_title,
+          : [relatedInfo.results[2].original_title, `${imageURL}` + relatedInfo.results[2].poster_path],
       related4:
         mainData.data.results[0].media_type === 'tv'
           ? relatedInfo.results[3].name
-          : relatedInfo.results[3].original_title,
+          : [relatedInfo.results[3].original_title, `${imageURL}` + relatedInfo.results[3].poster_path],
       related5:
         mainData.data.results[0].media_type === 'tv'
           ? relatedInfo.results[4].name
-          : relatedInfo.results[4].original_title,
-
-      relatedPoster1: `${imageURL}` + relatedInfo.results[0].poster_path,
-      relatedPoster2: `${imageURL}` + relatedInfo.results[1].poster_path,
-      relatedPoster3: `${imageURL}` + relatedInfo.results[2].poster_path,
-      relatedPoster4: `${imageURL}` + relatedInfo.results[3].poster_path,
-      relatedPoster5: `${imageURL}` + relatedInfo.results[4].poster_path,
+          : [relatedInfo.results[4].original_title, `${imageURL}` + relatedInfo.results[4].poster_path],
 
       trending1:
         mainData.data.results[0].media_type === 'tv'
@@ -384,7 +368,7 @@ const MoviePage = () => {
             trendingInfo.results[9].title,
           ],
     });
-    console.log(`state: `, state);
+   
   }
 
   const handleInputChange = (e) => {
@@ -486,16 +470,16 @@ const MoviePage = () => {
               <RelatedCard
                 className='related'
                 heading={'RELATED'}
-                related1={related1}
-                related2={related2}
-                related3={related3}
-                related4={related4}
-                related5={related5}
-                relatedPoster1={relatedPoster1}
-                relatedPoster2={relatedPoster2}
-                relatedPoster3={relatedPoster3}
-                relatedPoster4={relatedPoster4}
-                relatedPoster5={relatedPoster5}
+                title1={related1[0]}
+                title2={related2[0]}
+                title3={related3[0]}
+                title4={related4[0]}
+                title5={related5[0]}
+                poster1={related1[1]}
+                poster2={related2[1]}
+                poster3={related3[1]}
+                poster4={related4[1]}
+                poster5={related5[1]}
               />
             ) : (
                 <RelatedCardDefault />
