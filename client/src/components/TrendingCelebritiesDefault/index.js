@@ -15,7 +15,7 @@ const DefaultCelebAppearances = () => {
           />
           <img
             className="trending-celeb-images"
-            src={require('../../src/assets/images/Vin-Diesel.jpg')}
+            src={require('../../../src/assets/images/Vin-Diesel.jpg')}
             title="Vin Diesel"
             alt="default trending celebrities"
           />

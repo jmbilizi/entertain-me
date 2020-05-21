@@ -5,8 +5,8 @@ import _ from 'lodash';
 import jwtDecode from 'jwt-decode';
 import axios from "axios";
 
-import { ResultsWrapper } from '../assets/styles';
-import Poster from './Poster';
+import { ResultsWrapper } from '../../assets/styles';
+import Poster from '../Poster';
 
 function getCurrentUserId () {
   const userToken = localStorage.getItem("jwtToken");

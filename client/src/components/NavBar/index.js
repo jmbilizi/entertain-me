@@ -1,7 +1,7 @@
 import React from "react";
 import { Navbar, Icon, NavItem, Switch } from "react-materialize";
 import { Link } from "react-router-dom";
-import img from "../assets/images/logo.png";
+import img from "../../assets/images/logo.png";
 
 const NavBar = (props) => {
   const { token } = props;
