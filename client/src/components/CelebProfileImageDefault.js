@@ -5,7 +5,7 @@ const CelebProfileImageDefault = () => {
     <>
       <img
         className="celeb-profile-pic"
-        src={require("../assets/images/celeb.jpg")}
+        src='https://cdnb.artstation.com/p/assets/images/images/012/495/033/large/milan-simic-rock.jpg?1535067035'
         alt="celebrity profile pic"
       />
     </>
@@ -13,3 +13,4 @@ const CelebProfileImageDefault = () => {
 };
 
 export default CelebProfileImageDefault;
+

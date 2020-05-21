@@ -3,34 +3,36 @@ import React from "react";
 const DefaultCelebAppearances = () => {
   return (
     <>
+      <h6 className="appearances-title">Appearances</h6>
       <img
         className="trending-celeb-images"
-        src="https://lh3.googleusercontent.com/proxy/LHC5iDE6XOImGaMlK52pQXnSa9KvFJcBfZe1ZmPBPgJhh3iL8IKSL0N2DeWYLpKtyP_mPSk-RQKCAeeSmh2pPvO0A7ondGt1iSFQEkZs-HBJmyvkAr8"
+        src="https://i.pinimg.com/originals/c2/d1/e8/c2d1e8ba4e5b23bbad9bf78b695da39a.jpg"
+        title="pic1"
+        alt="default trending celebrities"
+      />
+      <p className="celeb-appearances-overview">
+        That's all he can stands, 'cause he can't stands no more!
+      </p>
+      <br></br><br></br>
+      <img
+        className="trending-celeb-images"
+        src="https://i2.wp.com/www.geeksaresexy.net/wp-content/uploads/2020/04/movie1.jpg?resize=600%2C892&ssl=1"
         title="pic2"
         alt="default trending celebrities"
       />
       <p className="celeb-appearances-overview">
-       A description of the celebrity's movie or tv show will be displayed here.
+        If there's one thing he hates, it's grime.
+        And when they play dirty, he cleans 'em up.
       </p>
       <br></br>
       <img
         className="trending-celeb-images"
-        src="https://lh3.googleusercontent.com/proxy/FNgNEADA7n2HlVakNrzHf4mXwhP_JjHwhbSYx4Mf_fCLl5LGKgeSmfeZDW-mCRXoAEsCjODjWYYMq4sLefmEe2diZmz3DmsVVuu5xpMlRbcmE8BXr-L1YipGgWJD168PBceoM8jWzZ-8Fg"
-        title="pic3"
+        src="https://external-preview.redd.it/Cm_ElRIj0TuO4n8YQZvRz6mpOih7sHEbidTE-JROQjw.jpg?auto=webp&s=6eb4b91a9dc7d63ffb036adb69a6c29e8ce1fc7c"
+        title="pic4"
         alt="default trending celebrities"
       />
       <p className="celeb-appearances-overview">
-      A description of the celebrity's movie or tv show will be displayed here.
-      </p>
-      <br></br>
-      <img
-        className="trending-celeb-images"
-        src="https://i.pinimg.com/236x/dc/c7/7d/dcc77dd66d1cf6533009ec15dc518fdf--aquaman-live-long.jpg"
-        title="pic3"
-        alt="default trending celebrities"
-      />
-      <p className="celeb-appearances-overview">
-      A description of the celebrity's movie or tv show will be displayed here.
+        A description of the celebrity's movie or tv show will be displayed here.
       </p>
     </>
   );
