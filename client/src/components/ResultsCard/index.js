@@ -102,13 +102,12 @@ const ResultsCard = (props) => {
                 Release: <strong>{props.release}</strong>
               </p>
               <p>
-                Genre: <strong>{props.genre}</strong>
+                Genre: <strong>{props.genre}<br></br>{props.genre2}</strong>
               </p>
               <p>
                 Rating:{' '}
                 <strong>
                   {props.rating}
-                  {/* {props.tvRating} */}
                 </strong>
               </p>
               <p>
