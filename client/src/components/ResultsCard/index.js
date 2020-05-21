@@ -8,7 +8,7 @@ import axios from "axios";
 import { ResultsWrapper } from '../../assets/styles';
 import Poster from '../Poster';
 
-function getCurrentUserId () {
+function getCurrentUserId() {
   const userToken = localStorage.getItem("jwtToken");
   console.log(userToken);
   const decodedToken = jwtDecode(userToken);
@@ -116,16 +116,19 @@ const ResultsCard = (props) => {
               <p>
                 Viewer score: <strong>{props.score}</strong>
               </p>
-              <p>movie id: {props.id}</p>
             </div>
           </Col>
           <Col m={4}>
             <div className='stats2'>
-              Last Episode:<br></br>
-              <strong>{props.lastEpisode}</strong>
-              <br></br>
-              Aired:<br></br>
-              <strong>{props.lastAir}</strong>
+              Starring: <strong>{props.star1}, {props.star2}</strong><br></br>
+              {props.mediaType === 'tv' ? (
+                <>
+                  Last Episode:<br></br>
+                  <strong>{props.lastEpisode}</strong>
+                  <br></br>
+                Aired:<br></br>
+                  <strong>{props.lastAir}</strong>
+                </>) : (<>Directed by:<strong>{props.director} & {props.director2}</strong></>)}
               <img
                 className='tmdb'
                 src='https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg'
