@@ -4,7 +4,7 @@ import "./Login.css";
 import LeftSideContent from "./LeftSideContent";
 import { Redirect } from "react-router-dom";
 import { Container, Row, Col, Checkbox } from "react-materialize";
-import { ContainerWrapper } from "../../assets/styles";
+// import { ContainerWrapper } from "../../assets/styles";
 
 class Login extends Component {
   constructor() {
@@ -48,7 +48,6 @@ class Login extends Component {
     const { username, password, message, login } = this.state;
     if (login === true) return <Redirect to={"/"} />;
     return (
-      <ContainerWrapper>
         <Container>
           <Row></Row>
           <Row>
@@ -74,7 +73,7 @@ class Login extends Component {
                         <h3>Sign In</h3>
 
                         <div className="form-group">
-                          <label>Email address</label>
+                          <label>E-mail Address</label>
                           <input
                             name="username"
                             value={username}
@@ -134,7 +133,6 @@ class Login extends Component {
             <Col s={6}></Col>
           </Row>
         </Container>
-      </ContainerWrapper>
     );
   }
 }
