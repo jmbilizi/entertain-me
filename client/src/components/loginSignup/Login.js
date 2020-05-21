@@ -37,13 +37,13 @@ class Login extends Component {
         this.setState({ login: true });
       axios
         .get("/api/favorites", { params: { userId: helpers.getCurrentUserId() } })
-        .then((favoriteResult) => {
-          console.log(favoriteResult.data);
+        .then((data) => {
           //pass back wherever favorite result array is
-          this.props.setFavorites(favoriteResult);
+          console.log(data);
+          // this.props.setFavorites(favoriteResult);
         })
         .catch((error) => {
-          debugger;
+          console.log(error);
         })
       })
       .catch((error) => {
