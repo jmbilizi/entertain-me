@@ -46,7 +46,7 @@ class Login extends Component {
 
   render() {
     const { username, password, message, login } = this.state;
-    if (login === true) return <Redirect to={"/home"} />;
+    if (login === true) return <Redirect to={"/"} />;
     return (
       <ContainerWrapper>
         <Container>

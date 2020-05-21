@@ -149,17 +149,25 @@ export const ContainerWrapper = styled(Container)`
   }
   .celeb-profile-pic {
     width: 375px;
-    height: 555px;
-    border: solid 2px #212121;
+    height: 475px;
+      border: solid 2px #212121;
   }
   .celeb-appearances-overview,
   .celeb-biography,
-  .celeb-title,
+  .celeb-name,
   .default-text {
     color: #bdbdbd;
   }
-  .title {
+  .celeb-name{
+    position: relative;
+    bottom: .75em;
+  }
+  .appearances-title{
     color: #cfb53b;
+    margin-bottom: 1em;
+  }
+  .biography-title, .trending-celeb-title, .title{
+   color: #cfb53b;
   }
   .frame {
     border: #212121 2px solid;

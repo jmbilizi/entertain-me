@@ -131,18 +131,19 @@ const Celebrities = () => {
                 alt={state.name}
               />
             ) : (
-              <DefaultCelebProfileImage />
-            )}
+                <DefaultCelebProfileImage />
+              )}
           </Col>
           <Col m={4}>
             {state.name ? (
-              <h2 className="celeb-title">{state.name}</h2>
+              <h2 className="celeb-name">{state.name}</h2>
             ) : (
-              <h2 className="celeb-title">Celebrities</h2>
-            )}
-            <h6 className="title">Appearances</h6>
+                <h2 className="celeb-name">Celebrities</h2>
+              )}
+
             {state.name ? (
               <>
+                <h6 className="appearances-title">Appearances</h6>
                 <a href={state.known1Img}>
                   <img
                     className="known"
@@ -184,30 +185,34 @@ const Celebrities = () => {
                 </p>
               </>
             ) : (
-              <DefaultCelebAppearances />
-            )}
-             </Col>
+                <DefaultCelebAppearances />
+              )}
+          </Col>
           <Col m={3}>
-            <h6 className="title">Biography</h6>
+            {/* <h6 className="biography-title">Biography</h6> */}
             {state.name ? (
-              <p className="celeb-biography">
-                {_.truncate(state.biography, {
-                  length: 300,
-                  separator: "...",
-                })}
-              </p>
-            ) : (
               <>
-              <DefaultCelebBiography />
-              <br></br>
-              <br></br>
+                <h6 className="biography-title">Biography</h6>
+                <p className="celeb-biography">
+                  {_.truncate(state.biography, {
+                    length: 300,
+                    separator: "...",
+                  })}
+                </p>
               </>
-            )}
-            <h6 className="title">Trending Celebrities</h6>
+            ) : (
+                <>
+                  <DefaultCelebBiography />
+                  <br></br>
+                  <br></br>
+                </>
+              )}
+
             <br></br>
-        
+
             {state.name ? (
               <>
+                <h6 className="trending-celeb-title">Trending</h6>
                 <img
                   className="trending-celeb-images"
                   src={state.trending1Img}
@@ -240,8 +245,8 @@ const Celebrities = () => {
                 />
               </>
             ) : (
-              <DefaultTrendingCelebrities />
-            )}
+                <DefaultTrendingCelebrities />
+              )}
           </Col>
         </Row>
       </Container>
