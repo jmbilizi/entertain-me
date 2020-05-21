@@ -66,7 +66,7 @@ const NavBar = (props) => {
           ) : null}
         </NavItem>
         <NavItem></NavItem>
-        <span class="material-icons dark">brightness_medium</span>
+        <span className="material-icons dark">brightness_medium</span>
         <NavItem>
           <Switch
             disabled
