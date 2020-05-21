@@ -117,7 +117,7 @@ const MoviePage = () => {
       return alert('Enter a movie or tv show title.');
     }
 
-    const mainData = await API.mediaSearch(entry);
+    const mainData = await API.mainSearch(entry);
     const searchInfo = mainData.data.results[0];
     const {
       id,
@@ -368,7 +368,7 @@ const MoviePage = () => {
             trendingInfo.results[9].title,
           ],
     });
-    console.log(`state: `, state);
+   
   }
 
   const handleInputChange = (e) => {
