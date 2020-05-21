@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom";
 import "./Login.css";
 import LeftSideContent from "./LeftSideContent";
 import { Container, Row, Col } from "react-materialize";
-import { ContainerWrapper } from "../../assets/styles";
+// import { ContainerWrapper } from "../../assets/styles";
 
 class Create extends Component {
   constructor() {
@@ -39,7 +39,6 @@ class Create extends Component {
     const { fname, lname, username, password, register } = this.state;
     if (register === true) return <Redirect to={"/login"} />;
     return (
-      <ContainerWrapper>
         <Container>
           <Row></Row>
           <Row>
@@ -125,7 +124,6 @@ class Create extends Component {
             <Col s={6}></Col>
           </Row>
         </Container>
-      </ContainerWrapper>
     );
   }
 }

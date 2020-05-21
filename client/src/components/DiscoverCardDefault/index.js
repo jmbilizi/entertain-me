@@ -18,7 +18,7 @@ const ResultsCardDefault = () => {
   >
     <img
       alt=""
-      src={require('../assets/images/scoob.jpg')}
+      src={require('../../assets/images/scoob.jpg')}
       width="500"
     />
   </MediaBox>
