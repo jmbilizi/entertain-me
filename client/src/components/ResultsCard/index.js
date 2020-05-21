@@ -1,25 +1,16 @@
 import React from 'react';
 import { Row, Col } from 'react-materialize';
 import _ from 'lodash';
-// import jwt from 'jsonwebtoken';
-import jwtDecode from 'jwt-decode';
 import axios from "axios";
+import helpers from "../../utils/helpers";
 
 import { ResultsWrapper } from '../../assets/styles';
 import Poster from '../Poster';
 
-function getCurrentUserId() {
-  const userToken = localStorage.getItem("jwtToken");
-  console.log(userToken);
-  const decodedToken = jwtDecode(userToken);
-  console.log(decodedToken);
-  return decodedToken._id
-}
-
 const ResultsCard = (props) => {
   const addFavorite = () => {
     alert('ADDED TO FAVORITES');
-    const userId = getCurrentUserId();
+    const userId = helpers.getCurrentUserId();
     console.log(userId);
     const mediaName = props.selection;
     // hit put route to add favorite to current user

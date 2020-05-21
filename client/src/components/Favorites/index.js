@@ -24,6 +24,9 @@ const Favorites = (props) => {
         </CollectionItem>
       </Collection>
     </>
+
+    // iterate over array and filter by media type
+
   );
 };
 

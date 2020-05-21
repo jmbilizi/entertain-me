@@ -4,6 +4,7 @@ import "./Login.css";
 import LeftSideContent from "./LeftSideContent";
 import { Redirect } from "react-router-dom";
 import { Container, Row, Col, Checkbox } from "react-materialize";
+import helpers from "../../utils/helpers";
 // import { ContainerWrapper } from "../../assets/styles";
 
 class Login extends Component {
@@ -34,6 +35,16 @@ class Login extends Component {
         this.props.setToken(result.data.token);
         this.setState({ message: "" });
         this.setState({ login: true });
+      axios
+        .get("/api/favorites", { params: { userId: helpers.getCurrentUserId() } })
+        .then((favoriteResult) => {
+          console.log(favoriteResult.data);
+          //pass back wherever favorite result array is
+          this.props.setFavorites(favoriteResult);
+        })
+        .catch((error) => {
+          debugger;
+        })
       })
       .catch((error) => {
         if (error.response.status === 401) {
