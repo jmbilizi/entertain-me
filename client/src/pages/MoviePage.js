@@ -28,8 +28,8 @@ const MoviePage = () => {
     id: '',
     backdrop: '',
     genre: '',
-    genre2:''
- ,   score: '',
+    genre2:'',
+    score: '',
     trailer: '',
     tvTrailer: '',
     runtime: '',
@@ -198,7 +198,7 @@ const MoviePage = () => {
       id: id,
       backdrop: `${imageURL}` + backdrop_path,
       genre: trailerInfo.genres[0].name,
-      // genre2: trailerInfo.genres[1].name,
+      genre2: trailerInfo.genres.length > 1 ? (trailerInfo.genres[1].name) : (''),
       score: vote_average,
       trailerPath: trailerInfo.videos.results[0].key,
       trailer: `${trailerURL}` + trailerInfo.videos.results[0].key,
@@ -404,6 +404,7 @@ const MoviePage = () => {
                 id={id}
                 backdrop={backdrop}
                 genre={genre}
+                genre2={genre2}
                 score={score}
                 runtime={runtime}
                 rating={rating}
