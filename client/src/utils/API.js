@@ -29,6 +29,13 @@ export default {
       `https://api.themoviedb.org/3/${mediaType}/${id}/similar?api_key=${apiKey}&language=en-US&page=1`
     );
   },
+
+  // API call for movie credits -- need to credit
+  creditsSearch: function (id, mediaType) {
+    return axios.get(
+      `https://api.themoviedb.org/3/${mediaType}/${id}/credits?api_key=${apiKey}&language=en-US`
+    );
+  },
   // API call for TV poster, trailers, network and next episode -- need to credit
   tvTrailerSearch: function (id, mediaType) {
     return axios.get(
