@@ -2,50 +2,64 @@ import React from 'react';
 import { Collection, CollectionItem } from 'react-materialize';
 import _ from 'lodash';
 
+import API from '../../utils/API';
+import mediaSearch from '../../pages/MoviePage'
+
 const RelatedCard = (props) => {
-  const getDetails = (e) => {
-      e.preventDefault();
-    alert('RETRIVE DETAILS');
+  async function getDetails(e) {
+    e.preventDefault();
+    let input = document.getElementsByClassName("related")[0].textContent
+    const updateSearch = await API.mainSearch(input)
+    let result = updateSearch.data.results[0]
+    console.log(`NEW SEARCH FOR '${input}':`, result)
+    // console.log(input)
   };
 
   return (
     <>
       <h6 className='center-align title'>RELATED</h6>
       <Collection className='frame'>
-        <CollectionItem onClick={getDetails}>
-        <a href=''> <img className='related-images' src={props.relatedPoster1} alt={props.related1}/></a><span>
-        {_.truncate(props.related1, {
-                  length: 26,
-                  separator: '...',
-                })}</span>
+        <CollectionItem>
+          <img className='related-images' src={props.poster1} alt={props.related1} title={props.title1} />
+          <span className='related' onClick={getDetails} >
+            {_.truncate(props.title1, {
+              length: 21,
+              separator: '...',
+            })}
+          </span>
         </CollectionItem>
-        <CollectionItem onClick={getDetails}>
-        <a href=''> <img className='related-images' src={props.relatedPoster2} alt={props.related2}/></a><span> 
-                {_.truncate(props.related2, {
-                  length: 26,
-                  separator: '...',
-                })}</span>
+        <CollectionItem >
+          <img className='related-images' src={props.poster2} alt={props.related2} />
+          <span className='related' onClick={getDetails}>
+            {_.truncate(props.title2, {
+              length: 21,
+              separator: '...',
+            })}
+          </span>
         </CollectionItem>
-        <CollectionItem onClick={getDetails}>
-        <a href=''> <img className='related-images' src={props.relatedPoster3} alt={props.related3}/></a><span> 
-                {_.truncate(props.related3, {
-                  length: 26,
-                  separator: '...',
-                })}</span>
+        <CollectionItem>
+          <img className='related-images' src={props.poster3} alt={props.related3} />
+          <span onClick={getDetails}>
+            {_.truncate(props.title3, {
+              length: 21,
+              separator: '...',
+            })}</span>
         </CollectionItem>
-        <CollectionItem onClick={getDetails}>
-        <a href=''> <img className='related-images' src={props.relatedPoster4} alt={props.related4}/></a><span>  
-               {_.truncate(props.related4, {
-                  length: 26,
-                  separator: '...',
-                })}</span>
+        <CollectionItem>
+          <img className='related-images' src={props.poster4} alt={props.related4} />
+          <span onClick={getDetails}>
+            {_.truncate(props.title4, {
+              length: 21,
+              separator: '...',
+            })}</span>
         </CollectionItem>
-        <CollectionItem onClick={getDetails}>
-        <a href=''> <img className='related-images' src={props.relatedPoster5} alt={props.related5}/></a><span>  
-               {_.truncate(props.related5, {
-                  length: 26,
-                  separator: '...',
-                })}</span>
+        <CollectionItem >
+          <img className='related-images' src={props.poster5} alt={props.related5} />
+          <span onClick={getDetails}>
+            {_.truncate(props.title5, {
+              length: 21,
+              separator: '...',
+            })}</span>
         </CollectionItem>
       </Collection>
     </>
