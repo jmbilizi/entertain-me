@@ -2,26 +2,22 @@ import React from "react";
 import { Collection, CollectionItem } from "react-materialize";
 
 const Favorites = (props) => {
-  const getDetails = () => {
-    console.log("FAVORITE SELECTED");
-  };
+  const getDetails = (e) => {
 
+    console.log(e);
+    props.mediaSearch(e)
+  };
+const { favorites} = props
+console.log({favorites})
   return (
     <>
       <h6 className="center-align title">{props.heading}</h6>
       <Collection className="frame">
-        <CollectionItem onClick={getDetails}>
-          FAVORITE 1<span className="material-icons remove">remove_circle</span>
-        </CollectionItem>
-        <CollectionItem onClick={getDetails}>
-          FAVORITE 2<span className="material-icons remove">remove_circle</span>
-        </CollectionItem>
-        <CollectionItem onClick={getDetails}>
-          FAVORITE 3<span className="material-icons remove">remove_circle</span>
-        </CollectionItem>
-        <CollectionItem onClick={getDetails}>
-          FAVORITE 4<span className="material-icons remove">remove_circle</span>
-        </CollectionItem>
+        {favorites.map(item =>  <CollectionItem onClick={( )=>getDetails(item.media_name)}>
+          {item.media_name}<span className="material-icons remove">remove_circle</span>
+        </CollectionItem> )}
+       
+        
       </Collection>
     </>
 

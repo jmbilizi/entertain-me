@@ -9,8 +9,6 @@ router.put('/', function (req, res) {
     const givenMediaName = req.body.mediaName;
     const givenMediaType = req.body.mediaType;
 
-    console.log(req.body);
-
     db.User.findOneAndUpdate({_id: givenId}, {
         $push: { favorites: 
             { 
@@ -23,18 +21,17 @@ router.put('/', function (req, res) {
         ).then(function(data){
             res.json(data);
         }).catch(err => {
-            console.log(err);
-            console.log("I'm here in the catch.");
             res.status(400).json(err);
           });
 
 });
 // may require more auth
-router.get('/', function (req, res) {
-    const givenId = req.params.userId;
-
+router.get('/:id', function (req, res) {
+    const givenId = req.params.id;
+    console.log('givenId', givenId);
     db.User.findById(givenId)
       .then(user => {
+        console.log('user', user);
         const favorites = user.favorites;
         res.json(favorites);
       })
@@ -42,7 +39,7 @@ router.get('/', function (req, res) {
         res.status(400).json(err);
       });
 
-
 });
+
 
 module.exports = router;

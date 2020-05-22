@@ -4,7 +4,7 @@ import "./Login.css";
 import LeftSideContent from "./LeftSideContent";
 import { Redirect } from "react-router-dom";
 import { Container, Row, Col, Checkbox } from "react-materialize";
-import helpers from "../../utils/helpers";
+import { getCurrentUserId } from "../../utils/helpers";
 // import { ContainerWrapper } from "../../assets/styles";
 
 class Login extends Component {
@@ -27,6 +27,8 @@ class Login extends Component {
     e.preventDefault();
 
     const { username, password } = this.state;
+    const { setFavorites} = this.props
+    const givenId = getCurrentUserId();
 
     axios
       .post("/api/auth/login", { username, password })
@@ -36,10 +38,11 @@ class Login extends Component {
         this.setState({ message: "" });
         this.setState({ login: true });
       axios
-        .get("/api/favorites", { params: { userId: helpers.getCurrentUserId() } })
-        .then((data) => {
+        .get(`/api/favorites/${givenId}`)
+        .then((response) => {
+          console.log('data from login axios get', response.data);
+          setFavorites(response.data);
           //pass back wherever favorite result array is
-          console.log(data);
           // this.props.setFavorites(favoriteResult);
         })
         .catch((error) => {
