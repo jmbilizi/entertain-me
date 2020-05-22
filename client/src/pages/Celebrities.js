@@ -8,10 +8,25 @@ import DefaultCelebProfileImage from "../components/CelebProfileImageDefault";
 import DefaultCelebAppearances from "../components/CelebAppearancesDefault";
 import DefaultCelebBiography from "../components/CelebBiographyDefault";
 import DefaultTrendingCelebrities from "../components/TrendingCelebritiesDefault";
+import FavoriteCelebs from '../components/FavoriteCelebs'
 import { ContainerWrapper } from "../assets/styles";
 import API from "../utils/API";
 
 const Celebrities = () => {
+
+  const addFavorite = () => {
+    alert('ADDED TO FAVORITES');
+  };
+  const setNotification = () => {
+    alert('NOTIFICATION SET');
+  };
+  const watchContent = () => {
+    alert('GO TO CONTENT PROVIDER');
+  };
+  const shareContent = () => {
+    alert('CONTENT SHARED');
+  };
+
   const [state, setState] = useState({
     userInput: "",
     name: "",
@@ -125,11 +140,27 @@ const Celebrities = () => {
         <Row>
           <Col m={5}>
             {state.name ? (
+              <>
               <img
                 className="celeb-profile-pic"
                 src={state.profile}
                 alt={state.name}
               />
+              <div className='result-btns'>
+                <span onClick={addFavorite}>
+                  <span className='material-icons favorite'>favorite</span>
+                </span>
+                <span onClick={setNotification}>
+                  <span className='material-icons notify'>notifications</span>
+                </span>
+                <span onClick={watchContent}>
+                  <span className='material-icons watch'>tv</span>
+                </span>
+                <span onClick={shareContent}>
+                  <span className='material-icons watch'>share</span>
+                </span>
+              </div>
+              </>
             ) : (
                 <DefaultCelebProfileImage />
               )}
@@ -143,6 +174,13 @@ const Celebrities = () => {
 
             {state.name ? (
               <>
+               <h6 className="biography-title">Biography</h6>
+                <p className="celeb-biography">
+                  {_.truncate(state.biography, {
+                    length: 300,
+                    separator: "...",
+                  })}
+                </p>
                 <h6 className="appearances-title">Appearances</h6>
                 <a href={state.known1Img}>
                   <img
@@ -185,26 +223,22 @@ const Celebrities = () => {
                 </p>
               </>
             ) : (
+              <>
+              <DefaultCelebBiography />
                 <DefaultCelebAppearances />
+                </>
               )}
           </Col>
           <Col m={3}>
-            {/* <h6 className="biography-title">Biography</h6> */}
             {state.name ? (
               <>
-                <h6 className="biography-title">Biography</h6>
-                <p className="celeb-biography">
-                  {_.truncate(state.biography, {
-                    length: 300,
-                    separator: "...",
-                  })}
-                </p>
+                 <FavoriteCelebs heading={'MY PEOPLE'}/>            
               </>
             ) : (
                 <>
-                  <DefaultCelebBiography />
-                  <br></br>
-                  <br></br>
+                <FavoriteCelebs heading={'Community Favorites'}/>    
+           
+
                 </>
               )}
 
