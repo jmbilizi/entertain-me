@@ -178,4 +178,30 @@ export const ContainerWrapper = styled(Container)`
     height: 225px;
    
   }
+  .celeb-result-btns {
+    position: relative;
+    bottom: 2.25em;
+    left: 0.5em;
+    margin-bottom: 0.75em;
+    color: red;
+  }
+  .favorite,
+  .notify,
+  .watch {
+    margin-right: 0.4em;
+    font-size: 1.15em;
+  }
+  .favorite,
+  .notify,
+  .watch {
+    cursor: pointer;
+    color: lightGray;
+  }
+  .favorite:hover {
+    color: red;
+  }
+  .notify:hover,
+  .watch:hover {
+    color: green;
+  }
 `;
