@@ -183,7 +183,7 @@ const MoviePage = ({ favorites,setFavorites }) => {
     console.log('relatedData.data ', relatedData.data);
     console.log('relatedInfo', relatedInfo.results[0].name);
     console.log('trendingData: ', trendingData);
-    // console.log('director: ', creditsData.data.crew.find((el) => el.job === 'Director').name);
+    console.log('director: ', creditsData.data.crew.filter((el) => el.job === 'Director')[0].name);
 
 
     setState({
@@ -217,8 +217,9 @@ const MoviePage = ({ favorites,setFavorites }) => {
           : usRating.rating,
       star1: creditsInfo.cast[0].name,
       star2: creditsInfo.cast[1].name,
-      director: mainData.data.results[0].media_type === 'movie' && creditsData.data.crew.find((el) => el.job === 'Director').name ? (creditsData.data.crew.find((el) => el.job === 'Director').name) : (''),
-      director2: mainData.data.results[0].media_type === 'movie' && creditsData.data.crew.find((el) => el.job === 'Director').name ? (creditsData.data.crew.find((el) => el.job === 'Director').name) : (''),
+
+      director:   mainData.data.results[0].media_type === 'movie' && creditsData.data.crew.find((el) => el.job === 'Director').name ? (creditsData.data.crew.filter((el) => el.job === 'Director')[0].name) : (''),
+      director2:   mainData.data.results[0].media_type === 'movie' && creditsData.data.crew.filter((el) => el.job === 'Director').length === 2 ? ('& '+ creditsData.data.crew.filter((el) => el.job === 'Director')[1].name) : (''),
 
 
       // logo:
