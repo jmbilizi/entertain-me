@@ -26,7 +26,7 @@ let story5 = '';
   console.log('story: ', story5);
 })();
 
-export default function Headlines(speed = 0.04, direction = 'left') {
+export default function Headlines() {
   return (
     <div
       style={{
@@ -35,12 +35,14 @@ export default function Headlines(speed = 0.04, direction = 'left') {
         color: 'white',
       }}
     >
-      <Marquee>
-        {story1}
-        {story2}
-        {story3}
-        {story4}
-        {story5}
+      <Marquee
+      direction={'left'}
+      >
+        {story1}{'.'}{' '}
+        {story2}{'.'}{' '}
+        {story3}{'.'}{' '}
+        {story4}{'.'}{' '}
+        {story5}{'.'}{' '}
       </Marquee>
     </div>
   );
