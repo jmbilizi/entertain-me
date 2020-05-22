@@ -24,7 +24,7 @@ const App = () => {
             <Home />
           </Route>
           <Route exact path='/movies'>
-            <MoviePage favorites={favorites} />
+            <MoviePage favorites={favorites} setFavorites={setFavorites}/>
           </Route>
           <Route exact path='/celebrities'>
             <Celebrities />
