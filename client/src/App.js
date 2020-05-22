@@ -13,6 +13,7 @@ import Logout from './pages/Logout';
 
 const App = () => {
   const [token, setToken] = useState(null);
+  const [favorites, setFavorites] = useState([]);
   console.log({ token });
   return (
     <Router>
@@ -23,7 +24,7 @@ const App = () => {
             <Home />
           </Route>
           <Route exact path='/movies'>
-            <MoviePage />
+            <MoviePage favorites={favorites} setFavorites={setFavorites}/>
           </Route>
           <Route exact path='/celebrities'>
             <Celebrities />
@@ -35,7 +36,7 @@ const App = () => {
             <Logout token={token} setToken={setToken} />
           </Route>
           <Route exact path='/login'>
-            <Login setToken={setToken} />
+            <Login setToken={setToken} setFavorites={setFavorites} />
           </Route>
           <Route exact path='/register'>
             <Register token={token} />

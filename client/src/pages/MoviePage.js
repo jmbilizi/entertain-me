@@ -16,7 +16,7 @@ import RelatedCardDefault from '../components/RelatedCardDefault';
 import DiscoverCardDefault from '../components/DiscoverCardDefault';
 import API from '../utils/API';
 
-const MoviePage = () => {
+const MoviePage = ({ favorites,setFavorites }) => {
   const [state, setState] = useState({
     userInput: '',
     mediaType: '',
@@ -217,6 +217,7 @@ const MoviePage = () => {
           : usRating.rating,
       star1: creditsInfo.cast[0].name,
       star2: creditsInfo.cast[1].name,
+
       director:   mainData.data.results[0].media_type === 'movie' && creditsData.data.crew.find((el) => el.job === 'Director').name ? (creditsData.data.crew.filter((el) => el.job === 'Director')[0].name) : (''),
       director2:   mainData.data.results[0].media_type === 'movie' && creditsData.data.crew.filter((el) => el.job === 'Director').length === 2 ? ('& '+ creditsData.data.crew.filter((el) => el.job === 'Director')[1].name) : (''),
 
@@ -380,7 +381,8 @@ const MoviePage = () => {
     e.preventDefault();
     mediaSearch(userInput);
   };
-
+const favoritesTV = favorites.filter(item => item.media_type === 'tv');
+const favoritesMovie = favorites.filter(item => item.media_type === 'movie');
   return (
     <ContainerWrapper>
       {/* <DarkWrapper> */}
@@ -420,6 +422,8 @@ const MoviePage = () => {
                 director2={director2}
                 lastAir={lastAir}
                 lastEpisode={lastEpisode}
+                favorites={favorites}
+                setFavorites={setFavorites}
               />
             ) : (
                 <DiscoverCardDefault />
@@ -486,9 +490,10 @@ const MoviePage = () => {
               )}
           </Col>
           <Col m={3}>
-            <Favorites heading={'MY MOVIES'} />
+
+            <Favorites heading={'MY MOVIES'} favorites={favoritesMovie} mediaSearch={mediaSearch} />
             {/* <br></br> */}
-            <Favorites heading={'MY SHOWS'} />
+            <Favorites heading={'MY SHOWS'} favorites={favoritesTV} mediaSearch={mediaSearch} />
           </Col>
         </Row>
       </Container>
