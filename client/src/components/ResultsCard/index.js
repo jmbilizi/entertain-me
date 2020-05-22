@@ -128,7 +128,7 @@ const ResultsCard = (props) => {
                   <br></br>
                 Aired:<br></br>
                   <strong>{props.lastAir}</strong>
-                </>) : (<>Directed by:<strong>{props.director} & {props.director2}</strong></>)}
+                </>) : (<>Directed by:<strong>{props.director} {props.director2}</strong></>)}
               <img
                 className='tmdb'
                 src='https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg'
