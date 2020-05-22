@@ -21,14 +21,16 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: 'false' }));
 
-app.use(
-  connectHistoryApiFallback({
-    verbose: false,
-  })
-);
+// app.use(
+//   connectHistoryApiFallback({
+//     verbose: false,
+//   })
+// );
+
 app.use('/api/auth', auth);
 
 app.use('/api/favorites', favorites);
+
 
 // Define API routes here
 app.get('/test', (req, res) => {

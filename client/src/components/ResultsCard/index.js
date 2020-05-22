@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Col } from 'react-materialize';
 import _ from 'lodash';
 import axios from "axios";
-import helpers from "../../utils/helpers";
+import { getCurrentUserId } from "../../utils/helpers";
 
 import { ResultsWrapper } from '../../assets/styles';
 import Poster from '../Poster';
@@ -10,18 +10,29 @@ import Poster from '../Poster';
 const ResultsCard = (props) => {
   const addFavorite = () => {
     alert('ADDED TO FAVORITES');
-    const userId = helpers.getCurrentUserId();
+    const userId = getCurrentUserId();
     console.log("props: ", props);
     const mediaName = props.selection;
     const mediaType = props.mediaType;
     // hit put route to add favorite to current user
     console.log(props);
+    const newFavList = props.favorites.slice()
+    newFavList.push({
+      media_name: mediaName,
+      media_type: mediaType
+    })
+    console.log({newFavList, fav:props.favorites })
+     
+    props.setFavorites(newFavList);
+
     axios
       .put("/api/favorites", { userId, mediaName, mediaId: props.id, mediaType })
       .then((result) => {
         // to do
         // update react state so that media return shows up in array 
-        console.log(result);
+        console.log("axios.put favorites result: ", result);
+       
+
       })
       .catch((error) => {
         console.log(error);
