@@ -1,6 +1,5 @@
 import React from 'react';
 import { Slider, Slide, Caption } from 'react-materialize';
-import './carousel.css';
 
 function LeftSideContent() {
   return (
@@ -14,7 +13,7 @@ function LeftSideContent() {
     interval: 6000
   }}
 >
-  <Slide image={<img alt='' src={require('./images/movie.jpg')}/>}>
+  <Slide image={<img alt='' src={require('../../../src/assets/images/movie.jpg')}/>}>
     <Caption>
       <h3>
         This is our big Tagline!
@@ -24,7 +23,7 @@ function LeftSideContent() {
       </h5>
     </Caption>
   </Slide>
-  <Slide image={<img alt='' src={require('./images/show.jpg')}/>}>
+  <Slide image={<img alt='' src={require('../../../src/assets/images/show.jpg')}/>}>
     <Caption placement='left'>
       <h3>
         Left Aligned Caption
@@ -34,7 +33,7 @@ function LeftSideContent() {
       </h5>
     </Caption>
   </Slide>
-  <Slide image={<img alt='' src={require('./images/celebrity.jpg')}/>}>
+  <Slide image={<img alt='' src={require('../../../src/assets/images/celebrity.jpg')}/>}>
     <Caption placement='right'>
       <h3>
         Right Aligned Caption
