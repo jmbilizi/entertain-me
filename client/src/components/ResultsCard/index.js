@@ -28,11 +28,7 @@ const ResultsCard = (props) => {
     axios
       .put("/api/favorites", { userId, mediaName, mediaId: props.id, mediaType })
       .then((result) => {
-        // to do
-        // update react state so that media return shows up in array 
         console.log("axios.put favorites result: ", result);
-       
-
       })
       .catch((error) => {
         console.log(error);
