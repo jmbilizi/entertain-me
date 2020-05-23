@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Row, Col } from "react-materialize";
+import "./style.css"
 
 const SearchBar = ({ userInput, handleInputChange, handleFormSubmit }) => {
   return (
@@ -11,6 +12,7 @@ const SearchBar = ({ userInput, handleInputChange, handleFormSubmit }) => {
             className="search-input"
             onSubmit={handleFormSubmit}
           >
+            
             <label hidden>Search for a movie or TV show.</label>
             <input
             className="search-input-box"

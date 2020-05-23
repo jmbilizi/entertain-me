@@ -93,16 +93,9 @@ export const ContainerWrapper = styled(Container)`
   width: 100vw;
   max-width: 1500px;
 
-  .search-input input[type="text"]:focus {
-    border-bottom: 1px solid #cfb53b;
-    box-shadow: 0 1px 0 0 #000;
-  }
-  input {
-    color: white;
-  }
-  .search-input-box::placeholder {
-    color: #424242;
-  }
+
+
+
   .discover {
     min-height: 21em;
     max-height: 21em;

@@ -1,0 +1,21 @@
+.btn-flat {
+    color: #cfb53b;
+    font-weight: bold;
+    font-size: 16px
+}
+
+.btn:hover {
+    background-color: #424242;
+}
+
+input {
+    color: white;
+}
+
+.search-input-box::placeholder {
+    color: lightgray;
+}
+
+.search-icon {
+    color: white;
+}
