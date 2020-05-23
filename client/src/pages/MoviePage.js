@@ -18,7 +18,26 @@ import API from '../utils/API';
 import axios from "axios";
 import { getCurrentUserId } from "../utils/helpers";
 
-const MoviePage = ({ favorites,setFavorites }) => {
+const users = [
+  {
+    "gender": "male",
+    "name": {
+      "title": "Mr",
+      "first": "Berkant",
+      "last": "Sip"
+    },
+    "location": {
+      "street": {
+        "number": 8077,
+        "name": "Hoofdveld"
+      },
+      "city": "Starnmeer",
+      "state": "Wyoming"
+    }
+  }
+];
+
+const MoviePage = ({ favorites, setFavorites }) => {
   const [state, setState] = useState({
     userInput: '',
     mediaType: '',
@@ -130,13 +149,13 @@ const MoviePage = ({ favorites,setFavorites }) => {
 
 
     axios
-        .delete(`/api/favorites/${userId}/${mediaName}`)
-        .then((result) => {
-          console.log("Deleting: ", mediaName);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      .delete(`/api/favorites/${userId}/${mediaName}`)
+      .then((result) => {
+        console.log("Deleting: ", mediaName);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 
   };
 
@@ -246,8 +265,8 @@ const MoviePage = ({ favorites,setFavorites }) => {
       star1: creditsInfo.cast[0].name,
       star2: creditsInfo.cast[1].name,
 
-      director:   mainData.data.results[0].media_type === 'movie' && creditsData.data.crew.find((el) => el.job === 'Director').name ? (creditsData.data.crew.filter((el) => el.job === 'Director')[0].name) : (''),
-      director2:   mainData.data.results[0].media_type === 'movie' && creditsData.data.crew.filter((el) => el.job === 'Director').length === 2 ? ('& '+ creditsData.data.crew.filter((el) => el.job === 'Director')[1].name) : (''),
+      director: mainData.data.results[0].media_type === 'movie' && creditsData.data.crew.find((el) => el.job === 'Director').name ? (creditsData.data.crew.filter((el) => el.job === 'Director')[0].name) : (''),
+      director2: mainData.data.results[0].media_type === 'movie' && creditsData.data.crew.filter((el) => el.job === 'Director').length === 2 ? ('& ' + creditsData.data.crew.filter((el) => el.job === 'Director')[1].name) : (''),
 
 
       // logo:
@@ -278,7 +297,7 @@ const MoviePage = ({ favorites,setFavorites }) => {
       related1:
         mainData.data.results[0].media_type === 'tv'
           ? relatedInfo.results[0].name
-          : [relatedInfo.results[0].original_title,`${imageURL}` + relatedInfo.results[0].poster_path],
+          : [relatedInfo.results[0].original_title, `${imageURL}` + relatedInfo.results[0].poster_path],
       related2:
         mainData.data.results[0].media_type === 'tv'
           ? relatedInfo.results[1].name
@@ -397,7 +416,7 @@ const MoviePage = ({ favorites,setFavorites }) => {
             trendingInfo.results[9].title,
           ],
     });
-   
+
   }
 
   const handleInputChange = (e) => {
@@ -409,8 +428,8 @@ const MoviePage = ({ favorites,setFavorites }) => {
     e.preventDefault();
     mediaSearch(userInput);
   };
-const favoritesTV = favorites.filter(item => item.media_type === 'tv');
-const favoritesMovie = favorites.filter(item => item.media_type === 'movie');
+  const favoritesTV = favorites.filter(item => item.media_type === 'tv');
+  const favoritesMovie = favorites.filter(item => item.media_type === 'movie');
   return (
     <ContainerWrapper>
       {/* <DarkWrapper> */}
@@ -519,9 +538,9 @@ const favoritesMovie = favorites.filter(item => item.media_type === 'movie');
           </Col>
           <Col m={3}>
 
-            <Favorites heading={'MY MOVIES'} favorites={favoritesMovie} mediaSearch={mediaSearch} deleteMedia = {deleteMedia} />
+            <Favorites heading={'MY MOVIES'} favorites={favoritesMovie} mediaSearch={mediaSearch} deleteMedia={deleteMedia} />
             {/* <br></br> */}
-            <Favorites heading={'MY SHOWS'} favorites={favoritesTV} mediaSearch={mediaSearch} deleteMedia = {deleteMedia} />
+            <Favorites heading={'MY SHOWS'} favorites={favoritesTV} mediaSearch={mediaSearch} deleteMedia={deleteMedia} />
           </Col>
         </Row>
       </Container>
