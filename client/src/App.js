@@ -7,8 +7,8 @@ import MoviePage from './pages/MoviePage';
 import Celebrities from './pages/Celebrities';
 import Profile from './pages/Profile';
 import Footer from './components/Footer';
-import Login from './components/loginSignup/Login';
-import Register from './components/loginSignup/Register';
+import Login from './pages/Login'
+import Register from './pages/Register';
 import Logout from './pages/Logout';
 
 const App = () => {
