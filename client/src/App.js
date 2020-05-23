@@ -6,7 +6,7 @@ import NavBar from './components/NavBar';
 import MoviePage from './pages/MoviePage';
 import Celebrities from './pages/Celebrities';
 import Profile from './pages/Profile';
-import Footer from './components/Footer';
+import SiteFooter from './components/SiteFooter';
 import Login from './pages/Login'
 import Register from './pages/Register';
 import Logout from './pages/Logout';
@@ -42,7 +42,7 @@ const App = () => {
             <Register token={token} />
           </Route>
         </Switch>
-        <Footer />
+        <SiteFooter />
       </div>
     </Router>
   );
