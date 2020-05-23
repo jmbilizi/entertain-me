@@ -29,7 +29,6 @@ var UserSchema = new Schema({
   favorites: [{
     media_id: {
       type: Number,
-      required: true,
     },
     media_type: {
       type: String,

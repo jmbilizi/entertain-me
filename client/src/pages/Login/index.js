@@ -37,6 +37,7 @@ class Login extends Component {
                 this.props.setToken(result.data.token);
                 this.setState({ message: "" });
                 this.setState({ login: true });
+
                 axios
                     .get(`/api/favorites/${givenId}`)
                     .then((response) => {
@@ -48,6 +49,7 @@ class Login extends Component {
                     .catch((error) => {
                         console.log(error);
                     })
+                
             })
             .catch((error) => {
                 if (error.response.status === 401) {
