@@ -15,6 +15,8 @@ import RelatedCard from '../components/RelatedCard';
 import RelatedCardDefault from '../components/RelatedCardDefault';
 import DiscoverCardDefault from '../components/DiscoverCardDefault';
 import API from '../utils/API';
+import axios from "axios";
+import { getCurrentUserId } from "../utils/helpers";
 
 const MoviePage = ({ favorites,setFavorites }) => {
   const [state, setState] = useState({
@@ -112,6 +114,32 @@ const MoviePage = ({ favorites,setFavorites }) => {
   const imageURL = 'https://image.tmdb.org/t/p/w500';
   const trailerURL = 'https://www.youtube.com/embed/';
 
+  // make new function
+
+  function deleteMedia(mediaName) {
+    // to do: make ajax request to delete media and update react state when deleted
+    // get user id (use helper function)
+    // axios.delete
+
+    const userId = getCurrentUserId();
+
+    const favList = favorites.slice();
+    const newFavList = favList.filter(item => item.media_name !== mediaName);
+    console.log("delete new fav list: ", newFavList);
+    setFavorites(newFavList);
+
+
+    axios
+        .delete(`/api/favorites/${userId}/${mediaName}`)
+        .then((result) => {
+          console.log("Deleting: ", mediaName);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
+  };
+
   async function mediaSearch(entry) {
     if (!entry) {
       return alert('Enter a movie or tv show title.');
@@ -183,7 +211,7 @@ const MoviePage = ({ favorites,setFavorites }) => {
     console.log('relatedData.data ', relatedData.data);
     console.log('relatedInfo', relatedInfo.results[0].name);
     console.log('trendingData: ', trendingData);
-    console.log('director: ', creditsData.data.crew.filter((el) => el.job === 'Director')[0].name);
+    // console.log('director: ', creditsData.data.crew.filter((el) => el.job === 'Director')[0].name);
 
 
     setState({
@@ -491,9 +519,9 @@ const favoritesMovie = favorites.filter(item => item.media_type === 'movie');
           </Col>
           <Col m={3}>
 
-            <Favorites heading={'MY MOVIES'} favorites={favoritesMovie} mediaSearch={mediaSearch} />
+            <Favorites heading={'MY MOVIES'} favorites={favoritesMovie} mediaSearch={mediaSearch} deleteMedia = {deleteMedia} />
             {/* <br></br> */}
-            <Favorites heading={'MY SHOWS'} favorites={favoritesTV} mediaSearch={mediaSearch} />
+            <Favorites heading={'MY SHOWS'} favorites={favoritesTV} mediaSearch={mediaSearch} deleteMedia = {deleteMedia} />
           </Col>
         </Row>
       </Container>
