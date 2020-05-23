@@ -165,12 +165,14 @@ export const ContainerWrapper = styled(Container)`
   .frame {
     border: #212121 2px solid;
   }
-
+  .home-main-placeholder {
+    width: 500px;
+    height: 275px;
+ }
   .home-placeholder {
-    width: 325px;
-    height: 225px;
-   
-  }
+    width: 225px;
+    height: 150px;
+     }
   .celeb-result-btns {
     position: relative;
     bottom: 2.25em;
