@@ -6,21 +6,35 @@ import { ContainerWrapper } from "../assets/styles";
 
 const users = [
   {
-    "gender": "male",
     "name": {
-      "title": "Mr",
-      "first": "Berkant",
-      "last": "Sip"
-    },
-    "location": {
-      "street": {
-        "number": 8077,
-        "name": "Hoofdveld"
-      },
-      "city": "Starnmeer",
-      "state": "Wyoming"
+      "first": "Fred",
+      "last": "Thomas"
     }
-  }
+  },
+  {
+    "name": {
+      "first": "Sandy",
+      "last": "Davis"
+    }
+  },
+  {
+    "name": {
+      "first": "Erica",
+      "last": "Lane"
+    }
+  },
+  {
+    "name": {
+      "first": "Roger",
+      "last": "Willis"
+    }
+  },
+  {
+    "name": {
+      "first": "Roxanna",
+      "last": "Garcia"
+    }
+  },
 ];
 
 
@@ -35,7 +49,6 @@ const Home = () => {
         <Row>
           <Col s={3}>
             <h6 className="title">SUGGESTIONS</h6>
-
             <img src={require("../assets/images/Kevin-Hart.jpg")}
               className="home-placeholder"
             />
@@ -76,6 +89,14 @@ const Home = () => {
               <li>Will Smith</li>
               <li>Katy Perry</li>
             </ul>
+            <br></br>
+            <h6 className="title">Social Feed</h6>
+             <div className="default-text">
+             <strong>{users[0].name.first} says:</strong><br></br>"The Mandalorian rocks!"<br></br>
+             <strong>{users[1].name.first} says:</strong><br></br>"Taylor Swift for president!"<br></br>
+             <strong>{users[2].name.first} says:</strong><br></br> "Joker changed my life!"<br></br>
+             <strong>{users[3].name.first} says:</strong><br></br> "Can't wait for Christopher Nolan's new flick!"<br></br>
+          </div>
           </Col>
         </Row>
       </Container>
