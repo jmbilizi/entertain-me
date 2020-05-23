@@ -1,6 +1,5 @@
 import React from 'react';
 import { MediaBox } from 'react-materialize';
-import './carousel.css';
 
 function LeftSideContent() {
   return (
@@ -16,7 +15,7 @@ function LeftSideContent() {
           outDuration: 200
         }}
       >
-        <img alt='popcorn' src={require('./images/movie.jpg')} width="375" />
+        <img alt='popcorn' src={require('../../assets/images/movie.jpg')} width="375" />
       </MediaBox>
       <MediaBox
         id="MediaBox_2"
@@ -29,7 +28,7 @@ function LeftSideContent() {
           outDuration: 200
         }}
       >
-        <img alt='popcorn' src={require('./images/show.jpg')} width="375" />
+        <img alt='popcorn' src={require('../../assets/images/show.jpg')} width="375" />
       </MediaBox>
       <MediaBox
         id="MediaBox_3"
@@ -42,7 +41,7 @@ function LeftSideContent() {
           outDuration: 200
         }}
       >
-        <img alt='popcorn' src={require('./images/celebrity.jpg')} width="375" />
+        <img alt='popcorn' src={require('../../assets/images/celebrity.jpg')} width="375" />
       </MediaBox>
     </>
   );
