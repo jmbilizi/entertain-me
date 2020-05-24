@@ -28,28 +28,28 @@ class Login extends Component {
 
         const { username, password } = this.state;
         const { setFavorites } = this.props
-        const givenId = getCurrentUserId();
 
         axios
             .post("/api/auth/login", { username, password })
             .then((result) => {
                 localStorage.setItem("jwtToken", result.data.token);
                 this.props.setToken(result.data.token);
+                console.log(result.data.token);
                 this.setState({ message: "" });
                 this.setState({ login: true });
+                
+                const givenId = getCurrentUserId();
 
                 axios
-                    .get(`/api/favorites/${givenId}`)
-                    .then((response) => {
-                        console.log('data from login axios get', response.data);
-                        setFavorites(response.data);
-                        //pass back wherever favorite result array is
-                        // this.props.setFavorites(favoriteResult);
-                    })
-                    .catch((error) => {
-                        console.log(error);
-                    })
-                
+                .get(`/api/favorites/${givenId}`)
+                .then((response) => {
+                    console.log('Login response data: ', response.data);
+                    setFavorites(response.data);
+                })
+                .catch((error) => {
+                    console.log(error);
+                })
+
             })
             .catch((error) => {
                 if (error.response.status === 401) {
@@ -58,6 +58,7 @@ class Login extends Component {
                     });
                 }
             });
+
     };
 
     render() {
