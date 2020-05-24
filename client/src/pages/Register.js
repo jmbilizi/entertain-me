@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
-// import "./Login.css";
 import LoginSideContent from "../components/LoginSideContent";
-import { Container, Row, Col } from "react-materialize";
-// import { ContainerWrapper } from "../../assets/styles";
+import { Row, Col } from "react-materialize";
+import { RegisterPageWrapper } from "../assets/styles";
 
 class Create extends Component {
   constructor() {
@@ -39,7 +38,7 @@ class Create extends Component {
     const { fname, lname, username, password, register } = this.state;
     if (register === true) return <Redirect to={"/login"} />;
     return (
-        <Container>
+        <RegisterPageWrapper>
           <Row></Row>
           <Row>
             <Col s={6}>
@@ -123,7 +122,7 @@ class Create extends Component {
             </Col>
             <Col s={6}></Col>
           </Row>
-        </Container>
+        </RegisterPageWrapper>
     );
   }
 }

@@ -3,7 +3,7 @@ import React from "react";
 const DefaultCelebAppearances = () => {
   return (
     <>
-      <h6 className="appearances-title">Appearances</h6>
+      <h6 className="title">Appearances</h6>
       <img
         className="trending-celeb-images"
         src="https://i.pinimg.com/originals/c2/d1/e8/c2d1e8ba4e5b23bbad9bf78b695da39a.jpg"

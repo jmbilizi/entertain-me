@@ -32,47 +32,41 @@ export default class Chat extends Component {
     }
 
     render() {
-            return (
+        return (
             <>
-                <Container>
-                    <Row>
-                        <Col s={1}></Col>
-                        <Col s={10}>
-                            <div className="center-align">
-                                <form class="form-signin" onSubmit={this.handleSubmit}>
-                                    <div
-                                        class="alert alert-warning alert-dismissible"
-                                        role="alert"
-                                    >
-                                    </div>
-                                    {/* )} */}
-                                    <h3 className='title'>Chat</h3>
-                                    <div className="form-group">
-                                        <input
-                                            name="message"
-                                            value={this.state.value}
-                                            type="text"
-                                            maxlength="140"
-                                            className="form-control"
-                                            placeholder="Enter a message (max 150 characters)"
-                                            onChange={this.handleChange}
-                                            required
-                                        />
-                                    </div>
-                                    <br></br>
-                                    <button
-                                        type="submit"
-                                        className="btn btn-flat"
-                                    >Submit
-                                            </button>
-                                </form>
-                            </div>
-                        </Col>
-                        <Col s={1}></Col>
-                    </Row>
-                </Container>
-
+                <h6 className='title'>Social Feed</h6>
                 <MessageList messages={this.state.messages} />
+                <Row>
+                    <Col s={12}>
+                        <div className="center-align">
+                            <form class="form-signin" onSubmit={this.handleSubmit}>
+                                <div
+                                    class="alert alert-warning alert-dismissible"
+                                    role="alert"
+                                >
+                                </div>
+                                <div className="form-group">
+                                    <input
+                                        name="message"
+                                        value={this.state.value}
+                                        type="text"
+                                        maxlength="140"
+                                        className="form-control"
+                                        placeholder="Enter message (max 150 char)"
+                                        onChange={this.handleChange}
+                                        required
+                                    />
+                                </div>
+                                <br></br>
+                                <button
+                                    type="submit"
+                                    className="btn btn-flat default-text"
+                                >Submit
+                                            </button>
+                            </form>
+                        </div>
+                    </Col>
+                </Row>
             </>
         )
     }
