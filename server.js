@@ -43,8 +43,7 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, './client/build/index.html'));
 });
 
-// mongo
-
+// Mongodb connection
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/entertainme', {
   useNewUrlParser: true,
   useFindAndModify: false,

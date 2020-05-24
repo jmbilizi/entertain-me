@@ -133,12 +133,9 @@ const MoviePage = ({ favorites, setFavorites }) => {
   const imageURL = 'https://image.tmdb.org/t/p/w500';
   const trailerURL = 'https://www.youtube.com/embed/';
 
-  // make new function
+  // Favorites delete function
 
   function deleteMedia(mediaName) {
-    // to do: make ajax request to delete media and update react state when deleted
-    // get user id (use helper function)
-    // axios.delete
 
     const userId = getCurrentUserId();
 

@@ -28,7 +28,7 @@ const ResultsCard = (props) => {
     axios
       .put("/api/favorites", { userId, mediaName, mediaId: props.id, mediaType })
       .then((result) => {
-        console.log("axios.put favorites result: ", result);
+        console.log("Adding favorites result: ", result);
       })
       .catch((error) => {
         console.log(error);

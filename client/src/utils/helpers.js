@@ -2,14 +2,14 @@ import jwtDecode from "jwt-decode";
 
 export function getCurrentUserId() {
   const userToken = localStorage.getItem("jwtToken");
-  console.log(userToken);
+  console.log("Helper userToken: ", userToken);
 
   if (userToken) {
     const decodedToken = jwtDecode(userToken);
-    console.log(decodedToken);
+    console.log("Helper decodedToken: ", decodedToken);
     return decodedToken._id;
   } else {
-    console.log("no token");
+    console.log("No token.");
   }
 }
 
