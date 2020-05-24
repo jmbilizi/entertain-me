@@ -2,7 +2,7 @@ import React from "react";
 import "materialize-css";
 import { Container } from "react-materialize";
 import { Redirect } from "react-router-dom";
-import { ContainerWrapper } from "../assets/styles";
+import { ProfilePageWrapper } from "../assets/styles";
 import {
   getCurrentUserFirstName,
   getCurrentUserLastName,
@@ -18,7 +18,7 @@ const Profile = (props) => {
   const email = getCurrentUserEmail();
 
   return (
-    <ContainerWrapper>
+    <ProfilePageWrapper>
       <Container>
         <div className="row">
           <div className="col s12 center-align">
@@ -42,7 +42,7 @@ const Profile = (props) => {
           </div>
         </div>
       </Container>
-    </ContainerWrapper>
+    </ProfilePageWrapper>
   );
 };
 
