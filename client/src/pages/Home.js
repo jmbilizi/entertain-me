@@ -2,6 +2,7 @@ import React from "react";
 import "materialize-css";
 import { Container, Row, Col } from "react-materialize";
 import Headlines from "../components/Headlines";
+import Chat from '../components/Chat/Chat'
 import { ContainerWrapper } from "../assets/styles";
 
 const users = [
@@ -38,7 +39,7 @@ const users = [
 ];
 
 
-const Home = () => {
+const Home = (props) => {
   return (
     <ContainerWrapper>
       <Container>
@@ -69,9 +70,8 @@ const Home = () => {
               text some text some text some text some text some text some text
               some text some text some text some text some text some text some
               text some text some text some text some text some text some text
-              
-       
             </p>
+            <Chat />
           </Col>
           <Col s={3}>
             <h6 className="title">STAFF PICKS</h6>
@@ -91,12 +91,12 @@ const Home = () => {
             </ul>
             <br></br>
             <h6 className="title">Social Feed</h6>
-             <div className="default-text">
-             <strong>{users[0].name.first} says:</strong><br></br>"The Mandalorian rocks!"<br></br>
-             <strong>{users[1].name.first} says:</strong><br></br>"Taylor Swift for president!"<br></br>
-             <strong>{users[2].name.first} says:</strong><br></br> "Joker changed my life!"<br></br>
-             <strong>{users[3].name.first} says:</strong><br></br> "Can't wait for Christopher Nolan's new flick!"<br></br>
-          </div>
+            {/* <div className="default-text">
+              <strong>{users[0].name.first} says:</strong><br></br>"The Mandalorian rocks!"<br></br>
+              <strong>{users[1].name.first} says:</strong><br></br>"Taylor Swift for president!"<br></br>
+              <strong>{users[2].name.first} says:</strong><br></br> "Joker changed my life!"<br></br>
+              <strong>{users[3].name.first} says:</strong><br></br> "Can't wait for Christopher Nolan's new flick!"<br></br>
+            </div> */}
           </Col>
         </Row>
       </Container>
