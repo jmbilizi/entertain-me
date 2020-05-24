@@ -296,23 +296,23 @@ const MoviePage = ({ favorites, setFavorites }) => {
 
       related1:
         mainData.data.results[0].media_type === 'tv'
-          ? relatedInfo.results[0].name
+          ? [relatedInfo.results[0].name, `${imageURL}` + relatedInfo.results[0].poster_path]
           : [relatedInfo.results[0].original_title, `${imageURL}` + relatedInfo.results[0].poster_path],
       related2:
         mainData.data.results[0].media_type === 'tv'
-          ? relatedInfo.results[1].name
+          ? [relatedInfo.results[1].name, `${imageURL}` + relatedInfo.results[1].poster_path]
           : [relatedInfo.results[1].original_title, `${imageURL}` + relatedInfo.results[1].poster_path],
       related3:
         mainData.data.results[0].media_type === 'tv'
-          ? relatedInfo.results[2].name
+          ? [relatedInfo.results[2].name, `${imageURL}` + relatedInfo.results[2].poster_path]
           : [relatedInfo.results[2].original_title, `${imageURL}` + relatedInfo.results[2].poster_path],
       related4:
         mainData.data.results[0].media_type === 'tv'
-          ? relatedInfo.results[3].name
+          ? [relatedInfo.results[3].name, `${imageURL}` + relatedInfo.results[3].poster_path]
           : [relatedInfo.results[3].original_title, `${imageURL}` + relatedInfo.results[3].poster_path],
       related5:
         mainData.data.results[0].media_type === 'tv'
-          ? relatedInfo.results[4].name
+          ? [relatedInfo.results[4].name, `${imageURL}` + relatedInfo.results[4].poster_path]
           : [relatedInfo.results[4].original_title, `${imageURL}` + relatedInfo.results[4].poster_path],
 
       trending1:
