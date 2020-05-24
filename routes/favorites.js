@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 const db = require("../models");
-var User = require('../models/user');
 
 router.put('/', function (req, res) {
     const givenId = req.body.userId;
@@ -25,13 +24,14 @@ router.put('/', function (req, res) {
           });
 
 });
+
 // may require more auth for future reference
 router.get('/:id', function (req, res) {
     const givenId = req.params.id;
     console.log('givenId', givenId);
     db.User.findById(givenId)
       .then(user => {
-        console.log('user', user);
+        console.log('Router user: ', user);
         const favorites = user.favorites;
         res.json(favorites);
       })
