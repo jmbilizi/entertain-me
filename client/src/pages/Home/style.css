@@ -1,0 +1,45 @@
+.staff-picks {
+    margin-left: 50px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 10px 5px 5px #222222;
+    border-radius: 10px;
+    background-color: #111111
+}
+
+.middle-content {
+    margin-top: 20px
+}
+
+.middle-title {
+    color: #cfb53b;
+    text-align: center;
+    font-size: 30
+}
+
+.main-paragraph {
+    color: #bdbdbd;
+    text-align: center
+}
+
+.suggestions {
+    margin-right: 50px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 10px 5px 5px #222222;
+    border-radius: 10px;
+    background-color: #111111
+}
+
+.title {
+    font-size: 20px;
+}
+
+.home-image {
+    height: 325px;
+    width: 400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+
+}
