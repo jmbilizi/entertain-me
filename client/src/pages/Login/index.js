@@ -27,7 +27,9 @@ class Login extends Component {
         e.preventDefault();
 
         const { username, password } = this.state;
+        console.log("console of this.props: ", this.props)
         const { setFavorites } = this.props
+        const { setCelebrities } = this.props
 
         axios
             .post("/api/auth/login", { username, password })
@@ -45,6 +47,17 @@ class Login extends Component {
                 .then((response) => {
                     console.log('Login response data: ', response.data);
                     setFavorites(response.data);
+
+                    axios
+                    .get(`/api/celebrities/${givenId}`)
+                    .then((response) => {
+                        console.log('Login celeb response data: ', response.data);
+                        setCelebrities(response.data);
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    })
+                    
                 })
                 .catch((error) => {
                     console.log(error);
