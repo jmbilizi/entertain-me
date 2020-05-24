@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 const connectHistoryApiFallback = require('connect-history-api-fallback');
 const auth = require('./routes/auth');
 const favorites = require('./routes/favorites');
+const celebrities = require('./routes/celebrities');
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -30,6 +31,7 @@ app.use(bodyParser.urlencoded({ extended: 'false' }));
 app.use('/api/auth', auth);
 
 app.use('/api/favorites', favorites);
+app.use('/api/celebrities', celebrities);
 
 
 // Define API routes here
@@ -43,8 +45,7 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, './client/build/index.html'));
 });
 
-// mongo
-
+// Mongodb connection
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/entertainme', {
   useNewUrlParser: true,
   useFindAndModify: false,

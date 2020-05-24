@@ -41,7 +41,18 @@ var UserSchema = new Schema({
       type: Date, 
       default: Date.now 
     }
-}]
+  }],
+  celebrities: [{
+    celeb_name: {
+      type: String,
+      required: true,
+    },
+    added_date: { 
+      type: Date, 
+      default: Date.now 
+    }
+  }]
+
 });
 
 UserSchema.pre('save', function (next) {

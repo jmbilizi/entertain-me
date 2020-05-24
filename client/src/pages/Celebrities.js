@@ -11,11 +11,34 @@ import DefaultTrendingCelebrities from "../components/TrendingCelebritiesDefault
 import FavoriteCelebs from '../components/FavoriteCelebs'
 import { ContainerWrapper } from "../assets/styles";
 import API from "../utils/API";
+import { getCurrentUserId } from "../utils/helpers";
+import axios from "axios";
 
-const Celebrities = () => {
+const Celebrities = ( { celebrities, setCelebrities }) => {
 
   const addFavorite = () => {
     alert('ADDED TO FAVORITES');
+    const celebName = state.name;
+    const userId = getCurrentUserId();
+    console.log("Adding celebrities: ", celebName, userId);
+    console.log("celebrities: ", celebrities);
+    console.log("setCelebrities: ", setCelebrities);
+    
+    const newCelebList = celebrities.slice();
+    newCelebList.push({
+      celeb_name: celebName
+    })
+    setCelebrities(newCelebList);
+
+    axios
+    .put("/api/celebrities", { userId, celebName })
+    .then((result) => {
+      console.log("Adding celeb favorites result: ", result);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
   };
   const setNotification = () => {
     alert('NOTIFICATION SET');

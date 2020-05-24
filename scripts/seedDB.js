@@ -17,6 +17,10 @@ const userSeed = [
       media_type: 'tv',
       media_name: 'Lost',
       added_date: new Date(Date.now())
+    }],
+    celebrities: [{
+      celeb_name: 'Evangeline Lily',
+      added_date: new Date(Date.now())
     }]
   }
 ];
