@@ -69,4 +69,11 @@ export default {
       `https://api.themoviedb.org/3/person/popular?api_key=${apiKey}&language=en-US&page=1`
     );
   },
+
+  // API call for random users
+  getRandomUsers: function() {
+    return axios.get("https://randomuser.me/api/?results=100&nat=us"
+    );
+  },
+
 };
