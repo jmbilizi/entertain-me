@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 import { Row, Col } from 'react-materialize';
 import { getCurrentUserFirstName } from "../../utils/helpers";
@@ -12,8 +12,8 @@ class MessageList extends React.Component {
     render() {
         return (
             <Row>
-                <Col s={1}></Col>
-                <Col s={10}>
+                <Col s={12}>
+                    <div className = 'messages'>
                     <ul className="message-list default-text">
                         {this.props.messages.map(message => {
                             return (
@@ -26,8 +26,8 @@ class MessageList extends React.Component {
                             )
                         })}
                     </ul>
+                    </div>
                 </Col>
-                <Col s={1}></Col>
             </Row>
 
         )

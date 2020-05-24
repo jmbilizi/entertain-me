@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import moment from 'moment';
 import 'materialize-css';
-import { Container, Row, Col, Card } from 'react-materialize';
+import { Row, Col } from 'react-materialize';
 
-import { ContainerWrapper, DarkWrapper } from '../assets/styles';
+import { MoviePageWrapper } from '../assets/styles';
 import ResultsCard from '../components/ResultsCard';
 import SearchBar from '../components/SearchBar';
 import Trailer from '../components/Trailer';
@@ -293,23 +293,23 @@ const MoviePage = ({ favorites, setFavorites }) => {
 
       related1:
         mainData.data.results[0].media_type === 'tv'
-          ? relatedInfo.results[0].name
+          ? [relatedInfo.results[0].name, `${imageURL}` + relatedInfo.results[0].poster_path]
           : [relatedInfo.results[0].original_title, `${imageURL}` + relatedInfo.results[0].poster_path],
       related2:
         mainData.data.results[0].media_type === 'tv'
-          ? relatedInfo.results[1].name
+          ? [relatedInfo.results[1].name, `${imageURL}` + relatedInfo.results[1].poster_path]
           : [relatedInfo.results[1].original_title, `${imageURL}` + relatedInfo.results[1].poster_path],
       related3:
         mainData.data.results[0].media_type === 'tv'
-          ? relatedInfo.results[2].name
+          ? [relatedInfo.results[2].name, `${imageURL}` + relatedInfo.results[2].poster_path]
           : [relatedInfo.results[2].original_title, `${imageURL}` + relatedInfo.results[2].poster_path],
       related4:
         mainData.data.results[0].media_type === 'tv'
-          ? relatedInfo.results[3].name
+          ? [relatedInfo.results[3].name, `${imageURL}` + relatedInfo.results[3].poster_path]
           : [relatedInfo.results[3].original_title, `${imageURL}` + relatedInfo.results[3].poster_path],
       related5:
         mainData.data.results[0].media_type === 'tv'
-          ? relatedInfo.results[4].name
+          ? [relatedInfo.results[4].name, `${imageURL}` + relatedInfo.results[4].poster_path]
           : [relatedInfo.results[4].original_title, `${imageURL}` + relatedInfo.results[4].poster_path],
 
       trending1:
@@ -428,53 +428,64 @@ const MoviePage = ({ favorites, setFavorites }) => {
   const favoritesTV = favorites.filter(item => item.media_type === 'tv');
   const favoritesMovie = favorites.filter(item => item.media_type === 'movie');
   return (
-    <ContainerWrapper>
-      {/* <DarkWrapper> */}
-      <Container>
-        <Row>
-          <Col m={4}></Col>
-          <Col m={4}>
-            <SearchBar
-              handleInputChange={handleInputChange}
-              handleFormSubmit={handleFormSubmit}
+    <MoviePageWrapper>
+      <Row>
+        <Col m={4}></Col>
+        <Col m={4}>
+          <SearchBar
+            handleInputChange={handleInputChange}
+            handleFormSubmit={handleFormSubmit}
+          />
+        </Col>
+        <Col m={4}></Col>
+      </Row>
+
+      <Row>
+        <Col m={6}>
+          {id ? (
+            <ResultsCard
+              selection={selection}
+              mediaType={mediaType}
+              release={moment(release, 'YYYY-MM-DD').format('MMM Do, YYYY')}
+              overview={overview}
+              poster={poster}
+              backdrop={backdrop}
+              genre={genre}
+              genre2={genre2}
+              score={score}
+              runtime={runtime}
+              rating={rating}
+              network={network}
+              provider={provider}
+              // logo={logo}
+              star1={star1}
+              star2={star2}
+              director={director}
+              director2={director2}
+              lastAir={lastAir}
+              lastEpisode={lastEpisode}
+              favorites={favorites}
+              setFavorites={setFavorites}
             />
-          </Col>
-          <Col m={4}></Col>
-        </Row>
+          ) : (
+              <DiscoverCardDefault />
+            )}
 
-        <Row>
-          <Col m={6}>
-            {id ? (
-              <ResultsCard
-                selection={selection}
-                mediaType={mediaType}
-                release={moment(release, 'YYYY-MM-DD').format('MMM Do, YYYY')}
-                overview={overview}
-                poster={poster}
-                backdrop={backdrop}
-                genre={genre}
-                genre2={genre2}
-                score={score}
-                runtime={runtime}
-                rating={rating}
-                network={network}
-                provider={provider}
-                // logo={logo}
-                star1={star1}
-                star2={star2}
-                director={director}
-                director2={director2}
-                lastAir={lastAir}
-                lastEpisode={lastEpisode}
-                favorites={favorites}
-                setFavorites={setFavorites}
-              />
-            ) : (
-                <DiscoverCardDefault />
-              )}
-
-            {id ? (
-              <Trending
+          {id ? (
+            <Trending
+              trending1={trending1}
+              trending2={trending2}
+              trending3={trending3}
+              trending4={trending4}
+              trending5={trending5}
+              trending6={trending6}
+              trending7={trending7}
+              trending8={trending8}
+              trending9={trending9}
+              trending10={trending10}
+            />
+          ) : (
+              <TrendingDefault
                 trending1={trending1}
                 trending2={trending2}
                 trending3={trending3}
@@ -486,63 +497,48 @@ const MoviePage = ({ favorites, setFavorites }) => {
                 trending9={trending9}
                 trending10={trending10}
               />
-            ) : (
-                <TrendingDefault
-                  trending1={trending1}
-                  trending2={trending2}
-                  trending3={trending3}
-                  trending4={trending4}
-                  trending5={trending5}
-                  trending6={trending6}
-                  trending7={trending7}
-                  trending8={trending8}
-                  trending9={trending9}
-                  trending10={trending10}
-                />
-              )}
-          </Col>
-          <Col m={3}>
-            {!mediaType ? <TrailerDefault /> : console.log('.')}
+            )}
+        </Col>
+        <Col m={3}>
+          {!mediaType ? <TrailerDefault /> : console.log('.')}
 
-            {mediaType === 'tv' ? (
-              <Trailer trailer={tvTrailer} />
-            ) : (
-                console.log('No movie trailer available.')
-              )}
-            {mediaType === 'movie' ? (
-              <Trailer trailer={trailer} />
-            ) : (
-                console.log('No TV trailer available.')
-              )}
-            {id ? (
-              <RelatedCard
-                className='related'
-                heading={'RELATED'}
-                title1={related1[0]}
-                title2={related2[0]}
-                title3={related3[0]}
-                title4={related4[0]}
-                title5={related5[0]}
-                poster1={related1[1]}
-                poster2={related2[1]}
-                poster3={related3[1]}
-                poster4={related4[1]}
-                poster5={related5[1]}
-              />
-            ) : (
-                <RelatedCardDefault />
-              )}
-          </Col>
-          <Col m={3}>
+          {mediaType === 'tv' ? (
+            <Trailer trailer={tvTrailer} />
+          ) : (
+              console.log('No movie trailer available.')
+            )}
+          {mediaType === 'movie' ? (
+            <Trailer trailer={trailer} />
+          ) : (
+              console.log('No TV trailer available.')
+            )}
+          {id ? (
+            <RelatedCard
+              className='related'
+              heading={'RELATED'}
+              title1={related1[0]}
+              title2={related2[0]}
+              title3={related3[0]}
+              title4={related4[0]}
+              title5={related5[0]}
+              poster1={related1[1]}
+              poster2={related2[1]}
+              poster3={related3[1]}
+              poster4={related4[1]}
+              poster5={related5[1]}
+            />
+          ) : (
+              <RelatedCardDefault />
+            )}
+        </Col>
+        <Col m={3}>
 
-            <Favorites heading={'MY MOVIES'} favorites={favoritesMovie} mediaSearch={mediaSearch} deleteMedia={deleteMedia} />
-            {/* <br></br> */}
-            <Favorites heading={'MY SHOWS'} favorites={favoritesTV} mediaSearch={mediaSearch} deleteMedia={deleteMedia} />
-          </Col>
-        </Row>
-      </Container>
-      {/* </DarkWrapper> */}
-    </ContainerWrapper>
+          <Favorites heading={'MY MOVIES'} favorites={favoritesMovie} mediaSearch={mediaSearch} deleteMedia={deleteMedia} />
+
+          <Favorites heading={'MY SHOWS'} favorites={favoritesTV} mediaSearch={mediaSearch} deleteMedia={deleteMedia} />
+        </Col>
+      </Row>
+    </MoviePageWrapper>
   );
 };
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "materialize-css";
-import { Container, Row, Col } from "react-materialize";
+import { Row, Col } from "react-materialize";
 import _ from "lodash";
 
 import CelebSearchBar from "../components/CelebSearchBar";
@@ -9,7 +9,7 @@ import DefaultCelebAppearances from "../components/CelebAppearancesDefault";
 import DefaultCelebBiography from "../components/CelebBiographyDefault";
 import DefaultTrendingCelebrities from "../components/TrendingCelebritiesDefault";
 import FavoriteCelebs from '../components/FavoriteCelebs'
-import { ContainerWrapper } from "../assets/styles";
+import { CelebritiesPageWrapper } from "../assets/styles";
 import API from "../utils/API";
 import { getCurrentUserId } from "../utils/helpers";
 import axios from "axios";
@@ -147,8 +147,7 @@ const Celebrities = ( { celebrities, setCelebrities }) => {
   };
 
   return (
-    <ContainerWrapper>
-      <Container>
+    <CelebritiesPageWrapper>
         <Row>
           <Col m={4}></Col>
           <Col m={4}>
@@ -306,8 +305,7 @@ const Celebrities = ( { celebrities, setCelebrities }) => {
               )}
           </Col>
         </Row>
-      </Container>
-    </ContainerWrapper>
+    </CelebritiesPageWrapper>
   );
 };
 
