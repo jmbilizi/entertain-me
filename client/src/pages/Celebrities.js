@@ -204,7 +204,8 @@ const Celebrities = ({ celebrities, setCelebrities, token }) => {
                 src={state.profile}
                 alt={state.name}
               />
-              <div className='result-btns'>
+              {token ? (
+                <div className='result-btns'>
                 <span onClick={addFavorite}>
                   <span className='material-icons favorite'>favorite</span>
                 </span>
@@ -218,6 +219,10 @@ const Celebrities = ({ celebrities, setCelebrities, token }) => {
                   <span className='material-icons watch'>share</span>
                 </span>
               </div>
+              ):(
+                console.log('User is not logged in.')
+              )}
+              
             </>
           ) : (
               <DefaultCelebProfileImage />
@@ -290,8 +295,8 @@ const Celebrities = ({ celebrities, setCelebrities, token }) => {
         <Col m={3}>
           {token ? (
             <>
-              <FavoriteCelebs heading={'MY PEOPLE'} deleteCeleb={deleteCeleb} celebrities={celebrities} setCelebrities={setCelebrities} celebSearch={celebSearch} />
               <DefaultFavoriteCelebs heading={'Community Favorites'} deleteCeleb={deleteCeleb} celebrities={communityCelebrities} celebSearch={celebSearch} />
+              <FavoriteCelebs heading={'MY PEOPLE'} deleteCeleb={deleteCeleb} celebrities={celebrities} setCelebrities={setCelebrities} celebSearch={celebSearch} />            
             </>
           ) : (
               <>

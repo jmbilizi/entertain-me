@@ -9,6 +9,7 @@ import SearchBar from "../components/SearchBar";
 import Trailer from "../components/Trailer";
 import TrailerDefault from "../components/TrailerDefault";
 import Favorites from "../components/Favorites";
+import FavoritesDefault from "../components/FavoritesDefault";
 import TrendingDefault from "../components/TrendingDefault";
 import Trending from "../components/Trending";
 import RelatedCard from "../components/RelatedCard";
@@ -37,7 +38,20 @@ const users = [
   },
 ];
 
-const MoviePage = ({ favorites, setFavorites }) => {
+const communityFavorites = [
+  {
+    title: "Westworld"
+  },
+  {
+    title: "Devs"
+  },
+  {
+    title: "Snowpiercer"
+  }
+];
+
+const MoviePage = ({ favorites, setFavorites, token }) => {
+
   const [state, setState] = useState({
     userInput: "",
     mediaType: "",
@@ -263,14 +277,14 @@ const MoviePage = ({ favorites, setFavorites }) => {
 
       director:
         mainData.data.results[0].media_type === "movie" &&
-        creditsData.data.crew.find((el) => el.job === "Director").name
+          creditsData.data.crew.find((el) => el.job === "Director").name
           ? creditsData.data.crew.filter((el) => el.job === "Director")[0].name
           : "",
       director2:
         mainData.data.results[0].media_type === "movie" &&
-        creditsData.data.crew.filter((el) => el.job === "Director").length === 2
+          creditsData.data.crew.filter((el) => el.job === "Director").length === 2
           ? "& " +
-            creditsData.data.crew.filter((el) => el.job === "Director")[1].name
+          creditsData.data.crew.filter((el) => el.job === "Director")[1].name
           : "",
 
       // logo:
@@ -301,154 +315,154 @@ const MoviePage = ({ favorites, setFavorites }) => {
       related1:
         mainData.data.results[0].media_type === "tv"
           ? [
-              relatedInfo.results[0].name,
-              `${imageURL}` + relatedInfo.results[0].poster_path,
-            ]
+            relatedInfo.results[0].name,
+            `${imageURL}` + relatedInfo.results[0].poster_path,
+          ]
           : [
-              relatedInfo.results[0].original_title,
-              `${imageURL}` + relatedInfo.results[0].poster_path,
-            ],
+            relatedInfo.results[0].original_title,
+            `${imageURL}` + relatedInfo.results[0].poster_path,
+          ],
       related2:
         mainData.data.results[0].media_type === "tv"
           ? [
-              relatedInfo.results[1].name,
-              `${imageURL}` + relatedInfo.results[1].poster_path,
-            ]
+            relatedInfo.results[1].name,
+            `${imageURL}` + relatedInfo.results[1].poster_path,
+          ]
           : [
-              relatedInfo.results[1].original_title,
-              `${imageURL}` + relatedInfo.results[1].poster_path,
-            ],
+            relatedInfo.results[1].original_title,
+            `${imageURL}` + relatedInfo.results[1].poster_path,
+          ],
       related3:
         mainData.data.results[0].media_type === "tv"
           ? [
-              relatedInfo.results[2].name,
-              `${imageURL}` + relatedInfo.results[2].poster_path,
-            ]
+            relatedInfo.results[2].name,
+            `${imageURL}` + relatedInfo.results[2].poster_path,
+          ]
           : [
-              relatedInfo.results[2].original_title,
-              `${imageURL}` + relatedInfo.results[2].poster_path,
-            ],
+            relatedInfo.results[2].original_title,
+            `${imageURL}` + relatedInfo.results[2].poster_path,
+          ],
       related4:
         mainData.data.results[0].media_type === "tv"
           ? [
-              relatedInfo.results[3].name,
-              `${imageURL}` + relatedInfo.results[3].poster_path,
-            ]
+            relatedInfo.results[3].name,
+            `${imageURL}` + relatedInfo.results[3].poster_path,
+          ]
           : [
-              relatedInfo.results[3].original_title,
-              `${imageURL}` + relatedInfo.results[3].poster_path,
-            ],
+            relatedInfo.results[3].original_title,
+            `${imageURL}` + relatedInfo.results[3].poster_path,
+          ],
       related5:
         mainData.data.results[0].media_type === "tv"
           ? [
-              relatedInfo.results[4].name,
-              `${imageURL}` + relatedInfo.results[4].poster_path,
-            ]
+            relatedInfo.results[4].name,
+            `${imageURL}` + relatedInfo.results[4].poster_path,
+          ]
           : [
-              relatedInfo.results[4].original_title,
-              `${imageURL}` + relatedInfo.results[4].poster_path,
-            ],
+            relatedInfo.results[4].original_title,
+            `${imageURL}` + relatedInfo.results[4].poster_path,
+          ],
 
       trending1:
         mainData.data.results[0].media_type === "tv"
           ? [
-              `${imageURL}` + trendingInfo.results[0].poster_path,
-              trendingInfo.results[0].name,
-            ]
+            `${imageURL}` + trendingInfo.results[0].poster_path,
+            trendingInfo.results[0].name,
+          ]
           : [
-              `${imageURL}` + trendingInfo.results[0].poster_path,
-              trendingInfo.results[0].title,
-            ],
+            `${imageURL}` + trendingInfo.results[0].poster_path,
+            trendingInfo.results[0].title,
+          ],
       trending2:
         mainData.data.results[0].media_type === "tv"
           ? [
-              `${imageURL}` + trendingInfo.results[1].poster_path,
-              trendingInfo.results[1].name,
-            ]
+            `${imageURL}` + trendingInfo.results[1].poster_path,
+            trendingInfo.results[1].name,
+          ]
           : [
-              `${imageURL}` + trendingInfo.results[1].poster_path,
-              trendingInfo.results[1].title,
-            ],
+            `${imageURL}` + trendingInfo.results[1].poster_path,
+            trendingInfo.results[1].title,
+          ],
       trending3:
         mainData.data.results[0].media_type === "tv"
           ? [
-              `${imageURL}` + trendingInfo.results[2].poster_path,
-              trendingInfo.results[2].name,
-            ]
+            `${imageURL}` + trendingInfo.results[2].poster_path,
+            trendingInfo.results[2].name,
+          ]
           : [
-              `${imageURL}` + trendingInfo.results[2].poster_path,
-              trendingInfo.results[2].title,
-            ],
+            `${imageURL}` + trendingInfo.results[2].poster_path,
+            trendingInfo.results[2].title,
+          ],
       trending4:
         mainData.data.results[0].media_type === "tv"
           ? [
-              `${imageURL}` + trendingInfo.results[3].poster_path,
-              trendingInfo.results[3].name,
-            ]
+            `${imageURL}` + trendingInfo.results[3].poster_path,
+            trendingInfo.results[3].name,
+          ]
           : [
-              `${imageURL}` + trendingInfo.results[3].poster_path,
-              trendingInfo.results[3].title,
-            ],
+            `${imageURL}` + trendingInfo.results[3].poster_path,
+            trendingInfo.results[3].title,
+          ],
       trending5:
         mainData.data.results[0].media_type === "tv"
           ? [
-              `${imageURL}` + trendingInfo.results[4].poster_path,
-              trendingInfo.results[4].name,
-            ]
+            `${imageURL}` + trendingInfo.results[4].poster_path,
+            trendingInfo.results[4].name,
+          ]
           : [
-              `${imageURL}` + trendingInfo.results[4].poster_path,
-              trendingInfo.results[4].title,
-            ],
+            `${imageURL}` + trendingInfo.results[4].poster_path,
+            trendingInfo.results[4].title,
+          ],
       trending6:
         mainData.data.results[0].media_type === "tv"
           ? [
-              `${imageURL}` + trendingInfo.results[5].poster_path,
-              trendingInfo.results[5].name,
-            ]
+            `${imageURL}` + trendingInfo.results[5].poster_path,
+            trendingInfo.results[5].name,
+          ]
           : [
-              `${imageURL}` + trendingInfo.results[5].poster_path,
-              trendingInfo.results[5].title,
-            ],
+            `${imageURL}` + trendingInfo.results[5].poster_path,
+            trendingInfo.results[5].title,
+          ],
       trending7:
         mainData.data.results[0].media_type === "tv"
           ? [
-              `${imageURL}` + trendingInfo.results[6].poster_path,
-              trendingInfo.results[6].name,
-            ]
+            `${imageURL}` + trendingInfo.results[6].poster_path,
+            trendingInfo.results[6].name,
+          ]
           : [
-              `${imageURL}` + trendingInfo.results[6].poster_path,
-              trendingInfo.results[6].title,
-            ],
+            `${imageURL}` + trendingInfo.results[6].poster_path,
+            trendingInfo.results[6].title,
+          ],
       trending8:
         mainData.data.results[0].media_type === "tv"
           ? [
-              `${imageURL}` + trendingInfo.results[7].poster_path,
-              trendingInfo.results[7].name,
-            ]
+            `${imageURL}` + trendingInfo.results[7].poster_path,
+            trendingInfo.results[7].name,
+          ]
           : [
-              `${imageURL}` + trendingInfo.results[7].poster_path,
-              trendingInfo.results[7].title,
-            ],
+            `${imageURL}` + trendingInfo.results[7].poster_path,
+            trendingInfo.results[7].title,
+          ],
       trending9:
         mainData.data.results[0].media_type === "tv"
           ? [
-              `${imageURL}` + trendingInfo.results[8].poster_path,
-              trendingInfo.results[8].name,
-            ]
+            `${imageURL}` + trendingInfo.results[8].poster_path,
+            trendingInfo.results[8].name,
+          ]
           : [
-              `${imageURL}` + trendingInfo.results[8].poster_path,
-              trendingInfo.results[8].title,
-            ],
+            `${imageURL}` + trendingInfo.results[8].poster_path,
+            trendingInfo.results[8].title,
+          ],
       trending10:
         mainData.data.results[0].media_type === "tv"
           ? [
-              `${imageURL}` + trendingInfo.results[9].poster_path,
-              trendingInfo.results[9].name,
-            ]
+            `${imageURL}` + trendingInfo.results[9].poster_path,
+            trendingInfo.results[9].name,
+          ]
           : [
-              `${imageURL}` + trendingInfo.results[9].poster_path,
-              trendingInfo.results[9].title,
-            ],
+            `${imageURL}` + trendingInfo.results[9].poster_path,
+            trendingInfo.results[9].title,
+          ],
     });
   }
 
@@ -482,6 +496,7 @@ const MoviePage = ({ favorites, setFavorites }) => {
         <Col m={6}>
           {id ? (
             <ResultsCard
+              token={token}
               selection={selection}
               mediaType={mediaType}
               release={moment(release, "YYYY-MM-DD").format("MMM Do, YYYY")}
@@ -506,8 +521,8 @@ const MoviePage = ({ favorites, setFavorites }) => {
               setFavorites={setFavorites}
             />
           ) : (
-            <DiscoverCardDefault />
-          )}
+              <DiscoverCardDefault />
+            )}
 
           {id ? (
             <Trending
@@ -523,19 +538,19 @@ const MoviePage = ({ favorites, setFavorites }) => {
               trending10={trending10}
             />
           ) : (
-            <TrendingDefault
-              trending1={trending1}
-              trending2={trending2}
-              trending3={trending3}
-              trending4={trending4}
-              trending5={trending5}
-              trending6={trending6}
-              trending7={trending7}
-              trending8={trending8}
-              trending9={trending9}
-              trending10={trending10}
-            />
-          )}
+              <TrendingDefault
+                trending1={trending1}
+                trending2={trending2}
+                trending3={trending3}
+                trending4={trending4}
+                trending5={trending5}
+                trending6={trending6}
+                trending7={trending7}
+                trending8={trending8}
+                trending9={trending9}
+                trending10={trending10}
+              />
+            )}
         </Col>
         <Col m={3}>
           {!mediaType ? <TrailerDefault /> : console.log(".")}
@@ -543,13 +558,13 @@ const MoviePage = ({ favorites, setFavorites }) => {
           {mediaType === "tv" ? (
             <Trailer trailer={tvTrailer} />
           ) : (
-            console.log("No movie trailer available.")
-          )}
+              console.log("No movie trailer available.")
+            )}
           {mediaType === "movie" ? (
             <Trailer trailer={trailer} />
           ) : (
-            console.log("No TV trailer available.")
-          )}
+              console.log("No TV trailer available.")
+            )}
           {id ? (
             <RelatedCard
               className="related"
@@ -566,23 +581,38 @@ const MoviePage = ({ favorites, setFavorites }) => {
               poster5={related5[1]}
             />
           ) : (
-            <RelatedCardDefault />
-          )}
+              <RelatedCardDefault />
+            )}
         </Col>
         <Col m={3}>
-          <Favorites
-            heading={"MY MOVIES"}
-            favorites={favoritesMovie}
-            mediaSearch={mediaSearch}
-            deleteMedia={deleteMedia}
+
+          {token ? (
+            <>
+              <FavoritesDefault heading={'Community Favorites'}
+                favorites={communityFavorites}
+              />
+
+              <Favorites
+                heading={"MY MOVIES"}
+                favorites={favoritesMovie}
+                mediaSearch={mediaSearch}
+                deleteMedia={deleteMedia}
+              />
+              <Favorites
+                heading={"MY SHOWS"}
+                favorites={favoritesTV}
+                mediaSearch={mediaSearch}
+                deleteMedia={deleteMedia}
+              />
+            </>
+          ) : (
+            <FavoritesDefault heading={'Community Favorites'}
+            favorites={communityFavorites}
           />
 
-          <Favorites
-            heading={"MY SHOWS"}
-            favorites={favoritesTV}
-            mediaSearch={mediaSearch}
-            deleteMedia={deleteMedia}
-          />
+              // console.log('fd')
+            )}
+
         </Col>
       </Row>
     </MoviePageWrapper>
