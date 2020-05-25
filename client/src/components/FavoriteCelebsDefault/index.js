@@ -2,11 +2,11 @@ import React from "react";
 import { Collection, CollectionItem } from "react-materialize";
 
 const FavoriteCelebsDefault = (props) => {
-  const getDetails = (e) => {
+  // const getDetails = (e) => {
 
-    console.log(e);
-    props.celebSearch(e)
-  };
+  //   console.log(e);
+  //   props.celebSearch(e)
+  // };
 
 
   console.log("FavoriteCelebs console props: ", props);

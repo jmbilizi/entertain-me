@@ -8,6 +8,7 @@ import { ResultsWrapper } from '../../assets/styles';
 import Poster from '../Poster';
 
 const ResultsCard = (props) => {
+  const { token } = props;
   const addFavorite = () => {
     alert('ADDED TO FAVORITES');
     const userId = user()._id;
@@ -65,20 +66,24 @@ const ResultsCard = (props) => {
           <br></br>
           <div className='details'>
             <h4 className='results-card-title'>{props.selection}</h4>
-            <div className='result-btns'>
-              <span onClick={addFavorite}>
-                <span className='material-icons favorite'>favorite</span>
-              </span>
-              <span onClick={setNotification}>
-                <span className='material-icons notify'>notifications</span>
-              </span>
-              <span onClick={watchContent}>
-                <span className='material-icons watch'>tv</span>
-              </span>
-              <span onClick={shareContent}>
-                <span className='material-icons watch'>share</span>
-              </span>
-            </div>
+            {!token ?  (
+                console.log('User is not logged in.')
+              ):(
+              <div className='result-btns'>
+                <span onClick={addFavorite}>
+                  <span className='material-icons favorite'>favorite</span>
+                </span>
+                <span onClick={setNotification}>
+                  <span className='material-icons notify'>notifications</span>
+                </span>
+                <span onClick={watchContent}>
+                  <span className='material-icons watch'>tv</span>
+                </span>
+                <span onClick={shareContent}>
+                  <span className='material-icons watch'>share</span>
+                </span>
+              </div>
+            )}
             <p className='overview'>
               {_.truncate(props.overview, {
                 length: 185,
