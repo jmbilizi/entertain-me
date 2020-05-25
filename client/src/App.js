@@ -28,7 +28,7 @@ const App = () => {
             <MoviePage favorites={favorites} setFavorites={setFavorites}/>
           </Route>
           <Route exact path='/celebrities'>
-            <Celebrities celebrities={celebrities} setCelebrities={setCelebrities} />
+            <Celebrities celebrities={celebrities} setCelebrities={setCelebrities} token={token} />
           </Route>
           <Route exact path='/profile'>
             <Profile token={token} />

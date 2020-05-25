@@ -6,6 +6,7 @@ import Chat from '../../components/Chat/Chat'
 import { HomePageWrapper } from "../../assets/styles";
 import "./style.css"
 import API from "../../utils/API.js";
+import $ from 'jquery';
 
 
 
@@ -66,42 +67,42 @@ const Home = (props) => {
 
 
   setTimeout(function () {
-    document.getElementById("home").innerHTML = `<br><br><h5 id='home-text1'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>MOVIE</span>.</h5>`;
-    document.getElementById("home").setAttribute("class", 'home-image-text');
+    $("#home").html(`<br><br><h5 id='home-text1'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>MOVIE</span>.</h5>`);
+    // document.getElementById("home").setAttribute("class", 'home-image-text');
   }, 2800)
   setTimeout(function () {
-    document.getElementById("home").innerHTML = `<br><br><h5 id='home-text2'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>SHOW</span>.</h5>`;
+    $("#home").html(`<br><br><h5 id='home-text2'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>SHOW</span>.</h5>`);
   }, 4000)
   setTimeout(function () {
-    document.getElementById("home").innerHTML = `<br><br><h5 id='home-text3'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>BOOK</span>.</h5>`;
+    $("#home").html(`<br><br><h5 id='home-text3'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>BOOK</span>.</h5>`);
   }, 4250)
   setTimeout(function () {
-    document.getElementById("home").innerHTML = `<br><br><h5 id='home-text3'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>GAME</span>.</h5>`;
+    $("#home").html(`<br><br><h5 id='home-text3'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>GAME</span>.</h5>`);
   }, 4500)
   setTimeout(function () {
-    document.getElementById("home").innerHTML = `<br><br><h5 id='home-text3'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>CHARACTER</span>.</h5>`;
+    $("#home").html(`<br><br><h5 id='home-text3'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>CHARACTER</span>.</h5>`);
   }, 4750)
   setTimeout(function () {
-    document.getElementById("home").innerHTML = `<br><br><h5 id='home-text3'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>EPISODE</span>.</h5>`;
+    $("#home").html(`<br><br><h5 id='home-text3'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>EPISODE</span>.</h5>`);
   }, 5000)
   setTimeout(function () {
-    document.getElementById("home").innerHTML = `<br><br><h5 id='home-text3'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>SONG</span>.</h5>`;
+    $("#home").html(`<br><br><h5 id='home-text3'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>SONG</span>.</h5>`);
   }, 5250)
   setTimeout(function () {
-    document.getElementById("home").innerHTML = `<br><br><h5 id='home-text4'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>SCENE</span>.</h5>`;
+    $("#home").html(`<br><br><h5 id='home-text4'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>SCENE</span>.</h5>`);
   }, 5500)
   setTimeout(function () {
-    document.getElementById("home").innerHTML = `<br><br><h5 id='home-text3'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>PERSON</span>.</h5>`;
+    $("#home").html( `<br><br><h5 id='home-text3'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>PERSON</span>.</h5>`);
   }, 5750)
   setTimeout(function () {
-    document.getElementById("home").innerHTML = `<br><br><h5 id='home-text3'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>ALBUM</span>.</h5>`;
+    $("#home").html(`<br><br><h5 id='home-text3'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>ALBUM</span>.</h5>`);
   }, 6000)
   setTimeout(function () {
-    document.getElementById("home").innerHTML = `<br><br><h5 id='home-text3'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>THING</span>.</h5>`;
+    $("#home").html(`<br><br><h5 id='home-text3'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>THING</span>.</h5>`);
   }, 6250)
   setTimeout(function () {
-    document.getElementById("home").innerHTML = `<br><br><h5 id='home-text5'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>THING</span>.</h5><br>
-    <img className='home-image' src=${require('../../assets/images/grayLogo.png')} />`;
+    $("#home").html(`<br><br><h5 id='home-text5'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>THING</span>.</h5><br>
+    <img className='home-image' src=${require('../../assets/images/grayLogo.png')} />`);
   }, 8000)
 
 
