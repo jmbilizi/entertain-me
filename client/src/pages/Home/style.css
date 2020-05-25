@@ -8,7 +8,7 @@
 }
 
 .middle-content {
-    margin-top: 20px
+    margin-top: 20px;
 }
 
 .middle-title {
@@ -35,11 +35,24 @@
     font-size: 20px;
 }
 
-.home-image {
-    height: 325px;
-    width: 400px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto
+#home {
+    min-height: 20em;
+}
 
+.home-image {
+    margin: 101px 0;
+}
+
+.home-image-text {
+    color: #bdbdbd;
+    text-align: center;
+}
+
+#home-text1, #home-text2, #home-text3, #home-text4, #home-text5 {
+    text-align: left;
+    margin-left: 3.5em;
+}
+
+.main{
+    color: #cfb53b;
 }
