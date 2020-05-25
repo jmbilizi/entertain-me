@@ -53,11 +53,10 @@ const ResultsCard = (props) => {
       <Row>
         <Col m={1}></Col>
         <Col>
-          {/* <img
-              className='network-logo'
-              src={props.logo}
-              alt={props.provider}
-            /> */}
+          <div>
+            {props.logo}
+          </div>
+
           <img
             className='backdrop-image'
             src={props.backdrop}
@@ -66,27 +65,27 @@ const ResultsCard = (props) => {
           <br></br>
           <div className='details'>
             <h4 className='results-card-title'>{props.selection}</h4>
-            {!token ?  (
-                console.log('User is not logged in.')
-              ):(
-              <div className='result-btns'>
-                <span onClick={addFavorite}>
-                  <span className='material-icons favorite'>favorite</span>
-                </span>
-                <span onClick={setNotification}>
-                  <span className='material-icons notify'>notifications</span>
-                </span>
-                <span onClick={watchContent}>
-                  <span className='material-icons watch'>tv</span>
-                </span>
-                <span onClick={shareContent}>
-                  <span className='material-icons watch'>share</span>
-                </span>
-              </div>
-            )}
+            {!token ? (
+              console.log('User is not logged in.')
+            ) : (
+                <div className='result-btns'>
+                  <span onClick={addFavorite}>
+                    <span className='material-icons favorite'>favorite</span>
+                  </span>
+                  <span onClick={setNotification}>
+                    <span className='material-icons notify'>notifications</span>
+                  </span>
+                  <span onClick={watchContent}>
+                    <span className='material-icons watch'>tv</span>
+                  </span>
+                  <span onClick={shareContent}>
+                    <span className='material-icons watch'>share</span>
+                  </span>
+                </div>
+              )}
             <p className='overview'>
               {_.truncate(props.overview, {
-                length: 185,
+                length: 195,
                 separator: '...',
               })}
             </p>
@@ -110,14 +109,14 @@ const ResultsCard = (props) => {
               {props.rating}
             </strong>
             <br></br>
-              Runtime: <strong>{props.runtime} min</strong>
+              Runtime: <strong>{props.runtime}</strong>
             <br></br>
               Viewer score: <strong>{props.score}</strong>
           </div>
         </Col>
         <Col m={4}>
           <div className='stats2'>
-            Starring: <strong>{props.star1}, {props.star2}</strong><br></br>
+            Starring: <strong>{props.star1}{props.star2}</strong><br></br>
             {props.mediaType === 'tv' ? (
               <>
                 Last Episode:<br></br>
