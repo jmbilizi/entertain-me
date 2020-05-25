@@ -5,23 +5,29 @@ const FavoritesCelebs = (props) => {
   const getDetails = (e) => {
 
     console.log(e);
-    props.mediaSearch(e)
+    props.celebSearch(e)
   };
-const { favorites} = props
-console.log({favorites})
+
+  const deleteItemCeleb = (celebName) => {
+    props.deleteCeleb(celebName);
+  }
+
+  console.log("FavoriteCelebs console props: ", props);
+
+const { celebrities } = props;
+
   return (
     <>
       <h6 className="center-align title">{props.heading}</h6>
       <Collection className="frame">
-        {/* {favorites.map(item =>  <CollectionItem onClick={( )=>getDetails(item.media_name)}>
-          {item.media_name}<span className="material-icons remove">remove_circle</span>
-        </CollectionItem> )} */}
-       
-        
+        {celebrities.map(item => 
+        (<CollectionItem>
+          <span onClick={() => getDetails(item.celeb_name)}>{item.celeb_name}</span>
+          <span onClick={ () => deleteItemCeleb(item.celeb_name) } className="material-icons remove">remove_circle</span>
+        </CollectionItem>)
+        )}
       </Collection>
     </>
-
-    // iterate over array and filter by media type
 
   );
 };
