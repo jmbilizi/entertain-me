@@ -11,29 +11,12 @@ const Profile = (props) => {
 
   return (
     <ProfilePageWrapper>
-      <Container>
-        <div className="row">
-          <div className="col s12 center-align">
-            <h2 className="white-text">Profile</h2>
-            <br />
-            <h6 className="white-text">
-              First Name: {`${user().fname}`}
-              {/* {user.name} */}
-            </h6>
-            <br />
-            <h6 className="white-text">
-              Last Name: {`${user().lname}`}
-              {/* {user.name} */}
-            </h6>
-            <br />
-            <h6 className="white-text">
-              Email: {`${user().username}`}
-              {/* {user.email} */}
-            </h6>
-            {/* <p>{`Joined ${new Date(user.created).toDateString()}`}</p> */}
-          </div>
-        </div>
-      </Container>
+      <div className="container white-text">
+        <h2 className="mt-5 mb-5">Profile</h2>
+        <p>First Name: {`${user().fname}`}</p>
+        <p>Last Name: {`${user().lname}`}</p>
+        <p>Email: {`${user().username}`}</p>
+      </div>
     </ProfilePageWrapper>
   );
 };
