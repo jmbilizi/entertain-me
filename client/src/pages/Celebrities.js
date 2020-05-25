@@ -12,15 +12,17 @@ import FavoriteCelebs from '../components/FavoriteCelebs'
 import DefaultFavoriteCelebs from '../components/FavoriteCelebsDefault'
 import { CelebritiesPageWrapper } from "../assets/styles";
 import API from "../utils/API";
-import { getCurrentUserId } from "../utils/helpers";
+import { user } from "../utils/helpers";
 import axios from "axios";
+
+const userId = user()._id;
 
 const Celebrities = ({ celebrities, setCelebrities, token }) => {
 
   const addFavorite = () => {
     alert('ADDED TO FAVORITES');
     const celebName = state.name;
-    const userId = getCurrentUserId();
+    
     console.log("celebrities: ", celebrities);
     console.log("setCelebrities: ", setCelebrities);
 
@@ -53,8 +55,6 @@ const Celebrities = ({ celebrities, setCelebrities, token }) => {
   // Celebrities delete function
 
   function deleteCeleb(celebName) {
-
-    const userId = getCurrentUserId();
 
     const celebList = celebrities.slice();
     const newCelebList = celebList.filter(item => item.celeb_name !== celebName);

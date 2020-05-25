@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Col } from 'react-materialize';
 import _ from 'lodash';
 import axios from "axios";
-import { getCurrentUserId } from "../../utils/helpers";
+import { user } from "../../utils/helpers";
 
 import { ResultsWrapper } from '../../assets/styles';
 import Poster from '../Poster';
@@ -10,7 +10,7 @@ import Poster from '../Poster';
 const ResultsCard = (props) => {
   const addFavorite = () => {
     alert('ADDED TO FAVORITES');
-    const userId = getCurrentUserId();
+    const userId = user()._id;
     console.log("props: ", props);
     const mediaName = props.selection;
     const mediaType = props.mediaType;
