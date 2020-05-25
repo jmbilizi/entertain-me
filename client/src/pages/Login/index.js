@@ -106,7 +106,7 @@ class Login extends Component {
                                                 <input
                                                     name="username"
                                                     value={username}
-                                                    type="email"
+                                                    type="text"
                                                     className="form-control"
                                                     placeholder="Enter email"
                                                     onChange={this.onChange}
@@ -119,7 +119,7 @@ class Login extends Component {
                                                 <input
                                                     name="password"
                                                     value={password}
-                                                    type="password"
+                                                    type="text"
                                                     className="form-control"
                                                     placeholder="Enter password"
                                                     onChange={this.onChange}
