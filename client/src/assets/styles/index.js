@@ -199,11 +199,15 @@ export const CelebritiesPageWrapper = styled(Container)`
 }
 .favorite,
 .notify,
-.watch {
+.watch,
+.remove {
   cursor: pointer;
   color: lightGray;
 }
-.favorite:hover {
+.remove {
+  float: right;
+}
+.favorite:hover, .remove:hover {
   color: red;
 }
 .notify:hover,

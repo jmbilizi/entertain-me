@@ -9,12 +9,13 @@ import DefaultCelebAppearances from "../components/CelebAppearancesDefault";
 import DefaultCelebBiography from "../components/CelebBiographyDefault";
 import DefaultTrendingCelebrities from "../components/TrendingCelebritiesDefault";
 import FavoriteCelebs from '../components/FavoriteCelebs'
+import DefaultFavoriteCelebs from '../components/FavoriteCelebsDefault'
 import { CelebritiesPageWrapper } from "../assets/styles";
 import API from "../utils/API";
 import { getCurrentUserId } from "../utils/helpers";
 import axios from "axios";
 
-const Celebrities = ( { celebrities, setCelebrities }) => {
+const Celebrities = ({ celebrities, setCelebrities, token }) => {
 
   const addFavorite = () => {
     alert('ADDED TO FAVORITES');
@@ -22,7 +23,7 @@ const Celebrities = ( { celebrities, setCelebrities }) => {
     const userId = getCurrentUserId();
     console.log("celebrities: ", celebrities);
     console.log("setCelebrities: ", setCelebrities);
-    
+
     const newCelebList = celebrities.slice();
     newCelebList.push({
       celeb_name: celebName
@@ -30,13 +31,13 @@ const Celebrities = ( { celebrities, setCelebrities }) => {
     setCelebrities(newCelebList);
 
     axios
-    .put("/api/celebrities", { userId, celebName })
-    .then((result) => {
-      console.log("Adding celeb favorites...");
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+      .put("/api/celebrities", { userId, celebName })
+      .then((result) => {
+        console.log("Adding celeb favorites...");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 
   };
   const setNotification = () => {
@@ -180,21 +181,21 @@ const Celebrities = ( { celebrities, setCelebrities }) => {
 
   return (
     <CelebritiesPageWrapper>
-        <Row>
-          <Col m={4}></Col>
-          <Col m={4}>
-            <CelebSearchBar
-              handleInputChange={handleInputChange}
-              handleFormSubmit={handleFormSubmit}
-            />
-          </Col>
-          <Col m={4}></Col>
-        </Row>
+      <Row>
+        <Col m={4}></Col>
+        <Col m={4}>
+          <CelebSearchBar
+            handleInputChange={handleInputChange}
+            handleFormSubmit={handleFormSubmit}
+          />
+        </Col>
+        <Col m={4}></Col>
+      </Row>
 
-        <Row>
-          <Col m={5}>
-            {state.name ? (
-              <>
+      <Row>
+        <Col m={5}>
+          {state.name ? (
+            <>
               <img
                 className="celeb-profile-pic"
                 src={state.profile}
@@ -214,130 +215,128 @@ const Celebrities = ( { celebrities, setCelebrities }) => {
                   <span className='material-icons watch'>share</span>
                 </span>
               </div>
-              </>
-            ) : (
-                <DefaultCelebProfileImage />
-              )}
-          </Col>
-          <Col m={4}>
-            {state.name ? (
-              <h2 className="celeb-name">{state.name}</h2>
-            ) : (
-                <h2 className="celeb-name">Celebrities</h2>
-              )}
+            </>
+          ) : (
+              <DefaultCelebProfileImage />
+            )}
+        </Col>
+        <Col m={4}>
+          {state.name ? (
+            <h2 className="celeb-name">{state.name}</h2>
+          ) : (
+              <h2 className="celeb-name">Celebrities</h2>
+            )}
 
-            {state.name ? (
+          {state.name ? (
+            <>
+              <h6 className="biography-title">Biography</h6>
+              <p className="celeb-biography">
+                {_.truncate(state.biography, {
+                  length: 300,
+                  separator: "...",
+                })}
+              </p>
+              <h6 className="appearances-title">Appearances</h6>
+              <a href={state.known1Img}>
+                <img
+                  className="known"
+                  src={state.known1Img}
+                  alt="{state.known1}"
+                />
+              </a>
+              <p className="celeb-appearances-overview">
+                {_.truncate(state.known1Overview, {
+                  length: 140,
+                  separator: "...",
+                })}
+              </p>
+              <a href={state.known2Img}>
+                <img
+                  className="known"
+                  src={state.known2Img}
+                  alt="{state.known2}"
+                />
+              </a>
+              <p className="celeb-appearances-overview">
+                {_.truncate(state.known2Overview, {
+                  length: 140,
+                  separator: "...",
+                })}
+              </p>
+              <a href={state.known3Img}>
+                <img
+                  className="known"
+                  src={state.known3Img}
+                  alt="{state.known3}"
+                />
+              </a>
+              <p className="celeb-appearances-overview">
+                {_.truncate(state.known3Overview, {
+                  length: 140,
+                  separator: "...",
+                })}
+              </p>
+            </>
+          ) : (
               <>
-               <h6 className="biography-title">Biography</h6>
-                <p className="celeb-biography">
-                  {_.truncate(state.biography, {
-                    length: 300,
-                    separator: "...",
-                  })}
-                </p>
-                <h6 className="appearances-title">Appearances</h6>
-                <a href={state.known1Img}>
-                  <img
-                    className="known"
-                    src={state.known1Img}
-                    alt="{state.known1}"
-                  />
-                </a>
-                <p className="celeb-appearances-overview">
-                  {_.truncate(state.known1Overview, {
-                    length: 140,
-                    separator: "...",
-                  })}
-                </p>
-                <a href={state.known2Img}>
-                  <img
-                    className="known"
-                    src={state.known2Img}
-                    alt="{state.known2}"
-                  />
-                </a>
-                <p className="celeb-appearances-overview">
-                  {_.truncate(state.known2Overview, {
-                    length: 140,
-                    separator: "...",
-                  })}
-                </p>
-                <a href={state.known3Img}>
-                  <img
-                    className="known"
-                    src={state.known3Img}
-                    alt="{state.known3}"
-                  />
-                </a>
-                <p className="celeb-appearances-overview">
-                  {_.truncate(state.known3Overview, {
-                    length: 140,
-                    separator: "...",
-                  })}
-                </p>
-              </>
-            ) : (
-              <>
-              <DefaultCelebBiography />
+                <DefaultCelebBiography />
                 <DefaultCelebAppearances />
-                </>
-              )}
-          </Col>
-          <Col m={3}>
-            {state.name ? (
-              <>
-                 <FavoriteCelebs heading={'MY PEOPLE'} deleteCeleb={deleteCeleb} celebrities={celebrities} setCelebrities={setCelebrities} celebSearch={celebSearch} />
-
               </>
-            ) : (
-                <>
-                <FavoriteCelebs heading={'Community Favorites'} deleteCeleb={deleteCeleb} celebrities={communityCelebrities} celebSearch={celebSearch} />    
-           
-
-                </>
-              )}
-
-            <br></br>
-
-            {state.name ? (
+            )}
+        </Col>
+        <Col m={3}>
+          {token ? (
+            <>
+              <FavoriteCelebs heading={'MY PEOPLE'} deleteCeleb={deleteCeleb} celebrities={celebrities} setCelebrities={setCelebrities} celebSearch={celebSearch} />
+              <DefaultFavoriteCelebs heading={'Community Favorites'} deleteCeleb={deleteCeleb} celebrities={communityCelebrities} celebSearch={celebSearch} />
+            </>
+          ) : (
               <>
-                <h6 className="trending-celeb-title">Trending</h6>
-                <img
-                  className="trending-celeb-images"
-                  src={state.trending1Img}
-                  title={state.trending1}
-                  alt={state.trending1}
-                />
-                <img
-                  className="trending-celeb-images"
-                  src={state.trending2Img}
-                  title={state.trending2}
-                  alt={state.trending2}
-                />
-                <img
-                  className="trending-celeb-images"
-                  src={state.trending3Img}
-                  title={state.trending3}
-                  alt={state.trending3}
-                />
-                <img
-                  className="trending-celeb-images"
-                  src={state.trending4Img}
-                  title={state.trending4}
-                  alt={state.trending4}
-                />
-                <img
-                  className="trending-celeb-images"
-                  src={state.trending5Img}
-                  title={state.trending5}
-                  alt={state.trending5}
-                />
+                <DefaultFavoriteCelebs heading={'Community Favorites'} deleteCeleb={deleteCeleb} celebrities={communityCelebrities} celebSearch={celebSearch} />
               </>
-            ) : (
-                <DefaultTrendingCelebrities />
-              )}
-          </Col>
-        </Row>
+            )}
+
+          <br></br>
+
+          {state.name ? (
+            <>
+              <h6 className="trending-celeb-title">Trending</h6>
+              <img
+                className="trending-celeb-images"
+                src={state.trending1Img}
+                title={state.trending1}
+                alt={state.trending1}
+              />
+              <img
+                className="trending-celeb-images"
+                src={state.trending2Img}
+                title={state.trending2}
+                alt={state.trending2}
+              />
+              <img
+                className="trending-celeb-images"
+                src={state.trending3Img}
+                title={state.trending3}
+                alt={state.trending3}
+              />
+              <img
+                className="trending-celeb-images"
+                src={state.trending4Img}
+                title={state.trending4}
+                alt={state.trending4}
+              />
+              <img
+                className="trending-celeb-images"
+                src={state.trending5Img}
+                title={state.trending5}
+                alt={state.trending5}
+              />
+            </>
+          ) : (
+              <DefaultTrendingCelebrities />
+            )}
+        </Col>
+      </Row>
     </CelebritiesPageWrapper>
   );
 };
