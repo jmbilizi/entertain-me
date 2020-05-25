@@ -10,7 +10,7 @@ const Profile = (props) => {
   if (!token) return <Redirect to={"/login"} />;
 
   const [userProfile, redirectToLogin] = useState({
-    user: "",
+    userProfile: "",
     redirectToLogin: false,
   });
 
