@@ -69,6 +69,11 @@ export const MoviePageWrapper = styled(Container)`
   width: 45px;
   height: 25px;
   float: right;
+  margin: 1em 1em 0 0;
+}
+.network-logo-alt {
+  float: right;
+  margin: 1em 1em 0 0;
 }
 .poster {
   width: 90px;
