@@ -20,7 +20,6 @@ const Celebrities = ( { celebrities, setCelebrities }) => {
     alert('ADDED TO FAVORITES');
     const celebName = state.name;
     const userId = getCurrentUserId();
-    console.log("Adding celebrities: ", celebName, userId);
     console.log("celebrities: ", celebrities);
     console.log("setCelebrities: ", setCelebrities);
     
@@ -33,7 +32,7 @@ const Celebrities = ( { celebrities, setCelebrities }) => {
     axios
     .put("/api/celebrities", { userId, celebName })
     .then((result) => {
-      console.log("Adding celeb favorites result: ", result);
+      console.log("Adding celeb favorites...");
     })
     .catch((error) => {
       console.log(error);
@@ -48,6 +47,27 @@ const Celebrities = ( { celebrities, setCelebrities }) => {
   };
   const shareContent = () => {
     alert('CONTENT SHARED');
+  };
+
+  // Celebrities delete function
+
+  function deleteCeleb(celebName) {
+
+    const userId = getCurrentUserId();
+
+    const celebList = celebrities.slice();
+    const newCelebList = celebList.filter(item => item.celeb_name !== celebName);
+    setCelebrities(newCelebList);
+
+    axios
+      .delete(`/api/celebrities/${userId}/${celebName}`)
+      .then((result) => {
+        console.log("Deleting: ", celebName);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
   };
 
   const [state, setState] = useState({
@@ -145,6 +165,18 @@ const Celebrities = ( { celebrities, setCelebrities }) => {
     e.preventDefault();
     celebSearch(userInput);
   };
+
+  const communityCelebrities = [
+    {
+      celeb_name: "Dwayne Johnson"
+    },
+    {
+      celeb_name: "Taylow Swift"
+    },
+    {
+      celeb_name: "Liam Neeson"
+    }
+  ];
 
   return (
     <CelebritiesPageWrapper>
@@ -254,11 +286,12 @@ const Celebrities = ( { celebrities, setCelebrities }) => {
           <Col m={3}>
             {state.name ? (
               <>
-                 <FavoriteCelebs heading={'MY PEOPLE'}/>            
+                 <FavoriteCelebs heading={'MY PEOPLE'} deleteCeleb={deleteCeleb} celebrities={celebrities} setCelebrities={setCelebrities} celebSearch={celebSearch} />
+
               </>
             ) : (
                 <>
-                <FavoriteCelebs heading={'Community Favorites'}/>    
+                <FavoriteCelebs heading={'Community Favorites'} deleteCeleb={deleteCeleb} celebrities={communityCelebrities} celebSearch={celebSearch} />    
            
 
                 </>
