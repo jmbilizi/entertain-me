@@ -26,9 +26,11 @@ const App = () => {
             <Home />
           </Route>
           <Route exact path="/movies">
-            <MoviePage favorites={favorites}
+            <MoviePage
+              favorites={favorites}
               setFavorites={setFavorites}
-              token={token} />
+              token={token}
+            />
           </Route>
           <Route exact path="/celebrities">
             <Celebrities
@@ -37,12 +39,11 @@ const App = () => {
               token={token}
             />
           </Route>
-          <Route exact path={`/user/:${user()._id}`}>
+          <Route exact path="/user/:userId">
             <Profile token={token} />
           </Route>
           <Route exact path="/logout">
-            <Logout token={token}
-              setToken={setToken} />
+            <Logout token={token} setToken={setToken} />
           </Route>
           <Route exact path="/login">
             <Login
