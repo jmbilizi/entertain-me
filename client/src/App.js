@@ -35,7 +35,7 @@ const App = () => {
               token={token}
             />
           </Route>
-          <Route exact path={`/user/${user()._id}`}>
+          <Route exact path={`/user/:${user()._id}`}>
             <Profile token={token} />
           </Route>
           <Route exact path="/logout">
