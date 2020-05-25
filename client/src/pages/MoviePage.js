@@ -159,6 +159,10 @@ const MoviePage = ({ favorites, setFavorites }) => {
     }
 
     const mainData = await API.mainSearch(entry);
+    if (!mainData.data.results[0]) {
+      return alert('No results retuned.');
+    }
+
     const searchInfo = mainData.data.results[0];
     const {
       id,

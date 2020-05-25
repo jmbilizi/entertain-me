@@ -89,8 +89,11 @@ const Celebrities = ({ celebrities, setCelebrities, token }) => {
     if (!entry) {
       return alert("Enter a celebrity name.");
     }
-
+  
     const mainData = await API.celebSearch(entry);
+    if (!mainData.data.results[0]) {
+      return alert('No results retuned.');
+    }
     const searchInfo = mainData.data.results[0];
     const { id, name, profile_path, profile, media_type } = searchInfo;
 
