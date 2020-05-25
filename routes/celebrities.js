@@ -37,26 +37,26 @@ router.get('/:id', function (req, res) {
 
 });
 
-// router.delete('/:id/:medianame', function (req, res) {
-//     const givenId = req.params.id;
-//     const mediaName = req.params.medianame;
+router.delete('/:id/:celebname', function (req, res) {
+    const givenId = req.params.id;
+    const celebName = req.params.celebname;
 
-//     db.User.findOneAndUpdate({_id: givenId}, {
-//       $pull: { favorites: 
-//           { 
-//             media_name: mediaName 
-//           } 
-//         }
-//       }
-//       ).then(function(data){
-//           // to do: instead of returning entire user object, 
-//           // just return favorite that was successfully deleted
-//           res.json(data);
-//       }).catch(err => {
-//           res.status(400).json(err);
-//         });
+    db.User.findOneAndUpdate({_id: givenId}, {
+      $pull: { celebrities: 
+          { 
+            celeb_name: celebName 
+          } 
+        }
+      }
+      ).then(function(data){
+          // to do: instead of returning entire user object, 
+          // just return favorite that was successfully deleted
+          res.json(data);
+      }).catch(err => {
+          res.status(400).json(err);
+        });
 
-// });
+});
 
 
 module.exports = router;
