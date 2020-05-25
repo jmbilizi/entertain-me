@@ -63,6 +63,48 @@ import API from "../../utils/API.js";
 
 
 const Home = (props) => {
+
+
+  setTimeout(function () {
+    document.getElementById("home").innerHTML = `<br><br><h5 id='home-text1'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>MOVIE</span>.</h5>`;
+    document.getElementById("home").setAttribute("class", 'home-image-text');
+  }, 2800)
+  setTimeout(function () {
+    document.getElementById("home").innerHTML = `<br><br><h5 id='home-text2'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>SHOW</span>.</h5>`;
+  }, 4000)
+  setTimeout(function () {
+    document.getElementById("home").innerHTML = `<br><br><h5 id='home-text3'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>BOOK</span>.</h5>`;
+  }, 4250)
+  setTimeout(function () {
+    document.getElementById("home").innerHTML = `<br><br><h5 id='home-text3'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>GAME</span>.</h5>`;
+  }, 4500)
+  setTimeout(function () {
+    document.getElementById("home").innerHTML = `<br><br><h5 id='home-text3'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>CHARACTER</span>.</h5>`;
+  }, 4750)
+  setTimeout(function () {
+    document.getElementById("home").innerHTML = `<br><br><h5 id='home-text3'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>EPISODE</span>.</h5>`;
+  }, 5000)
+  setTimeout(function () {
+    document.getElementById("home").innerHTML = `<br><br><h5 id='home-text3'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>SONG</span>.</h5>`;
+  }, 5250)
+  setTimeout(function () {
+    document.getElementById("home").innerHTML = `<br><br><h5 id='home-text4'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>SCENE</span>.</h5>`;
+  }, 5500)
+  setTimeout(function () {
+    document.getElementById("home").innerHTML = `<br><br><h5 id='home-text3'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>PERSON</span>.</h5>`;
+  }, 5750)
+  setTimeout(function () {
+    document.getElementById("home").innerHTML = `<br><br><h5 id='home-text3'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>ALBUM</span>.</h5>`;
+  }, 6000)
+  setTimeout(function () {
+    document.getElementById("home").innerHTML = `<br><br><h5 id='home-text3'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>THING</span>.</h5>`;
+  }, 6250)
+  setTimeout(function () {
+    document.getElementById("home").innerHTML = `<br><br><h5 id='home-text5'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>THING</span>.</h5><br>
+    <img className='home-image' src=${require('../../assets/images/grayLogo.png')} />`;
+  }, 8000)
+
+
   return (
     <HomePageWrapper>
       <Row></Row>
@@ -82,9 +124,15 @@ const Home = (props) => {
         </Col>
         <Col s={6}>
           <div className="middle-content">
-            <img src="https://media.giphy.com/media/2XflxzDAw5pn6WaA372/source.gif"
+            {/* <img src="https://media.giphy.com/media/2XflxzDAw5pn6WaA372/source.gif"
               className="home-image"
-            />
+            /> */}
+            <div id='home' className='center-align'>
+              <img src={require('../../assets/images/countdown.gif')}
+                id='home-image'
+              />
+            </div>
+
             <br></br>
             <h5 className="middle-title">DISCOVER YOUR NEXT FAVORITE MOVIE OR TV SHOW</h5>
             <p className="main-paragraph">
