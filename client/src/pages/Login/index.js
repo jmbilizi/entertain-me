@@ -3,7 +3,7 @@ import axios from "axios";
 import LoginSideContent from "../../components/LoginSideContent";
 import { Redirect } from "react-router-dom";
 import { Container, Row, Col, Checkbox } from "react-materialize";
-import { getCurrentUserId } from "../../utils/helpers";
+import { user } from "../../utils/helpers";
 import "./style.css";
 
 
@@ -40,7 +40,7 @@ class Login extends Component {
                 this.setState({ message: "" });
                 this.setState({ login: true });
                 
-                const givenId = getCurrentUserId();
+                const givenId = user()._id;
 
                 axios
                 .get(`/api/favorites/${givenId}`)
