@@ -1,10 +1,10 @@
 import React from 'react'
 
 import { Row, Col } from 'react-materialize';
-import { getCurrentUserFirstName } from "../../utils/helpers";
+import { user } from "../../utils/helpers";
 
 
-const userName = getCurrentUserFirstName();
+const userName = user().fname;
 
 
 

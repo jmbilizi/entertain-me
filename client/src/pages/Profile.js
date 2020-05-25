@@ -3,19 +3,11 @@ import "materialize-css";
 import { Container } from "react-materialize";
 import { Redirect } from "react-router-dom";
 import { ProfilePageWrapper } from "../assets/styles";
-import {
-  getCurrentUserFirstName,
-  getCurrentUserLastName,
-  getCurrentUserEmail,
-} from "../utils/helpers";
+import { user } from "../utils/helpers";
 
 const Profile = (props) => {
   const { token } = props;
   if (!token) return <Redirect to={"/login"} />;
-
-  const fname = getCurrentUserFirstName();
-  const lname = getCurrentUserLastName();
-  const email = getCurrentUserEmail();
 
   return (
     <ProfilePageWrapper>
@@ -25,17 +17,17 @@ const Profile = (props) => {
             <h2 className="white-text">Profile</h2>
             <br />
             <h6 className="white-text">
-              First Name: {fname}
+              First Name: {`${user().fname}`}
               {/* {user.name} */}
             </h6>
             <br />
             <h6 className="white-text">
-              Last Name: {lname}
+              Last Name: {`${user().lname}`}
               {/* {user.name} */}
             </h6>
             <br />
             <h6 className="white-text">
-              Email: {email}
+              Email: {`${user().username}`}
               {/* {user.email} */}
             </h6>
             {/* <p>{`Joined ${new Date(user.created).toDateString()}`}</p> */}
