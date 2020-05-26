@@ -37,6 +37,18 @@ router.get('/:id', function (req, res) {
 
 });
 
+router.get('/', function (req, res) {
+    db.User.find({})
+    .select({ "celebrities.celeb_name": 1 })
+    .then(data => {
+      console.log("Find all data request: ", data);
+      res.json(data);
+    })
+    .catch(err => {
+      res.status(400).json(err);
+    });
+})
+
 router.delete('/:id/:celebname', function (req, res) {
     const givenId = req.params.id;
     const celebName = req.params.celebname;
