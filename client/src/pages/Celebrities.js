@@ -170,17 +170,40 @@ const Celebrities = ({ celebrities, setCelebrities, token }) => {
     celebSearch(userInput);
   };
 
+  // hardcoded communityCelebrities
+
   const communityCelebrities = [
     {
       celeb_name: "Dwayne Johnson"
     },
     {
-      celeb_name: "Taylow Swift"
+      celeb_name: "Taylor Swift"
     },
     {
       celeb_name: "Liam Neeson"
     }
   ];
+
+  // Fetching Celebrity Data
+
+  // let communityCelebrities = [];
+
+  // function getAllCelebrities () {
+
+  //   axios
+  //   .get('/api/celebrities')
+  //   .then((response) => {
+  //       const data = response.data;
+  //       communityCelebrities.push(data);
+  //       console.log('communityCelebrities: ', communityCelebrities);
+  //   })
+  //   .catch((error) => {
+  //       console.log(error);
+  //   })
+  // };
+
+  // getAllCelebrities();
+
 
   return (
     <CelebritiesPageWrapper>
