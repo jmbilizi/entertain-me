@@ -7,6 +7,10 @@ export const LoginPageWrapper = styled(Container)`
 } 
 `
 export const HomePageWrapper = styled(Container)`
+input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #cfb53b !important;
+  box-shadow: 0 1px 0 0 #cfb53b !important;
+}
 .frame {
   border: #212121 2px solid;
 }
@@ -29,6 +33,10 @@ export const HomePageWrapper = styled(Container)`
   }
 `
 export const MoviePageWrapper = styled(Container)`
+input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #cfb53b !important;
+  box-shadow: 0 1px 0 0 #cfb53b !important;
+}
 .frame {
   border: #212121 2px solid;
 }
@@ -69,6 +77,11 @@ export const MoviePageWrapper = styled(Container)`
   width: 45px;
   height: 25px;
   float: right;
+  margin: 1em 1em 0 0;
+}
+.network-logo-alt {
+  float: right;
+  margin: 1em 1em 0 0;
 }
 .poster {
   width: 90px;
@@ -151,6 +164,10 @@ export const MoviePageWrapper = styled(Container)`
 }
 `
 export const CelebritiesPageWrapper = styled(Container)`
+input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #cfb53b !important;
+  box-shadow: 0 1px 0 0 #cfb53b !important;
+}
 .frame {
   border: #212121 2px solid;
 }
