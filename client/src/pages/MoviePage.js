@@ -142,6 +142,7 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
     director2,
     logo,
     provider,
+    tvTrailerInfo
   } = state;
 
   const imageURL = "https://image.tmdb.org/t/p/w500";
@@ -192,41 +193,46 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
 
     const trailerData = await API.trailerSearch(
       id,
-      mainData.data.results[0].media_type
+      searchInfo.media_type
     );
     const trailerInfo = trailerData.data;
     const ratingData = await API.ratingSearch(
       id,
-      mainData.data.results[0].media_type
+      searchInfo.media_type
     );
     const { results } = ratingData.data;
     const usRating = results.find((el) => el.iso_3166_1 === "US");
     const rating =
-      mainData.data.results[0].media_type === "movie"
+      searchInfo.media_type === "movie"
         ? usRating.release_dates.find((el) => el.certification !== "")
-        : usRating.rating;
+        : usRating != null
+          ? (usRating.rating ? (usRating.rating) : (console.log('rferf'))) : (console.log('rferfd'))
+
+
+
+    // usRating.rating;
 
     const relatedData = await API.relatedSearch(
       id,
-      mainData.data.results[0].media_type
+      searchInfo.media_type
     );
     const relatedInfo = relatedData.data;
 
     const creditsData = await API.creditsSearch(
       id,
-      mainData.data.results[0].media_type
+      searchInfo.media_type
     );
 
     const creditsInfo = creditsData.data;
 
     const tvTrailerData = await API.tvTrailerSearch(
       id,
-      mainData.data.results[0].media_type
+      searchInfo.media_type
     );
     const tvTrailerInfo = tvTrailerData.data;
 
     const trendingData = await API.trendingSearch(
-      mainData.data.results[0].media_type
+      searchInfo.media_type
     );
     const trendingInfo = trendingData.data;
 
@@ -237,24 +243,25 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
     console.log("related movies call: ", relatedData);
     console.log("related TV call: ", relatedData);
     console.log("trending  call: ", trendingData);
-    console.log("tvTrailerInfo: ", tvTrailerInfo.data);
+    // console.log("credits  call: ", creditsInfo.cast[0].name);
+    // console.log("tvTrailerInfo: ", tvTrailerInfo.data);
     console.log("relatedData.data ", relatedData.data);
     console.log("relatedInfo", relatedInfo.results[0].name);
     console.log("trendingData: ", trendingData);
-    // console.log('director: ', creditsData.data.crew.filter((el) => el.job === 'Director')[0].name);
+    // console.log('SEARCH>>>>>>', tvTrailerInfo.networks[0].logo_path);
 
     setState({
       ...state,
       mediaType: searchInfo.media_type,
       movie: title,
       tvShow: name,
-      selection: mainData.data.results[0].media_type === "movie" ? title : name,
+      selection: searchInfo.media_type === "movie" ? title : name,
       release:
-        mainData.data.results[0].media_type === "movie"
+        searchInfo.media_type === "movie"
           ? release_date
           : first_air_date,
 
-      overview: overview,
+      overview: overview ? (overview):('NA') ,
       poster: `${imageURL}` + poster_path,
       id: id,
       backdrop: `${imageURL}` + backdrop_path,
@@ -263,57 +270,84 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
       score: vote_average,
       trailerPath: trailerInfo.videos.results[0].key,
       trailer: `${trailerURL}` + trailerInfo.videos.results[0].key,
-      tvTrailer: `${trailerURL}` + tvTrailerInfo.videos.results[0].key,
+      tvTrailer: tvTrailerInfo ? (`${trailerURL}` + tvTrailerInfo.videos.results[0].key) : (console.log('No results.')),
       runtime:
-        mainData.data.results[0].media_type === "movie"
-          ? trailerInfo.runtime
-          : trailerInfo.episode_run_time[0],
-      rating:
-        mainData.data.results[0].media_type === "movie"
-          ? rating.certification
-          : usRating.rating,
-      star1: creditsInfo.cast[0].name,
-      star2: creditsInfo.cast[1].name,
+        trailerInfo.runtime ? (
+          searchInfo.media_type === "movie"
+            ? trailerInfo.runtime + ' min'
+            : trailerInfo.episode_run_time[0]
+        ) : (
+            'NA'
+          ),
 
+
+      rating:
+        searchInfo.media_type === "movie"
+          ? rating.certification
+          : usRating ? usRating.rating : 'NA', // TEMPORARY
+      star1:
+        creditsInfo.cast.length > 0
+          ? creditsInfo.cast[0].name
+          : 'NA',
+      star2:
+        creditsInfo.cast.length > 1
+          ? ', ' + creditsInfo.cast[1].name
+          : console.log('No results'),
       director:
-        mainData.data.results[0].media_type === "movie" &&
-          creditsData.data.crew.find((el) => el.job === "Director").name
-          ? creditsData.data.crew.filter((el) => el.job === "Director")[0].name
+        searchInfo.media_type === "movie" &&
+          creditsInfo.crew.find((el) => el.job === "Director").name
+          ? creditsInfo.crew.filter((el) => el.job === "Director")[0].name
           : "",
       director2:
-        mainData.data.results[0].media_type === "movie" &&
-          creditsData.data.crew.filter((el) => el.job === "Director").length === 2
-          ? "& " +
-          creditsData.data.crew.filter((el) => el.job === "Director")[1].name
+        searchInfo.media_type === "movie" &&
+          creditsInfo.crew.filter((el) => el.job === "Director").length === 2
+          ? "& " + creditsInfo.crew.filter((el) => el.job === "Director")[1].name
           : "",
+
+
+      logo:
+
+        tvTrailerInfo.production_companies.length > 0 ? (searchInfo.media_type === "movie" &&
+          tvTrailerInfo.production_companies.filter((el) => el.logo_path != null)
+          ? <img className='network-logo' src={imageURL + tvTrailerInfo.production_companies.filter((el) => el.logo_path != null)[0].logo_path} alt='studio logo' />
+          : <img className='network-logo' src={imageURL + tvTrailerInfo.networks.filter((el) => el.logo_path != null)[0].logo_path} alt='network logo' />
+        ) : (<span className='network-logo-alt'>ON {tvTrailerInfo.networks[0].name}</span>)
+      ,
+
+
+
+
 
       // logo:
       //   mainData.data.results[0].media_type === 'movie'
-      //     ? `${imageURL}` + tvTrailerInfo.production_companies[1].logo_path
+      //     ? `${imageURL}` + tvTrailerInfo.production_companies[0].logo_path
       //     : `${imageURL}` + tvTrailerInfo.networks[0].logo_path,
+
+
+
       network:
-        mainData.data.results[0].media_type === "tv"
+        searchInfo.media_type === "tv"
           ? tvTrailerInfo.networks[0].name
           : "tv studio icon goes here",
       studio:
-        mainData.data.results[0].media_type === "movie"
+        searchInfo.media_type === "movie"
           ? trailerInfo.production_companies[0].name
           : "movie studio icon goes here",
 
       provider:
-        mainData.data.results[0].media_type === "tv" ? { network } : { studio },
+        searchInfo.media_type === "tv" ? { network } : { studio },
 
       lastAir:
-        mainData.data.results[0].media_type === "tv"
+        searchInfo.media_type === "tv"
           ? tvTrailerInfo.last_air_date
           : " no last air date for movies",
       lastEpisode:
-        mainData.data.results[0].media_type === "tv"
+        searchInfo.media_type === "tv"
           ? tvTrailerInfo.last_episode_to_air.name
           : " no last episode for movies",
 
       related1:
-        mainData.data.results[0].media_type === "tv"
+        searchInfo.media_type === "tv"
           ? [
             relatedInfo.results[0].name,
             `${imageURL}` + relatedInfo.results[0].poster_path,
@@ -323,7 +357,7 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
             `${imageURL}` + relatedInfo.results[0].poster_path,
           ],
       related2:
-        mainData.data.results[0].media_type === "tv"
+        searchInfo.media_type === "tv"
           ? [
             relatedInfo.results[1].name,
             `${imageURL}` + relatedInfo.results[1].poster_path,
@@ -333,7 +367,7 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
             `${imageURL}` + relatedInfo.results[1].poster_path,
           ],
       related3:
-        mainData.data.results[0].media_type === "tv"
+        searchInfo.media_type === "tv"
           ? [
             relatedInfo.results[2].name,
             `${imageURL}` + relatedInfo.results[2].poster_path,
@@ -343,7 +377,7 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
             `${imageURL}` + relatedInfo.results[2].poster_path,
           ],
       related4:
-        mainData.data.results[0].media_type === "tv"
+        searchInfo.media_type === "tv"
           ? [
             relatedInfo.results[3].name,
             `${imageURL}` + relatedInfo.results[3].poster_path,
@@ -353,7 +387,7 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
             `${imageURL}` + relatedInfo.results[3].poster_path,
           ],
       related5:
-        mainData.data.results[0].media_type === "tv"
+        searchInfo.media_type === "tv"
           ? [
             relatedInfo.results[4].name,
             `${imageURL}` + relatedInfo.results[4].poster_path,
@@ -364,7 +398,7 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
           ],
 
       trending1:
-        mainData.data.results[0].media_type === "tv"
+        searchInfo.media_type === "tv"
           ? [
             `${imageURL}` + trendingInfo.results[0].poster_path,
             trendingInfo.results[0].name,
@@ -374,7 +408,7 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
             trendingInfo.results[0].title,
           ],
       trending2:
-        mainData.data.results[0].media_type === "tv"
+        searchInfo.media_type === "tv"
           ? [
             `${imageURL}` + trendingInfo.results[1].poster_path,
             trendingInfo.results[1].name,
@@ -384,7 +418,7 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
             trendingInfo.results[1].title,
           ],
       trending3:
-        mainData.data.results[0].media_type === "tv"
+        searchInfo.media_type === "tv"
           ? [
             `${imageURL}` + trendingInfo.results[2].poster_path,
             trendingInfo.results[2].name,
@@ -394,7 +428,7 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
             trendingInfo.results[2].title,
           ],
       trending4:
-        mainData.data.results[0].media_type === "tv"
+        searchInfo.media_type === "tv"
           ? [
             `${imageURL}` + trendingInfo.results[3].poster_path,
             trendingInfo.results[3].name,
@@ -404,7 +438,7 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
             trendingInfo.results[3].title,
           ],
       trending5:
-        mainData.data.results[0].media_type === "tv"
+        searchInfo.media_type === "tv"
           ? [
             `${imageURL}` + trendingInfo.results[4].poster_path,
             trendingInfo.results[4].name,
@@ -414,7 +448,7 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
             trendingInfo.results[4].title,
           ],
       trending6:
-        mainData.data.results[0].media_type === "tv"
+        searchInfo.media_type === "tv"
           ? [
             `${imageURL}` + trendingInfo.results[5].poster_path,
             trendingInfo.results[5].name,
@@ -424,7 +458,7 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
             trendingInfo.results[5].title,
           ],
       trending7:
-        mainData.data.results[0].media_type === "tv"
+        searchInfo.media_type === "tv"
           ? [
             `${imageURL}` + trendingInfo.results[6].poster_path,
             trendingInfo.results[6].name,
@@ -434,7 +468,7 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
             trendingInfo.results[6].title,
           ],
       trending8:
-        mainData.data.results[0].media_type === "tv"
+        searchInfo.media_type === "tv"
           ? [
             `${imageURL}` + trendingInfo.results[7].poster_path,
             trendingInfo.results[7].name,
@@ -444,7 +478,7 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
             trendingInfo.results[7].title,
           ],
       trending9:
-        mainData.data.results[0].media_type === "tv"
+        searchInfo.media_type === "tv"
           ? [
             `${imageURL}` + trendingInfo.results[8].poster_path,
             trendingInfo.results[8].name,
@@ -454,7 +488,7 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
             trendingInfo.results[8].title,
           ],
       trending10:
-        mainData.data.results[0].media_type === "tv"
+        searchInfo.media_type === "tv"
           ? [
             `${imageURL}` + trendingInfo.results[9].poster_path,
             trendingInfo.results[9].name,
@@ -510,7 +544,7 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
               rating={rating}
               network={network}
               provider={provider}
-              // logo={logo}
+              logo={logo}
               star1={star1}
               star2={star2}
               director={director}
@@ -606,9 +640,9 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
               />
             </>
           ) : (
-            <FavoritesDefault heading={'Community Favorites'}
-            favorites={communityFavorites}
-          />
+              <FavoritesDefault heading={'Community Favorites'}
+                favorites={communityFavorites}
+              />
 
               // console.log('fd')
             )}
