@@ -9,20 +9,21 @@ import DefaultCelebAppearances from "../components/CelebAppearancesDefault";
 import DefaultCelebBiography from "../components/CelebBiographyDefault";
 import DefaultTrendingCelebrities from "../components/TrendingCelebritiesDefault";
 import FavoriteCelebs from '../components/FavoriteCelebs'
-import DefaultFavoriteCelebs from '../components/FavoriteCelebsDefault'
+import FavoriteCelebsDefault from '../components/FavoriteCelebsDefault'
 import { CelebritiesPageWrapper } from "../assets/styles";
 import API from "../utils/API";
 import { user } from "../utils/helpers";
 import axios from "axios";
+import $ from 'jquery';
 
 const userId = user()._id;
 
-const Celebrities = ({ celebrities, setCelebrities, token }) => {
+const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities, setCommunityCelebrities }) => {
 
   const addFavorite = () => {
     alert('ADDED TO FAVORITES');
     const celebName = state.name;
-    
+
     console.log("celebrities: ", celebrities);
     console.log("setCelebrities: ", setCelebrities);
 
@@ -86,14 +87,16 @@ const Celebrities = ({ celebrities, setCelebrities, token }) => {
   const imageURL = "https://image.tmdb.org/t/p/w500";
 
   async function celebSearch(entry) {
-    if (!entry) {
-      return alert("Enter a celebrity name.");
-    }
-  
+    !entry ? alert("Enter a celebrity name.") : console.log('na');
     const mainData = await API.celebSearch(entry);
     if (!mainData.data.results[0]) {
-      return alert('No results retuned.');
+      $('.celeb-search-fail').show()
+      setTimeout(() => {
+        $('.celeb-search-fail').hide()
+      }, 2000)
+      return;
     }
+    $('.celeb-search-fail').hide();
     const searchInfo = mainData.data.results[0];
     const { id, name, profile_path, profile, media_type } = searchInfo;
 
@@ -172,37 +175,17 @@ const Celebrities = ({ celebrities, setCelebrities, token }) => {
 
   // hardcoded communityCelebrities
 
-  const communityCelebrities = [
-    {
-      celeb_name: "Dwayne Johnson"
-    },
-    {
-      celeb_name: "Taylor Swift"
-    },
-    {
-      celeb_name: "Liam Neeson"
-    }
-  ];
-
-  // Fetching Celebrity Data
-
-  // let communityCelebrities = [];
-
-  // function getAllCelebrities () {
-
-  //   axios
-  //   .get('/api/celebrities')
-  //   .then((response) => {
-  //       const data = response.data;
-  //       communityCelebrities.push(data);
-  //       console.log('communityCelebrities: ', communityCelebrities);
-  //   })
-  //   .catch((error) => {
-  //       console.log(error);
-  //   })
-  // };
-
-  // getAllCelebrities();
+  // const communityCelebrities = [
+  //   {
+  //     celeb_name: "Dwayne Johnson"
+  //   },
+  //   {
+  //     celeb_name: "Taylor Swift"
+  //   },
+  //   {
+  //     celeb_name: "Liam Neeson"
+  //   }
+  // ];
 
 
   return (
@@ -210,10 +193,13 @@ const Celebrities = ({ celebrities, setCelebrities, token }) => {
       <Row>
         <Col m={4}></Col>
         <Col m={4}>
-          <CelebSearchBar
-            handleInputChange={handleInputChange}
-            handleFormSubmit={handleFormSubmit}
-          />
+          <>
+            <div className='celeb-search-fail'>No results found for <strong>{userInput.toUpperCase()}</strong>.</div>
+            <CelebSearchBar
+              handleInputChange={handleInputChange}
+              handleFormSubmit={handleFormSubmit}
+            />
+          </>
         </Col>
         <Col m={4}></Col>
       </Row>
@@ -229,23 +215,23 @@ const Celebrities = ({ celebrities, setCelebrities, token }) => {
               />
               {token ? (
                 <div className='result-btns'>
-                <span onClick={addFavorite}>
-                  <span className='material-icons favorite'>favorite</span>
-                </span>
-                <span onClick={setNotification}>
-                  <span className='material-icons notify'>notifications</span>
-                </span>
-                <span onClick={watchContent}>
-                  <span className='material-icons watch'>tv</span>
-                </span>
-                <span onClick={shareContent}>
-                  <span className='material-icons watch'>share</span>
-                </span>
-              </div>
-              ):(
-                console.log('User is not logged in.')
-              )}
-              
+                  <span onClick={addFavorite}>
+                    <span className='material-icons favorite'>favorite</span>
+                  </span>
+                  <span onClick={setNotification}>
+                    <span className='material-icons notify'>notifications</span>
+                  </span>
+                  <span onClick={watchContent}>
+                    <span className='material-icons watch'>tv</span>
+                  </span>
+                  <span onClick={shareContent}>
+                    <span className='material-icons watch'>share</span>
+                  </span>
+                </div>
+              ) : (
+                  console.log('User is not logged in.')
+                )}
+
             </>
           ) : (
               <DefaultCelebProfileImage />
@@ -318,12 +304,14 @@ const Celebrities = ({ celebrities, setCelebrities, token }) => {
         <Col m={3}>
           {token ? (
             <>
-              <DefaultFavoriteCelebs heading={'Community Favorites'} deleteCeleb={deleteCeleb} celebrities={communityCelebrities} celebSearch={celebSearch} />
+
+              <FavoriteCelebsDefault heading={'Community Favorites'} communityCelebrities={communityCelebrities} setCommunityCelebrities={setCommunityCelebrities} celebSearch={celebSearch} />
               <FavoriteCelebs heading={'MY PEOPLE'} deleteCeleb={deleteCeleb} celebrities={celebrities} setCelebrities={setCelebrities} celebSearch={celebSearch} />            
+
             </>
           ) : (
               <>
-                <DefaultFavoriteCelebs heading={'Community Favorites'} deleteCeleb={deleteCeleb} celebrities={communityCelebrities} celebSearch={celebSearch} />
+                <FavoriteCelebsDefault heading={'Community Favorites'} communityCelebrities={communityCelebrities} setCommunityCelebrities={setCommunityCelebrities} celebSearch={celebSearch} />
               </>
             )}
 

@@ -18,6 +18,7 @@ import DiscoverCardDefault from "../components/DiscoverCardDefault";
 import API from "../utils/API";
 import axios from "axios";
 import { user } from "../utils/helpers";
+import $ from 'jquery';
 
 const users = [
   {
@@ -51,7 +52,7 @@ const communityFavorites = [
 ];
 
 const MoviePage = ({ favorites, setFavorites, token }) => {
-
+  { $('.search-fail').hide() }
   const [state, setState] = useState({
     userInput: "",
     mediaType: "",
@@ -169,14 +170,16 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
   }
 
   async function mediaSearch(entry) {
-    if (!entry) {
-      return alert("Enter a movie or tv show title.");
-    }
-
+    !entry ? alert("Enter a movie or tv show title.") : console.log('na');
     const mainData = await API.mainSearch(entry);
     if (!mainData.data.results[0]) {
-      return alert('No results retuned.');
+      $('.search-fail').show()
+      setTimeout(() => {
+        $('.search-fail').hide()
+      }, 2000)
+      return;
     }
+    $('.search-fail').hide();
 
     const searchInfo = mainData.data.results[0];
     const {
@@ -206,12 +209,7 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
       searchInfo.media_type === "movie"
         ? usRating.release_dates.find((el) => el.certification !== "")
         : usRating != null
-          ? (usRating.rating ? (usRating.rating) : (console.log('rferf'))) : (console.log('rferfd'))
-
-
-
-    // usRating.rating;
-
+          ? (usRating.rating ? (usRating.rating) : (console.log('rferf'))) : (console.log('rferfd'));
     const relatedData = await API.relatedSearch(
       id,
       searchInfo.media_type
@@ -261,7 +259,7 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
           ? release_date
           : first_air_date,
 
-      overview: overview ? (overview):('NA') ,
+      overview: overview ? (overview) : ('NA'),
       poster: `${imageURL}` + poster_path,
       id: id,
       backdrop: `${imageURL}` + backdrop_path,
@@ -279,8 +277,6 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
         ) : (
             'NA'
           ),
-
-
       rating:
         searchInfo.media_type === "movie"
           ? rating.certification
@@ -303,28 +299,12 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
           creditsInfo.crew.filter((el) => el.job === "Director").length === 2
           ? "& " + creditsInfo.crew.filter((el) => el.job === "Director")[1].name
           : "",
-
-
       logo:
-
         tvTrailerInfo.production_companies.length > 0 ? (searchInfo.media_type === "movie" &&
           tvTrailerInfo.production_companies.filter((el) => el.logo_path != null)
           ? <img className='network-logo' src={imageURL + tvTrailerInfo.production_companies.filter((el) => el.logo_path != null)[0].logo_path} alt='studio logo' />
           : <img className='network-logo' src={imageURL + tvTrailerInfo.networks.filter((el) => el.logo_path != null)[0].logo_path} alt='network logo' />
-        ) : (<span className='network-logo-alt'>ON {tvTrailerInfo.networks[0].name}</span>)
-      ,
-
-
-
-
-
-      // logo:
-      //   mainData.data.results[0].media_type === 'movie'
-      //     ? `${imageURL}` + tvTrailerInfo.production_companies[0].logo_path
-      //     : `${imageURL}` + tvTrailerInfo.networks[0].logo_path,
-
-
-
+        ) : (<span className='network-logo-alt'>ON {tvTrailerInfo.networks[0].name}</span>),
       network:
         searchInfo.media_type === "tv"
           ? tvTrailerInfo.networks[0].name
@@ -333,10 +313,8 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
         searchInfo.media_type === "movie"
           ? trailerInfo.production_companies[0].name
           : "movie studio icon goes here",
-
       provider:
         searchInfo.media_type === "tv" ? { network } : { studio },
-
       lastAir:
         searchInfo.media_type === "tv"
           ? tvTrailerInfo.last_air_date
@@ -345,7 +323,6 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
         searchInfo.media_type === "tv"
           ? tvTrailerInfo.last_episode_to_air.name
           : " no last episode for movies",
-
       related1:
         searchInfo.media_type === "tv"
           ? [
@@ -513,21 +490,26 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
   const favoritesMovie = favorites.filter(
     (item) => item.media_type === "movie"
   );
+
   return (
     <MoviePageWrapper>
       <Row>
         <Col m={4}></Col>
         <Col m={4}>
-          <SearchBar
-            handleInputChange={handleInputChange}
-            handleFormSubmit={handleFormSubmit}
-          />
+          <>
+            <div className='search-fail'>No results found for <strong>{userInput.toUpperCase()}</strong>.</div>
+            <SearchBar
+            className='search-box'
+              handleInputChange={handleInputChange}
+              handleFormSubmit={handleFormSubmit}
+            />
+          </>
         </Col>
         <Col m={4}></Col>
       </Row>
 
       <Row>
-        <Col m={6}>
+        <Col s={9} className='red'>
           {id ? (
             <ResultsCard
               token={token}
@@ -572,58 +554,14 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
               trending10={trending10}
             />
           ) : (
-              <TrendingDefault
-                trending1={trending1}
-                trending2={trending2}
-                trending3={trending3}
-                trending4={trending4}
-                trending5={trending5}
-                trending6={trending6}
-                trending7={trending7}
-                trending8={trending8}
-                trending9={trending9}
-                trending10={trending10}
-              />
+              console.log('add content')
             )}
         </Col>
-        <Col m={3}>
-          {!mediaType ? <TrailerDefault /> : console.log(".")}
-
-          {mediaType === "tv" ? (
-            <Trailer trailer={tvTrailer} />
-          ) : (
-              console.log("No movie trailer available.")
-            )}
-          {mediaType === "movie" ? (
-            <Trailer trailer={trailer} />
-          ) : (
-              console.log("No TV trailer available.")
-            )}
-          {id ? (
-            <RelatedCard
-              className="related"
-              heading={"RELATED"}
-              title1={related1[0]}
-              title2={related2[0]}
-              title3={related3[0]}
-              title4={related4[0]}
-              title5={related5[0]}
-              poster1={related1[1]}
-              poster2={related2[1]}
-              poster3={related3[1]}
-              poster4={related4[1]}
-              poster5={related5[1]}
-            />
-          ) : (
-              <RelatedCardDefault />
-            )}
-        </Col>
-        <Col m={3}>
-
+        <Col s={3} className='green'>
           {token ? (
             <>
               <FavoritesDefault heading={'Community Favorites'}
-                favorites={communityFavorites}
+                favorites={communityFavorites} mediaSearch={mediaSearch}
               />
 
               <Favorites
@@ -641,16 +579,13 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
             </>
           ) : (
               <FavoritesDefault heading={'Community Favorites'}
-                favorites={communityFavorites}
+                favorites={communityFavorites} mediaSearch={mediaSearch}
               />
-
-              // console.log('fd')
             )}
-
         </Col>
       </Row>
     </MoviePageWrapper>
+
   );
 };
-
 export default MoviePage;
