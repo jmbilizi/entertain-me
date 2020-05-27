@@ -12,9 +12,9 @@ const FavoritesCelebs = (props) => {
     props.deleteCeleb(celebName);
   }
 
-  console.log("FavoriteCelebs console props: ", props);
+  console.log("FavoriteCelebs props: ", props);
 
-const { celebrities } = props;
+  const { celebrities } = props;
 
   return (
     <>

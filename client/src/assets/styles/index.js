@@ -33,6 +33,15 @@ input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
   }
 `
 export const MoviePageWrapper = styled(Container)`
+.search-fail{
+  color: white;
+  margin-left: 1em;
+  display: none;
+  position: fixed;
+}
+input[type=text], button{
+  margin-top: 1em;
+}
 input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
   border-bottom: 1px solid #cfb53b !important;
   box-shadow: 0 1px 0 0 #cfb53b !important;
@@ -164,6 +173,15 @@ input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
 }
 `
 export const CelebritiesPageWrapper = styled(Container)`
+.celeb-search-fail{
+  color: white;
+  margin-left: 1em;
+  display: none;
+  position: fixed;
+}
+input[type=text], button{
+  margin-top: 1em;
+}
 input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
   border-bottom: 1px solid #cfb53b !important;
   box-shadow: 0 1px 0 0 #cfb53b !important;
