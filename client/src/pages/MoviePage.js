@@ -579,7 +579,7 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
           {token ? (
             <>
               <FavoritesDefault heading={'Community Favorites'}
-                favorites={communityFavorites}
+                favorites={communityFavorites} mediaSearch={mediaSearch}
               />
 
               <Favorites
@@ -597,7 +597,7 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
             </>
           ) : (
               <FavoritesDefault heading={'Community Favorites'}
-                favorites={communityFavorites}
+                favorites={communityFavorites} mediaSearch={mediaSearch}
               />
             )}
         </Col>
