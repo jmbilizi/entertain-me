@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "materialize-css";
 import { Container } from "react-materialize";
 import { Redirect } from "react-router-dom";
@@ -7,14 +7,13 @@ import { user } from "../utils/helpers";
 
 const Profile = (props) => {
   const { token } = props;
-  if (!token) return <Redirect to={"/login"} />;
 
-  const [userProfile, redirectToLogin] = useState({
+  const [state, setState] = useState({
     userProfile: "",
     redirectToLogin: false,
   });
 
-  const showProfile = () => {
+  useEffect(() => {
     const userId = user()._id;
 
     fetch(`${process.env.REACT_APP_API_URL}/user/${userId}`, {
@@ -27,6 +26,7 @@ const Profile = (props) => {
     })
       .then((response) => {
         return response.json();
+        console.log(response);
       })
       .then((data) => {
         if (data.error) {
@@ -35,9 +35,9 @@ const Profile = (props) => {
           this.setState({ userProfile: data });
         }
       });
-  };
+  });
 
-  // if (redirectToLogin) return <Redirect to={"/login"} />;
+  if (!token) return <Redirect to={"/login"} />;
 
   // for (const i = 0; i < user().favorites.lenght; i++) {
   //   const favorites = user().favorites[i].media_name;
@@ -51,8 +51,7 @@ const Profile = (props) => {
         <p>First Name: {`${user().fname}`}</p>
         <p>Last Name: {`${user().lname}`}</p>
         <p>Email: {`${user().username}`}</p>
-
-        <h4>Favorites tv show: </h4>
+        <p>{`Joined: ${new Date(user().iat).toDateString()}`}</p>
         <ul></ul>
       </div>
     </ProfilePageWrapper>
