@@ -3,23 +3,29 @@ import { Collection, CollectionItem } from 'react-materialize';
 import _ from 'lodash';
 
 import API from '../../utils/API';
-import mediaSearch from '../../pages/MoviePage'
 
 const RelatedCard = (props) => {
-  async function getDetails(e) {
-    e.preventDefault();
-    let input = document.getElementsByClassName("related")[0].textContent
-    const updateSearch = await API.mainSearch(input)
-    let result = updateSearch.data.results[0]
-    console.log(`NEW SEARCH FOR '${input}':`, result)
-    // console.log(input)
+  // async function getDetails(e) {
+  //   e.preventDefault();
+  //   let input = document.getElementsByClassName("related")[0].textContent
+  //   const updateSearch = await API.mainSearch(input)
+  //   let result = updateSearch.data.results[0]
+  //   console.log(`NEW SEARCH FOR '${input}':`, result)
+
+  const getDetails = (e) => {
+
+    console.log(e);
+    props.mediaSearch(e)
   };
 
+
+  const { favorites } = props
+  console.log({ favorites })
   return (
     <>
       <h6 className='center-align title'>RELATED</h6>
       <Collection className='frame'>
-        <CollectionItem>
+        {/* <CollectionItem>
           <img className='related-images' src={props.poster1} alt={props.related1} title={props.title1} />
           <span className='related' onClick={getDetails} >
             {_.truncate(props.title1, {
@@ -60,7 +66,14 @@ const RelatedCard = (props) => {
               length: 21,
               separator: '...',
             })}</span>
-        </CollectionItem>
+        </CollectionItem> */}
+
+        {favorites.map(item =>
+          (<CollectionItem>
+            <span onClick={() => getDetails(item.title)}>{item.title}</span>
+            {/* <span onClick={ () => deleteItem(item.media_name) } className="material-icons remove">remove_circle</span> */}
+          </CollectionItem>)
+        )}
       </Collection>
     </>
   );
