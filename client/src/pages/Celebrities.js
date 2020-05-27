@@ -9,7 +9,7 @@ import DefaultCelebAppearances from "../components/CelebAppearancesDefault";
 import DefaultCelebBiography from "../components/CelebBiographyDefault";
 import DefaultTrendingCelebrities from "../components/TrendingCelebritiesDefault";
 import FavoriteCelebs from '../components/FavoriteCelebs'
-import DefaultFavoriteCelebs from '../components/FavoriteCelebsDefault'
+import FavoriteCelebsDefault from '../components/FavoriteCelebsDefault'
 import { CelebritiesPageWrapper } from "../assets/styles";
 import API from "../utils/API";
 import { user } from "../utils/helpers";
@@ -18,7 +18,7 @@ import $ from 'jquery';
 
 const userId = user()._id;
 
-const Celebrities = ({ celebrities, setCelebrities, token }) => {
+const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities, setCommunityCelebrities }) => {
 
   const addFavorite = () => {
     alert('ADDED TO FAVORITES');
@@ -172,37 +172,17 @@ const Celebrities = ({ celebrities, setCelebrities, token }) => {
 
   // hardcoded communityCelebrities
 
-  const communityCelebrities = [
-    {
-      celeb_name: "Dwayne Johnson"
-    },
-    {
-      celeb_name: "Taylor Swift"
-    },
-    {
-      celeb_name: "Liam Neeson"
-    }
-  ];
-
-  // Fetching Celebrity Data
-
-  // let communityCelebrities = [];
-
-  // function getAllCelebrities () {
-
-  //   axios
-  //   .get('/api/celebrities')
-  //   .then((response) => {
-  //       const data = response.data;
-  //       communityCelebrities.push(data);
-  //       console.log('communityCelebrities: ', communityCelebrities);
-  //   })
-  //   .catch((error) => {
-  //       console.log(error);
-  //   })
-  // };
-
-  // getAllCelebrities();
+  // const communityCelebrities = [
+  //   {
+  //     celeb_name: "Dwayne Johnson"
+  //   },
+  //   {
+  //     celeb_name: "Taylor Swift"
+  //   },
+  //   {
+  //     celeb_name: "Liam Neeson"
+  //   }
+  // ];
 
 
   return (
@@ -321,12 +301,14 @@ const Celebrities = ({ celebrities, setCelebrities, token }) => {
         <Col m={3}>
           {token ? (
             <>
-              <DefaultFavoriteCelebs heading={'Community Favorites'} deleteCeleb={deleteCeleb} celebrities={communityCelebrities} celebSearch={celebSearch} />
-              <FavoriteCelebs heading={'MY PEOPLE'} deleteCeleb={deleteCeleb} celebrities={celebrities} setCelebrities={setCelebrities} celebSearch={celebSearch} />
+
+              <FavoriteCelebsDefault heading={'Community Favorites'} communityCelebrities={communityCelebrities} setCommunityCelebrities={setCommunityCelebrities} celebSearch={celebSearch} />
+              <FavoriteCelebs heading={'MY PEOPLE'} deleteCeleb={deleteCeleb} celebrities={celebrities} setCelebrities={setCelebrities} celebSearch={celebSearch} />            
+
             </>
           ) : (
               <>
-                <DefaultFavoriteCelebs heading={'Community Favorites'} deleteCeleb={deleteCeleb} celebrities={communityCelebrities} celebSearch={celebSearch} />
+                <FavoriteCelebsDefault heading={'Community Favorites'} communityCelebrities={communityCelebrities} setCommunityCelebrities={setCommunityCelebrities} celebSearch={celebSearch} />
               </>
             )}
 
