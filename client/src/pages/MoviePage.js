@@ -499,7 +499,7 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
           <>
             <div className='search-fail'>No results found for <strong>{userInput.toUpperCase()}</strong>.</div>
             <SearchBar
-            className='search-box'
+              className='search-box'
               handleInputChange={handleInputChange}
               handleFormSubmit={handleFormSubmit}
             />
@@ -539,23 +539,6 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
           ) : (
               <DiscoverCardDefault />
             )}
-
-          {id ? (
-            <Trending
-              trending1={trending1}
-              trending2={trending2}
-              trending3={trending3}
-              trending4={trending4}
-              trending5={trending5}
-              trending6={trending6}
-              trending7={trending7}
-              trending8={trending8}
-              trending9={trending9}
-              trending10={trending10}
-            />
-          ) : (
-              console.log('add content')
-            )}
         </Col>
         <Col s={3} className='green'>
           {token ? (
@@ -581,6 +564,61 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
               <FavoritesDefault heading={'Community Favorites'}
                 favorites={communityFavorites} mediaSearch={mediaSearch}
               />
+            )}
+        </Col>
+      </Row>
+
+      <Row>
+        <Col s={4}>
+          {mediaType === "tv" ? (
+            <Trailer trailer={tvTrailer} />
+          ) : (
+              console.log("No movie trailer available.")
+            )}
+          {mediaType === "movie" ? (
+            <Trailer trailer={trailer} />
+          ) : (
+              console.log("No TV trailer available.")
+            )}
+        </Col>
+        <Col s={4}>
+          {id ? (
+            <RelatedCard
+              className="related"
+              heading={"RELATED"}
+              title1={related1[0]}
+              title2={related2[0]}
+              title3={related3[0]}
+              title4={related4[0]}
+              title5={related5[0]}
+              poster1={related1[1]}
+              poster2={related2[1]}
+              poster3={related3[1]}
+              poster4={related4[1]}
+              poster5={related5[1]}
+              mediaSearch={mediaSearch}
+              favorites={communityFavorites}
+            />
+          ) : (
+              console.log('add content')
+            )}
+        </Col>
+        <Col s={4}>
+          {id ? (
+            <Trending
+              trending1={trending1}
+              trending2={trending2}
+              trending3={trending3}
+              trending4={trending4}
+              trending5={trending5}
+              trending6={trending6}
+              trending7={trending7}
+              trending8={trending8}
+              trending9={trending9}
+              trending10={trending10}
+            />
+          ) : (
+              console.log('add content')
             )}
         </Col>
       </Row>
