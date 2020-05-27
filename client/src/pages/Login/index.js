@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import LoginSideContent from "../../components/LoginSideContent";
+// import LoginSideContent from "../../components/LoginSideContent";
 import { Redirect } from "react-router-dom";
 import { Container, Row, Col, Checkbox } from "react-materialize";
 import { user } from "../../utils/helpers";
@@ -95,7 +95,7 @@ class Login extends Component {
                 <Row></Row>
                 <Row>
                     <Col s={6}>
-                        <LoginSideContent />
+                        {/* <LoginSideContent /> */}
                     </Col>
                     <Col s={6}></Col>
                     <Col s={6}>
@@ -119,7 +119,7 @@ class Login extends Component {
                                                 <input
                                                     name="username"
                                                     value={username}
-                                                    type="email"
+                                                    type="text"
                                                     className="form-control"
                                                     placeholder="Enter e-mail"
                                                     onChange={this.onChange}
@@ -132,7 +132,7 @@ class Login extends Component {
                                                 <input
                                                     name="password"
                                                     value={password}
-                                                    type="password"
+                                                    type="text"
                                                     className="form-control"
                                                     placeholder="Enter password"
                                                     onChange={this.onChange}
