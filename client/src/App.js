@@ -16,7 +16,10 @@ const App = () => {
   const [token, setToken] = useState(null);
   const [favorites, setFavorites] = useState([]);
   const [celebrities, setCelebrities] = useState([]);
+  const [communityCelebrities, setCommunityCelebrities] = useState([]);
   console.log({ token });
+
+
   return (
     <Router>
       <div>
@@ -37,6 +40,8 @@ const App = () => {
               celebrities={celebrities}
               setCelebrities={setCelebrities}
               token={token}
+              communityCelebrities={communityCelebrities}
+              setCommunityCelebrities={setCommunityCelebrities}
             />
           </Route>
           <Route exact path="/user/:userId">
@@ -50,6 +55,7 @@ const App = () => {
               setToken={setToken}
               setFavorites={setFavorites}
               setCelebrities={setCelebrities}
+              setCommunityCelebrities={setCommunityCelebrities}
             />
           </Route>
           <Route exact path="/register">
