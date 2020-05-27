@@ -37,6 +37,10 @@ export const MoviePageWrapper = styled(Container)`
   color: white;
   margin-left: 1em;
   display: none;
+  position: fixed;
+}
+input[type=text], button{
+  margin-top: 1em;
 }
 input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
   border-bottom: 1px solid #cfb53b !important;
@@ -173,6 +177,10 @@ export const CelebritiesPageWrapper = styled(Container)`
   color: white;
   margin-left: 1em;
   display: none;
+  position: fixed;
+}
+input[type=text], button{
+  margin-top: 1em;
 }
 input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
   border-bottom: 1px solid #cfb53b !important;

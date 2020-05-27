@@ -174,6 +174,9 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
     const mainData = await API.mainSearch(entry);
     if (!mainData.data.results[0]) {
       $('.search-fail').show()
+      setTimeout(() => {
+        $('.search-fail').hide()
+      }, 2000)
       return;
     }
     $('.search-fail').hide();
@@ -496,6 +499,7 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
           <>
             <div className='search-fail'>No results found for <strong>{userInput.toUpperCase()}</strong>.</div>
             <SearchBar
+            className='search-box'
               handleInputChange={handleInputChange}
               handleFormSubmit={handleFormSubmit}
             />
