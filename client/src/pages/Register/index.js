@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
-import LoginSideContent from "../components/LoginSideContent";
+// import LoginSideContent from "../../components/LoginSideContent";
 import { Row, Col } from "react-materialize";
-import { RegisterPageWrapper } from "../assets/styles";
+import { RegisterPageWrapper } from "../../assets/styles";
 
 class Create extends Component {
   constructor() {
@@ -42,7 +42,7 @@ class Create extends Component {
           <Row></Row>
           <Row>
             <Col s={6}>
-              <LoginSideContent />
+              {/* <LoginSideContent /> */}
             </Col>
             <Col s={6}></Col>
 
@@ -85,7 +85,7 @@ class Create extends Component {
                           <input
                             name="username"
                             value={username}
-                            type="email"
+                            type="text"
                             className="form-control"
                             placeholder="Enter email"
                             onChange={this.onChange}
@@ -98,7 +98,7 @@ class Create extends Component {
                           <input
                             name="password"
                             value={password}
-                            type="password"
+                            type="text"
                             className="form-control"
                             placeholder="Enter password"
                             onChange={this.onChange}
