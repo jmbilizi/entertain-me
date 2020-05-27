@@ -5,6 +5,10 @@ import { Redirect } from "react-router-dom";
 import { Container, Row, Col, Checkbox } from "react-materialize";
 import { user } from "../../utils/helpers";
 import "./style.css";
+import AwesomeSlider from 'react-awesome-slider';
+import 'react-awesome-slider/dist/styles.css';
+
+
 
 
 class Login extends Component {
@@ -39,29 +43,29 @@ class Login extends Component {
                 console.log(result.data.token);
                 this.setState({ message: "" });
                 this.setState({ login: true });
-                
+
                 const givenId = user()._id;
 
                 axios
-                .get(`/api/favorites/${givenId}`)
-                .then((response) => {
-                    console.log('Login response data: ', response.data);
-                    setFavorites(response.data);
-
-                    axios
-                    .get(`/api/celebrities/${givenId}`)
+                    .get(`/api/favorites/${givenId}`)
                     .then((response) => {
-                        console.log('Login celeb response data: ', response.data);
-                        setCelebrities(response.data);
+                        console.log('Login response data: ', response.data);
+                        setFavorites(response.data);
+
+                        axios
+                            .get(`/api/celebrities/${givenId}`)
+                            .then((response) => {
+                                console.log('Login celeb response data: ', response.data);
+                                setCelebrities(response.data);
+                            })
+                            .catch((error) => {
+                                console.log(error);
+                            })
+
                     })
                     .catch((error) => {
                         console.log(error);
                     })
-                    
-                })
-                .catch((error) => {
-                    console.log(error);
-                })
 
             })
             .catch((error) => {
@@ -74,6 +78,8 @@ class Login extends Component {
 
     };
 
+
+
     render() {
         const { username, password, message, login } = this.state;
         if (login === true) return <Redirect to={"/"} />;
@@ -82,7 +88,7 @@ class Login extends Component {
                 <Row></Row>
                 <Row>
                     <Col s={6}>
-                        <LoginSideContent />
+                        {/* <LoginSideContent /> */}
                     </Col>
                     <Col s={6}></Col>
                     <Col s={6}>
@@ -106,7 +112,7 @@ class Login extends Component {
                                                 <input
                                                     name="username"
                                                     value={username}
-                                                    type="email"
+                                                    type="text"
                                                     className="form-control"
                                                     placeholder="Enter e-mail"
                                                     onChange={this.onChange}
@@ -119,7 +125,7 @@ class Login extends Component {
                                                 <input
                                                     name="password"
                                                     value={password}
-                                                    type="password"
+                                                    type="text"
                                                     className="form-control"
                                                     placeholder="Enter password"
                                                     onChange={this.onChange}

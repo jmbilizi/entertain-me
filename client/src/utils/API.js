@@ -70,10 +70,16 @@ export default {
     );
   },
 
-  // API call for random users
-  getRandomUsers: function() {
-    return axios.get("https://randomuser.me/api/?results=100&nat=us"
+  movieSlider: function () {
+    return axios.get(
+      `https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}`
     );
   },
+
+  // API call for random users
+  // getRandomUsers: function() {
+  //   return axios.get("https://randomuser.me/api/?results=100&nat=us"
+  //   );
+  // },
 
 };
