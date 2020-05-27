@@ -91,6 +91,9 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
     const mainData = await API.celebSearch(entry);
     if (!mainData.data.results[0]) {
       $('.celeb-search-fail').show()
+      setTimeout(() => {
+        $('.celeb-search-fail').hide()
+      }, 2000)
       return;
     }
     $('.celeb-search-fail').hide();
@@ -191,11 +194,11 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
         <Col m={4}></Col>
         <Col m={4}>
           <>
-        <div className='celeb-search-fail'>No results found for <strong>{userInput.toUpperCase()}</strong>.</div>
-          <CelebSearchBar
-            handleInputChange={handleInputChange}
-            handleFormSubmit={handleFormSubmit}
-          />
+            <div className='celeb-search-fail'>No results found for <strong>{userInput.toUpperCase()}</strong>.</div>
+            <CelebSearchBar
+              handleInputChange={handleInputChange}
+              handleFormSubmit={handleFormSubmit}
+            />
           </>
         </Col>
         <Col m={4}></Col>
