@@ -19,6 +19,13 @@ router.put('/', function (req, res) {
             res.status(400).json(err);
           });
 
+    db.Celebrity.insertMany({ celeb_name: celebName })
+    .then(function(data){
+      console.log("New celebrity record inserted in Celebrity.");
+      }).catch(err => {
+        res.status(400).json(err);
+        });
+
 });
 
 // may require more auth for future reference
@@ -38,15 +45,18 @@ router.get('/:id', function (req, res) {
 });
 
 router.get('/', function (req, res) {
-    db.User.find({})
-    .select({ "celebrities.celeb_name": 1 })
-    .then(data => {
-      console.log("Find all data request: ", data);
-      res.json(data);
-    })
-    .catch(err => {
-      res.status(400).json(err);
-    });
+
+    db.Celebrity.aggregate(
+      [ 
+          { "$group":  { "_id": "$celeb_name", "count": { "$sum": 1 } } },
+          { $sort   : { count : -1 } },
+          { $limit  : 5 }
+
+      ],  function(err, results) {
+                console.log("Aggregate request: ", results);
+                res.json(results);
+          }
+  )
 })
 
 router.delete('/:id/:celebname', function (req, res) {
