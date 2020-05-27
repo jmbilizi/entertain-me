@@ -14,6 +14,7 @@ import { CelebritiesPageWrapper } from "../assets/styles";
 import API from "../utils/API";
 import { user } from "../utils/helpers";
 import axios from "axios";
+import $ from 'jquery';
 
 const userId = user()._id;
 
@@ -22,7 +23,7 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
   const addFavorite = () => {
     alert('ADDED TO FAVORITES');
     const celebName = state.name;
-    
+
     console.log("celebrities: ", celebrities);
     console.log("setCelebrities: ", setCelebrities);
 
@@ -86,14 +87,13 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
   const imageURL = "https://image.tmdb.org/t/p/w500";
 
   async function celebSearch(entry) {
-    if (!entry) {
-      return alert("Enter a celebrity name.");
-    }
-  
+    !entry ? alert("Enter a celebrity name.") : console.log('na');
     const mainData = await API.celebSearch(entry);
     if (!mainData.data.results[0]) {
-      return alert('No results retuned.');
+      $('.celeb-search-fail').show()
+      return;
     }
+    $('.celeb-search-fail').hide();
     const searchInfo = mainData.data.results[0];
     const { id, name, profile_path, profile, media_type } = searchInfo;
 
@@ -190,10 +190,13 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
       <Row>
         <Col m={4}></Col>
         <Col m={4}>
+          <>
+        <div className='celeb-search-fail'>No results found for <strong>{userInput.toUpperCase()}</strong>.</div>
           <CelebSearchBar
             handleInputChange={handleInputChange}
             handleFormSubmit={handleFormSubmit}
           />
+          </>
         </Col>
         <Col m={4}></Col>
       </Row>
@@ -209,23 +212,23 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
               />
               {token ? (
                 <div className='result-btns'>
-                <span onClick={addFavorite}>
-                  <span className='material-icons favorite'>favorite</span>
-                </span>
-                <span onClick={setNotification}>
-                  <span className='material-icons notify'>notifications</span>
-                </span>
-                <span onClick={watchContent}>
-                  <span className='material-icons watch'>tv</span>
-                </span>
-                <span onClick={shareContent}>
-                  <span className='material-icons watch'>share</span>
-                </span>
-              </div>
-              ):(
-                console.log('User is not logged in.')
-              )}
-              
+                  <span onClick={addFavorite}>
+                    <span className='material-icons favorite'>favorite</span>
+                  </span>
+                  <span onClick={setNotification}>
+                    <span className='material-icons notify'>notifications</span>
+                  </span>
+                  <span onClick={watchContent}>
+                    <span className='material-icons watch'>tv</span>
+                  </span>
+                  <span onClick={shareContent}>
+                    <span className='material-icons watch'>share</span>
+                  </span>
+                </div>
+              ) : (
+                  console.log('User is not logged in.')
+                )}
+
             </>
           ) : (
               <DefaultCelebProfileImage />
@@ -298,8 +301,10 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
         <Col m={3}>
           {token ? (
             <>
+
               <FavoriteCelebsDefault heading={'Community Favorites'} communityCelebrities={communityCelebrities} setCommunityCelebrities={setCommunityCelebrities} celebSearch={celebSearch} />
               <FavoriteCelebs heading={'MY PEOPLE'} deleteCeleb={deleteCeleb} celebrities={celebrities} setCelebrities={setCelebrities} celebSearch={celebSearch} />            
+
             </>
           ) : (
               <>

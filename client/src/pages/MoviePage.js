@@ -18,6 +18,7 @@ import DiscoverCardDefault from "../components/DiscoverCardDefault";
 import API from "../utils/API";
 import axios from "axios";
 import { user } from "../utils/helpers";
+import $ from 'jquery';
 
 const users = [
   {
@@ -51,7 +52,7 @@ const communityFavorites = [
 ];
 
 const MoviePage = ({ favorites, setFavorites, token }) => {
-
+  { $('.search-fail').hide() }
   const [state, setState] = useState({
     userInput: "",
     mediaType: "",
@@ -169,14 +170,13 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
   }
 
   async function mediaSearch(entry) {
-    if (!entry) {
-      return alert("Enter a movie or tv show title.");
-    }
-
+    !entry ? alert("Enter a movie or tv show title.") : console.log('na');
     const mainData = await API.mainSearch(entry);
     if (!mainData.data.results[0]) {
-      return alert('No results retuned.');
+      $('.search-fail').show()
+      return;
     }
+    $('.search-fail').hide();
 
     const searchInfo = mainData.data.results[0];
     const {
@@ -206,12 +206,7 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
       searchInfo.media_type === "movie"
         ? usRating.release_dates.find((el) => el.certification !== "")
         : usRating != null
-          ? (usRating.rating ? (usRating.rating) : (console.log('rferf'))) : (console.log('rferfd'))
-
-
-
-    // usRating.rating;
-
+          ? (usRating.rating ? (usRating.rating) : (console.log('rferf'))) : (console.log('rferfd'));
     const relatedData = await API.relatedSearch(
       id,
       searchInfo.media_type
@@ -279,8 +274,6 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
         ) : (
             'NA'
           ),
-
-
       rating:
         searchInfo.media_type === "movie"
           ? rating.certification
@@ -303,28 +296,12 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
           creditsInfo.crew.filter((el) => el.job === "Director").length === 2
           ? "& " + creditsInfo.crew.filter((el) => el.job === "Director")[1].name
           : "",
-
-
       logo:
-
         tvTrailerInfo.production_companies.length > 0 ? (searchInfo.media_type === "movie" &&
           tvTrailerInfo.production_companies.filter((el) => el.logo_path != null)
           ? <img className='network-logo' src={imageURL + tvTrailerInfo.production_companies.filter((el) => el.logo_path != null)[0].logo_path} alt='studio logo' />
           : <img className='network-logo' src={imageURL + tvTrailerInfo.networks.filter((el) => el.logo_path != null)[0].logo_path} alt='network logo' />
-        ) : (<span className='network-logo-alt'>ON {tvTrailerInfo.networks[0].name}</span>)
-      ,
-
-
-
-
-
-      // logo:
-      //   mainData.data.results[0].media_type === 'movie'
-      //     ? `${imageURL}` + tvTrailerInfo.production_companies[0].logo_path
-      //     : `${imageURL}` + tvTrailerInfo.networks[0].logo_path,
-
-
-
+        ) : (<span className='network-logo-alt'>ON {tvTrailerInfo.networks[0].name}</span>),
       network:
         searchInfo.media_type === "tv"
           ? tvTrailerInfo.networks[0].name
@@ -333,10 +310,8 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
         searchInfo.media_type === "movie"
           ? trailerInfo.production_companies[0].name
           : "movie studio icon goes here",
-
       provider:
         searchInfo.media_type === "tv" ? { network } : { studio },
-
       lastAir:
         searchInfo.media_type === "tv"
           ? tvTrailerInfo.last_air_date
@@ -345,7 +320,6 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
         searchInfo.media_type === "tv"
           ? tvTrailerInfo.last_episode_to_air.name
           : " no last episode for movies",
-
       related1:
         searchInfo.media_type === "tv"
           ? [
@@ -513,15 +487,19 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
   const favoritesMovie = favorites.filter(
     (item) => item.media_type === "movie"
   );
+
   return (
     <MoviePageWrapper>
       <Row>
         <Col m={4}></Col>
         <Col m={4}>
-          <SearchBar
-            handleInputChange={handleInputChange}
-            handleFormSubmit={handleFormSubmit}
-          />
+          <>
+            <div className='search-fail'>No results found for <strong>{userInput.toUpperCase()}</strong>.</div>
+            <SearchBar
+              handleInputChange={handleInputChange}
+              handleFormSubmit={handleFormSubmit}
+            />
+          </>
         </Col>
         <Col m={4}></Col>
       </Row>
