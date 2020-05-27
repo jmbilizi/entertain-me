@@ -261,7 +261,7 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
           ? release_date
           : first_air_date,
 
-      overview: overview ? (overview):('NA') ,
+      overview: overview ? (overview) : ('NA'),
       poster: `${imageURL}` + poster_path,
       id: id,
       backdrop: `${imageURL}` + backdrop_path,
@@ -527,7 +527,7 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
       </Row>
 
       <Row>
-        <Col m={6}>
+        <Col s={9} className='red'>
           {id ? (
             <ResultsCard
               token={token}
@@ -572,54 +572,10 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
               trending10={trending10}
             />
           ) : (
-              <TrendingDefault
-                trending1={trending1}
-                trending2={trending2}
-                trending3={trending3}
-                trending4={trending4}
-                trending5={trending5}
-                trending6={trending6}
-                trending7={trending7}
-                trending8={trending8}
-                trending9={trending9}
-                trending10={trending10}
-              />
+              console.log('add content')
             )}
         </Col>
-        <Col m={3}>
-          {!mediaType ? <TrailerDefault /> : console.log(".")}
-
-          {mediaType === "tv" ? (
-            <Trailer trailer={tvTrailer} />
-          ) : (
-              console.log("No movie trailer available.")
-            )}
-          {mediaType === "movie" ? (
-            <Trailer trailer={trailer} />
-          ) : (
-              console.log("No TV trailer available.")
-            )}
-          {id ? (
-            <RelatedCard
-              className="related"
-              heading={"RELATED"}
-              title1={related1[0]}
-              title2={related2[0]}
-              title3={related3[0]}
-              title4={related4[0]}
-              title5={related5[0]}
-              poster1={related1[1]}
-              poster2={related2[1]}
-              poster3={related3[1]}
-              poster4={related4[1]}
-              poster5={related5[1]}
-            />
-          ) : (
-              <RelatedCardDefault />
-            )}
-        </Col>
-        <Col m={3}>
-
+        <Col s={3} className='green'>
           {token ? (
             <>
               <FavoritesDefault heading={'Community Favorites'}
@@ -643,14 +599,11 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
               <FavoritesDefault heading={'Community Favorites'}
                 favorites={communityFavorites}
               />
-
-              // console.log('fd')
             )}
-
         </Col>
       </Row>
     </MoviePageWrapper>
+
   );
 };
-
 export default MoviePage;
