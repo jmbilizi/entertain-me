@@ -17,6 +17,7 @@ const App = () => {
   const [favorites, setFavorites] = useState([]);
   const [celebrities, setCelebrities] = useState([]);
   const [communityCelebrities, setCommunityCelebrities] = useState([]);
+  const [communityFavorites, setCommunityFavorites] = useState([]);
   console.log({ token });
 
 
@@ -32,6 +33,8 @@ const App = () => {
             <MoviePage
               favorites={favorites}
               setFavorites={setFavorites}
+              communityFavorites={communityFavorites}
+              setCommunityFavorites={setCommunityFavorites}
               token={token}
             />
           </Route>
@@ -56,6 +59,7 @@ const App = () => {
               setFavorites={setFavorites}
               setCelebrities={setCelebrities}
               setCommunityCelebrities={setCommunityCelebrities}
+              setCommunityFavorites={setCommunityFavorites}
             />
           </Route>
           <Route exact path="/register">
