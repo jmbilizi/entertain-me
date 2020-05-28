@@ -119,7 +119,7 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
       id: id,
       media_type: media_type,
       name: searchInfo.name,
-      profile: profile_path!= null ? `${imageURL}` + profile_path : 'https://via.placeholder.com/375x475/000000/FFFFFF/?text=NO IMAGE AVAILABLE',
+      profile: `${imageURL}` + profile_path,
       known1:
         searchInfo.known_for[0].media_type === "tv"
           ? searchInfo.known_for[0].name
