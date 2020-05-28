@@ -266,9 +266,9 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
       genre: trailerInfo.genres[0].name,
       genre2: trailerInfo.genres.length > 1 ? trailerInfo.genres[1].name : "",
       score: vote_average,
-      trailerPath: trailerInfo.videos.results[0].key,
-      trailer: `${trailerURL}` + trailerInfo.videos.results[0].key,
-      tvTrailer: tvTrailerInfo ? (`${trailerURL}` + tvTrailerInfo.videos.results[0].key) : (console.log('No results.')),
+      trailerPath: trailerInfo.videos.results[0] ? trailerInfo.videos.results[0].key : console.log('no trailer available'),
+      trailer: trailerInfo.videos.results[0] ? `${trailerURL}` + trailerInfo.videos.results[0].key : console.log('no trailer available'),
+      tvTrailer: trailerInfo.videos.results[0] ? (`${trailerURL}` + tvTrailerInfo.videos.results[0].key) : console.log('no trailer available'),
       runtime:
         trailerInfo.runtime ? (
           searchInfo.media_type === "movie"
