@@ -3,7 +3,7 @@ import { Navbar, Icon, NavItem, Switch } from "react-materialize";
 import { Link } from "react-router-dom";
 import img from "../../assets/images/logo.png";
 import "./style.css";
-import {user} from "../../utils/helpers"
+import { user } from "../../utils/helpers";
 
 const NavBar = (props) => {
   const { token } = props;
@@ -48,7 +48,10 @@ const NavBar = (props) => {
         </NavItem>
         <NavItem>
           {token ? (
-            <Link className="nav-link" to={`/user/${user()._id}`}>
+            <Link
+              className="nav-link"
+              to={`/user/${user().fname}${user().lname}`}
+            >
               {`${user().fname}'s profile`}
             </Link>
           ) : null}
