@@ -49,6 +49,15 @@ input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
 .frame {
   border: #212121 2px solid;
 }
+.logo-box1{
+  background-color: black;
+  color: white;
+  font-size: 2em;
+}
+.logo-box2{
+  font-size: 2em;
+  letter-spacing: -3px;
+}
 .results-card {
   min-height: 31em;
   max-height: 38em;
