@@ -5,16 +5,16 @@ const Trailer = (props) => {
 
   return (
     <>
-      <div className="center-align title">
-        <h6>TRAILERS</h6>
-        <div className="center-align frame">
+      <div className="trailer-card">
+      <h6 className='center-align title'>TRAILER</h6>
+        <div className="center-align">
           <iframe
             id="trailer"
             title="trailers"
-            width="225"
-            height="125"
+            width="325"
+            height="225"
             src={props.trailer}
-            frameBorder="0"
+            frameBorder="1"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             embed="true"

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "materialize-css";
 import Home from "./pages/Home";
 import NavBar from "./components/NavBar";
-import MoviePage from "./pages/MoviePage";
+import MoviePage from "./pages/Movies";
 import Celebrities from "./pages/Celebrities";
 import Profile from "./pages/Profile";
 import SiteFooter from "./components/SiteFooter";
