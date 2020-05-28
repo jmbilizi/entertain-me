@@ -49,20 +49,20 @@ input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
 .frame {
   border: #212121 2px solid;
 }
-.results-card {
-  min-height: 31em;
-  max-height: 38em;
-  position: relative;
-  top: 2em;
-  border: solid 2px #212121;
-  background-color: white;
-}
-.results-card-title {
-  position: relative;
-  bottom: 0.5em;
-  margin: 0.75em 0 0.8em 0;
-  font-size: 2em;
-}
+// .results-card {
+//   min-height: 31em;
+//   max-height: 38em;
+//   position: relative;
+//   top: 2em;
+//   border: solid 2px #212121;
+//   background-color: white;
+// }
+// .results-card-title {
+//   position: relative;
+//   bottom: 0.5em;
+//   margin: 0.75em 0 0.8em 0;
+//   font-size: 2em;
+// }
 .backdrop-image {
   width: 300px;
   height: 165px;
@@ -146,8 +146,9 @@ input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
   top: 10em;
   right: 0.75em;
 }
-.title{
+.title {
  color: #cfb53b;
+ font-size: 30px
 }
 .favorite,
 .notify,
