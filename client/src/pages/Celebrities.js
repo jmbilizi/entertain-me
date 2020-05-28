@@ -171,6 +171,8 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
   const handleFormSubmit = (e) => {
     e.preventDefault();
     celebSearch(userInput);
+    $('.search-input-box').val('');
+    
   };
 
   // hardcoded communityCelebrities
