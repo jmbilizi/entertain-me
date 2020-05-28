@@ -1,34 +1,22 @@
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800");
-
 * {
   box-sizing: border-box;
 }
+
 body {
   background: #fefefe;
   min-height: 100vh;
   display: flex;
   font-weight: 400;
   font-family: "Fira Sans", sans-serif;
-
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-label,
-span {
+h1, h2, h3, h4, h5, h6, label, span {
   font-weight: 500;
   font-family: "Fira Sans", sans-serif;
 }
 
-body,
-html,
-.App,
-#root,
-.auth-wrapper {
+body, html, .App, #root, .auth-wrapper {
   width: 100%;
   height: 100%;
 }
@@ -67,8 +55,7 @@ html,
   font-weight: 400;
 }
 
-.forgot-password,
-.forgot-password a {
+.forgot-password, .forgot-password a {
   text-align: right;
   font-size: 13px;
   padding-top: 10px;
@@ -97,15 +84,13 @@ h3 {
   background-color: #424242;
 }
 
-
 input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
   border-bottom: 1px solid #cfb53b !important;
   box-shadow: 0 1px 0 0 #cfb53b !important;
 }
 
-
-
 /* app */
+
 .App {
   text-align: center;
 }
@@ -143,4 +128,38 @@ input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
   to {
     transform: rotate(360deg);
   }
+}
+
+.login-images {
+  border-radius: 10px;
+  width: 250px;
+  height: 135px;
+  margin-bottom: 1em;
+}
+
+.sign-in {
+  position: relative;
+  bottom: 80vh;
+  z-index: 10;
+}
+
+.fade {
+  opacity: .1;
+}
+
+.fade2 {
+  opacity: .12;
+}
+
+.fade3 {
+  opacity: .19;
+}
+
+.fade4 {
+  margin-left: .6em;
+  opacity: .3;
+}
+
+.login-background {
+  width: 1600px;
 }
