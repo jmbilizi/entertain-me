@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Row, Col } from "react-materialize";
 
-const CelebSearchBar = ({ userInput, handleInputChange, handleFormSubmit }) => {
+const CelebSearchBar = ({ handleInputChange, handleFormSubmit }) => {
   return (
     <div className="center-align">
       <Row>
@@ -18,8 +18,7 @@ const CelebSearchBar = ({ userInput, handleInputChange, handleFormSubmit }) => {
               name="userInput"
               id="userInput"
               placeholder="Enter a celebrity name"
-              value={userInput}
-              onChange={handleInputChange}
+                onChange={handleInputChange}
             />
           </form>
         </Col>
