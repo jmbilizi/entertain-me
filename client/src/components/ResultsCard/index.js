@@ -6,6 +6,7 @@ import { user } from "../../utils/helpers";
 
 import { ResultsWrapper } from '../../assets/styles';
 import Poster from '../Poster';
+import './style.css'
 
 const ResultsCard = (props) => {
   const { token } = props;
