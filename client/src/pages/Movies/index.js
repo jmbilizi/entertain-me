@@ -40,19 +40,21 @@ const users = [
   },
 ];
 
-const communityFavorites = [
-  {
-    title: "Westworld"
-  },
-  {
-    title: "Devs"
-  },
-  {
-    title: "Snowpiercer"
-  }
-];
+// hard coded communityFavorites
 
-const MoviePage = ({ favorites, setFavorites, token }) => {
+// const communityFavorites = [
+//   {
+//     title: "Westworld"
+//   },
+//   {
+//     title: "Devs"
+//   },
+//   {
+//     title: "Snowpiercer"
+//   }
+// ];
+
+const MoviePage = ({ favorites, setFavorites, token, communityFavorites, setCommunityFavorites }) => {
   { $('.search-fail').hide() }
   const [state, setState] = useState({
     userInput: "",
@@ -546,7 +548,7 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
           {token ? (
             <>
               <FavoritesDefault heading={'Community Favorites'}
-                favorites={communityFavorites} mediaSearch={mediaSearch}
+                communityFavorites={communityFavorites} mediaSearch={mediaSearch}
               />
 
               <Favorites
@@ -564,7 +566,7 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
             </>
           ) : (
               <FavoritesDefault heading={'Community Favorites'}
-                favorites={communityFavorites} mediaSearch={mediaSearch}
+                communityFavorites={communityFavorites} mediaSearch={mediaSearch}
               />
             )}
         </Col>
