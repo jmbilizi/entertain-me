@@ -92,7 +92,7 @@ const Home = (props) => {
     $("#home").html(`<br><br><h5 id='home-text4'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>SCENE</span>.</h5>`);
   }, 5500)
   setTimeout(function () {
-    $("#home").html( `<br><br><h5 id='home-text3'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>PERSON</span>.</h5>`);
+    $("#home").html(`<br><br><h5 id='home-text3'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>PERSON</span>.</h5>`);
   }, 5750)
   setTimeout(function () {
     $("#home").html(`<br><br><h5 id='home-text3'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>ALBUM</span>.</h5>`);
@@ -115,19 +115,20 @@ const Home = (props) => {
       <Row>
         <Col s={3}>
           <div className="suggestions">
-            <h6 className="title">SUGGESTIONS</h6>
-            <p className="default-text">
-              Side content Side content Side content Side content Side content
-              Side content Side content Side content Side content Side content
-              Side content Side content Side content
-            </p>
+            <h6 className="title center-align">SUGGESTIONS</h6>
+            <img src="https://www.emmys.com/sites/default/files/styles/marquee_main/public/marquees/cta-2020-40th-900x600.jpg?itok=PYFZdWI0"
+              className="home-image"
+            />
+            <div className="default-text">
+              <p><strong>Date: </strong>September 20, 2020</p>
+              <p><strong>Time: </strong>8:00 PM EDT</p>
+              <p><strong>Network: </strong>ABC</p>
+              <p> <strong>Presented by: </strong>Academy of Television Arts & Sciences</p>
+            </div>
           </div>
         </Col>
         <Col s={6}>
           <div className="middle-content">
-            {/* <img src="https://media.giphy.com/media/2XflxzDAw5pn6WaA372/source.gif"
-              className="home-image"
-            /> */}
             <div id='home' className='center-align'>
               <img src={require('../../assets/images/countdown.gif')}
                 id='home-image'
