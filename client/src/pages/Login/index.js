@@ -30,6 +30,7 @@ class Login extends Component {
         const { setFavorites } = this.props
         const { setCelebrities } = this.props
         const { setCommunityCelebrities } = this.props
+        const { setCommunityFavorites } = this.props
 
         axios
             .post("/api/auth/login", { username, password })
@@ -59,6 +60,18 @@ class Login extends Component {
                                     .then((response) => {
                                         console.log("Login getCommunityCelebrities response data: ", response.data);
                                         setCommunityCelebrities(response.data);
+
+                                        axios
+                                        .get('/api/favorites')
+                                        .then((response) => {
+                                            console.log("Login getFavoritesCelebrities response data: ", response.data);
+                                            setCommunityFavorites(response.data);
+                                        })
+                                        .catch((error) => {
+                                            console.log(error);
+                                        })
+
+
                                     })
                                     .catch((error) => {
                                         console.log(error);

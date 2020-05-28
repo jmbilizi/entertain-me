@@ -23,6 +23,14 @@ router.put('/', function (req, res) {
             res.status(400).json(err);
           });
 
+
+    db.Favorite.insertMany({ media_name: givenMediaName })
+    .then(function(data){
+      console.log("New favorite record inserted in Favorite.");
+      }).catch(err => {
+        res.status(400).json(err);
+        });
+
 });
 
 // may require more auth for future reference
@@ -40,6 +48,21 @@ router.get('/:id', function (req, res) {
       });
 
 });
+
+router.get('/', function (req, res) {
+
+  db.Favorite.aggregate(
+    [ 
+        { "$group":  { "_id": "$media_name", "count": { "$sum": 1 } } },
+        { $sort   : { count : -1 } },
+        { $limit  : 5 }
+
+    ],  function(err, results) {
+              console.log("Aggregate favorite request: ", results);
+              res.json(results);
+        }
+)
+})
 
 router.delete('/:id/:medianame', function (req, res) {
     const givenId = req.params.id;
