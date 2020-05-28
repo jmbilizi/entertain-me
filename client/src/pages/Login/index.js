@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-// import LoginSideContent from "../../components/LoginSideContent";
 import { Redirect } from "react-router-dom";
 import { Container, Row, Col, Checkbox } from "react-materialize";
 import { user } from "../../utils/helpers";
@@ -99,7 +98,7 @@ class Login extends Component {
                             <img className='login-images fade' alt='rebel without a cause' src='https://image.tmdb.org/t/p/w500/1sogXKywDaMH2PZ5NQwW9pfwq2F.jpg' />
 
                             <img className='login-images fade' alt='the godfather' src='https://image.tmdb.org/t/p/w500/ejdD20cdHNFAYAN2DlqPToXKyzx.jpg' />
-                       
+
                             <img className='login-images fade' alt='titanic' src='https://image.tmdb.org/t/p/w500/6VmFqApQRyZZzmiGOQq2C92jyvH.jpg' />
 
                             <img className='login-images fade' alt='stranger things' src='https://image.tmdb.org/t/p/w500/56v2KjBlU4XaOv9rVYEQypROD7P.jpg' />
@@ -153,7 +152,7 @@ class Login extends Component {
                                             <input
                                                 name="username"
                                                 value={username}
-                                                type="text"
+                                                type="email"
                                                 className="form-control"
                                                 placeholder="Enter e-mail"
                                                 onChange={this.onChange}
@@ -166,7 +165,7 @@ class Login extends Component {
                                             <input
                                                 name="password"
                                                 value={password}
-                                                type="text"
+                                                type="password"
                                                 className="form-control"
                                                 placeholder="Enter password"
                                                 onChange={this.onChange}
@@ -202,89 +201,6 @@ class Login extends Component {
                             </div>
                         </>
                     </Col>
-                    {/* <Col s={3} className='green'>
-                        <>
-                            <img className='login-images' alt='rebel without a cause' src='https://image.tmdb.org/t/p/w500/1sogXKywDaMH2PZ5NQwW9pfwq2F.jpg' />
-
-                            <img className='login-images' alt='spongebob squarepants' src='https://image.tmdb.org/t/p/w500/maFEWU41jdUOzDfRVkojq7fluIm.jpg' />
-
-                            <img className='login-images' alt='titanic' src='https://image.tmdb.org/t/p/w500/6VmFqApQRyZZzmiGOQq2C92jyvH.jpg' />
-
-                            <img className='login-images' alt='stranger things' src='https://image.tmdb.org/t/p/w500/56v2KjBlU4XaOv9rVYEQypROD7P.jpg' />
-                        </>
-                    </Col> */}
-                    {/* <Col s={12} m={6}>
-                            <>
-                                <br></br><br></br><br></br><br></br>
-                                <div className="auth-wrapper m-auto test">
-                                    <div className="auth-inner">
-                                        <form class="form-signin" onSubmit={this.onSubmit}>
-                                            {message !== "" && (
-                                                <div
-                                                    class="alert alert-warning alert-dismissible"
-                                                    role="alert"
-                                                >
-                                                    {message}
-                                                </div>
-                                            )}
-                                            <h3>Sign In</h3>
-
-                                            <div className="form-group">
-                                                <label>E-mail Address</label>
-                                                <input
-                                                    name="username"
-                                                    value={username}
-                                                    type="text"
-                                                    className="form-control"
-                                                    placeholder="Enter e-mail"
-                                                    onChange={this.onChange}
-                                                    required
-                                                />
-                                            </div>
-
-                                            <div className="form-group">
-                                                <label>Password</label>
-                                                <input
-                                                    name="password"
-                                                    value={password}
-                                                    type="text"
-                                                    className="form-control"
-                                                    placeholder="Enter password"
-                                                    onChange={this.onChange}
-                                                    required
-                                                />
-                                            </div>
-
-                                            <div className="form-group">
-                                                <Checkbox
-                                                    id="Checkbox_3"
-                                                    label="Remember Me"
-                                                    value="remember"
-                                                />
-                                            </div>
-                                            <br></br>
-                                            <button type="submit" className="btn btn-primary btn-block">
-                                                Submit
-                                            </button>
-                                            <Row>
-                                                <Col s={5}></Col>
-                                                <Col s={7}>
-                                                    <p className="forgot-password text-left">
-                                                        <a href="#">Forgot password?</a>
-                                                    </p>
-
-                                                    <p className="forgot-password text-right">
-                                                        Not registered? <a href="/register">Sign up.</a>
-                                                    </p>
-                                                </Col>
-                                            </Row>
-                                        </form>
-                                    </div>
-                                </div>
-                            </>
-                        </Col> */}
-                    {/* </Col> */}
-
                 </Row>
             </Container >
         );
