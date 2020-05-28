@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "materialize-css";
 import Home from "./pages/Home";
 import NavBar from "./components/NavBar";
-import MoviePage from "./pages/MoviePage";
+import MoviePage from "./pages/Movies";
 import Celebrities from "./pages/Celebrities";
 import Profile from "./pages/Profile";
 import SiteFooter from "./components/SiteFooter";
@@ -17,6 +17,7 @@ const App = () => {
   const [favorites, setFavorites] = useState([]);
   const [celebrities, setCelebrities] = useState([]);
   const [communityCelebrities, setCommunityCelebrities] = useState([]);
+  const [communityFavorites, setCommunityFavorites] = useState([]);
   console.log({ token });
 
 
@@ -33,6 +34,8 @@ const App = () => {
               favorites={favorites}
               setFavorites={setFavorites}
               token={token}
+              communityFavorites={communityFavorites}
+              setCommunityFavorites={setCommunityFavorites}
             />
           </Route>
           <Route exact path="/celebrities">
@@ -56,6 +59,7 @@ const App = () => {
               setFavorites={setFavorites}
               setCelebrities={setCelebrities}
               setCommunityCelebrities={setCommunityCelebrities}
+              setCommunityFavorites={setCommunityFavorites}
             />
           </Route>
           <Route exact path="/register">

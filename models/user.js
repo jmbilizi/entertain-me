@@ -1,6 +1,6 @@
-var mongoose = require('mongoose');
+var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
-var bcrypt = require('bcrypt-nodejs');
+var bcrypt = require("bcrypt-nodejs");
 
 var UserSchema = new Schema({
   fname: {
@@ -26,38 +26,54 @@ var UserSchema = new Schema({
     type: String,
     required: true,
   },
-  favorites: [{
-    media_id: {
-      type: Number,
+  created: {
+    type: Date,
+    default: Date.now,
+  },
+  updated: Date,
+  photo: {
+    data: Buffer,
+    contentType: String,
+  },
+  role: {
+    type: String,
+    default: "subscriber",
+  },
+  favorites: [
+    {
+      media_id: {
+        type: Number,
+      },
+      media_type: {
+        type: String,
+      },
+      media_name: {
+        type: String,
+        required: true,
+      },
+      added_date: {
+        type: Date,
+        default: Date.now,
+      },
     },
-    media_type: {
-      type: String,
+  ],
+  celebrities: [
+    {
+      celeb_name: {
+        type: String,
+        required: true,
+      },
+      added_date: {
+        type: Date,
+        default: Date.now,
+      },
     },
-    media_name: {
-      type: String,
-      required: true,
-    },
-    added_date: { 
-      type: Date, 
-      default: Date.now 
-    }
-  }],
-  celebrities: [{
-    celeb_name: {
-      type: String,
-      required: true,
-    },
-    added_date: { 
-      type: Date, 
-      default: Date.now 
-    }
-  }]
-
+  ],
 });
 
-UserSchema.pre('save', function (next) {
+UserSchema.pre("save", function (next) {
   var user = this;
-  if (this.isModified('password') || this.isNew) {
+  if (this.isModified("password") || this.isNew) {
     bcrypt.genSalt(10, function (err, salt) {
       if (err) {
         return next(err);
@@ -84,4 +100,4 @@ UserSchema.methods.comparePassword = function (passw, cb) {
   });
 };
 
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model("User", UserSchema);

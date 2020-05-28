@@ -3,22 +3,23 @@ import moment from "moment";
 import "materialize-css";
 import { Row, Col } from "react-materialize";
 
-import { MoviePageWrapper } from "../assets/styles";
-import ResultsCard from "../components/ResultsCard";
-import SearchBar from "../components/SearchBar";
-import Trailer from "../components/Trailer";
-import TrailerDefault from "../components/TrailerDefault";
-import Favorites from "../components/Favorites";
-import FavoritesDefault from "../components/FavoritesDefault";
-import TrendingDefault from "../components/TrendingDefault";
-import Trending from "../components/Trending";
-import RelatedCard from "../components/RelatedCard";
-import RelatedCardDefault from "../components/RelatedCardDefault";
-import DiscoverCardDefault from "../components/DiscoverCardDefault";
-import API from "../utils/API";
+import { MoviePageWrapper } from "../../assets/styles";
+import ResultsCard from "../../components/ResultsCard";
+import SearchBar from "../../components/SearchBar";
+import Trailer from "../../components/Trailer";
+import TrailerDefault from "../../components/TrailerDefault";
+import Favorites from "../../components/Favorites";
+import FavoritesDefault from "../../components/FavoritesDefault";
+import TrendingDefault from "../../components/TrendingDefault";
+import Trending from "../../components/Trending";
+import RelatedCard from "../../components/RelatedCard";
+import RelatedCardDefault from "../../components/RelatedCardDefault";
+import DiscoverCardDefault from "../../components/DiscoverCardDefault";
+import API from "../../utils/API";
 import axios from "axios";
-import { user } from "../utils/helpers";
+import { user } from "../../utils/helpers";
 import $ from 'jquery';
+import "./style.css";
 
 const users = [
   {
@@ -39,19 +40,21 @@ const users = [
   },
 ];
 
-const communityFavorites = [
-  {
-    title: "Westworld"
-  },
-  {
-    title: "Devs"
-  },
-  {
-    title: "Snowpiercer"
-  }
-];
+// hard coded communityFavorites
 
-const MoviePage = ({ favorites, setFavorites, token }) => {
+// const communityFavorites = [
+//   {
+//     title: "Westworld"
+//   },
+//   {
+//     title: "Devs"
+//   },
+//   {
+//     title: "Snowpiercer"
+//   }
+// ];
+
+const MoviePage = ({ favorites, setFavorites, token, communityFavorites, setCommunityFavorites }) => {
   { $('.search-fail').hide() }
   const [state, setState] = useState({
     userInput: "",
@@ -485,6 +488,7 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     mediaSearch(userInput);
+    $('.search-input-box').val('');
   };
   const favoritesTV = favorites.filter((item) => item.media_type === "tv");
   const favoritesMovie = favorites.filter(
@@ -509,7 +513,7 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
       </Row>
 
       <Row>
-        <Col s={9} className='red'>
+        <Col s={9} className='movie-image'>
           {id ? (
             <ResultsCard
               token={token}
@@ -540,11 +544,11 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
               <DiscoverCardDefault />
             )}
         </Col>
-        <Col s={3} className='green'>
+        <Col s={3} className='community-favorites'>
           {token ? (
             <>
               <FavoritesDefault heading={'Community Favorites'}
-                favorites={communityFavorites} mediaSearch={mediaSearch}
+                communityFavorites={communityFavorites} mediaSearch={mediaSearch}
               />
 
               <Favorites
@@ -562,7 +566,7 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
             </>
           ) : (
               <FavoritesDefault heading={'Community Favorites'}
-                favorites={communityFavorites} mediaSearch={mediaSearch}
+                communityFavorites={communityFavorites} mediaSearch={mediaSearch}
               />
             )}
         </Col>
@@ -603,24 +607,26 @@ const MoviePage = ({ favorites, setFavorites, token }) => {
               console.log('add content')
             )}
         </Col>
-        <Col s={4}>
-          {id ? (
-            <Trending
-              trending1={trending1}
-              trending2={trending2}
-              trending3={trending3}
-              trending4={trending4}
-              trending5={trending5}
-              trending6={trending6}
-              trending7={trending7}
-              trending8={trending8}
-              trending9={trending9}
-              trending10={trending10}
-            />
-          ) : (
-              console.log('add content')
-            )}
-        </Col>
+        <Row>
+          <Col s={9}>
+            {id ? (
+              <Trending
+                trending1={trending1}
+                trending2={trending2}
+                trending3={trending3}
+                trending4={trending4}
+                trending5={trending5}
+                trending6={trending6}
+                trending7={trending7}
+                trending8={trending8}
+                trending9={trending9}
+                trending10={trending10}
+              />
+            ) : (
+                console.log('add content')
+              )}
+          </Col>
+        </Row>
       </Row>
     </MoviePageWrapper>
 
