@@ -306,8 +306,8 @@ const MoviePage = ({ favorites, setFavorites, token, communityFavorites, setComm
         tvTrailerInfo.production_companies.length > 0 ? (searchInfo.media_type === "movie" &&
           tvTrailerInfo.production_companies.filter((el) => el.logo_path != null)
           ? <img className='network-logo' src={imageURL + tvTrailerInfo.production_companies.filter((el) => el.logo_path != null)[0].logo_path} alt='studio logo' />
-          : <div className='network-logo-alt'><span className='logo-box1'>ON</span><span className='logo-box2'>{tvTrailerInfo.networks[0].name}</span></div>
-        ) : (<div className='network-logo-alt'><span className='logo-box1'>ON</span><span className='logo-box2'>{tvTrailerInfo.networks[0].name.toUpperCase()}</span></div>),
+          : <img className='network-logo' src={imageURL + tvTrailerInfo.networks.filter((el) => el.logo_path != null)[0].logo_path} alt='network logo' />
+        ) : (<span className='network-logo-alt'>ON {tvTrailerInfo.networks[0].name}</span>),
       network:
         searchInfo.media_type === "tv"
           ? tvTrailerInfo.networks[0].name
