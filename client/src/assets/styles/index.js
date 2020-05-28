@@ -155,8 +155,9 @@ input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
   top: 10em;
   right: 0.75em;
 }
-.title{
+.title {
  color: #cfb53b;
+ font-size: 30px
 }
 .favorite,
 .notify,
