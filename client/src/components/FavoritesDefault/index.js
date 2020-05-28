@@ -9,15 +9,14 @@ const FavoritesDefault = (props) => {
   };
 
  
-  const { favorites } = props
-  console.log({ favorites })
+  const { communityFavorites } = props
   return (
     <>
       <h6 className="center-align title">{props.heading}</h6>
       <Collection className="frame">
-        {favorites.map(item => 
+        {communityFavorites.map(item => 
         (<CollectionItem>
-         <span onClick={() => getDetails(item.title)}>{item.title}</span>
+         <span onClick={() => getDetails(item._id)}>{item._id}</span>
           {/* <span onClick={ () => deleteItem(item.media_name) } className="material-icons remove">remove_circle</span> */}
         </CollectionItem>)
         )}

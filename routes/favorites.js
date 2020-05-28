@@ -41,6 +41,21 @@ router.get('/:id', function (req, res) {
 
 });
 
+router.get('/', function (req, res) {
+
+  db.Favorite.aggregate(
+    [ 
+        { "$group":  { "_id": "$media_name", "count": { "$sum": 1 } } },
+        { $sort   : { count : -1 } },
+        { $limit  : 5 }
+
+    ],  function(err, results) {
+              console.log("Aggregate favorite request: ", results);
+              res.json(results);
+        }
+)
+})
+
 router.delete('/:id/:medianame', function (req, res) {
     const givenId = req.params.id;
     const mediaName = req.params.medianame;
