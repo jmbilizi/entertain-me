@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Container, Row, Col } from 'react-materialize'
 import MessageList from './MessageList'
 import moment from 'moment';
-
+import $ from 'jquery';
 
 const chatList = [];
 
@@ -27,6 +27,7 @@ export default class Chat extends Component {
         event.preventDefault();
         chatList.push({ time: moment().calendar(), text: this.state.value });
         this.setState({ messages: chatList });
+        $('#chat').val('');
         console.log('A message was submitted: ' + this.state.value);
         console.log('state: ', this.state);
     }
@@ -47,8 +48,8 @@ export default class Chat extends Component {
                                 </div>
                                 <div className="form-group">
                                     <input
+                                        id='chat'
                                         name="message"
-                                        value={this.state.value}
                                         type="text"
                                         maxlength="140"
                                         className="form-control"

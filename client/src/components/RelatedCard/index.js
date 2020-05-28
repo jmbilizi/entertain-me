@@ -25,7 +25,7 @@ const RelatedCard = (props) => {
     <>
       <h6 className='center-align title'>RELATED</h6>
       <Collection className='frame'>
-        {/* <CollectionItem>
+        <CollectionItem>
           <img className='related-images' src={props.poster1} alt={props.related1} title={props.title1} />
           <span className='related' onClick={getDetails} >
             {_.truncate(props.title1, {
@@ -66,17 +66,20 @@ const RelatedCard = (props) => {
               length: 21,
               separator: '...',
             })}</span>
-        </CollectionItem> */}
+        </CollectionItem>
 
-        {favorites.map(item =>
-          (<CollectionItem>
-            <span onClick={() => getDetails(item.title)}>{item.title}</span>
-            {/* <span onClick={ () => deleteItem(item.media_name) } className="material-icons remove">remove_circle</span> */}
-          </CollectionItem>)
-        )}
       </Collection>
     </>
   );
 };
 
 export default RelatedCard;
+
+
+
+// {favorites.map(item =>
+//   (<CollectionItem>
+//     <span onClick={() => getDetails(item.title)}>{item.title}</span>
+//     {/* <span onClick={ () => deleteItem(item.media_name) } className="material-icons remove">remove_circle</span> */}
+//   </CollectionItem>)
+// )}
