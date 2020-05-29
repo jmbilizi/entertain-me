@@ -23,6 +23,13 @@ router.put('/', function (req, res) {
             res.status(400).json(err);
           });
 
+    db.Favorite.insertMany({ media_name: givenMediaName })
+    .then(function(data){
+      console.log("New Favorite record inserted in Favorite.");
+      }).catch(err => {
+        res.status(400).json(err);
+        });
+
 });
 
 // may require more auth for future reference
