@@ -170,6 +170,13 @@ input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
 }
 `
 export const CelebritiesPageWrapper = styled(Container)`
+.celeb-favorite-added{
+position: absolute;
+left: 23em;
+bottom: -6.5em;
+color: #cfb53b;
+display: none; 
+}
 .celeb-search-fail{
   color: white;
   margin-left: 1em;
@@ -199,8 +206,8 @@ input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
   color: #bdbdbd;
 }
 .celeb-profile-pic {
-  width: 375px;
-  height: 475px;
+  width: 400px;
+  height: 600px;
     border: solid 2px #212121;
 }
 .celeb-appearances-overview,
@@ -210,8 +217,7 @@ input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
   color: #bdbdbd;
 }
 .celeb-name{
-  position: relative;
-  bottom: .75em;
+  margin-top: -.15em;
 }
 .biography-title, .appearances-title, .trending-celeb-title{
   color: #cfb53b;

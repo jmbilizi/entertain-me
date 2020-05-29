@@ -3,15 +3,15 @@ import { Row, Col } from 'react-materialize';
 import _ from 'lodash';
 import axios from "axios";
 import { user } from "../../utils/helpers";
+import $ from 'jquery';
 
 import { ResultsWrapper } from '../../assets/styles';
 import Poster from '../Poster';
 import './style.css'
-
+{ $('.favorite-added').hide() }
 const ResultsCard = (props) => {
   const { token } = props;
   const addFavorite = () => {
-    alert('ADDED TO FAVORITES');
     const userId = user()._id;
     console.log("props: ", props);
     const mediaName = props.selection;
@@ -43,6 +43,11 @@ const ResultsCard = (props) => {
       .catch((error) => {
         console.log(error);
       });
+
+    $('.favorite-added').show()
+    setTimeout(() => {
+      $('.favorite-added').hide()
+    }, 2000)
 
     // pass in media_type, name, and id, as well as user id
     // update array in react state that is storing all the favorites
@@ -77,20 +82,23 @@ const ResultsCard = (props) => {
             {!token ? (
               console.log('User is not logged in.')
             ) : (
-                <div className='result-btns'>
-                  <span onClick={addFavorite}>
-                    <span className='material-icons favorite'>favorite</span>
-                  </span>
-                  <span onClick={setNotification}>
-                    <span className='material-icons notify'>notifications</span>
-                  </span>
-                  <span onClick={watchContent}>
-                    <span className='material-icons watch'>tv</span>
-                  </span>
-                  <span onClick={shareContent}>
-                    <span className='material-icons watch'>share</span>
-                  </span>
-                </div>
+                <>
+                  <div className='result-btns'>
+                    <span onClick={addFavorite}>
+                      <span className='material-icons favorite'>favorite</span>
+                    </span>
+                    <span onClick={setNotification}>
+                      <span className='material-icons notify'>notifications</span>
+                    </span>
+                    <span onClick={watchContent}>
+                      <span className='material-icons watch'>tv</span>
+                    </span>
+                    <span onClick={shareContent}>
+                      <span className='material-icons watch'>share</span>
+                    </span>
+                    <div className='favorite-added'><strong>{props.selection.toUpperCase()}</strong> added to favorites.</div>
+                  </div>               
+                </>
               )}
             <p className='overview'>
               {_.truncate(props.overview, {
