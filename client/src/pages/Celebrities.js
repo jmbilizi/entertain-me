@@ -37,10 +37,21 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
       .put("/api/celebrities", { userId, celebName })
       .then((result) => {
         console.log("Adding celeb favorites...");
+
+        axios
+        .get('/api/celebrities')
+        .then((response) => {
+            console.log("Celeb page add favorite getCommunityCelebrities response data: ", response.data);
+            setCommunityCelebrities(response.data);
+        })
+
       })
       .catch((error) => {
         console.log(error);
       });
+
+
+
 
   };
   const setNotification = () => {
