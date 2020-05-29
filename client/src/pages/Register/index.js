@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 // import LoginSideContent from "../../components/LoginSideContent";
 import { Row, Col } from "react-materialize";
 import { RegisterPageWrapper } from "../../assets/styles";
+import './style.css'
 
 class Create extends Component {
   constructor() {
@@ -85,7 +86,7 @@ class Create extends Component {
                         <input
                           name="username"
                           value={username}
-                          type="text"
+                          type="email"
                           className="form-control"
                           placeholder="Enter email"
                           onChange={this.onChange}
@@ -98,7 +99,7 @@ class Create extends Component {
                         <input
                           name="password"
                           value={password}
-                          type="text"
+                          type="password"
                           className="form-control"
                           placeholder="Enter password"
                           onChange={this.onChange}
