@@ -58,24 +58,21 @@ input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
   font-size: 2em;
   letter-spacing: -3px;
 }
-
-.backdrop-image {
-  width: 300px;
-  height: 165px;
-  margin-left: 0.6em;
-}
 .result-btns {
   position: relative;
-  bottom: 2.25em;
+  bottom: 7em;
   left: 0.5em;
-  margin-bottom: 0.75em;
+  // margin-bottom: 0.75em;
+  padding-top: .25em;
+  border: 2px solid  #cfb53b;
+  text-align: center;
 }
 .tmdb {
   width: 50px;
   height: 40px;
   float: right;
   position: relative;
-  top: 2em;
+  top: 1em;
   left: 2em;
 }
 .network-logo {
@@ -94,15 +91,6 @@ input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
   position: relative;
   right: 1.25em;
   bottom: 6.75em;
-}
-.overview {
-  position: relative;
-  bottom: 2.75em;
-  width: 95%;
-  min-height: 7.5em;
-  max-height: 7.5em;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 .details {
   position: relative;

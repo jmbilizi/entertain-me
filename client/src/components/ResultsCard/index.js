@@ -33,11 +33,11 @@ const ResultsCard = (props) => {
         console.log("Adding favorites result: ", result);
 
         axios
-        .get('/api/favorites')
-        .then((response) => {
+          .get('/api/favorites')
+          .then((response) => {
             console.log("Results card add favorites getCommunityFavorites response data: ", response.data);
             props.setCommunityFavorites(response.data);
-        })
+          })
 
       })
       .catch((error) => {
@@ -61,16 +61,23 @@ const ResultsCard = (props) => {
   const shareContent = () => {
     alert('CONTENT SHARED');
   };
-
+  console.log(props.overview)
   return (
     <div className='results-card'>
+
       <Row>
-        <Col m={1}></Col>
-        <Col>
-          <div>
+        <Col m={6}>
+          <h4 className='results-card-title'>{props.selection}</h4>
+        </Col>
+        <Col m={6}>
+          <div className='logo'>
             {props.logo}
           </div>
+        </Col>
+      </Row>
 
+      <Row>
+        <Col m={5}>
           <img
             className='backdrop-image'
             src={props.backdrop}
@@ -78,44 +85,26 @@ const ResultsCard = (props) => {
           />
           <br></br>
           <div className='details'>
-            <h4 className='results-card-title'>{props.selection}</h4>
-            {!token ? (
-              console.log('User is not logged in.')
-            ) : (
-                <>
-                  <div className='result-btns'>
-                    <span onClick={addFavorite}>
-                      <span className='material-icons favorite'>favorite</span>
-                    </span>
-                    <span onClick={setNotification}>
-                      <span className='material-icons notify'>notifications</span>
-                    </span>
-                    <span onClick={watchContent}>
-                      <span className='material-icons watch'>tv</span>
-                    </span>
-                    <span onClick={shareContent}>
-                      <span className='material-icons watch'>share</span>
-                    </span>
-                    <div className='favorite-added'><strong>{props.selection.toUpperCase()}</strong> added to favorites</div>
-                  </div>               
-                </>
-              )}
-            <p className='overview'>
-              {_.truncate(props.overview, {
-                length: 195,
-                separator: '...',
-              })}
-            </p>
           </div>
         </Col>
         <Col m={1}></Col>
-      </Row>
-      <Row>
+
+        <Col m={5}>
+          <p className='overview'>
+            {_.truncate(props.overview, {
+              length: 320,
+              separator: '...',
+            })}
+          </p>
+        </Col>
         <Col m={1}></Col>
-        <Col m={3}>
+      </Row>
+
+      <Row className='details'>
+        <Col m={2}>
           <Poster poster={props.poster} />
         </Col>
-        <Col m={4}>
+        <Col m={3}>
           <div className='stats'>
             Release: <strong>{props.release}</strong>
             <br></br>
@@ -131,7 +120,7 @@ const ResultsCard = (props) => {
               Viewer score: <strong>{props.score}</strong>
           </div>
         </Col>
-        <Col m={4}>
+        <Col m={3}>
           <div className='stats2'>
             Starring: <strong>{props.star1}{props.star2}</strong><br></br>
             {props.mediaType === 'tv' ? (
@@ -141,13 +130,36 @@ const ResultsCard = (props) => {
                 <br></br>
                 Aired:<br></br>
                 <strong>{props.lastAir}</strong>
-              </>) : (<>Directed by:<strong>{props.director} {props.director2}</strong></>)}
-            <img
-              className='tmdb'
-              src='https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg'
-              alt=''
-            />
+              </>) : (<>Directed by: <strong>{props.director} {props.director2}</strong></>)}
           </div>
+        </Col>
+        <Col m={3}>
+          {!token ? (
+            console.log('User is not logged in.')
+          ) : (
+              <>
+                <div className='result-btns'>
+                  <span onClick={addFavorite}>
+                    <span className='material-icons favorite'>favorite</span>
+                  </span>
+                  <span onClick={setNotification}>
+                    <span className='material-icons notify'>notifications</span>
+                  </span>
+                  <span onClick={watchContent}>
+                    <span className='material-icons watch'>tv</span>
+                  </span>
+                  <span onClick={shareContent}>
+                    <span className='material-icons watch'>share</span>
+                  </span>
+                  <div className='favorite-added'><strong>{props.selection.toUpperCase()}</strong> added to favorites</div>
+                </div>
+              </>
+            )}
+          <img
+            className='tmdb'
+            src='https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg'
+            alt=''
+          />
         </Col>
       </Row>
     </div>
