@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "materialize-css";
 import { Row, Col } from "react-materialize";
 import _ from "lodash";
@@ -188,6 +188,15 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
   //     celeb_name: "Liam Neeson"
   //   }
   // ];
+
+  useEffect(() => {
+    axios
+    .get('/api/celebrities')
+    .then((response) => {
+        console.log("Celeb page getCommunityCelebrities response data: ", response.data);
+        setCommunityCelebrities(response.data);
+    })
+    }, []);
 
 
   return (

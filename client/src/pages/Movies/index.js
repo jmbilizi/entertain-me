@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import moment from "moment";
 import "materialize-css";
 import { Row, Col } from "react-materialize";
@@ -494,6 +494,16 @@ const MoviePage = ({ favorites, setFavorites, token, communityFavorites, setComm
   const favoritesMovie = favorites.filter(
     (item) => item.media_type === "movie"
   );
+
+  useEffect(() => {
+    axios
+    .get('/api/favorites')
+    .then((response) => {
+        console.log("Movie page getCommunityFavorites response data: ", response.data);
+        setCommunityFavorites(response.data);
+    })
+    }, []);
+
 
   return (
     <MoviePageWrapper>
