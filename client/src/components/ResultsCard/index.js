@@ -96,7 +96,7 @@ const ResultsCard = (props) => {
                     <span onClick={shareContent}>
                       <span className='material-icons watch'>share</span>
                     </span>
-                    <div className='favorite-added'><strong>{props.selection.toUpperCase()}</strong> added to favorites.</div>
+                    <div className='favorite-added'><strong>{props.selection.toUpperCase()}</strong> added to favorites</div>
                   </div>               
                 </>
               )}
