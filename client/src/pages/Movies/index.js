@@ -269,9 +269,9 @@ const MoviePage = ({ favorites, setFavorites, token, communityFavorites, setComm
       genre: trailerInfo.genres[0].name,
       genre2: trailerInfo.genres.length > 1 ? trailerInfo.genres[1].name : "",
       score: vote_average,
-      trailerPath: trailerInfo.videos.results[0].key,
-      trailer: `${trailerURL}` + trailerInfo.videos.results[0].key,
-      tvTrailer: tvTrailerInfo ? (`${trailerURL}` + tvTrailerInfo.videos.results[0].key) : (console.log('No results.')),
+      trailerPath: trailerInfo.videos.results[0] ? trailerInfo.videos.results[0].key : console.log('no trailer available'),
+      trailer: trailerInfo.videos.results[0] ? `${trailerURL}` + trailerInfo.videos.results[0].key : console.log('no trailer available'),
+      tvTrailer: trailerInfo.videos.results[0] ? (`${trailerURL}` + tvTrailerInfo.videos.results[0].key) : console.log('no trailer available'),
       runtime:
         trailerInfo.runtime ? (
           searchInfo.media_type === "movie"
@@ -306,8 +306,8 @@ const MoviePage = ({ favorites, setFavorites, token, communityFavorites, setComm
         tvTrailerInfo.production_companies.length > 0 ? (searchInfo.media_type === "movie" &&
           tvTrailerInfo.production_companies.filter((el) => el.logo_path != null)
           ? <img className='network-logo' src={imageURL + tvTrailerInfo.production_companies.filter((el) => el.logo_path != null)[0].logo_path} alt='studio logo' />
-          : <img className='network-logo' src={imageURL + tvTrailerInfo.networks.filter((el) => el.logo_path != null)[0].logo_path} alt='network logo' />
-        ) : (<span className='network-logo-alt'>ON {tvTrailerInfo.networks[0].name}</span>),
+          : <div className='network-logo-alt'><span className='logo-box1'>ON</span><span className='logo-box2'>{tvTrailerInfo.networks[0].name}</span></div>
+        ) : (<div className='network-logo-alt'><span className='logo-box1'>ON</span><span className='logo-box2'>{tvTrailerInfo.networks[0].name.toUpperCase()}</span></div>),
       network:
         searchInfo.media_type === "tv"
           ? tvTrailerInfo.networks[0].name
