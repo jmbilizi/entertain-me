@@ -5,19 +5,12 @@ import _ from 'lodash';
 import API from '../../utils/API';
 
 const RelatedCard = (props) => {
-  // async function getDetails(e) {
-  //   e.preventDefault();
-  //   let input = document.getElementsByClassName("related")[0].textContent
-  //   const updateSearch = await API.mainSearch(input)
-  //   let result = updateSearch.data.results[0]
-  //   console.log(`NEW SEARCH FOR '${input}':`, result)
 
   const getDetails = (e) => {
 
     console.log(e);
     props.mediaSearch(e)
   };
-
 
   const { favorites } = props
   console.log({ favorites })
@@ -27,7 +20,7 @@ const RelatedCard = (props) => {
       <Collection className='frame'>
         <CollectionItem>
           <img className='related-images' src={props.poster1} alt={props.related1} title={props.title1} />
-          <span className='related' onClick={getDetails} >
+          <span className='related' onClick={() => getDetails(props.title1)} >
             {_.truncate(props.title1, {
               length: 21,
               separator: '...',
@@ -36,7 +29,7 @@ const RelatedCard = (props) => {
         </CollectionItem>
         <CollectionItem >
           <img className='related-images' src={props.poster2} alt={props.related2} />
-          <span className='related' onClick={getDetails}>
+          <span className='related' onClick={() => getDetails(props.title2)}>
             {_.truncate(props.title2, {
               length: 21,
               separator: '...',
@@ -45,7 +38,7 @@ const RelatedCard = (props) => {
         </CollectionItem>
         <CollectionItem>
           <img className='related-images' src={props.poster3} alt={props.related3} />
-          <span onClick={getDetails}>
+          <span className='related' onClick={() => getDetails(props.title3)}>
             {_.truncate(props.title3, {
               length: 21,
               separator: '...',
@@ -53,7 +46,7 @@ const RelatedCard = (props) => {
         </CollectionItem>
         <CollectionItem>
           <img className='related-images' src={props.poster4} alt={props.related4} />
-          <span onClick={getDetails}>
+          <span className='related' onClick={() => getDetails(props.title4)}>
             {_.truncate(props.title4, {
               length: 21,
               separator: '...',
@@ -61,7 +54,7 @@ const RelatedCard = (props) => {
         </CollectionItem>
         <CollectionItem >
           <img className='related-images' src={props.poster5} alt={props.related5} />
-          <span onClick={getDetails}>
+          <span className='related' onClick={() => getDetails(props.title5)}>
             {_.truncate(props.title5, {
               length: 21,
               separator: '...',
@@ -74,12 +67,3 @@ const RelatedCard = (props) => {
 };
 
 export default RelatedCard;
-
-
-
-// {favorites.map(item =>
-//   (<CollectionItem>
-//     <span onClick={() => getDetails(item.title)}>{item.title}</span>
-//     {/* <span onClick={ () => deleteItem(item.media_name) } className="material-icons remove">remove_circle</span> */}
-//   </CollectionItem>)
-// )}
