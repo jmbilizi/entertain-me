@@ -31,6 +31,14 @@ const ResultsCard = (props) => {
       .put("/api/favorites", { userId, mediaName, mediaId: props.id, mediaType })
       .then((result) => {
         console.log("Adding favorites result: ", result);
+
+        axios
+        .get('/api/favorites')
+        .then((response) => {
+            console.log("Results card add favorites getCommunityFavorites response data: ", response.data);
+            props.setCommunityFavorites(response.data);
+        })
+
       })
       .catch((error) => {
         console.log(error);
