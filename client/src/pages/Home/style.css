@@ -1,3 +1,7 @@
+h5 {
+    font-size: 1.5em;
+}
+
 .staff-picks {
     margin-left: 50px;
     padding: 10px;
@@ -51,7 +55,7 @@
 
 #home-text1, #home-text2, #home-text3, #home-text4, #home-text5 {
     text-align: left;
-    margin-left: 3.5em;
+    margin-left: 2.5em;
     color: #bdbdbd;
 }
 

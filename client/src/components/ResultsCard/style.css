@@ -16,11 +16,17 @@
     bottom: 0.5em;
     margin: 1em 0 1.5em 0;
     font-size: 2em;
-  }
-
+}
 
 .tmdb {
     margin-top: 5px;
     margin-right: 100px;
+}
 
+.favorite-added {
+    position: absolute;
+    left: 7em;
+    bottom: .25em;
+    color: #cfb53b;
+    display: none; 
 }
