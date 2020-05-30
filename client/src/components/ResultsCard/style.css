@@ -21,14 +21,12 @@
     margin-right: 10px;
     background-color: gray;
 }
-.tmdb {
-    margin-top: 40px;
-}
 
 .favorite-added {
     position: absolute;
-    left: 7em;
-    bottom: .25em;
+    width: 150%;
+    top: 2.25em;
+    left: -2.5em;
     color: #cfb53b;
     display: none;
 }

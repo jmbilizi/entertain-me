@@ -102,7 +102,7 @@ class Login extends Component {
         const { username, password, message, login } = this.state;
         if (login === true) return <Redirect to={"/"} />;
         return (
-            <Container classname='login-background'>
+            <Container className='login-background'>
                 <Row></Row>
                 <Row>
                     <Col s={3}>
@@ -148,7 +148,7 @@ class Login extends Component {
 
                             <div className="auth-wrapper m-auto sign-in">
                                 <div className="auth-inner">
-                                    <form class="form-signin" onSubmit={this.onSubmit}>
+                                    <form className="form-signin" onSubmit={this.onSubmit}>
                                         {message !== "" && (
                                             <div
                                                 class="alert alert-warning alert-dismissible"
