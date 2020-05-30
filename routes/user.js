@@ -19,23 +19,19 @@ router.get("/:id", function (req, res) {
 
 // may require more auth for future reference
 router.put("/:id", function (req, res) {
-  const givenId = req.body.userId;
+  const givenId = req.body._id;
   const givenFname = req.body.fname;
   const givenLname = req.body.lname;
   const givenEmail = req.body.username;
 
   console.log("givenId", givenId);
-
+  console.log(req.body);
   db.User.findOneAndUpdate(
     { _id: givenId },
     {
-      $push: {
-        user: {
-          fname: givenFname,
-          lname: givenLname,
-          username: givenEmail,
-        },
-      },
+      fname: givenFname,
+      lname: givenLname,
+      username: givenEmail,
     }
   )
     .then(function (data) {
@@ -45,6 +41,5 @@ router.put("/:id", function (req, res) {
       res.status(400).json(err);
     });
 });
-
 
 module.exports = router;

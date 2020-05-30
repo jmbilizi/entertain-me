@@ -4,7 +4,7 @@ import { Container, Col, Row } from "react-materialize";
 import { Redirect } from "react-router-dom";
 
 import { user } from "../../utils/helpers";
-import './style.css';
+import "./style.css";
 import Axios from "axios";
 
 const Profile = (props) => {
@@ -22,6 +22,21 @@ const Profile = (props) => {
 
     setTheUser(currentUser);
   }, []);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setTheUser({ ...theUser, [name]: value });
+  };
+
+  const updateUser = async () => {
+    const userId = await user()._id;
+
+    let response = await Axios.put(`/api/user/${userId}`, theUser);
+
+   
+
+    setTheUser(theUser);
+  };
 
   const mystyle = {
     borderBottom: "none",
@@ -48,8 +63,10 @@ const Profile = (props) => {
               <div class="input-field">
                 <input
                   style={mystyle}
+                  name="fname"
                   value={theUser.fname}
                   type="text"
+                  onChange={handleInputChange}
                 ></input>
                 <label class="active" htmlFor="first_name">
                   First Name
@@ -61,7 +78,9 @@ const Profile = (props) => {
                 <input
                   style={mystyle}
                   value={theUser.lname}
+                  name="lname"
                   type="text"
+                  onChange={handleInputChange}
                 ></input>
                 <label class="active" htmlFor="last_name">
                   Last Name
@@ -72,8 +91,10 @@ const Profile = (props) => {
               <div class="input-field">
                 <input
                   style={mystyle}
+                  name="email"
                   value={theUser.username}
                   type="text"
+                  onChange={handleInputChange}
                 ></input>
                 <label class="active" htmlFor="email">
                   Email
@@ -85,10 +106,12 @@ const Profile = (props) => {
             )}
             <Row>
               <Col s={6}>
-                <a class="btn teal">Update</a>
+                <div onClick={updateUser} class="btn teal">
+                  Update
+                </div>
               </Col>
               <Col s={6}>
-                <button class="btn btn-flat red">Delete</button>
+                <div class="btn btn-flat red">Delete</div>
               </Col>
             </Row>
           </Col>
