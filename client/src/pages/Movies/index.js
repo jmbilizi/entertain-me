@@ -548,8 +548,9 @@ const MoviePage = ({ favorites, setFavorites, token, communityFavorites, setComm
               lastAir={lastAir}
               lastEpisode={lastEpisode}
               favorites={favorites}
+              favoritesTV={favoritesTV}
+              favoritesMovie={favoritesMovie}
               setFavorites={setFavorites}
-
               setCommunityFavorites={setCommunityFavorites}
 
               // setCommunityFavorites={setCommunityFavorites}
