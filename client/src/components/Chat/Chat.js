@@ -35,7 +35,7 @@ export default class Chat extends Component {
     render() {
         return (
             <>
-                <h6 className='title'>Social Feed</h6>
+                <h6 className='title'>SOCIAL FEED</h6>
                 <MessageList messages={this.state.messages} />
                 <Row>
                     <Col s={12}>

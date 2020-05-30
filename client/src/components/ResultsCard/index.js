@@ -1,16 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Row, Col } from 'react-materialize';
 import _ from 'lodash';
 import axios from "axios";
 import { user } from "../../utils/helpers";
 import $ from 'jquery';
 
-import { ResultsWrapper } from '../../assets/styles';
 import Poster from '../Poster';
 import './style.css'
 { $('.favorite-added').hide() }
 const ResultsCard = (props) => {
-  const { token } = props;
+
+  useEffect(() => {
+    const allFavorites = favoritesTV.concat(favoritesMovie);
+    const existingFavorite = allFavorites.filter((el) => el.media_name === props.selection)
+    existingFavorite.length > 0 ? ($('.favorite').hide()) : ($('.favorite').show());
+  }, [props]);
+
+  const { token, favoritesTV, favoritesMovie } = props;
   const addFavorite = () => {
     const userId = user()._id;
     console.log("props: ", props);
@@ -62,6 +68,7 @@ const ResultsCard = (props) => {
     alert('CONTENT SHARED');
   };
   console.log(props.overview)
+
   return (
     <div className='results-card'>
 
@@ -100,7 +107,8 @@ const ResultsCard = (props) => {
         <Col m={1}></Col>
       </Row>
 
-      <Row className='details'>
+      <Row >
+        <div className='details'>
         <Col m={2}>
           <Poster poster={props.poster} />
         </Col>
@@ -133,6 +141,7 @@ const ResultsCard = (props) => {
               </>) : (<>Directed by: <strong>{props.director} {props.director2}</strong></>)}
           </div>
         </Col>
+        </div>
         <Col m={3}>
           {!token ? (
             console.log('User is not logged in.')
@@ -156,7 +165,7 @@ const ResultsCard = (props) => {
               </>
             )}
           <img
-            className='tmdb'
+          className='tmdb'
             src='https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg'
             alt=''
           />

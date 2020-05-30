@@ -1,9 +1,8 @@
 import React from "react";
 import "materialize-css";
-import { Row, Col } from "react-materialize";
+import { Container, Row, Col } from "react-materialize";
 import Headlines from "../../components/Headlines";
 import Chat from '../../components/Chat/Chat'
-import { HomePageWrapper } from "../../assets/styles";
 import "./style.css"
 import API from "../../utils/API.js";
 import $ from 'jquery';
@@ -106,7 +105,7 @@ const Home = (props) => {
 
 
   return (
-    <HomePageWrapper>
+    <Container>
       <Row></Row>
       <Row>
         <Headlines />
@@ -168,7 +167,7 @@ const Home = (props) => {
           </div>
         </Col>
       </Row>
-    </HomePageWrapper >
+    </Container>
   );
 };
 

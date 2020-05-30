@@ -1,6 +1,6 @@
 .results-card {
     padding: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 45px;
     box-shadow: 10px 5px 5px #222222;
     border-radius: 10px;
     background-color: #111111;
@@ -21,14 +21,12 @@
     margin-right: 10px;
     background-color: gray;
 }
-.tmdb {
-    margin-top: 40px;
-}
 
 .favorite-added {
     position: absolute;
-    left: 7em;
-    bottom: .25em;
+    width: 150%;
+    top: 2.25em;
+    left: -2.5em;
     color: #cfb53b;
     display: none;
 }
@@ -39,7 +37,7 @@
 
 .details {
     margin-top: 5em;
-    margin-left: 1em;
+    padding-left: 1.5em;
 }
 
 .backdrop-image {

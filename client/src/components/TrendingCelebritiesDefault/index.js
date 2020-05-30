@@ -5,7 +5,7 @@ const DefaultCelebAppearances = () => {
   return (
     <>
       <Row>
-      <h6 className="trending-celeb-title">Trending Celebrities</h6>
+      <h6 className="trending-celeb-title">TRENDING CELEBRITIES</h6>
         <Col>
           <img
             className="trending-celeb-images"
