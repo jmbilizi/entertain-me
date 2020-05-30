@@ -48,10 +48,7 @@ const NavBar = (props) => {
         </NavItem>
         <NavItem>
           {token ? (
-            <Link
-              className="nav-link"
-              to={`/user/${user().fname}${user().lname}`}
-            >
+            <Link className="nav-link" to="/profile">
               {`${user().fname}'s profile`}
             </Link>
           ) : null}
