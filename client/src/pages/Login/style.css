@@ -94,57 +94,16 @@ input[type=password]:focus, .materialize-textarea:focus:not([readonly]) {
   box-shadow: 0 1px 0 0 #cfb53b !important;
 }
 
-/* app */
-
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-/* .App-link {
-  color: #61dafb;
-} */
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .login-images {
   border-radius: 10px;
   width: 250px;
   height: 135px;
-  margin-bottom: 1em;
 }
 
 .sign-in {
-  position: relative;
-  bottom: 80vh;
+  position: absolute;
+  right: 0;
+  bottom: 0;
   z-index: 10;
 }
 
@@ -161,10 +120,5 @@ input[type=password]:focus, .materialize-textarea:focus:not([readonly]) {
 }
 
 .fade4 {
-  margin-left: .6em;
   opacity: .3;
-}
-
-.login-background {
-  width: 1600px;
 }
