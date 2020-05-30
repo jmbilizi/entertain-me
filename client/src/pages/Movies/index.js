@@ -549,7 +549,11 @@ const MoviePage = ({ favorites, setFavorites, token, communityFavorites, setComm
               lastEpisode={lastEpisode}
               favorites={favorites}
               setFavorites={setFavorites}
+
               setCommunityFavorites={setCommunityFavorites}
+
+              // setCommunityFavorites={setCommunityFavorites}
+
             />
           ) : (
               <DiscoverCardDefault />

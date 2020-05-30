@@ -14,13 +14,45 @@
 .results-card-title {
     position: relative;
     bottom: 0.5em;
-    margin: 1em 0 1.5em 0;
     font-size: 2em;
-  }
+}
 
-
+.logo{
+    margin-right: 10px;
+    background-color: gray;
+}
 .tmdb {
-    margin-top: 5px;
-    margin-right: 100px;
+    margin-top: 40px;
+}
 
+.favorite-added {
+    position: absolute;
+    left: 7em;
+    bottom: .25em;
+    color: #cfb53b;
+    display: none;
+}
+
+.overview {
+    text-align: left;
+}
+
+.details {
+    margin-top: 5em;
+    margin-left: 1em;
+}
+
+.backdrop-image {
+    width: 300px;
+    height: 165px;
+    margin-left: 0.6em;
+}
+
+.overview {
+    position: relative;
+    bottom: 1.25em;
+    min-height: 12em;
+    max-height: 12em;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

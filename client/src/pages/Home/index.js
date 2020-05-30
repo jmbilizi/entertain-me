@@ -68,7 +68,6 @@ const Home = (props) => {
 
   setTimeout(function () {
     $("#home").html(`<br><br><h5 id='home-text1'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>MOVIE</span>.</h5>`);
-    // document.getElementById("home").setAttribute("class", 'home-image-text');
   }, 2800)
   setTimeout(function () {
     $("#home").html(`<br><br><h5 id='home-text2'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>SHOW</span>.</h5>`);

@@ -53,7 +53,7 @@ export default class Chat extends Component {
                                         type="text"
                                         maxlength="140"
                                         className="form-control"
-                                        placeholder="Enter message (max 150 char)"
+                                        placeholder="      Enter a message"
                                         onChange={this.handleChange}
                                         required
                                     />
