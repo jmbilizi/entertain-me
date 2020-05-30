@@ -33,7 +33,7 @@ const Profile = (props) => {
 
     let response = await Axios.put(`/api/user/${userId}`, theUser);
 
-   
+    response = await Axios.get(`/api/user/${userId}`);
 
     setTheUser(theUser);
   };
