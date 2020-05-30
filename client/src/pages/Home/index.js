@@ -64,6 +64,8 @@ import $ from 'jquery';
 
 const Home = (props) => {
 
+  const { token } = props;
+
 
   setTimeout(function () {
     $("#home").html(`<br><br><h5 id='home-text1'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>MOVIE</span>.</h5>`);
@@ -163,7 +165,8 @@ const Home = (props) => {
             <br></br>
             <hr className='divider'></hr>
             <br></br>
-            <Chat />
+            {token ? (<Chat />) : (console.log('User not logged in'))}
+
           </div>
         </Col>
       </Row>

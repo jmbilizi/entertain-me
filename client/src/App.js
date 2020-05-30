@@ -27,7 +27,9 @@ const App = () => {
         <NavBar token={token} />
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Home 
+            token={token}
+            />
           </Route>
           <Route exact path="/movies">
             <MoviePage
