@@ -21,7 +21,6 @@ const userId = user()._id;
 const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities, setCommunityCelebrities }) => {
 
   const addFavorite = () => {
-    alert('ADDED TO FAVORITES');
     const celebName = state.name;
 
     console.log("celebrities: ", celebrities);
@@ -39,11 +38,11 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
         console.log("Adding celeb favorites...");
 
         axios
-        .get('/api/celebrities')
-        .then((response) => {
+          .get('/api/celebrities')
+          .then((response) => {
             console.log("Celeb page add favorite getCommunityCelebrities response data: ", response.data);
             setCommunityCelebrities(response.data);
-        })
+          })
 
       })
       .catch((error) => {
@@ -51,7 +50,10 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
       });
 
 
-
+    $('.celeb-favorite-added').show()
+    setTimeout(() => {
+      $('.celeb-favorite-added').hide()
+    }, 2000)
 
   };
   const setNotification = () => {
@@ -130,7 +132,7 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
       id: id,
       media_type: media_type,
       name: searchInfo.name,
-      profile: profile_path!= null ? `${imageURL}` + profile_path : 'https://via.placeholder.com/375x475/000000/FFFFFF/?text=NO IMAGE AVAILABLE',
+      profile: profile_path != null ? `${imageURL}` + profile_path : 'https://via.placeholder.com/375x475/000000/FFFFFF/?text=NO IMAGE AVAILABLE',
       known1:
         searchInfo.known_for[0].media_type === "tv"
           ? searchInfo.known_for[0].name
@@ -183,7 +185,7 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
     e.preventDefault();
     celebSearch(userInput);
     $('.search-input-box').val('');
-    
+
   };
 
   // hardcoded communityCelebrities
@@ -202,12 +204,12 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
 
   useEffect(() => {
     axios
-    .get('/api/celebrities')
-    .then((response) => {
+      .get('/api/celebrities')
+      .then((response) => {
         console.log("Celeb page getCommunityCelebrities response data: ", response.data);
         setCommunityCelebrities(response.data);
-    })
-    }, []);
+      })
+  }, []);
 
 
   return (
@@ -249,6 +251,7 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
                   <span onClick={shareContent}>
                     <span className='material-icons watch'>share</span>
                   </span>
+                  <div className='celeb-favorite-added'><strong>{state.name.toUpperCase()}</strong> added to favorites</div>
                 </div>
               ) : (
                   console.log('User is not logged in.')
@@ -328,7 +331,7 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
             <>
 
               <FavoriteCelebsDefault heading={'Community Favorites'} communityCelebrities={communityCelebrities} setCommunityCelebrities={setCommunityCelebrities} celebSearch={celebSearch} />
-              <FavoriteCelebs heading={'MY PEOPLE'} deleteCeleb={deleteCeleb} celebrities={celebrities} setCelebrities={setCelebrities} celebSearch={celebSearch} />            
+              <FavoriteCelebs heading={'MY PEOPLE'} deleteCeleb={deleteCeleb} celebrities={celebrities} setCelebrities={setCelebrities} celebSearch={celebSearch} />
 
             </>
           ) : (

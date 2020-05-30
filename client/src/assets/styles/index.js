@@ -58,24 +58,21 @@ input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
   font-size: 2em;
   letter-spacing: -3px;
 }
-
-.backdrop-image {
-  width: 300px;
-  height: 165px;
-  margin-left: 0.6em;
-}
 .result-btns {
   position: relative;
-  bottom: 2.25em;
+  bottom: 7em;
   left: 0.5em;
-  margin-bottom: 0.75em;
+  // margin-bottom: 0.75em;
+  padding-top: .25em;
+  border: 2px solid  #cfb53b;
+  text-align: center;
 }
 .tmdb {
   width: 50px;
   height: 40px;
   float: right;
   position: relative;
-  top: 2em;
+  top: 1em;
   left: 2em;
 }
 .network-logo {
@@ -94,15 +91,6 @@ input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
   position: relative;
   right: 1.25em;
   bottom: 6.75em;
-}
-.overview {
-  position: relative;
-  bottom: 2.75em;
-  width: 95%;
-  min-height: 7.5em;
-  max-height: 7.5em;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 .details {
   position: relative;
@@ -170,6 +158,13 @@ input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
 }
 `
 export const CelebritiesPageWrapper = styled(Container)`
+.celeb-favorite-added{
+position: absolute;
+left: 23em;
+bottom: -6.5em;
+color: #cfb53b;
+display: none; 
+}
 .celeb-search-fail{
   color: white;
   margin-left: 1em;
@@ -199,8 +194,8 @@ input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
   color: #bdbdbd;
 }
 .celeb-profile-pic {
-  width: 375px;
-  height: 475px;
+  width: 400px;
+  height: 600px;
     border: solid 2px #212121;
 }
 .celeb-appearances-overview,
@@ -210,8 +205,7 @@ input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
   color: #bdbdbd;
 }
 .celeb-name{
-  position: relative;
-  bottom: .75em;
+  margin-top: -.15em;
 }
 .biography-title, .appearances-title, .trending-celeb-title{
   color: #cfb53b;
