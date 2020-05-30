@@ -5,7 +5,6 @@ import axios from "axios";
 import { user } from "../../utils/helpers";
 import $ from 'jquery';
 
-import { ResultsWrapper } from '../../assets/styles';
 import Poster from '../Poster';
 import './style.css'
 { $('.favorite-added').hide() }
@@ -108,7 +107,8 @@ const ResultsCard = (props) => {
         <Col m={1}></Col>
       </Row>
 
-      <Row className='details'>
+      <Row >
+        <div className='details'>
         <Col m={2}>
           <Poster poster={props.poster} />
         </Col>
@@ -141,6 +141,7 @@ const ResultsCard = (props) => {
               </>) : (<>Directed by: <strong>{props.director} {props.director2}</strong></>)}
           </div>
         </Col>
+        </div>
         <Col m={3}>
           {!token ? (
             console.log('User is not logged in.')
