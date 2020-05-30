@@ -9,6 +9,7 @@ const connectHistoryApiFallback = require('connect-history-api-fallback');
 const auth = require('./routes/auth');
 const favorites = require('./routes/favorites');
 const celebrities = require('./routes/celebrities');
+const user = require("./routes/user");
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -32,6 +33,7 @@ app.use('/api/auth', auth);
 
 app.use('/api/favorites', favorites);
 app.use('/api/celebrities', celebrities);
+app.use("/api/user", user);
 
 
 // Define API routes here
