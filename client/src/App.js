@@ -49,7 +49,7 @@ const App = () => {
               setCommunityCelebrities={setCommunityCelebrities}
             />
           </Route>
-          <Route exact path="/user/:userId">
+          <Route exact path="/profile">
             <Profile token={token} />
           </Route>
           <Route exact path="/logout">

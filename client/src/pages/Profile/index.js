@@ -9,31 +9,24 @@ import Axios from "axios";
 
 const Profile = (props) => {
   const { token } = props;
-
-  // const [state, setState] = useState({
-  //   userProfile: "",
-  //   redirectToLogin: false,
-  // });
-
-  // const userId = user()._id;
-
-  // useEffect(() => {
-  //   console.log(`testing user: ${userId}`);
-
-  //   Axios(`/user/${userId}`, {
-  //     method: "GET",
-  //   }).then((response) => {
-  //     console.log(response);
-  //     // return response.json();
-  //   });
-  // });
-
   if (!token) return <Redirect to={"/login"} />;
 
-  // for (const i = 0; i < user().favorites.lenght; i++) {
-  //   const favorites = user().favorites[i].media_name;
-  //   console.log(favorites);
-  // }
+  const [theUser, setTheUser] = useState(null);
+
+  useEffect(async () => {
+    const userId = await user()._id;
+
+    const response = await Axios.get(`/api/user/${userId}`);
+
+    const currentUser = await response.data;
+
+    setTheUser(currentUser);
+  }, []);
+
+  const mystyle = {
+    borderBottom: "none",
+    boxShadow: "none",
+  };
 
   return (
     <>
@@ -51,11 +44,45 @@ const Profile = (props) => {
             ></img>
           </Col>
           <Col s={6}>
-            <p>First Name: {`  ${user().fname}`}</p>
-            <p>Last Name: {`   ${user().lname}`}</p>
-            <p>Email: {`       ${user().username}`}</p>
-            <p>{`Joined:       ${new Date(user().created).toDateString()}`}</p>
-            <hr />
+            {theUser && (
+              <div class="input-field">
+                <input
+                  style={mystyle}
+                  value={theUser.fname}
+                  type="text"
+                ></input>
+                <label class="active" htmlFor="first_name">
+                  First Name
+                </label>
+              </div>
+            )}
+            {theUser && (
+              <div class="input-field">
+                <input
+                  style={mystyle}
+                  value={theUser.lname}
+                  type="text"
+                ></input>
+                <label class="active" htmlFor="last_name">
+                  Last Name
+                </label>
+              </div>
+            )}
+            {theUser && (
+              <div class="input-field">
+                <input
+                  style={mystyle}
+                  value={theUser.username}
+                  type="text"
+                ></input>
+                <label class="active" htmlFor="email">
+                  Email
+                </label>
+              </div>
+            )}
+            {theUser && (
+              <p>Joined: {new Date(theUser.created).toDateString()}</p>
+            )}
             <Row>
               <Col s={6}>
                 <a class="btn teal">Update</a>
