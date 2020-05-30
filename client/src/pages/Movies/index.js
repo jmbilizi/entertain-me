@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
 import "materialize-css";
-import { Row, Col } from "react-materialize";
+import { Container, Row, Col } from "react-materialize";
 
-import { MoviePageWrapper } from "../../assets/styles";
 import ResultsCard from "../../components/ResultsCard";
 import SearchBar from "../../components/SearchBar";
 import Trailer from "../../components/Trailer";
@@ -19,7 +18,7 @@ import API from "../../utils/API";
 import axios from "axios";
 import { user } from "../../utils/helpers";
 import $ from 'jquery';
-import "./style.css";
+import './style.css';
 
 const users = [
   {
@@ -497,16 +496,16 @@ const MoviePage = ({ favorites, setFavorites, token, communityFavorites, setComm
 
   useEffect(() => {
     axios
-    .get('/api/favorites')
-    .then((response) => {
+      .get('/api/favorites')
+      .then((response) => {
         console.log("Movie page getCommunityFavorites response data: ", response.data);
         setCommunityFavorites(response.data);
-    })
-    }, []);
+      })
+  }, []);
 
 
   return (
-    <MoviePageWrapper>
+    <Container>
       <Row>
         <Col m={4}></Col>
         <Col m={4}>
@@ -553,7 +552,7 @@ const MoviePage = ({ favorites, setFavorites, token, communityFavorites, setComm
               setFavorites={setFavorites}
               setCommunityFavorites={setCommunityFavorites}
 
-              // setCommunityFavorites={setCommunityFavorites}
+            // setCommunityFavorites={setCommunityFavorites}
 
             />
           ) : (
@@ -644,7 +643,7 @@ const MoviePage = ({ favorites, setFavorites, token, communityFavorites, setComm
           </Col>
         </Row>
       </Row>
-    </MoviePageWrapper>
+    </Container>
 
   );
 };

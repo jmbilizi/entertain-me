@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "materialize-css";
-import { Container } from "react-materialize";
+import { Container, Col, Row } from "react-materialize";
 import { Redirect } from "react-router-dom";
-import { ProfilePageWrapper } from "../assets/styles";
-import { user } from "../utils/helpers";
+
+import { user } from "../../utils/helpers";
+import './style.css';
 import Axios from "axios";
 
 const Profile = (props) => {
@@ -35,54 +36,54 @@ const Profile = (props) => {
   // }
 
   return (
-    <ProfilePageWrapper>
-      <div className="container white-text">
-        <div className="row">
+    <>
+      <Container className="white-text">
+        <Row>
           <h3>Profile</h3>
-        </div>
-        <div className="row">
-          <div className="col s6">
+        </Row>
+        <Row className="row">
+          <Col s={6}>
             <img
               class="materialboxed"
               data-caption="A picture of a way with a group of trees in a park"
               width="250"
               src="https://lorempixel.com/800/400/nature/4"
             ></img>
-          </div>
-          <div className="col s6">
+          </Col>
+          <Col s={6}>
             <p>First Name: {`  ${user().fname}`}</p>
             <p>Last Name: {`   ${user().lname}`}</p>
             <p>Email: {`       ${user().username}`}</p>
             <p>{`Joined:       ${new Date(user().created).toDateString()}`}</p>
             <hr />
-            <div className="row">
-              <div className="col s6">
+            <Row>
+              <Col s={6}>
                 <a class="btn teal">Update</a>
-              </div>
-              <div className="col s6">
-                <button class="btn red">Delete</button>
-              </div>
-            </div>
-          </div>
-        </div>
+              </Col>
+              <Col s={6}>
+                <button class="btn btn-flat red">Delete</button>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
         <hr />
         <br />
-        <div className="row center-align">
+        <Row className="center-align">
           <h6>Calendar</h6>
-        </div>
-        <div className="row center-align">
-          <div className="col s4">
+        </Row>
+        <Row className="center-align">
+          <Col s={4}>
             <h6>Favorites movies</h6>
-          </div>
-          <div className="col s4">
+          </Col>
+          <Col s={4}>
             <h6>Favorites TV shows</h6>
-          </div>
-          <div className="col s4">
+          </Col>
+          <Col s={4}>
             <h6>Favorites Celebrities</h6>
-          </div>
-        </div>
-      </div>
-    </ProfilePageWrapper>
+          </Col>
+        </Row>
+      </Container>
+    </>
   );
 };
 

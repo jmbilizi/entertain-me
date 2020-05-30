@@ -100,7 +100,7 @@ input[type=password]:focus, .materialize-textarea:focus:not([readonly]) {
   height: 135px;
 }
 
-.sign-in {
+.register {
   position: absolute;
   right: 0;
   bottom: 0;
