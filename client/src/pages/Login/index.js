@@ -62,14 +62,14 @@ class Login extends Component {
                                         setCommunityCelebrities(response.data);
 
                                         axios
-                                        .get('/api/favorites')
-                                        .then((response) => {
-                                            console.log("Login getCommunityFavorites response data: ", response.data);
-                                            setCommunityFavorites(response.data);
-                                        })
-                                        .catch((error) => {
-                                            console.log(error);
-                                        })
+                                            .get('/api/favorites')
+                                            .then((response) => {
+                                                console.log("Login getCommunityFavorites response data: ", response.data);
+                                                setCommunityFavorites(response.data);
+                                            })
+                                            .catch((error) => {
+                                                console.log(error);
+                                            })
 
                                     })
                                     .catch((error) => {
@@ -102,7 +102,7 @@ class Login extends Component {
         const { username, password, message, login } = this.state;
         if (login === true) return <Redirect to={"/"} />;
         return (
-            <Container classname='login-background'>
+            <Container>
                 <Row></Row>
                 <Row>
                     <Col s={3}>
@@ -128,90 +128,98 @@ class Login extends Component {
                             <img className='login-images fade2' alt='ozark' src='https://image.tmdb.org/t/p/w500/hNaBXLiLTxMhtj7IFjOdJngXxxr.jpg' />
                         </>
                     </Col>
-                    <Col s={6}>
+                    <Col s={3}>
+
                         <>
                             <img className='login-images fade3' alt='its always sunny in philadelphia' src='https://image.tmdb.org/t/p/w500/uqTCaYBoSLT9MAdyQ9tU6QyCZ3A.jpg' />
 
-                            <img className='login-images fade4 ' alt='the notebook' src='https://image.tmdb.org/t/p/w500/qom1SZSENdmHFNZBXbtJAU0WTlC.jpg' />
+                            <img className='login-images fade3 ' alt='the notebook' src='https://image.tmdb.org/t/p/w500/qom1SZSENdmHFNZBXbtJAU0WTlC.jpg' />
 
                             <img className='login-images fade3' alt='dead to me' src='https://image.tmdb.org/t/p/w500/j4TXQ7OJsLx1Ba6z8XA7is0DcRZ.jpg' />
 
-                            <img className='login-images fade4' alt='forrest gump' src='https://image.tmdb.org/t/p/w500/7c9UVPPiTPltouxRVY6N9uugaVA.jpg' />
-
-                            <img className='login-images fade3 ' alt='white lines' src='https://image.tmdb.org/t/p/w500/63Z7wWSky36NtD9x9XjpPD7UkUt.jpg' />
+                            <img className='login-images fade3' alt='forrest gump' src='https://image.tmdb.org/t/p/w500/7c9UVPPiTPltouxRVY6N9uugaVA.jpg' />
+                        </>
+                    </Col>
+                    <Col s={3}>
+                        <>
+                            <img className='login-images fade4 ' alt='white lines' src='https://image.tmdb.org/t/p/w500/63Z7wWSky36NtD9x9XjpPD7UkUt.jpg' />
 
                             <img className='login-images fade4' alt='spongebob squarepants' src='https://image.tmdb.org/t/p/w500/maFEWU41jdUOzDfRVkojq7fluIm.jpg' />
 
-                            <img className='login-images fade3' alt='jumaji: the next level' src='https://image.tmdb.org/t/p/w500/zTxHf9iIOCqRbxvl8W5QYKrsMLq.jpg' />
+                            <img className='login-images fade4' alt='jumaji: the next level' src='https://image.tmdb.org/t/p/w500/zTxHf9iIOCqRbxvl8W5QYKrsMLq.jpg' />
 
                             <img className='login-images fade4' alt='the bachelor' src='https://image.tmdb.org/t/p/w500/oAWB9LiRWI1dOJ00YcLlQZZNgn3.jpg' />
-
-                            <div className="auth-wrapper m-auto sign-in">
-                                <div className="auth-inner">
-                                    <form class="form-signin" onSubmit={this.onSubmit}>
-                                        {message !== "" && (
-                                            <div
-                                                class="alert alert-warning alert-dismissible"
-                                                role="alert"
-                                            >
-                                                {message}
-                                            </div>
-                                        )}
-                                        <h3>Sign In</h3>
-
-                                        <div className="form-group">
-                                            <label>E-mail Address</label>
-                                            <input
-                                                name="username"
-                                                value={username}
-                                                type="email"
-                                                className="form-control"
-                                                placeholder="Enter e-mail"
-                                                onChange={this.onChange}
-                                                required
-                                            />
-                                        </div>
-
-                                        <div className="form-group">
-                                            <label>Password</label>
-                                            <input
-                                                name="password"
-                                                value={password}
-                                                type="password"
-                                                className="form-control"
-                                                placeholder="Enter password"
-                                                onChange={this.onChange}
-                                                required
-                                            />
-                                        </div>
-
-                                        <div className="form-group">
-                                            <Checkbox
-                                                id="Checkbox_3"
-                                                label="Remember Me"
-                                                value="remember"
-                                            />
-                                        </div>
-                                        <br></br>
-                                        <button type="submit" className="btn btn-primary btn-block">
-                                            Submit
-                                            </button>
-                                        <Row>
-                                            <Col s={5}></Col>
-                                            <Col s={7}>
-                                                <p className="forgot-password text-left">
-                                                    <a href="#">Forgot password?</a>
-                                                </p>
-
-                                                <p className="forgot-password text-right">
-                                                    Not registered? <a href="/register">Sign up.</a>
-                                                </p>
-                                            </Col>
-                                        </Row>
-                                    </form>
-                                </div>
-                            </div>
                         </>
+                    </Col>
+                </Row>
+
+                <Row>
+                    <Col>
+                        <div className="auth-wrapper m-auto sign-in">
+                            <div className="auth-inner">
+                                <form className="form-signin" onSubmit={this.onSubmit}>
+                                    {message !== "" && (
+                                        <div
+                                            class="alert alert-warning alert-dismissible"
+                                            role="alert"
+                                        >
+                                            {message}
+                                        </div>
+                                    )}
+                                    <h3>Sign In</h3>
+
+                                    <div className="form-group">
+                                        <label>E-mail Address</label>
+                                        <input
+                                            name="username"
+                                            value={username}
+                                            type="email"
+                                            className="form-control"
+                                            placeholder="Enter e-mail"
+                                            onChange={this.onChange}
+                                            required
+                                        />
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label>Password</label>
+                                        <input
+                                            name="password"
+                                            value={password}
+                                            type="password"
+                                            className="form-control"
+                                            placeholder="Enter password"
+                                            onChange={this.onChange}
+                                            required
+                                        />
+                                    </div>
+
+                                    <div className="form-group">
+                                        <Checkbox
+                                            id="Checkbox_3"
+                                            label="Remember Me"
+                                            value="remember"
+                                        />
+                                    </div>
+                                    <br></br>
+                                    <button type="submit" className="btn btn-primary btn-block">
+                                        Submit
+                                            </button>
+                                    <Row>
+                                        <Col s={5}></Col>
+                                        <Col s={7}>
+                                            <p className="forgot-password text-left">
+                                                <a href="#">Forgot password?</a>
+                                            </p>
+
+                                            <p className="forgot-password text-right">
+                                                Not registered? <a href="/register">Sign up.</a>
+                                            </p>
+                                        </Col>
+                                    </Row>
+                                </form>
+                            </div>
+                        </div>
                     </Col>
                 </Row>
             </Container >

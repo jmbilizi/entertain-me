@@ -1,6 +1,7 @@
 import React from "react";
 import { Collection, CollectionItem } from "react-materialize";
 
+
 const Favorites = (props) => {
   const getDetails = (e) => {
 
@@ -14,19 +15,24 @@ const Favorites = (props) => {
 
   const { favorites } = props
   console.log({ favorites })
+  const top5 = favorites.slice(0, 5)
   return (
     <>
       <h6 className="center-align title">{props.heading}</h6>
       <Collection className="frame">
-        {favorites.map(item => 
-        (<CollectionItem>
-          <span onClick={() => getDetails(item.media_name)}>{item.media_name}</span>
-          <span onClick={ () => deleteItem(item.media_name) } className="material-icons remove">remove_circle</span>
-        </CollectionItem>)
+        {top5.map(item =>
+          (<CollectionItem>
+            <span onClick={() => getDetails(item.media_name)}>{item.media_name}</span>
+            <span onClick={() => deleteItem(item.media_name)} className="material-icons remove">remove_circle</span>
+          </CollectionItem>)
         )}
 
 
       </Collection>
+      <div >
+        <a href='/profile'>see all</a>
+      </div>
+
     </>
 
     // iterate over array and filter by media type

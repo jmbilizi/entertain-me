@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
 import "materialize-css";
-import { Row, Col } from "react-materialize";
+import { Container, Row, Col } from "react-materialize";
 
-import { MoviePageWrapper } from "../../assets/styles";
 import ResultsCard from "../../components/ResultsCard";
 import SearchBar from "../../components/SearchBar";
 import Trailer from "../../components/Trailer";
@@ -19,7 +18,7 @@ import API from "../../utils/API";
 import axios from "axios";
 import { user } from "../../utils/helpers";
 import $ from 'jquery';
-import "./style.css";
+import './style.css';
 
 const users = [
   {
@@ -497,16 +496,16 @@ const MoviePage = ({ favorites, setFavorites, token, communityFavorites, setComm
 
   useEffect(() => {
     axios
-    .get('/api/favorites')
-    .then((response) => {
+      .get('/api/favorites')
+      .then((response) => {
         console.log("Movie page getCommunityFavorites response data: ", response.data);
         setCommunityFavorites(response.data);
-    })
-    }, []);
+      })
+  }, []);
 
 
   return (
-    <MoviePageWrapper>
+    <Container>
       <Row>
         <Col m={4}></Col>
         <Col m={4}>
@@ -525,36 +524,68 @@ const MoviePage = ({ favorites, setFavorites, token, communityFavorites, setComm
       <Row>
         <Col s={9} className='movie-image'>
           {id ? (
-            <ResultsCard
-              token={token}
-              selection={selection}
-              mediaType={mediaType}
-              release={moment(release, "YYYY-MM-DD").format("MMM Do, YYYY")}
-              overview={overview}
-              poster={poster}
-              backdrop={backdrop}
-              genre={genre}
-              genre2={genre2}
-              score={score}
-              runtime={runtime}
-              rating={rating}
-              network={network}
-              provider={provider}
-              logo={logo}
-              star1={star1}
-              star2={star2}
-              director={director}
-              director2={director2}
-              lastAir={lastAir}
-              lastEpisode={lastEpisode}
-              favorites={favorites}
-              setFavorites={setFavorites}
-
-              setCommunityFavorites={setCommunityFavorites}
-
-              // setCommunityFavorites={setCommunityFavorites}
-
-            />
+            <>
+              <ResultsCard
+                token={token}
+                selection={selection}
+                mediaType={mediaType}
+                release={moment(release, "YYYY-MM-DD").format("MMM Do, YYYY")}
+                overview={overview}
+                poster={poster}
+                backdrop={backdrop}
+                genre={genre}
+                genre2={genre2}
+                score={score}
+                runtime={runtime}
+                rating={rating}
+                network={network}
+                provider={provider}
+                logo={logo}
+                star1={star1}
+                star2={star2}
+                director={director}
+                director2={director2}
+                lastAir={lastAir}
+                lastEpisode={lastEpisode}
+                favorites={favorites}
+                favoritesTV={favoritesTV}
+                favoritesMovie={favoritesMovie}
+                setFavorites={setFavorites}
+                setCommunityFavorites={setCommunityFavorites}
+                token={token}
+              />
+              <br></br> <br></br>
+              <Col m={6}>
+              {mediaType === "tv" ? (
+                <Trailer trailer={tvTrailer} />
+              ) : (
+                  console.log("No movie trailer available.")
+                )}
+              {mediaType === "movie" ? (
+                <Trailer trailer={trailer} />
+              ) : (
+                  console.log("No TV trailer available.")
+                )}
+                </Col>
+                <Col m={6}>
+              <RelatedCard
+                className="related"
+                heading={"RELATED"}
+                title1={related1[0]}
+                title2={related2[0]}
+                title3={related3[0]}
+                title4={related4[0]}
+                title5={related5[0]}
+                poster1={related1[1]}
+                poster2={related2[1]}
+                poster3={related3[1]}
+                poster4={related4[1]}
+                poster5={related5[1]}
+                mediaSearch={mediaSearch}
+                favorites={communityFavorites}
+              />
+              </Col>
+            </>
           ) : (
               <DiscoverCardDefault />
             )}
@@ -562,7 +593,7 @@ const MoviePage = ({ favorites, setFavorites, token, communityFavorites, setComm
         <Col s={3} className='community-favorites'>
           {token ? (
             <>
-              <FavoritesDefault heading={'Community Favorites'}
+              <FavoritesDefault heading={'COMMUNITY FAVORITES'}
                 communityFavorites={communityFavorites} mediaSearch={mediaSearch}
               />
 
@@ -572,6 +603,7 @@ const MoviePage = ({ favorites, setFavorites, token, communityFavorites, setComm
                 mediaSearch={mediaSearch}
                 deleteMedia={deleteMedia}
               />
+              <br></br>
               <Favorites
                 heading={"MY SHOWS"}
                 favorites={favoritesTV}
@@ -580,7 +612,7 @@ const MoviePage = ({ favorites, setFavorites, token, communityFavorites, setComm
               />
             </>
           ) : (
-              <FavoritesDefault heading={'Community Favorites'}
+              <FavoritesDefault heading={'COMMUNITY FAVORITES'}
                 communityFavorites={communityFavorites} mediaSearch={mediaSearch}
               />
             )}
@@ -589,7 +621,7 @@ const MoviePage = ({ favorites, setFavorites, token, communityFavorites, setComm
 
       <Row>
         <Col s={4}>
-          {mediaType === "tv" ? (
+          {/* {mediaType === "tv" ? (
             <Trailer trailer={tvTrailer} />
           ) : (
               console.log("No movie trailer available.")
@@ -598,29 +630,10 @@ const MoviePage = ({ favorites, setFavorites, token, communityFavorites, setComm
             <Trailer trailer={trailer} />
           ) : (
               console.log("No TV trailer available.")
-            )}
+            )} */}
         </Col>
         <Col s={4}>
-          {id ? (
-            <RelatedCard
-              className="related"
-              heading={"RELATED"}
-              title1={related1[0]}
-              title2={related2[0]}
-              title3={related3[0]}
-              title4={related4[0]}
-              title5={related5[0]}
-              poster1={related1[1]}
-              poster2={related2[1]}
-              poster3={related3[1]}
-              poster4={related4[1]}
-              poster5={related5[1]}
-              mediaSearch={mediaSearch}
-              favorites={communityFavorites}
-            />
-          ) : (
-              console.log('add content')
-            )}
+  
         </Col>
         <Row>
           <Col s={9}>
@@ -643,7 +656,7 @@ const MoviePage = ({ favorites, setFavorites, token, communityFavorites, setComm
           </Col>
         </Row>
       </Row>
-    </MoviePageWrapper>
+    </Container>
 
   );
 };
