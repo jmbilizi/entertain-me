@@ -334,13 +334,13 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
         {token ? (
           <>
 
-            <FavoriteCelebsDefault heading={'Community Favorites'} communityCelebrities={communityCelebrities} setCommunityCelebrities={setCommunityCelebrities} celebSearch={celebSearch} />
+            <FavoriteCelebsDefault heading={'COMMUNITY FAVORITES'} communityCelebrities={communityCelebrities} setCommunityCelebrities={setCommunityCelebrities} celebSearch={celebSearch} />
             <FavoriteCelebs heading={'MY PEOPLE'} deleteCeleb={deleteCeleb} celebrities={celebrities} setCelebrities={setCelebrities} celebSearch={celebSearch} />
 
           </>
         ) : (
             <>
-              <FavoriteCelebsDefault heading={'Community Favorites'} communityCelebrities={communityCelebrities} setCommunityCelebrities={setCommunityCelebrities} celebSearch={celebSearch} />
+              <FavoriteCelebsDefault heading={'COMMUNITY FAVORITES'} communityCelebrities={communityCelebrities} setCommunityCelebrities={setCommunityCelebrities} celebSearch={celebSearch} />
             </>
           )}
 
