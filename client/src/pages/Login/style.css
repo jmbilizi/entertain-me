@@ -31,7 +31,7 @@ body, html, .App, #root, .auth-wrapper {
 
 .auth-inner {
   width: 450px;
-  margin: auto;
+  margin-left: 10px;
   background: #111111;
   box-shadow: 10px 5px 5px #222222;
   padding: 40px 55px 45px 55px;
