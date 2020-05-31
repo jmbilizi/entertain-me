@@ -13,29 +13,30 @@ const Profile = (props) => {
 
   const [theUser, setTheUser] = useState(null);
 
-  useEffect(async () => {
-    const userId = await user()._id;
+  useEffect(() => {
+    async function getUser() {
+      let userId = await user()._id;
 
-    const response = await Axios.get(`/api/user/${userId}`);
+      const response = await Axios.get(`/api/user/${userId}`);
 
-    const currentUser = await response.data;
+      const currentUser = await response.data;
 
-    setTheUser(currentUser);
+      setTheUser(currentUser);
+    }
+    getUser();
   }, []);
+
+  const updateUser = async () => {
+    let userId = await user()._id;
+
+    let response = await Axios.put(`/api/user/${userId}`, theUser);
+
+    setTheUser(theUser);
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setTheUser({ ...theUser, [name]: value });
-  };
-
-  const updateUser = async () => {
-    const userId = await user()._id;
-
-    let response = await Axios.put(`/api/user/${userId}`, theUser);
-
-    response = await Axios.get(`/api/user/${userId}`);
-
-    setTheUser(theUser);
   };
 
   const mystyle = {
@@ -52,7 +53,7 @@ const Profile = (props) => {
         <Row className="row">
           <Col s={6}>
             <img
-              class="materialboxed"
+              className="materialboxed"
               data-caption="A picture of a way with a group of trees in a park"
               width="250"
               src="https://lorempixel.com/800/400/nature/4"
@@ -60,7 +61,7 @@ const Profile = (props) => {
           </Col>
           <Col s={6}>
             {theUser && (
-              <div class="input-field">
+              <div className="input-field">
                 <input
                   style={mystyle}
                   name="fname"
@@ -68,13 +69,13 @@ const Profile = (props) => {
                   type="text"
                   onChange={handleInputChange}
                 ></input>
-                <label class="active" htmlFor="first_name">
+                <label className="active" htmlFor="first_name">
                   First Name
                 </label>
               </div>
             )}
             {theUser && (
-              <div class="input-field">
+              <div className="input-field">
                 <input
                   style={mystyle}
                   value={theUser.lname}
@@ -82,13 +83,13 @@ const Profile = (props) => {
                   type="text"
                   onChange={handleInputChange}
                 ></input>
-                <label class="active" htmlFor="last_name">
+                <label className="active" htmlFor="last_name">
                   Last Name
                 </label>
               </div>
             )}
             {theUser && (
-              <div class="input-field">
+              <div className="input-field">
                 <input
                   style={mystyle}
                   name="email"
@@ -96,7 +97,7 @@ const Profile = (props) => {
                   type="text"
                   onChange={handleInputChange}
                 ></input>
-                <label class="active" htmlFor="email">
+                <label className="active" htmlFor="email">
                   Email
                 </label>
               </div>
@@ -106,12 +107,12 @@ const Profile = (props) => {
             )}
             <Row>
               <Col s={6}>
-                <div onClick={updateUser} class="btn teal">
+                <div onClick={updateUser} className="btn teal">
                   Update
                 </div>
               </Col>
               <Col s={6}>
-                <div class="btn btn-flat red">Delete</div>
+                <div className="btn btn-flat red">Delete</div>
               </Col>
             </Row>
           </Col>
