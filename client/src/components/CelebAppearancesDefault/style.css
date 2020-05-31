@@ -1,0 +1,16 @@
+.celeb-appearances-overview {
+    color: #bdbdbd;
+    background: #111111;
+    box-shadow: 10px 5px 5px #222222;
+    padding: 40px 55px 45px 55px;
+    border-radius: 10px;
+    transition: all 0.3s;    
+    position: relative;
+    left: 1em;
+    margin-bottom: 2em;
+}
+
+.title {
+    text-align: center;
+    font-size: 20px;
+}
