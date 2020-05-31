@@ -1,6 +1,6 @@
 import React from "react";
 import { Collection, CollectionItem } from "react-materialize";
-import './style.css'
+
 
 const FavoriteCelebsDefault = (props) => {
   
@@ -19,7 +19,7 @@ const FavoriteCelebsDefault = (props) => {
       <h6 className="center-align title">{props.heading}</h6>
       <Collection className="frame">
         {communityCelebrities.map(item => 
-        (<CollectionItem>
+        (<CollectionItem id="fav-background">
           <span onClick={() => getDetails(item._id)} >{item._id}</span>
         </CollectionItem>)
         )}

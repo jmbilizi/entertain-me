@@ -21,7 +21,7 @@ const FavoritesCelebs = (props) => {
       <h6 className="center-align title">{props.heading}</h6>
       <Collection className="frame">
         {celebrities.map(item => 
-        (<CollectionItem>
+        (<CollectionItem id="fav-background">
           <span onClick={() => getDetails(item.celeb_name)}>{item.celeb_name}</span>
           <span onClick={ () => deleteItemCeleb(item.celeb_name) } className="material-icons remove">remove_circle</span>
         </CollectionItem>)
