@@ -14,18 +14,21 @@ const Profile = (props) => {
   const [theUser, setTheUser] = useState(null);
 
   useEffect(() => {
-    async function getUser() {
-      let userId = await user()._id;
-
-      const response = await Axios.get(`/api/user/${userId}`);
-
-      const currentUser = await response.data;
-
-      setTheUser(currentUser);
-    }
     getUser();
   }, []);
+  
+  //get user info axios call
+  async function getUser() {
+    let userId = await user()._id;
 
+    const response = await Axios.get(`/api/user/${userId}`);
+
+    const currentUser = await response.data;
+
+    setTheUser(currentUser);
+  }
+
+  //update user info axios call
   const updateUser = async () => {
     let userId = await user()._id;
 
