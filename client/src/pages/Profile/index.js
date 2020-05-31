@@ -37,11 +37,13 @@ const Profile = (props) => {
     setTheUser(theUser);
   };
 
+  //handleInputChange function
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setTheUser({ ...theUser, [name]: value });
   };
 
+  //input field style
   const mystyle = {
     borderBottom: "none",
     boxShadow: "none",
