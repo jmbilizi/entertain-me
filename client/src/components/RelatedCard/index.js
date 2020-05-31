@@ -18,7 +18,7 @@ const RelatedCard = (props) => {
     <>
       <h6 className='center-align title'>RELATED</h6>
       <Collection className='frame'>
-        <CollectionItem>
+        <CollectionItem id='related-background'>
           <img className='related-images' src={props.poster1} alt={props.related1} title={props.title1} />
           <span className='related' onClick={() => getDetails(props.title1)} >
             {_.truncate(props.title1, {
@@ -27,7 +27,7 @@ const RelatedCard = (props) => {
             })}
           </span>
         </CollectionItem>
-        <CollectionItem >
+        <CollectionItem id='related-background2'>
           <img className='related-images' src={props.poster2} alt={props.related2} />
           <span className='related' onClick={() => getDetails(props.title2)}>
             {_.truncate(props.title2, {
@@ -36,7 +36,7 @@ const RelatedCard = (props) => {
             })}
           </span>
         </CollectionItem>
-        <CollectionItem>
+        <CollectionItem id='related-background3'>
           <img className='related-images' src={props.poster3} alt={props.related3} />
           <span className='related' onClick={() => getDetails(props.title3)}>
             {_.truncate(props.title3, {
@@ -44,7 +44,7 @@ const RelatedCard = (props) => {
               separator: '...',
             })}</span>
         </CollectionItem>
-        <CollectionItem>
+        <CollectionItem id='related-background4'>
           <img className='related-images' src={props.poster4} alt={props.related4} />
           <span className='related' onClick={() => getDetails(props.title4)}>
             {_.truncate(props.title4, {
@@ -52,7 +52,7 @@ const RelatedCard = (props) => {
               separator: '...',
             })}</span>
         </CollectionItem>
-        <CollectionItem >
+        <CollectionItem id='related-background5'>
           <img className='related-images' src={props.poster5} alt={props.related5} />
           <span className='related' onClick={() => getDetails(props.title5)}>
             {_.truncate(props.title5, {
