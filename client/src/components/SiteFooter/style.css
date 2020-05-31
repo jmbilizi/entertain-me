@@ -1,9 +1,13 @@
-/* body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+.footer {
+    background-color: rgb(66,66,66);
+    color: #bdbdbd;
+    text-align: center;
+    height: 90px;
+    padding: 30px;
+    border-top: 4px solid #bdbdbd;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-size: 16px;
 }
-
-main {
-    flex: 1 0 auto;
-} */
+  

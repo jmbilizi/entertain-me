@@ -4,8 +4,10 @@ const CelebProfileImageDefault = () => {
   return (
     <>
       <img
-    src={require('../../../src/assets/images/dwayne-johnson.jpg')}
+    src={require('../../../src/assets/images/red-carpet.jpg')}
         alt="celebrity profile pic"
+        width="400"
+        height="325"
       />
     </>
   );
