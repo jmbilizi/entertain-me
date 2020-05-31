@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-materialize";
+import './style.css'
 
 const DefaultCelebAppearances = () => {
   return (

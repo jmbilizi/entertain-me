@@ -283,6 +283,7 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
               })}
             </p>
             <h6 className="appearances-title">Appearances</h6>
+            <p className="celeb-appearances-overview">
             <a href={state.known1Img}>
               <img
                 className="known"
@@ -290,12 +291,12 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
                 alt="{state.known1}"
               />
             </a>
-            <p className="celeb-appearances-overview">
               {_.truncate(state.known1Overview, {
                 length: 140,
                 separator: "...",
               })}
-            </p>
+              <hr></hr>
+            {/* </p> */}
             <a href={state.known2Img}>
               <img
                 className="known"
@@ -303,12 +304,13 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
                 alt="{state.known2}"
               />
             </a>
-            <p className="celeb-appearances-overview">
+            {/* <p className="celeb-appearances-overview"> */}
               {_.truncate(state.known2Overview, {
                 length: 140,
                 separator: "...",
               })}
-            </p>
+              <hr></hr>
+            {/* </p> */}
             <a href={state.known3Img}>
               <img
                 className="known"
@@ -316,7 +318,7 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
                 alt="{state.known3}"
               />
             </a>
-            <p className="celeb-appearances-overview">
+            {/* <p className="celeb-appearances-overview"> */}
               {_.truncate(state.known3Overview, {
                 length: 140,
                 separator: "...",
