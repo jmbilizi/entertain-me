@@ -1,5 +1,6 @@
 import React from "react";
 import { Collection, CollectionItem } from "react-materialize";
+import './style.css'
 
 const FavoriteCelebsDefault = (props) => {
   
