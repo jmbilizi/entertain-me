@@ -5,7 +5,7 @@ import _ from "lodash";
 const Trending = (props) => {
   return (
 <div className='center-align title'>
-    <h6>TRENDING</h6>
+    <h6 className='title'>TRENDING</h6>
     <Slider
       className="frame"
       fullscreen={false}

@@ -11,8 +11,8 @@ const Trailer = (props) => {
           <iframe
             id="trailer"
             title="trailers"
-            width="325"
-            height="225"
+            width="500"
+            height="345"
             src={props.trailer}
             frameBorder="1"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
