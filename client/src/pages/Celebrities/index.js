@@ -240,6 +240,7 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
               className="celeb-profile-pic"
               src={state.profile}
               alt={state.name}
+            
             />
             {token ? (
               <div className='result-btns'>
@@ -337,6 +338,7 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
           <>
 
             <FavoriteCelebsDefault heading={'COMMUNITY FAVORITES'} communityCelebrities={communityCelebrities} setCommunityCelebrities={setCommunityCelebrities} celebSearch={celebSearch} />
+            <br></br>
             <FavoriteCelebs heading={'MY PEOPLE'} deleteCeleb={deleteCeleb} celebrities={celebrities} setCelebrities={setCelebrities} celebSearch={celebSearch} />
 
           </>

@@ -1,14 +1,15 @@
 import React from "react";
-import { Footer } from 'react-materialize';
 import "./style.css"
 
 function SiteFooter() {
   return (
-    <Footer className="page-footer grey darken-3">
-      <div className="footer-copyright">
-        <div className="container center-align">© 2020 The 4 Loops</div>
+    <footer>
+      <div className="footer">
+        <span>
+          &#169; entertainME 2020 &nbsp; 
+        </span>
       </div>
-    </Footer>
+    </footer>
   );
 }
 
