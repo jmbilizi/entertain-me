@@ -23,7 +23,6 @@ const App = () => {
 
   return (
     <Router>
-      <div>
         <NavBar token={token} />
         <Switch>
           <Route exact path="/">
@@ -69,7 +68,6 @@ const App = () => {
           </Route>
         </Switch>
         <SiteFooter />
-      </div>
     </Router>
   );
 };

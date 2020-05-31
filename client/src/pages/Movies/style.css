@@ -1,123 +1,160 @@
-.search-fail{
-    color: white;
-    margin-left: 1em;
-    display: none;
-    position: fixed;
-  }
-  input[type=text], button{
-    margin-top: 1em;
-  }
-  input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
-    border-bottom: 1px solid #cfb53b !important;
-    box-shadow: 0 1px 0 0 #cfb53b !important;
-  }
-  .frame {
-    border: #212121 2px solid;
-  }
-  .logo-box1{
-    background-color: black;
-    color: white;
-    font-size: 2em;
-  }
-  .logo-box2{
-    font-size: 2em;
-    letter-spacing: -3px;
-  }
-  .result-btns {
-    position: relative;
-    bottom: 7em;
-    left: 0.5em;
-    /* margin-bottom: 0.75em; */
-    padding-top: .25em;
-    border: 2px solid  #cfb53b;
-    text-align: center;
-  }
-  .tmdb {
-    width: 50px;
-    height: 40px;
-    float: right;
-    position: relative;
-    top: 1em;
-    left: 2em;
-  }
-  .network-logo {
-    width: 45px;
-    height: 25px;
-    float: right;
-    margin: 1em 1em 0 0;
-  }
-  .network-logo-alt {
-    float: right;
-    margin: 1em 1em 0 0;
-  }
-  .poster {
-    width: 90px;
-    display: block;
-    position: relative;
-    right: 1.25em;
-    bottom: 6.75em;
-  }
-  .details {
-    position: relative;
-    bottom: 0.5em;
-    margin-left: 0.5em;
-  }
-  .stats,
-  .stats2 {
-    position: relative;
-    bottom: 7em;
-    right: 2em;
-  }
-  .discover {
-    min-height: 21em;
-    max-height: 21em;
-    border: solid 2px #212121;
-  }
-  .discover-related,
-  .trending {
-    min-height: 21em;
-    max-height: 21em;
-    border: solid 2px #212121;
-  }
-  .trailers-default {
-    min-height: 10em;
-    max-height: 10em;
-  }
-  .related-images {
-    width: 40px;
-    height: 55px;
-    position: relative;
-    right: 1em;
-    margin: 0 0;
-  }
-  .trending-title {
-    position: relative;
-    top: 10em;
-    right: 0.75em;
-  }
-  .title {
-   color: #cfb53b;
-   font-size: 30px
-  }
-  .favorite,
-  .notify,
-  .watch {
-    margin-right: 0.4em;
-    font-size: 1.15em;
-  }
-  .favorite,
-  .notify,
-  .watch, .remove{
-    cursor: pointer;
-    color: lightGray;
-  }
-  .remove {
-    float: right;
-  }
-  .favorite:hover, .remove:hover {
-    color: red;
-  }
-  .notify:hover,
-  .watch:hover {
-    color: green;
-  }
+.search-fail {
+  color: white;
+  margin-left: 1em;
+  display: none;
+  position: fixed;
+}
+
+input[type=text], button {
+  margin-top: 1em;
+}
+
+input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #cfb53b !important;
+  box-shadow: 0 1px 0 0 #cfb53b !important;
+}
+
+.frame {
+  border: #212121 2px solid;
+}
+
+.logo-box1 {
+  background-color: black;
+  color: white;
+  font-size: 2em;
+}
+
+.logo-box2 {
+  font-size: 2em;
+  letter-spacing: -3px;
+}
+
+.result-btns {
+  position: relative;
+  bottom: 7em;
+  left: 0.5em;
+  /* margin-bottom: 0.75em; */
+  padding-top: .25em;
+  border: 2px solid #cfb53b;
+  text-align: center;
+}
+
+.tmdb {
+  width: 50px;
+  height: 40px;
+  float: right;
+  position: relative;
+  top: 1em;
+  left: 2em;
+}
+
+.network-logo {
+  width: 45px;
+  height: 25px;
+  float: right;
+  margin: 1em 1em 0 0;
+}
+
+.network-logo-alt {
+  float: right;
+  margin: 1em 1em 0 0;
+}
+
+.poster {
+  width: 90px;
+  display: block;
+  position: relative;
+  right: 1.25em;
+  bottom: 6.75em;
+}
+
+.details {
+  position: relative;
+  bottom: 0.5em;
+  margin-left: 0.5em;
+}
+
+.stats, .stats2 {
+  position: relative;
+  bottom: 7em;
+  right: 2em;
+}
+
+.discover {
+  min-height: 21em;
+  max-height: 21em;
+  border: solid 2px #212121;
+}
+
+.discover-related, .trending {
+  min-height: 21em;
+  max-height: 21em;
+  border: solid 2px #212121;
+}
+
+.trailers-default {
+  min-height: 10em;
+  max-height: 10em;
+}
+
+.related-images {
+  width: 40px;
+  height: 55px;
+  position: relative;
+  right: 1em;
+  margin: 0 0;
+}
+
+.trending-title {
+  position: relative;
+  top: 10em;
+  right: 0.75em;
+}
+
+.title {
+  color: #cfb53b;
+  font-size: 1.25em
+}
+
+.favorite, .notify, .watch {
+  margin-right: 0.4em;
+  font-size: 1.15em;
+}
+
+.favorite, .notify, .watch, .remove {
+  cursor: pointer;
+  color: lightGray;
+}
+
+.remove {
+  float: right;
+}
+
+.favorite:hover, .remove:hover {
+  color: red;
+}
+
+.notify:hover, .watch:hover {
+  color: green;
+}
+
+#image {
+  float: right;
+}
+
+#image2 {
+  float: left;
+}
+
+#fav-background, #related-background, #related-background2, #related-background3, #related-background4, #related-background5 {
+  background-color:#1b1b1b;
+  color:white;
+}
+
+.movie-welcome{
+  color:white;
+}
+
+.movie-welcome-title{
+  color:#cfb53b;
+}

@@ -13,13 +13,13 @@ const ResultsCardDefault = () => {
       onOpenEnd: null,
       onOpenStart: null,
       outDuration: 200,
-      caption: 'whoe!!'
+      caption: 'Scoob!'
     }}
   >
     <img
       alt=""
       src={require('../../assets/images/scoob.jpg')}
-      width="500"
+      width="410"
     />
   </MediaBox>
   );
