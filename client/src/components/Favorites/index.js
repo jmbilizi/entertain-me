@@ -21,7 +21,7 @@ const Favorites = (props) => {
       <h6 className="center-align title">{props.heading}</h6>
       <Collection className="frame">
         {top5.map(item =>
-          (<CollectionItem>
+          (<CollectionItem id='fav-background'>
             <span onClick={() => getDetails(item.media_name)}>{item.media_name}</span>
             <span onClick={() => deleteItem(item.media_name)} className="material-icons remove">remove_circle</span>
           </CollectionItem>)

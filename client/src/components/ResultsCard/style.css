@@ -1,13 +1,14 @@
 .results-card {
-    padding: 20px;
-    margin-bottom: 45px;
-    box-shadow: 10px 5px 5px #222222;
-    border-radius: 10px;
+    padding: 1.5em;
+    margin-bottom: 6em;
+    box-shadow: .75em .3em .3em #222222;
+    border-radius: .75em;
     background-color: #111111;
     min-height: 31em;
     max-height: 38em;
     position: relative;
     top: 2em;
+    right: .5em;
     color: #bdbdbd;
 }
 
@@ -52,5 +53,6 @@
     min-height: 12em;
     max-height: 12em;
     overflow: hidden;
-    text-overflow: ellipsis;
+    text-overflow: ellipsis; 
 }
+

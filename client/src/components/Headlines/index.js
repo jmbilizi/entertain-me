@@ -10,6 +10,12 @@ let story2 = '';
 let story3 = '';
 let story4 = '';
 let story5 = '';
+let newStory;
+let divider = ` .   .   . `;
+
+
+
+var reactNodeSpan = React.createElement('span', 'one');
 
 (async () => {
   let feed = await parser.parseURL(CORS_PROXY + 'http://www.tmz.com/rss');
@@ -17,32 +23,35 @@ let story5 = '';
 
   feed.items.forEach((item) => {
     console.log(item.title + ':' + item.link);
-    story1 = feed.items[0].title;
-    story2 = feed.items[1].title;
-    story3 = feed.items[2].title;
-    story4 = feed.items[3].title;
-    story5 = feed.items[4].title;
+    story1 = feed.items[0].title.toUpperCase();
+    story2 = feed.items[1].title.toUpperCase();
+    story3 = feed.items[2].title.toUpperCase();
+    story4 = feed.items[3].title.toUpperCase();
+    story5 = feed.items[4].title.toUpperCase();
   });
-  console.log('story: ', story5);
+  newStory = story1 + divider + story2 + divider + story3 + divider + story4 + divider + story5;
+  console.log('newstory: ', newStory);
 })();
 
 export default function Headlines() {
+
+
+
+
   return (
     <div
       style={{
         width: '1050px',
         whiteSpace: 'nowrap',
         color: 'white',
+        fontSize: '1.15em'
       }}
     >
       <Marquee
-      direction={'left'}
+        direction={'left'}
       >
-        {story1}{'.'}{' '}
-        {story2}{'.'}{' '}
-        {story3}{'.'}{' '}
-        {story4}{'.'}{' '}
-        {story5}{'.'}{' '}
+        {newStory}
+
       </Marquee>
     </div>
   );
