@@ -134,8 +134,12 @@ input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
   float: right;
 }
 
-.favorite:hover, .remove:hover {
+.remove:hover {
   color: red;
+}
+
+.favorite:hover {
+  color: #cfb53b;
 }
 
 .notify:hover, .watch:hover {
