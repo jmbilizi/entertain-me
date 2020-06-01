@@ -166,7 +166,7 @@ const Home = (props) => {
 
             <br></br>
             <h5 className="middle-title">
-              DISCOVER YOUR NEXT FAVORITE MOVIE OR TV SHOW
+              Start your search now.
             </h5>
             <p className="main-paragraph">
               entertainME allows you to search for the latest in trending Movies
