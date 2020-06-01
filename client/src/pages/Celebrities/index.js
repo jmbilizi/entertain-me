@@ -323,10 +323,11 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
           <Col m={3}>
             {token ? (
               <>
-
-                <FavoriteCelebsDefault heading={'COMMUNITY FAVORITES'} communityCelebrities={communityCelebrities} setCommunityCelebrities={setCommunityCelebrities} celebSearch={celebSearch} />
-                <br></br>
                 <FavoriteCelebs heading={'MY PEOPLE'} deleteCeleb={deleteCeleb} celebrities={celebrities} setCelebrities={setCelebrities} celebSearch={celebSearch} />
+                <br></br>
+                <FavoriteCelebsDefault heading={'COMMUNITY FAVORITES'} communityCelebrities={communityCelebrities} setCommunityCelebrities={setCommunityCelebrities} celebSearch={celebSearch} />
+                
+
 
               </>
             ) : (
