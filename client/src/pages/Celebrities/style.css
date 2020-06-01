@@ -32,7 +32,7 @@ input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
   font-size: 1.25em
 }
 
-.known, .trending-celeb-images {
+.known {
   width: 70px;
   height: 95px;
   float: left;
@@ -41,6 +41,27 @@ input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
   border: solid 2px #212121;
   color: #bdbdbd;
 }
+
+.trending-celeb-images{
+  width: 70px;
+  height: 95px;
+  float: left;
+  margin-right: .8em;
+  margin-left: .8em;
+  border: solid 2px #212121;
+  color: #bdbdbd;
+}
+.trending-celeb-images2{
+  width: 125px;
+  height: 185px;
+  float: left;
+  margin-right: .7em;
+  margin-left: .7em;
+  border: solid 2px #212121;
+  color: #bdbdbd;
+}
+
+
 
 .celeb-profile-pic {
   width: 400px;
@@ -79,7 +100,7 @@ input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
 }
 
 .celeb-result-btns {
-  position: relative; 
+  position: relative;
   right: 1.5em;
   border: 1px solid #cfb53b;
   text-align: center;
@@ -102,8 +123,12 @@ input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
   float: right;
 }
 
-.favorite:hover, .remove:hover {
+.remove:hover {
   color: red;
+}
+
+.favorite:hover {
+  color: #cfb53b;
 }
 
 .notify:hover, .watch:hover {

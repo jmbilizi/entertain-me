@@ -32,7 +32,7 @@ const NavBar = (props) => {
         }}
       >
         <NavItem>
-          <Link className="nav-link active" to="/">
+          <Link className="nav-link" to="/">
             Home
           </Link>
         </NavItem>
