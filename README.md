@@ -1,68 +1,58 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# entertainME
 
-## Available Scripts
+A MERN Stack Web Application
 
-In the project directory, you can run:
+Created as Project 3 during DU Coding Bootcamp. The challenge was to create a full-stack MERN web application that utilizes React(including JSX and CSS for a polished interface), MongoDB for database calls to get, pull and push data, Express for routing/API calls, and Node.js for back-end.
 
-### `yarn start`
+## User Story
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- AS A fan of all things entertainment,
+- I WANT a centralized location where I can go to learn about upcoming movies & TV Shows, search for some of my favorite classics and learn more about my favorite celebrities
+- SO THAT I can keep track of new movie/tv show releases and celebrity appearances/information, with the ability to share with friends & family.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Overview
 
-### `yarn test`
+entertainME is an application that allows the user to follow their favorite Movies, TV Shows and Celebrities all in one place. It allows the user to follow what interests them by 'favoriting' and tracking new releases with the ability to share socially and see what others in the community are watching.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Utilizing the App
 
-### `yarn build`
+- Experience the deployed app on Heroku: [Here](https://entertainme-app.herokuapp.com/ "Here")
+- User is routed to "Login" page, where the user can "Login" or click to "Sign Up"
+- After the user signs up, they are brought to the home page where they can then navigate to the Movies & TV Shows page or the Celebrities page.
+- Under both Movies/TV Shows and Celebrities, users have the ability to search for a movie/tv show or celebrity of their choice, then 'favorite' that selection for easy access the next time they log in.
+- From the Profile page, user's have the ability to edit or delete their information.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Demonstrations
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Log In or Sign Up:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<!-- ![Signup](public/assets/images/login.png "signup") -->
 
-### `yarn eject`
+## Home Page
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<!-- ![create](public/assets/images/members.png "create") -->
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Movies/TV Shows Page
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Celebrities Page
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Profile Page
 
-## Learn More
+## Tech used
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- MongoDB
+- Express
+- React
+- Node.js
+- Bcrypt
+- Passport
+- React-Materialize
+- Jquery
+- JSX
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Contributers
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- **Matt Grove** - Full-Stack Development
+- **Janvier Mbilizi** - Full-Stack Development
+- **Jen Mullin** - Full-Stack Development
+- **Ilana Shaffer** - Full-Stack Development
