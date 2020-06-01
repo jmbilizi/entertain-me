@@ -150,30 +150,7 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
       birth: celebrityDetailsInfo.birthday,
       death: celebrityDetailsInfo.deathday,
       biography: celebrityDetailsInfo.biography,
-
-      trending1: trendingCelebritiesInfo.results[0].name,
-      trending2: trendingCelebritiesInfo.results[1].name,
-      trending3: trendingCelebritiesInfo.results[2].name,
-      trending4: trendingCelebritiesInfo.results[3].name,
-      trending5: trendingCelebritiesInfo.results[4].name,
-      trending1Img:
-        `${imageURL}` + trendingCelebritiesInfo.results[0].profile_path,
-      trending2Img:
-        `${imageURL}` + trendingCelebritiesInfo.results[1].profile_path,
-      trending3Img:
-        `${imageURL}` + trendingCelebritiesInfo.results[2].profile_path,
-      trending4Img:
-        `${imageURL}` + trendingCelebritiesInfo.results[3].profile_path,
-      trending5Img:
-        `${imageURL}` + trendingCelebritiesInfo.results[4].profile_path,
     });
-    console.log("known1", searchInfo.known_for[0].title);
-    console.log("known2", searchInfo.known_for[1].title);
-    console.log("trending1", trendingCelebritiesInfo.results[0]);
-    console.log(
-      "THIS ",
-      `${imageURL}` + trendingCelebritiesInfo.results[0].profile_path
-    );
   }
 
   const handleInputChange = (e) => {
@@ -201,7 +178,35 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
     const existingFavoriteCeleb = celebrities.filter((el) => el.celeb_name === state.name)
     existingFavoriteCeleb.length > 0 ? ($('.favorite').hide()) : ($('.favorite').show());
   }, [celebrities]);
+
+
+  useEffect(() => {
+    trendingCelebritiesSearch()
+    async function trendingCelebritiesSearch() {
+      const trendingCelebsData = await API.trendingCelebritiesSearch();
+      const trendingCelebsInfo = trendingCelebsData.data;
+      console.log('trendingCelebsInfo ', trendingCelebsInfo.results[0])
+      setState({
+        ...state,
+        trendingImage1: [`${imageURL}` + trendingCelebsInfo.results[0].profile_path],
+        trendingImage2: [`${imageURL}` + trendingCelebsInfo.results[1].profile_path],
+        trendingImage3: [`${imageURL}` + trendingCelebsInfo.results[2].profile_path],
+        trendingImage4: [`${imageURL}` + trendingCelebsInfo.results[3].profile_path],
+        trendingImage5: [`${imageURL}` + trendingCelebsInfo.results[4].profile_path],
+        trendingName1: [trendingCelebsInfo.results[0].name],
+        trendingName2: [trendingCelebsInfo.results[1].name],
+        trendingName3: [trendingCelebsInfo.results[2].name],
+        trendingName4: [trendingCelebsInfo.results[3].name],
+        trendingName5: [trendingCelebsInfo.results[4].name],
+      })
+    }
+  }, []);
+
+
+
+
   console.log('celebrities', celebrities)
+  console.log("STATE: ", state)
   return (
 
     <Container>
@@ -286,7 +291,7 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
                     separator: "...",
                   })}
                   <hr></hr>
-                  {/* </p> */}
+
                   <a href={state.known2Img}>
                     <img
                       className="known"
@@ -299,7 +304,7 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
                     separator: "...",
                   })}
                   <hr></hr>
-                  {/* </p> */}
+
                   <a href={state.known3Img}>
                     <img
                       className="known"
@@ -339,39 +344,7 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
             <br></br>
 
             {state.name ? (
-              <>
-                <h6 className="trending-celeb-title">Trending</h6>
-                <img
-                  className="trending-celeb-images"
-                  src={state.trending1Img}
-                  title={state.trending1}
-                  alt={state.trending1}
-                />
-                <img
-                  className="trending-celeb-images"
-                  src={state.trending2Img}
-                  title={state.trending2}
-                  alt={state.trending2}
-                />
-                <img
-                  className="trending-celeb-images"
-                  src={state.trending3Img}
-                  title={state.trending3}
-                  alt={state.trending3}
-                />
-                <img
-                  className="trending-celeb-images"
-                  src={state.trending4Img}
-                  title={state.trending4}
-                  alt={state.trending4}
-                />
-                <img
-                  className="trending-celeb-images"
-                  src={state.trending5Img}
-                  title={state.trending5}
-                  alt={state.trending5}
-                />
-              </>
+              <span className='title'>ADD SOMETHING HERE?</span>
             ) : (
                 <DefaultTrendingCelebrities />
               )}
@@ -406,33 +379,33 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
                   <h6 className="trending-celeb-title">Trending</h6>
                   <img
                     className="trending-celeb-images"
-                    src={state.trending1Img}
-                    title={state.trending1}
-                    alt={state.trending1}
+                    src={state.trendingImage1}
+                    title={state.trendingName1}
+                    alt={state.trendingName1}
                   />
                   <img
                     className="trending-celeb-images"
-                    src={state.trending2Img}
-                    title={state.trending2}
-                    alt={state.trending2}
+                    src={state.trendingImage2}
+                    title={state.trendingName2}
+                    alt={state.trendingName2}
                   />
                   <img
                     className="trending-celeb-images"
-                    src={state.trending3Img}
-                    title={state.trending3}
-                    alt={state.trending3}
+                    src={state.trendingImage3}
+                    title={state.trendingName3}
+                    alt={state.trendingName3}
                   />
                   <img
                     className="trending-celeb-images"
-                    src={state.trending4Img}
-                    title={state.trending4}
-                    alt={state.trending4}
+                    src={state.trendingImage4}
+                    title={state.trendingName4}
+                    alt={state.trendingName4}
                   />
                   <img
                     className="trending-celeb-images"
-                    src={state.trending5Img}
-                    title={state.trending5}
-                    alt={state.trending5}
+                    src={state.trendingImage5}
+                    title={state.trendingName5}
+                    alt={state.trendingName5}
                   />
                 </>
               </Col>
