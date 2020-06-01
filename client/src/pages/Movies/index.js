@@ -20,39 +20,6 @@ import { user } from "../../utils/helpers";
 import $ from 'jquery';
 import './style.css';
 
-const users = [
-  {
-    gender: "male",
-    name: {
-      title: "Mr",
-      first: "Berkant",
-      last: "Sip",
-    },
-    location: {
-      street: {
-        number: 8077,
-        name: "Hoofdveld",
-      },
-      city: "Starnmeer",
-      state: "Wyoming",
-    },
-  },
-];
-
-// hard coded communityFavorites
-
-// const communityFavorites = [
-//   {
-//     title: "Westworld"
-//   },
-//   {
-//     title: "Devs"
-//   },
-//   {
-//     title: "Snowpiercer"
-//   }
-// ];
-
 const MoviePage = ({ favorites, setFavorites, token, communityFavorites, setCommunityFavorites }) => {
   { $('.search-fail').hide() }
   const [state, setState] = useState({
@@ -86,16 +53,6 @@ const MoviePage = ({ favorites, setFavorites, token, communityFavorites, setComm
     related3: "",
     related4: "",
     related5: "",
-    trending1: "",
-    trending2: "",
-    trending3: "",
-    trending4: "",
-    trending5: "",
-    trending6: "",
-    trending7: "",
-    trending8: "",
-    trending9: "",
-    trending10: "",
     star1: "",
     star2: "",
     director: "",
@@ -129,16 +86,6 @@ const MoviePage = ({ favorites, setFavorites, token, communityFavorites, setComm
     related3,
     related4,
     related5,
-    trending1,
-    trending2,
-    trending3,
-    trending4,
-    trending5,
-    trending6,
-    trending7,
-    trending8,
-    trending9,
-    trending10,
     star1,
     star2,
     director,
@@ -374,108 +321,7 @@ const MoviePage = ({ favorites, setFavorites, token, communityFavorites, setComm
           : [
             relatedInfo.results[4].original_title,
             `${imageURL}` + relatedInfo.results[4].poster_path,
-          ],
-
-      trending1:
-        searchInfo.media_type === "tv"
-          ? [
-            `${imageURL}` + trendingInfo.results[0].poster_path,
-            trendingInfo.results[0].name,
           ]
-          : [
-            `${imageURL}` + trendingInfo.results[0].poster_path,
-            trendingInfo.results[0].title,
-          ],
-      trending2:
-        searchInfo.media_type === "tv"
-          ? [
-            `${imageURL}` + trendingInfo.results[1].poster_path,
-            trendingInfo.results[1].name,
-          ]
-          : [
-            `${imageURL}` + trendingInfo.results[1].poster_path,
-            trendingInfo.results[1].title,
-          ],
-      trending3:
-        searchInfo.media_type === "tv"
-          ? [
-            `${imageURL}` + trendingInfo.results[2].poster_path,
-            trendingInfo.results[2].name,
-          ]
-          : [
-            `${imageURL}` + trendingInfo.results[2].poster_path,
-            trendingInfo.results[2].title,
-          ],
-      trending4:
-        searchInfo.media_type === "tv"
-          ? [
-            `${imageURL}` + trendingInfo.results[3].poster_path,
-            trendingInfo.results[3].name,
-          ]
-          : [
-            `${imageURL}` + trendingInfo.results[3].poster_path,
-            trendingInfo.results[3].title,
-          ],
-      trending5:
-        searchInfo.media_type === "tv"
-          ? [
-            `${imageURL}` + trendingInfo.results[4].poster_path,
-            trendingInfo.results[4].name,
-          ]
-          : [
-            `${imageURL}` + trendingInfo.results[4].poster_path,
-            trendingInfo.results[4].title,
-          ],
-      trending6:
-        searchInfo.media_type === "tv"
-          ? [
-            `${imageURL}` + trendingInfo.results[5].poster_path,
-            trendingInfo.results[5].name,
-          ]
-          : [
-            `${imageURL}` + trendingInfo.results[5].poster_path,
-            trendingInfo.results[5].title,
-          ],
-      trending7:
-        searchInfo.media_type === "tv"
-          ? [
-            `${imageURL}` + trendingInfo.results[6].poster_path,
-            trendingInfo.results[6].name,
-          ]
-          : [
-            `${imageURL}` + trendingInfo.results[6].poster_path,
-            trendingInfo.results[6].title,
-          ],
-      trending8:
-        searchInfo.media_type === "tv"
-          ? [
-            `${imageURL}` + trendingInfo.results[7].poster_path,
-            trendingInfo.results[7].name,
-          ]
-          : [
-            `${imageURL}` + trendingInfo.results[7].poster_path,
-            trendingInfo.results[7].title,
-          ],
-      trending9:
-        searchInfo.media_type === "tv"
-          ? [
-            `${imageURL}` + trendingInfo.results[8].poster_path,
-            trendingInfo.results[8].name,
-          ]
-          : [
-            `${imageURL}` + trendingInfo.results[8].poster_path,
-            trendingInfo.results[8].title,
-          ],
-      trending10:
-        searchInfo.media_type === "tv"
-          ? [
-            `${imageURL}` + trendingInfo.results[9].poster_path,
-            trendingInfo.results[9].name,
-          ]
-          : [
-            `${imageURL}` + trendingInfo.results[9].poster_path,
-            trendingInfo.results[9].title,
-          ],
     });
   }
 
@@ -505,155 +351,6 @@ const MoviePage = ({ favorites, setFavorites, token, communityFavorites, setComm
 
 
   return (
-    // <Container>
-    //   <Row>
-    //     <Col m={4}></Col>
-    //     <Col m={4}>
-    //       <>
-    //         <div className='search-fail'>No results found for <strong>{userInput.toUpperCase()}</strong>.</div>
-    //         <SearchBar
-    //           className='search-box'
-    //           handleInputChange={handleInputChange}
-    //           handleFormSubmit={handleFormSubmit}
-    //         />
-    //       </>
-    //     </Col>
-    //     <Col m={4}></Col>
-    //   </Row>
-
-    //   <Row>
-    //     <Col s={9} className='movie-image'>
-    //       {id ? (
-    //         <>
-    //           <ResultsCard
-    //             token={token}
-    //             selection={selection}
-    //             mediaType={mediaType}
-    //             release={moment(release, "YYYY-MM-DD").format("MMM Do, YYYY")}
-    //             overview={overview}
-    //             poster={poster}
-    //             backdrop={backdrop}
-    //             genre={genre}
-    //             genre2={genre2}
-    //             score={score}
-    //             runtime={runtime}
-    //             rating={rating}
-    //             network={network}
-    //             provider={provider}
-    //             logo={logo}
-    //             star1={star1}
-    //             star2={star2}
-    //             director={director}
-    //             director2={director2}
-    //             lastAir={lastAir}
-    //             lastEpisode={lastEpisode}
-    //             favorites={favorites}
-    //             favoritesTV={favoritesTV}
-    //             favoritesMovie={favoritesMovie}
-    //             setFavorites={setFavorites}
-    //             setCommunityFavorites={setCommunityFavorites}
-    //             token={token}
-    //           />
-    //           <br></br> <br></br>
-    //           <Col m={6}>
-    //           {mediaType === "tv" ? (
-    //             <Trailer trailer={tvTrailer} />
-    //           ) : (
-    //               console.log("No movie trailer available.")
-    //             )}
-    //           {mediaType === "movie" ? (
-    //             <Trailer trailer={trailer} />
-    //           ) : (
-    //               console.log("No TV trailer available.")
-    //             )}
-    //             </Col>
-    //             <Col m={6}>
-    //           <RelatedCard
-    //             className="related"
-    //             heading={"RELATED"}
-    //             title1={related1[0]}
-    //             title2={related2[0]}
-    //             title3={related3[0]}
-    //             title4={related4[0]}
-    //             title5={related5[0]}
-    //             poster1={related1[1]}
-    //             poster2={related2[1]}
-    //             poster3={related3[1]}
-    //             poster4={related4[1]}
-    //             poster5={related5[1]}
-    //             mediaSearch={mediaSearch}
-    //             favorites={communityFavorites}
-    //           />
-    //           </Col>
-    //         </>
-    //       ) : (
-    //           <DiscoverCardDefault />
-    //         )}
-    //     </Col>
-    //     <Col s={3} className='community-favorites'>
-    //       {token ? (
-    //         <>
-    //           <FavoritesDefault heading={'COMMUNITY FAVORITES'}
-    //             communityFavorites={communityFavorites} mediaSearch={mediaSearch}
-    //           />
-
-    //           <Favorites
-    //             heading={"MY MOVIES"}
-    //             favorites={favoritesMovie}
-    //             mediaSearch={mediaSearch}
-    //             deleteMedia={deleteMedia}
-    //           />
-    //           <br></br>
-    //           <Favorites
-    //             heading={"MY SHOWS"}
-    //             favorites={favoritesTV}
-    //             mediaSearch={mediaSearch}
-    //             deleteMedia={deleteMedia}
-    //           />
-    //         </>
-    //       ) : (
-    //           <FavoritesDefault heading={'COMMUNITY FAVORITES'}
-    //             communityFavorites={communityFavorites} mediaSearch={mediaSearch}
-    //           />
-    //         )}
-    //     </Col>
-    //   </Row>
-
-    // <Row>
-    //   <Col s={4}>
-
-    //     </Col>
-    //     <Col s={4}>
-
-    //     </Col>
-    //     <Row>
-    //       <Col s={9}>
-    //         {id ? (
-    //           <Trending
-    //             trending1={trending1}
-    //             trending2={trending2}
-    //             trending3={trending3}
-    //             trending4={trending4}
-    //             trending5={trending5}
-    //             trending6={trending6}
-    //             trending7={trending7}
-    //             trending8={trending8}
-    //             trending9={trending9}
-    //             trending10={trending10}
-    //           />
-    //         ) : (
-    //             console.log('add content')
-    //           )}
-    //       </Col>
-    //     </Row>
-    //   </Row>
-    // </Container>
-
-
-
-
-
-
     <Container>
       <Row>
         <Col m={4}></Col>
@@ -801,27 +498,17 @@ const MoviePage = ({ favorites, setFavorites, token, communityFavorites, setComm
             </Row>
 
             <Row>
-              <Col m={7}>
+              <Col m={5}>
                 <Trending
-                  trending1={trending1}
-                  trending2={trending2}
-                  trending3={trending3}
-                  trending4={trending4}
-                  trending5={trending5}
-                  trending6={trending6}
-                  trending7={trending7}
-                  trending8={trending8}
-                  trending9={trending9}
-                  trending10={trending10}
                 />
               </Col>
-              <Col m={5}>
+              <Col m={7}>
                 <span className='title'>ADD SOMETHING HERE?</span>
               </Col>
             </Row>
           </>
         )}
-        <Row></Row>
+      <Row></Row>
     </Container>
   );
 };
