@@ -232,7 +232,7 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
 
                 />
                 {token ? (
-                  <div className='result-btns'>
+                  <div className='celeb-result-btns'>
                     <span onClick={addFavorite}>
                       <span className='material-icons favorite'>favorite</span>
                     </span>

@@ -14,6 +14,7 @@ import Trending from "../../components/Trending";
 import RelatedCard from "../../components/RelatedCard";
 import RelatedCardDefault from "../../components/RelatedCardDefault";
 import DiscoverCardDefault from "../../components/DiscoverCardDefault";
+import Upcoming from "../../components/Upcoming";
 import API from "../../utils/API";
 import axios from "axios";
 import { user } from "../../utils/helpers";
@@ -485,7 +486,7 @@ const MoviePage = ({ favorites, setFavorites, token, communityFavorites, setComm
               </Col>
               <Col m={4} className='movie-welcome'>
                 <h4 className='movie-welcome-title'>Good times are meant to share.</h4>
-                <p>Friends don't let friends miss out on the best Hollywood blockbusters and binge-worthy TV shows.  Tell someone about entertainMe today and stay updated on their latest obsessions.</p>
+                <p className='movie-welcome-text'>Friends don't let friends miss out on the best Hollywood blockbusters and binge-worthy TV shows.  Tell someone about entertainMe today and stay updated on their latest obsessions.</p>
               </Col>
               <Col m={3}>
                 <>
@@ -503,7 +504,8 @@ const MoviePage = ({ favorites, setFavorites, token, communityFavorites, setComm
                 />
               </Col>
               <Col m={7}>
-                <span className='title'>ADD SOMETHING HERE?</span>
+              <Upcoming
+                />
               </Col>
             </Row>
           </>

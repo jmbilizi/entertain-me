@@ -79,10 +79,13 @@ input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
 }
 
 .celeb-result-btns {
-  position: relative;
-  bottom: 2.25em;
-  left: 0.5em;
-  margin-bottom: 0.75em;
+  position: relative; 
+  right: 1.5em;
+  border: 1px solid #cfb53b;
+  text-align: center;
+  padding: .5em 0 0 .15em;
+  width: 150px;
+  float: right;
 }
 
 .favorite, .notify, .watch {
