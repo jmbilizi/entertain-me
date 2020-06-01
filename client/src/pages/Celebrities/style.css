@@ -51,6 +51,17 @@ input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
   border: solid 2px #212121;
   color: #bdbdbd;
 }
+.trending-celeb-images2{
+  width: 125px;
+  height: 185px;
+  float: left;
+  margin-right: .7em;
+  margin-left: .7em;
+  border: solid 2px #212121;
+  color: #bdbdbd;
+}
+
+
 
 .celeb-profile-pic {
   width: 400px;
