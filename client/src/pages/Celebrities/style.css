@@ -32,12 +32,22 @@ input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
   font-size: 1.25em
 }
 
-.known, .trending-celeb-images {
+.known {
   width: 70px;
   height: 95px;
   float: left;
   margin-right: 1em;
   margin-left: 1em;
+  border: solid 2px #212121;
+  color: #bdbdbd;
+}
+
+.trending-celeb-images{
+  width: 70px;
+  height: 95px;
+  float: left;
+  margin-right: .8em;
+  margin-left: .8em;
   border: solid 2px #212121;
   color: #bdbdbd;
 }

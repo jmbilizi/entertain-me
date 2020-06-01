@@ -193,11 +193,24 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
         trendingImage3: [`${imageURL}` + trendingCelebsInfo.results[2].profile_path],
         trendingImage4: [`${imageURL}` + trendingCelebsInfo.results[3].profile_path],
         trendingImage5: [`${imageURL}` + trendingCelebsInfo.results[4].profile_path],
+        trendingImage6: [`${imageURL}` + trendingCelebsInfo.results[5].profile_path],
+        trendingImage7: [`${imageURL}` + trendingCelebsInfo.results[6].profile_path],
+        trendingImage8: [`${imageURL}` + trendingCelebsInfo.results[7].profile_path],
+        trendingImage9: [`${imageURL}` + trendingCelebsInfo.results[8].profile_path],
+        trendingImage10: [`${imageURL}` + trendingCelebsInfo.results[9].profile_path],
+        trendingImage11: [`${imageURL}` + trendingCelebsInfo.results[10].profile_path],
         trendingName1: [trendingCelebsInfo.results[0].name],
         trendingName2: [trendingCelebsInfo.results[1].name],
         trendingName3: [trendingCelebsInfo.results[2].name],
         trendingName4: [trendingCelebsInfo.results[3].name],
         trendingName5: [trendingCelebsInfo.results[4].name],
+        trendingName6: [trendingCelebsInfo.results[5].name],
+        trendingName7: [trendingCelebsInfo.results[6].name],
+        trendingName8: [trendingCelebsInfo.results[7].name],
+        trendingName9: [trendingCelebsInfo.results[8].name],
+        trendingName10: [trendingCelebsInfo.results[9].name],
+        trendingName11: [trendingCelebsInfo.results[10].name]
+        
       })
     }
   }, []);
@@ -374,45 +387,77 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
             </Row>
 
             <Row>
-              <Col m={7}>
-                <>
-                  <h6 className="trending-celeb-title">Trending</h6>
-                  <img
-                    className="trending-celeb-images"
-                    src={state.trendingImage1}
-                    title={state.trendingName1}
-                    alt={state.trendingName1}
-                  />
-                  <img
-                    className="trending-celeb-images"
-                    src={state.trendingImage2}
-                    title={state.trendingName2}
-                    alt={state.trendingName2}
-                  />
-                  <img
-                    className="trending-celeb-images"
-                    src={state.trendingImage3}
-                    title={state.trendingName3}
-                    alt={state.trendingName3}
-                  />
-                  <img
-                    className="trending-celeb-images"
-                    src={state.trendingImage4}
-                    title={state.trendingName4}
-                    alt={state.trendingName4}
-                  />
-                  <img
-                    className="trending-celeb-images"
-                    src={state.trendingImage5}
-                    title={state.trendingName5}
-                    alt={state.trendingName5}
-                  />
-                </>
+                          <Col m={12}>
+                <h6 className="trending-celeb-title">Trending</h6>
+                <img
+                  className="trending-celeb-images"
+                  src={state.trendingImage1}
+                  title={state.trendingName1}
+                  alt={state.trendingName1}
+                />
+                <img
+                  className="trending-celeb-images"
+                  src={state.trendingImage2}
+                  title={state.trendingName2}
+                  alt={state.trendingName2}
+                />
+                <img
+                  className="trending-celeb-images"
+                  src={state.trendingImage3}
+                  title={state.trendingName3}
+                  alt={state.trendingName3}
+                />
+                <img
+                  className="trending-celeb-images"
+                  src={state.trendingImage4}
+                  title={state.trendingName4}
+                  alt={state.trendingName4}
+                />
+                <img
+                  className="trending-celeb-images"
+                  src={state.trendingImage5}
+                  title={state.trendingName5}
+                  alt={state.trendingName5}
+                />
+                <img
+                  className="trending-celeb-images"
+                  src={state.trendingImage6}
+                  title={state.trendingName6}
+                  alt={state.trendingName6}
+                />
+                <img
+                  className="trending-celeb-images"
+                  src={state.trendingImage7}
+                  title={state.trendingName7}
+                  alt={state.trendingName7}
+                />
+                <img
+                  className="trending-celeb-images"
+                  src={state.trendingImage8}
+                  title={state.trendingName8}
+                  alt={state.trendingName8}
+                />
+                <img
+                  className="trending-celeb-images"
+                  src={state.trendingImage9}
+                  title={state.trendingName9}
+                  alt={state.trendingName9}
+                />
+                <img
+                  className="trending-celeb-images"
+                  src={state.trendingImage10}
+                  title={state.trendingName10}
+                  alt={state.trendingName10}
+                />
+                <img
+                  className="trending-celeb-images"
+                  src={state.trendingImage11}
+                  title={state.trendingName11}
+                  alt={state.trendingName11}
+                />
+
               </Col>
-              <Col m={5}>
-                <span className='title'>ADD SOMETHING HERE?</span>
-              </Col>
-            </Row>
+              </Row>
           </>
 
         )}
