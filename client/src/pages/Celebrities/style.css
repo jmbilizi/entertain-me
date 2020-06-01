@@ -89,7 +89,7 @@ input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
 }
 
 .celeb-result-btns {
-  position: relative; 
+  position: relative;
   right: 1.5em;
   border: 1px solid #cfb53b;
   text-align: center;
@@ -112,8 +112,12 @@ input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
   float: right;
 }
 
-.favorite:hover, .remove:hover {
+.remove:hover {
   color: red;
+}
+
+.favorite:hover {
+  color: #cfb53b;
 }
 
 .notify:hover, .watch:hover {
