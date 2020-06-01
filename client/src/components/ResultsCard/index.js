@@ -109,40 +109,40 @@ const ResultsCard = (props) => {
 
       <Row >
         <div className='details'>
-        <Col m={2}>
-          <Poster poster={props.poster} />
-        </Col>
-        <Col m={3}>
-          <div className='stats'>
-            Release: <strong>{props.release}</strong>
-            <br></br>
-              Genre: <strong>{props.genre}<br></br>{props.genre2}</strong>
-            <br></br>
-              Rating:{' '}
-            <strong>
+          <Col m={2}>
+            <Poster poster={props.poster} />
+          </Col>
+          <Col m={3}>
+            <div className='stats'>
+              <strong>Release: </strong> {props.release}
+              <br></br>
+              <strong>  Genre:</strong> {props.genre}<br></br>{props.genre2}
+              <br></br>
+              <strong>  Rating:{' '}   </strong>
+
               {props.rating}
-            </strong>
-            <br></br>
-              Runtime: <strong>{props.runtime}</strong>
-            <br></br>
-              Viewer score: <strong>{props.score}</strong>
-          </div>
-        </Col>
-        <Col m={3}>
-          <div className='stats2'>
-            Starring: <strong>{props.star1}{props.star2}</strong><br></br>
-            {props.mediaType === 'tv' ? (
-              <>
-                Last Episode:<br></br>
-                <strong>{props.lastEpisode}</strong>
-                <br></br>
-                Aired:<br></br>
-                <strong>{props.lastAir}</strong>
-              </>) : (<>Directed by: <strong>{props.director} {props.director2}</strong></>)}
-          </div>
-        </Col>
+
+              <br></br>
+              <strong>   Runtime:</strong> {props.runtime}
+              <br></br>
+              <strong>   Viewer score:</strong> {props.score}
+            </div>
+          </Col>
+          <Col m={4}>
+            <div className='stats2'>
+              <strong>   Starring:</strong> {props.star1}{props.star2}<br></br>
+              {props.mediaType === 'tv' ? (
+                <>
+                  <strong>   Last Episode:</strong><br></br>
+                  {props.lastEpisode}
+                  <br></br>
+                  <strong>  Aired:</strong><br></br>
+                  {props.lastAir}
+                </>) : (<> <strong>Directed by:</strong> {props.director} {props.director2}</>)}
+            </div>
+          </Col>
         </div>
-        <Col m={3}>
+        <Col m={2}>
           {!token ? (
             console.log('User is not logged in.')
           ) : (
@@ -165,7 +165,7 @@ const ResultsCard = (props) => {
               </>
             )}
           <img
-          className='tmdb'
+            className='tmdb'
             src='https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg'
             alt=''
           />

@@ -49,6 +49,13 @@ export default {
     );
   },
 
+   // API call for upcoming movies -- need to credit
+   upcomingSearch: function (mediaType) {
+    return axios.get(
+  `https://api.themoviedb.org/3/${mediaType}/upcoming?api_key=${apiKey}&language=en-US&page=1`
+  );
+},
+
   // API call for celebrity info -- need to credit
   celebSearch: function (userInput) {
     return axios.get(
