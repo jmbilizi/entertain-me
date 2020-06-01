@@ -6,6 +6,7 @@ import { Redirect } from "react-router-dom";
 import { user } from "../../utils/helpers";
 import "./style.css";
 import Axios from "axios";
+import { MdEdit } from 'react-icons/md'
 
 const Profile = (props) => {
   const { token } = props;
@@ -59,9 +60,9 @@ const Profile = (props) => {
           <Col s={6}>
             <img
               className="materialboxed"
-              data-caption="A picture of a way with a group of trees in a park"
+              data-caption="blank profile picture"
               width="250"
-              src="https://lorempixel.com/800/400/nature/4"
+              src={require('../../assets/images/blank-profile-picture.png')}
             ></img>
           </Col>
           <Col s={6}>
@@ -112,12 +113,12 @@ const Profile = (props) => {
             )}
             <Row>
               <Col s={6}>
-                <div onClick={updateUser} className="btn teal">
+                <div onClick={updateUser} className="btn btn-flat">
                   Update
                 </div>
               </Col>
               <Col s={6}>
-                <div className="btn btn-flat red">Delete</div>
+                <div className="btn btn-flat">Delete</div>
               </Col>
             </Row>
           </Col>
