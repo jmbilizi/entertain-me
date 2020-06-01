@@ -388,50 +388,50 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
 
             <Row>
                           <Col m={12}>
-                <h6 className="trending-celeb-title">Trending</h6>
+                <h6 className="trending-celeb-title">TRENDING</h6>
                 <img
-                  className="trending-celeb-images"
+                  className="trending-celeb-images2"
                   src={state.trendingImage1}
                   title={state.trendingName1}
                   alt={state.trendingName1}
                 />
                 <img
-                  className="trending-celeb-images"
+                  className="trending-celeb-images2"
                   src={state.trendingImage2}
                   title={state.trendingName2}
                   alt={state.trendingName2}
                 />
                 <img
-                  className="trending-celeb-images"
+                  className="trending-celeb-images2"
                   src={state.trendingImage3}
                   title={state.trendingName3}
                   alt={state.trendingName3}
                 />
                 <img
-                  className="trending-celeb-images"
+                  className="trending-celeb-images2"
                   src={state.trendingImage4}
                   title={state.trendingName4}
                   alt={state.trendingName4}
                 />
                 <img
-                  className="trending-celeb-images"
+                  className="trending-celeb-images2"
                   src={state.trendingImage5}
                   title={state.trendingName5}
                   alt={state.trendingName5}
                 />
                 <img
-                  className="trending-celeb-images"
+                  className="trending-celeb-images2"
                   src={state.trendingImage6}
                   title={state.trendingName6}
                   alt={state.trendingName6}
                 />
                 <img
-                  className="trending-celeb-images"
+                  className="trending-celeb-images2"
                   src={state.trendingImage7}
                   title={state.trendingName7}
                   alt={state.trendingName7}
                 />
-                <img
+                {/* <img
                   className="trending-celeb-images"
                   src={state.trendingImage8}
                   title={state.trendingName8}
@@ -454,8 +454,7 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
                   src={state.trendingImage11}
                   title={state.trendingName11}
                   alt={state.trendingName11}
-                />
-
+                /> */}
               </Col>
               </Row>
           </>
