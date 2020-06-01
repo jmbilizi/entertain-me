@@ -107,8 +107,13 @@ input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
 
 .trending-title {
   position: relative;
-  top: 10em;
-  right: 0.75em;
+  top: 14em;
+  right: 3em;
+  width: 17em;
+  padding-top: .5em;
+  padding-bottom: .5em;
+  background-color: black;
+  text-align: center;
 }
 
 .title {
@@ -147,14 +152,14 @@ input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
 }
 
 #fav-background, #related-background, #related-background2, #related-background3, #related-background4, #related-background5 {
-  background-color:#1b1b1b;
-  color:white;
+  background-color: #1b1b1b;
+  color: white;
 }
 
-.movie-welcome{
-  color:white;
+.movie-welcome {
+  color: white;
 }
 
-.movie-welcome-title{
-  color:#cfb53b;
+.movie-welcome-title {
+  color: #cfb53b;
 }

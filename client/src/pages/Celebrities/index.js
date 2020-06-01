@@ -326,7 +326,7 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
                 <FavoriteCelebs heading={'MY PEOPLE'} deleteCeleb={deleteCeleb} celebrities={celebrities} setCelebrities={setCelebrities} celebSearch={celebSearch} />
                 <br></br>
                 <FavoriteCelebsDefault heading={'COMMUNITY FAVORITES'} communityCelebrities={communityCelebrities} setCommunityCelebrities={setCommunityCelebrities} celebSearch={celebSearch} />
-                
+
 
 
               </>
@@ -382,17 +382,7 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
           <>
             <Row>
               <Col m={5}>
-                <div className='celeb-welcome-images-div'>
-                  {/* <img src='https://via.placeholder.com/150' /> */}
-                  <img className='celeb-welcome-images' src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Catherine_Zeta-Jones_VF_2012_Shankbone_2.jpg/330px-Catherine_Zeta-Jones_VF_2012_Shankbone_2.jpg' />
-                  <img className='celeb-welcome-images' src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/James_Earl_Jones_%288516667383%29.jpg/330px-James_Earl_Jones_%288516667383%29.jpg' />
-                  <img className='celeb-welcome-images' src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Mad_Men_at_the_67th_Annual_Peabody_Awards_-_January_Jones.jpg/330px-Mad_Men_at_the_67th_Annual_Peabody_Awards_-_January_Jones.jpg' />
-                  <img className='celeb-welcome-images' src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Orlando_Jones_cropped.jpg/330px-Orlando_Jones_cropped.jpg' />
-                  <img className='celeb-welcome-images' src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Rashida_Jones_2017_%28cropped%29.jpg/330px-Rashida_Jones_2017_%28cropped%29.jpg' />
-                  <img className='celeb-welcome-images' src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Norah_Jones_at_Bright_Eyes_1_%28cropped%29.jpg/330px-Norah_Jones_at_Bright_Eyes_1_%28cropped%29.jpg' />
-                  <img className='celeb-welcome-images' src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Tommy_Lee_Jones_2017.jpg/330px-Tommy_Lee_Jones_2017.jpg' />
-                  <img className='celeb-welcome-images' src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Tamala_Jones_at_Paleyfest_2012.jpg/330px-Tamala_Jones_at_Paleyfest_2012.jpg' />
-                </div>
+                <DefaultCelebProfileImage />
               </Col>
               <Col m={4} >
                 <div className='celeb-welcome-div'>

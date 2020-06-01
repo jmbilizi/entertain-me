@@ -1,128 +1,131 @@
-.celeb-favorite-added{
-    position: absolute;
-    left: 23em;
-    bottom: -6.5em;
-    color: #cfb53b;
-    display: none; 
-    }
-    .celeb-search-fail{
-      color: white;
-      margin-left: 1em;
-      display: none;
-      position: fixed;
-    }
-    input[type=text], button{
-      margin-top: 1em;
-    }
-    input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
-      border-bottom: 1px solid #cfb53b !important;
-      box-shadow: 0 1px 0 0 #cfb53b !important;
-    }
-    .frame {
-      border: #212121 2px solid;
-      margin-left: 20px
-    }
-      .title{
-        color: #cfb53b;
-        font-size: 1.25em
-       }
-    .known,
-    .trending-celeb-images {
-      width: 70px;
-      height: 95px;
-      float: left;
-      margin-right: 1em;
-      margin-left: 1em;
-      border: solid 2px #212121;
-      color: #bdbdbd;
-
-    }
-    .celeb-profile-pic {
-      width: 400px;
-      height: 600px;
-        border: solid 2px #212121;
-    }
-
-    .celeb-biography {
-      color: #bdbdbd;
-      background: #111111;
-      box-shadow: 10px 5px 5px #222222;
-      padding: 40px 55px 45px 55px;
-      border-radius: 10px;
-      transition: all 0.3s;    
-      position: relative;
-      left: 1em;
-      margin-bottom: 2em;
-    }
-
-    .celeb-appearances-overview,
-    .celeb-name,
-    .default-text {
-      color: #bdbdbd;
-    }
-
-    .celeb-name{
-      margin-top: -.15em;
-      text-align: center;
-      font-size: 40px;
-      padding: 5px
-    }
-
-    .biography-title, .appearances-title, .trending-celeb-title{
-      color: #cfb53b;
-      margin-bottom: 1em;
-      text-align: center;
-      font-size: 1.25em
-    }
-    .celeb-result-btns {
-      position: relative;
-      bottom: 2.25em;
-      left: 0.5em;
-      margin-bottom: 0.75em;
-    }
-    .favorite,
-    .notify,
-    .watch {
-      margin-right: 0.4em;
-      font-size: 1.15em;
-    }
-    .favorite,
-    .notify,
-    .watch,
-    .remove {
-      cursor: pointer;
-      color: lightGray;
-    }
-    .remove {
-      float: right;
-    }
-    .favorite:hover, .remove:hover {
-      color: red;
-    }
-    .notify:hover,
-    .watch:hover {
-      color: green;
-    }
-.celeb-welcome-title{
-  color:#cfb53b;
+.celeb-favorite-added {
+  position: absolute;
+  left: 23em;
+  bottom: -6.5em;
+  color: #cfb53b;
+  display: none;
 }
-.celeb-welcome-images{
+
+.celeb-search-fail {
+  color: white;
+  margin-left: 1em;
+  display: none;
+  position: fixed;
+}
+
+input[type=text], button {
+  margin-top: 1em;
+}
+
+input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #cfb53b !important;
+  box-shadow: 0 1px 0 0 #cfb53b !important;
+}
+
+.frame {
+  border: #212121 2px solid;
+  margin-left: 20px
+}
+
+.title {
+  color: #cfb53b;
+  font-size: 1.25em
+}
+
+.known, .trending-celeb-images {
+  width: 70px;
+  height: 95px;
+  float: left;
+  margin-right: 1em;
+  margin-left: 1em;
+  border: solid 2px #212121;
+  color: #bdbdbd;
+}
+
+.celeb-profile-pic {
+  width: 400px;
+  height: 600px;
+  border: solid 2px #212121;
+}
+
+.celeb-biography {
+  color: #bdbdbd;
+  background: #111111;
+  box-shadow: 10px 5px 5px #222222;
+  padding: 40px 55px 45px 55px;
+  border-radius: 10px;
+  transition: all 0.3s;
+  position: relative;
+  left: 1em;
+  margin-bottom: 2em;
+}
+
+.celeb-appearances-overview, .celeb-name, .default-text {
+  color: #bdbdbd;
+}
+
+.celeb-name {
+  margin-top: -.15em;
+  text-align: center;
+  font-size: 40px;
+  padding: 5px
+}
+
+.biography-title, .appearances-title, .trending-celeb-title {
+  color: #cfb53b;
+  margin-bottom: 1em;
+  text-align: center;
+  font-size: 1.25em
+}
+
+.celeb-result-btns {
+  position: relative;
+  bottom: 2.25em;
+  left: 0.5em;
+  margin-bottom: 0.75em;
+}
+
+.favorite, .notify, .watch {
+  margin-right: 0.4em;
+  font-size: 1.15em;
+}
+
+.favorite, .notify, .watch, .remove {
+  cursor: pointer;
+  color: lightGray;
+}
+
+.remove {
+  float: right;
+}
+
+.favorite:hover, .remove:hover {
+  color: red;
+}
+
+.notify:hover, .watch:hover {
+  color: green;
+}
+
+.celeb-welcome-title {
+  color: #cfb53b;
+}
+
+.celeb-welcome-images {
   width: 75px;
   height: 95px;
 }
 
-.celeb-welcome-images-div{
+.celeb-welcome-images-div {
   width: 20em;
   margin-left: 3em;
 }
 
-.celeb-welcome{
-  color:white;
+.celeb-welcome {
+  color: white;
 }
 
-.celeb-welcome-div{
-  width: 25em;
+.celeb-welcome-div {
+  width: 23em;
   position: relative;
-  right: 3em;
-
 }
