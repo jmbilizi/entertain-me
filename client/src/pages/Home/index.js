@@ -196,9 +196,13 @@ const Home = (props) => {
               <li>Katy Perry</li>
             </ul>
             <br></br>
+            {/* 
+            CHAT FEATURE
+            <br></br>
             <hr className="divider"></hr>
             <br></br>
-            {/* {token ? (<Chat />) : (console.log('User not logged in'))} */}
+            {token ? (<Chat />) : (console.log('User not logged in'))} */}
+
           </div>
         </Col>
       </Row>

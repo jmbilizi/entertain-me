@@ -102,8 +102,8 @@ input[type=password]:focus, .materialize-textarea:focus:not([readonly]) {
 
 .register {
   position: absolute;
-  right: 0;
-  bottom: 0;
+  left: 35em;
+  top: 2em;
   z-index: 10;
 }
 

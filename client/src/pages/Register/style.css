@@ -1,44 +1,43 @@
 input[type=email]:focus, .materialize-textarea:focus:not([readonly]) {
-    border-bottom: 1px solid #cfb53b !important;
-    box-shadow: 0 1px 0 0 #cfb53b !important;
+  border-bottom: 1px solid #cfb53b !important;
+  box-shadow: 0 1px 0 0 #cfb53b !important;
 }
-  
+
 input[type=password]:focus, .materialize-textarea:focus:not([readonly]) {
-    border-bottom: 1px solid #cfb53b !important;
-    box-shadow: 0 1px 0 0 #cfb53b !important;
+  border-bottom: 1px solid #cfb53b !important;
+  box-shadow: 0 1px 0 0 #cfb53b !important;
 }
 
 input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
-    border-bottom: 1px solid #cfb53b !important;
-    box-shadow: 0 1px 0 0 #cfb53b !important;
+  border-bottom: 1px solid #cfb53b !important;
+  box-shadow: 0 1px 0 0 #cfb53b !important;
 }
 
 .login-images {
-    border-radius: 10px;
-    width: 250px;
-    height: 135px;
-  }
-  
-  .sign-in {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    z-index: 10;
-  }
-  
-  .fade {
-    opacity: .1;
-  }
-  
-  .fade2 {
-    opacity: .12;
-  }
-  
-  .fade3 {
-    opacity: .19;
-  }
-  
-  .fade4 {
-    opacity: .3;
-  }
-  
+  border-radius: 10px;
+  width: 250px;
+  height: 135px;
+}
+
+.sign-in {
+  position: absolute;
+  left: 35em;
+  top: 2em;
+  z-index: 10;
+}
+
+.fade {
+  opacity: .1;
+}
+
+.fade2 {
+  opacity: .12;
+}
+
+.fade3 {
+  opacity: .19;
+}
+
+.fade4 {
+  opacity: .3;
+}
