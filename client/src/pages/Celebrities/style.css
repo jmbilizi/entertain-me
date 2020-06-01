@@ -103,3 +103,26 @@
     .watch:hover {
       color: green;
     }
+.celeb-welcome-title{
+  color:#cfb53b;
+}
+.celeb-welcome-images{
+  width: 75px;
+  height: 95px;
+}
+
+.celeb-welcome-images-div{
+  width: 20em;
+  margin-left: 3em;
+}
+
+.celeb-welcome{
+  color:white;
+}
+
+.celeb-welcome-div{
+  width: 25em;
+  position: relative;
+  right: 3em;
+
+}

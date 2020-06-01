@@ -816,7 +816,7 @@ const MoviePage = ({ favorites, setFavorites, token, communityFavorites, setComm
                 />
               </Col>
               <Col m={5}>
-                gfhjkl;';lkjhgfdghujkiolp;,.__json-string__'/
+                <span className='title'>ADD SOMETHING HERE?</span>
               </Col>
             </Row>
           </>

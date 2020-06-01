@@ -188,20 +188,6 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
 
   };
 
-  // hardcoded communityCelebrities
-
-  // const communityCelebrities = [
-  //   {
-  //     celeb_name: "Dwayne Johnson"
-  //   },
-  //   {
-  //     celeb_name: "Taylor Swift"
-  //   },
-  //   {
-  //     celeb_name: "Liam Neeson"
-  //   }
-  // ];
-
   useEffect(() => {
     axios
       .get('/api/celebrities')
@@ -217,178 +203,256 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
   }, [celebrities]);
   console.log('celebrities', celebrities)
   return (
-    <Container>
-    <Row>
-      <Col m={4}></Col>
-      <Col m={4}>
-        <>
-          <div className='celeb-search-fail'>No results found for <strong>{userInput.toUpperCase()}</strong>.</div>
-          <CelebSearchBar
-            handleInputChange={handleInputChange}
-            handleFormSubmit={handleFormSubmit}
-          />
-        </>
-      </Col>
-      <Col m={4}></Col>
-    </Row>
 
-    <Row>
-      <Col m={5}>
-        {state.name ? (
+    <Container>
+      <Row>
+        <Col m={4}></Col>
+        <Col m={4}>
           <>
-            <img
-              className="celeb-profile-pic"
-              src={state.profile}
-              alt={state.name}
-            
+            <div className='celeb-search-fail'>No results found for <strong>{userInput.toUpperCase()}</strong>.</div>
+            <CelebSearchBar
+              handleInputChange={handleInputChange}
+              handleFormSubmit={handleFormSubmit}
             />
-            {token ? (
-              <div className='result-btns'>
-                <span onClick={addFavorite}>
-                  <span className='material-icons favorite'>favorite</span>
-                </span>
-                <span onClick={setNotification}>
-                  <span className='material-icons notify'>notifications</span>
-                </span>
-                <span onClick={watchContent}>
-                  <span className='material-icons watch'>tv</span>
-                </span>
-                <span onClick={shareContent}>
-                  <span className='material-icons watch'>share</span>
-                </span>
-                <div className='celeb-favorite-added'><strong>{state.name.toUpperCase()}</strong> added to favorites</div>
-              </div>
+          </>
+        </Col>
+        <Col m={4}></Col>
+      </Row>
+
+      {state.name ? (
+
+        <Row>
+          <Col m={5}>
+            {state.name ? (
+              <>
+                <img
+                  className="celeb-profile-pic"
+                  src={state.profile}
+                  alt={state.name}
+
+                />
+                {token ? (
+                  <div className='result-btns'>
+                    <span onClick={addFavorite}>
+                      <span className='material-icons favorite'>favorite</span>
+                    </span>
+                    <span onClick={setNotification}>
+                      <span className='material-icons notify'>notifications</span>
+                    </span>
+                    <span onClick={watchContent}>
+                      <span className='material-icons watch'>tv</span>
+                    </span>
+                    <span onClick={shareContent}>
+                      <span className='material-icons watch'>share</span>
+                    </span>
+                    <div className='celeb-favorite-added'><strong>{state.name.toUpperCase()}</strong> added to favorites</div>
+                  </div>
+                ) : (
+                    console.log('User is not logged in.')
+                  )}
+
+              </>
             ) : (
-                console.log('User is not logged in.')
+                <DefaultCelebProfileImage />
+              )}
+          </Col>
+          <Col m={4}>
+            {state.name ? (
+              <h2 className="celeb-name">{state.name}</h2>
+            ) : (
+                <h2 className="celeb-name">Celebrities</h2>
               )}
 
-          </>
-        ) : (
-            <DefaultCelebProfileImage />
-          )}
-      </Col>
-      <Col m={4}>
-        {state.name ? (
-          <h2 className="celeb-name">{state.name}</h2>
-        ) : (
-            <h2 className="celeb-name">Celebrities</h2>
-          )}
+            {state.name ? (
+              <>
+                <h6 className="biography-title">Biography</h6>
+                <p className="celeb-biography">
+                  {_.truncate(state.biography, {
+                    length: 300,
+                    separator: "...",
+                  })}
+                </p>
+                <h6 className="appearances-title">Appearances</h6>
+                <p className="celeb-appearances-overview">
+                  <a href={state.known1Img}>
+                    <img
+                      className="known"
+                      src={state.known1Img}
+                      alt="{state.known1}"
+                    />
+                  </a>
+                  {_.truncate(state.known1Overview, {
+                    length: 140,
+                    separator: "...",
+                  })}
+                  <hr></hr>
+                  {/* </p> */}
+                  <a href={state.known2Img}>
+                    <img
+                      className="known"
+                      src={state.known2Img}
+                      alt="{state.known2}"
+                    />
+                  </a>
+                  {_.truncate(state.known2Overview, {
+                    length: 140,
+                    separator: "...",
+                  })}
+                  <hr></hr>
+                  {/* </p> */}
+                  <a href={state.known3Img}>
+                    <img
+                      className="known"
+                      src={state.known3Img}
+                      alt="{state.known3}"
+                    />
+                  </a>
+                  {_.truncate(state.known3Overview, {
+                    length: 140,
+                    separator: "...",
+                  })}
+                </p>
+              </>
+            ) : (
+                <>
+                  <DefaultCelebBiography />
+                  <DefaultCelebAppearances />
+                </>
+              )}
+          </Col>
+          <Col m={3}>
+            {token ? (
+              <>
 
-        {state.name ? (
-          <>
-            <h6 className="biography-title">Biography</h6>
-            <p className="celeb-biography">
-              {_.truncate(state.biography, {
-                length: 300,
-                separator: "...",
-              })}
-            </p>
-            <h6 className="appearances-title">Appearances</h6>
-            <p className="celeb-appearances-overview">
-            <a href={state.known1Img}>
-              <img
-                className="known"
-                src={state.known1Img}
-                alt="{state.known1}"
-              />
-            </a>
-              {_.truncate(state.known1Overview, {
-                length: 140,
-                separator: "...",
-              })}
-              <hr></hr>
-            {/* </p> */}
-            <a href={state.known2Img}>
-              <img
-                className="known"
-                src={state.known2Img}
-                alt="{state.known2}"
-              />
-            </a>
-            {/* <p className="celeb-appearances-overview"> */}
-              {_.truncate(state.known2Overview, {
-                length: 140,
-                separator: "...",
-              })}
-              <hr></hr>
-            {/* </p> */}
-            <a href={state.known3Img}>
-              <img
-                className="known"
-                src={state.known3Img}
-                alt="{state.known3}"
-              />
-            </a>
-            {/* <p className="celeb-appearances-overview"> */}
-              {_.truncate(state.known3Overview, {
-                length: 140,
-                separator: "...",
-              })}
-            </p>
-          </>
-        ) : (
-            <>
-              <DefaultCelebBiography />
-              <DefaultCelebAppearances />
-            </>
-          )}
-      </Col>
-      <Col m={3}>
-        {token ? (
-          <>
+                <FavoriteCelebsDefault heading={'COMMUNITY FAVORITES'} communityCelebrities={communityCelebrities} setCommunityCelebrities={setCommunityCelebrities} celebSearch={celebSearch} />
+                <br></br>
+                <FavoriteCelebs heading={'MY PEOPLE'} deleteCeleb={deleteCeleb} celebrities={celebrities} setCelebrities={setCelebrities} celebSearch={celebSearch} />
 
-            <FavoriteCelebsDefault heading={'COMMUNITY FAVORITES'} communityCelebrities={communityCelebrities} setCommunityCelebrities={setCommunityCelebrities} celebSearch={celebSearch} />
+              </>
+            ) : (
+                <>
+                  <FavoriteCelebsDefault heading={'COMMUNITY FAVORITES'} communityCelebrities={communityCelebrities} setCommunityCelebrities={setCommunityCelebrities} celebSearch={celebSearch} />
+                </>
+              )}
+
             <br></br>
-            <FavoriteCelebs heading={'MY PEOPLE'} deleteCeleb={deleteCeleb} celebrities={celebrities} setCelebrities={setCelebrities} celebSearch={celebSearch} />
 
-          </>
-        ) : (
-            <>
-              <FavoriteCelebsDefault heading={'COMMUNITY FAVORITES'} communityCelebrities={communityCelebrities} setCommunityCelebrities={setCommunityCelebrities} celebSearch={celebSearch} />
-            </>
-          )}
+            {state.name ? (
+              <>
+                <h6 className="trending-celeb-title">Trending</h6>
+                <img
+                  className="trending-celeb-images"
+                  src={state.trending1Img}
+                  title={state.trending1}
+                  alt={state.trending1}
+                />
+                <img
+                  className="trending-celeb-images"
+                  src={state.trending2Img}
+                  title={state.trending2}
+                  alt={state.trending2}
+                />
+                <img
+                  className="trending-celeb-images"
+                  src={state.trending3Img}
+                  title={state.trending3}
+                  alt={state.trending3}
+                />
+                <img
+                  className="trending-celeb-images"
+                  src={state.trending4Img}
+                  title={state.trending4}
+                  alt={state.trending4}
+                />
+                <img
+                  className="trending-celeb-images"
+                  src={state.trending5Img}
+                  title={state.trending5}
+                  alt={state.trending5}
+                />
+              </>
+            ) : (
+                <DefaultTrendingCelebrities />
+              )}
+          </Col>
+        </Row>
 
-        <br></br>
-
-        {state.name ? (
+      ) : (
           <>
-            <h6 className="trending-celeb-title">Trending</h6>
-            <img
-              className="trending-celeb-images"
-              src={state.trending1Img}
-              title={state.trending1}
-              alt={state.trending1}
-            />
-            <img
-              className="trending-celeb-images"
-              src={state.trending2Img}
-              title={state.trending2}
-              alt={state.trending2}
-            />
-            <img
-              className="trending-celeb-images"
-              src={state.trending3Img}
-              title={state.trending3}
-              alt={state.trending3}
-            />
-            <img
-              className="trending-celeb-images"
-              src={state.trending4Img}
-              title={state.trending4}
-              alt={state.trending4}
-            />
-            <img
-              className="trending-celeb-images"
-              src={state.trending5Img}
-              title={state.trending5}
-              alt={state.trending5}
-            />
+            <Row>
+              <Col m={5}>
+                <div className='celeb-welcome-images-div'>
+                  {/* <img src='https://via.placeholder.com/150' /> */}
+                  <img className='celeb-welcome-images' src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Catherine_Zeta-Jones_VF_2012_Shankbone_2.jpg/330px-Catherine_Zeta-Jones_VF_2012_Shankbone_2.jpg' />
+                  <img className='celeb-welcome-images' src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/James_Earl_Jones_%288516667383%29.jpg/330px-James_Earl_Jones_%288516667383%29.jpg' />
+                  <img className='celeb-welcome-images' src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Mad_Men_at_the_67th_Annual_Peabody_Awards_-_January_Jones.jpg/330px-Mad_Men_at_the_67th_Annual_Peabody_Awards_-_January_Jones.jpg' />
+                  <img className='celeb-welcome-images' src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Orlando_Jones_cropped.jpg/330px-Orlando_Jones_cropped.jpg' />
+                  <img className='celeb-welcome-images' src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Rashida_Jones_2017_%28cropped%29.jpg/330px-Rashida_Jones_2017_%28cropped%29.jpg' />
+                  <img className='celeb-welcome-images' src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Norah_Jones_at_Bright_Eyes_1_%28cropped%29.jpg/330px-Norah_Jones_at_Bright_Eyes_1_%28cropped%29.jpg' />
+                  <img className='celeb-welcome-images' src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Tommy_Lee_Jones_2017.jpg/330px-Tommy_Lee_Jones_2017.jpg' />
+                  <img className='celeb-welcome-images' src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Tamala_Jones_at_Paleyfest_2012.jpg/330px-Tamala_Jones_at_Paleyfest_2012.jpg' />
+                </div>
+              </Col>
+              <Col m={4} >
+                <div className='celeb-welcome-div'>
+                  <h4 className='celeb-welcome-title'>Stay in the know.</h4>
+                  <p className='celeb-welcome'>With entertainMe, you can find the the latest info on your favorite celebrities. Keeping up with the Joneses has never been so fun.</p>
+                </div>
+              </Col>
+              <Col m={3}>
+                <>
+                  <br></br>
+                  <FavoriteCelebsDefault heading={'COMMUNITY PEOPLE'}
+                    communityCelebrities={communityCelebrities}
+                  />
+                </>
+              </Col>
+            </Row>
+
+            <Row>
+              <Col m={7}>
+                <>
+                  <h6 className="trending-celeb-title">Trending</h6>
+                  <img
+                    className="trending-celeb-images"
+                    src={state.trending1Img}
+                    title={state.trending1}
+                    alt={state.trending1}
+                  />
+                  <img
+                    className="trending-celeb-images"
+                    src={state.trending2Img}
+                    title={state.trending2}
+                    alt={state.trending2}
+                  />
+                  <img
+                    className="trending-celeb-images"
+                    src={state.trending3Img}
+                    title={state.trending3}
+                    alt={state.trending3}
+                  />
+                  <img
+                    className="trending-celeb-images"
+                    src={state.trending4Img}
+                    title={state.trending4}
+                    alt={state.trending4}
+                  />
+                  <img
+                    className="trending-celeb-images"
+                    src={state.trending5Img}
+                    title={state.trending5}
+                    alt={state.trending5}
+                  />
+                </>
+              </Col>
+              <Col m={5}>
+                <span className='title'>ADD SOMETHING HERE?</span>
+              </Col>
+            </Row>
           </>
-        ) : (
-            <DefaultTrendingCelebrities />
-          )}
-      </Col>
-    </Row>
+
+        )}
+      <Row></Row>
     </Container>
   );
 };
