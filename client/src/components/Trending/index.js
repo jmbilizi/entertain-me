@@ -168,7 +168,8 @@ const Trending = (props) => {
 
   return (
     <div className='center-align title'>
-      <h6 className='title'>TRENDING</h6>
+      <h6 className='title'>TRENDING TV</h6>
+      <br></br>
       <Slider
         className="frame"
         fullscreen={false}
