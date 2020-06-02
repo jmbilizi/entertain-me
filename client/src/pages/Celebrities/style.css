@@ -163,3 +163,7 @@ input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
   width: 23em;
   position: relative;
 }
+
+.celeb-title-center {
+  margin-left: 2.25em;
+}

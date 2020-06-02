@@ -207,3 +207,7 @@ input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
 .upcoming{
   margin-right: 2em;
 }
+
+.fav-title-center {
+  margin-left: 1.75em;
+}
