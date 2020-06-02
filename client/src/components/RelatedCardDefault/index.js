@@ -1,6 +1,5 @@
 import React from 'react';
 import { Col, Row, Card } from 'react-materialize';
-import _ from 'lodash';
 
 const RelatedCardDefault = (props) => {
  

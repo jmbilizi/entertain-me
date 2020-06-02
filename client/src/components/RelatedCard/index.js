@@ -2,8 +2,6 @@ import React from 'react';
 import { Collection, CollectionItem } from 'react-materialize';
 import _ from 'lodash';
 
-import API from '../../utils/API';
-
 const RelatedCard = (props) => {
 
   const getDetails = (e) => {

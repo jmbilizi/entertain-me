@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Row, Col } from 'react-materialize'
+import { Row, Col } from 'react-materialize'
 import MessageList from './MessageList'
 import moment from 'moment';
 import $ from 'jquery';

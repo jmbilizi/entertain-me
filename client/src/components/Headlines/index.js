@@ -13,10 +13,6 @@ let story5 = '';
 let newStory;
 let divider = ` .   .   . `;
 
-
-
-var reactNodeSpan = React.createElement('span', 'one');
-
 (async () => {
   let feed = await parser.parseURL(CORS_PROXY + 'http://www.tmz.com/rss');
   console.log(feed.title);

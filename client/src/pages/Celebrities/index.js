@@ -5,9 +5,7 @@ import _ from "lodash";
 
 import CelebSearchBar from "../../components/CelebSearchBar";
 import DefaultCelebProfileImage from "../../components/CelebProfileImageDefault";
-import DefaultCelebAppearances from "../../components/CelebAppearancesDefault";
 import DefaultCelebBiography from "../../components/CelebBiographyDefault";
-import DefaultTrendingCelebrities from "../../components/TrendingCelebritiesDefault";
 import FavoriteCelebs from '../../components/FavoriteCelebs'
 import FavoriteCelebsDefault from '../../components/FavoriteCelebsDefault'
 import API from "../../utils/API";
@@ -125,7 +123,7 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
     console.log("profile ", profile);
     console.log("celebrityDetailsInfo ", celebrityDetailsInfo);
     console.log(`state: `, state);
-    console.log("searchInfo[0]", celebrityDetailsInfo);
+    console.log("seartrendingCelebritiesInfo", trendingCelebritiesInfo);
 
     setState({
       ...state,
@@ -210,7 +208,7 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
         trendingName9: [trendingCelebsInfo.results[8].name],
         trendingName10: [trendingCelebsInfo.results[9].name],
         trendingName11: [trendingCelebsInfo.results[10].name]
-        
+
       })
     }
   }, []);
@@ -241,6 +239,11 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
 
         <Row>
           <Col m={5}>
+            {state.name ? (
+              <h2 className="celeb-name">{state.name}</h2>
+            ) : (
+                <h2 className="celeb-name">Celebrities</h2>
+              )}
             {state.name ? (
               <>
                 <img
@@ -276,22 +279,17 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
           </Col>
           <Col m={4}>
             {state.name ? (
-              <h2 className="celeb-name">{state.name}</h2>
-            ) : (
-                <h2 className="celeb-name">Celebrities</h2>
-              )}
-
-            {state.name ? (
               <>
-                <h6 className="biography-title">Biography</h6>
+                <br></br><br></br><br></br>
                 <p className="celeb-biography">
+                  <h6 className="biography-title">Biography</h6>
                   {_.truncate(state.biography, {
-                    length: 300,
+                    length: 740,
                     separator: "...",
                   })}
                 </p>
-                <h6 className="appearances-title">Appearances</h6>
-                <p className="celeb-appearances-overview">
+                <div className="celeb-appearances-overview">
+                  <h6 className="appearances-title">Appearances</h6>
                   <a href={state.known1Img}>
                     <img
                       className="known"
@@ -299,67 +297,50 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
                       alt="{state.known1}"
                     />
                   </a>
-                  {_.truncate(state.known1Overview, {
-                    length: 140,
-                    separator: "...",
-                  })}
+                  <p>{state.known1Overview}</p>
                   <hr></hr>
-
+                  <br></br>
                   <a href={state.known2Img}>
                     <img
                       className="known"
                       src={state.known2Img}
-                      alt="{state.known2}"
+                      alt="{state.known1}"
                     />
                   </a>
-                  {_.truncate(state.known2Overview, {
-                    length: 140,
-                    separator: "...",
-                  })}
+                  <p>{state.known1Overview}</p>
                   <hr></hr>
-
+                  <br></br>
                   <a href={state.known3Img}>
                     <img
                       className="known"
                       src={state.known3Img}
-                      alt="{state.known3}"
+                      alt="{state.known1}"
                     />
                   </a>
-                  {_.truncate(state.known3Overview, {
-                    length: 140,
-                    separator: "...",
-                  })}
-                </p>
+                  <p>{state.known1Overview}</p>
+                </div>
               </>
             ) : (
-                <>
-                  <DefaultCelebBiography />
-                  <DefaultCelebAppearances />
-                </>
+                <DefaultCelebBiography />
+
               )}
           </Col>
           <Col m={3}>
             {token ? (
               <>
+                <br></br><br></br>
                 <FavoriteCelebs heading={'MY PEOPLE'} deleteCeleb={deleteCeleb} celebrities={celebrities} setCelebrities={setCelebrities} celebSearch={celebSearch} />
                 <br></br>
-                <FavoriteCelebsDefault heading={'COMMUNITY FAVORITES'} communityCelebrities={communityCelebrities} setCommunityCelebrities={setCommunityCelebrities} celebSearch={celebSearch} />
+                <FavoriteCelebsDefault heading={'COMMUNITY PEOPLE'} communityCelebrities={communityCelebrities} setCommunityCelebrities={setCommunityCelebrities} celebSearch={celebSearch} />
 
 
 
               </>
             ) : (
                 <>
-                  <FavoriteCelebsDefault heading={'COMMUNITY FAVORITES'} communityCelebrities={communityCelebrities} setCommunityCelebrities={setCommunityCelebrities} celebSearch={celebSearch} />
+                  <br></br><br></br>
+                  <FavoriteCelebsDefault heading={'COMMUNITY PEOPLE'} communityCelebrities={communityCelebrities} setCommunityCelebrities={setCommunityCelebrities} celebSearch={celebSearch} />
                 </>
-              )}
-
-            <br></br>
-
-            {state.name ? (
-              <span className='title'>ADD SOMETHING HERE?</span>
-            ) : (
-                <DefaultTrendingCelebrities />
               )}
           </Col>
         </Row>
@@ -387,7 +368,7 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
             </Row>
 
             <Row>
-                          <Col m={12}>
+              <Col m={12}>
                 <h6 className="trending-celeb-title">TRENDING</h6>
                 <img
                   className="trending-celeb-images2"
@@ -431,32 +412,8 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
                   title={state.trendingName7}
                   alt={state.trendingName7}
                 />
-                {/* <img
-                  className="trending-celeb-images"
-                  src={state.trendingImage8}
-                  title={state.trendingName8}
-                  alt={state.trendingName8}
-                />
-                <img
-                  className="trending-celeb-images"
-                  src={state.trendingImage9}
-                  title={state.trendingName9}
-                  alt={state.trendingName9}
-                />
-                <img
-                  className="trending-celeb-images"
-                  src={state.trendingImage10}
-                  title={state.trendingName10}
-                  alt={state.trendingName10}
-                />
-                <img
-                  className="trending-celeb-images"
-                  src={state.trendingImage11}
-                  title={state.trendingName11}
-                  alt={state.trendingName11}
-                /> */}
               </Col>
-              </Row>
+            </Row>
           </>
 
         )}
