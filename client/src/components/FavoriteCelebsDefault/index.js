@@ -16,7 +16,7 @@ const FavoriteCelebsDefault = (props) => {
 
   return (
     <>
-      <h6 className="center-align title">{props.heading}</h6>
+      <h6 className="celeb-title-center title">{props.heading}</h6>
       <Collection className="frame">
         {communityCelebrities.map(item => 
         (<CollectionItem id="fav-background">

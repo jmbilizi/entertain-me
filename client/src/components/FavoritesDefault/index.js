@@ -12,7 +12,7 @@ const FavoritesDefault = (props) => {
   const { communityFavorites } = props
   return (
     <>
-      <h6 className="center-align title">{props.heading}</h6>
+      <h6 className="fav-title-center title">{props.heading}</h6>
       <Collection className="frame">
         {communityFavorites.map(item =>
           (<CollectionItem id='fav-background'>
