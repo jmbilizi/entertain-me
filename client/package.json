@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "entertainme",
   "private": true,
-  "proxy": "https://entertainme-app.herokuapp.com/",
+  "proxy": "http://localhost:3001/",
   "dependencies": {
     "axios": "^0.18.0",
     "jquery": "^3.5.1",
