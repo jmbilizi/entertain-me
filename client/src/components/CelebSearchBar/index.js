@@ -17,7 +17,7 @@ const CelebSearchBar = ({ handleInputChange, handleFormSubmit }) => {
               type="text"
               name="userInput"
               id="userInput"
-              placeholder="Enter a celebrity name"
+              placeholder="      Enter a celebrity name"
                 onChange={handleInputChange}
             />
           </form>

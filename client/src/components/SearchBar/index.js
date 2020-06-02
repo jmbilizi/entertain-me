@@ -19,7 +19,7 @@ const SearchBar = ({ handleInputChange, handleFormSubmit }) => {
               type="text"
               name="userInput"
               id="userInput"
-              placeholder="Enter a movie or tv show title"
+              placeholder="   Enter a movie or tv show title"
               onChange={handleInputChange}
             />
           </form>

@@ -1,6 +1,7 @@
-.search-fail {
+.search-fail, .search-empty {
   color: red;
   margin-left: 1em;
+  top: 5em;
   display: none;
   position: fixed;
 }
