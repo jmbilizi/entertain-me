@@ -26,27 +26,27 @@ entertainME is an application that allows the user to follow their favorite Movi
 
 ### Sign Up Page:
 
-![Signup](src/assets/images/login.png "Signup")
+![Signup](client/src/assets/images/login.png "Signup")
 
 ### Registration Page
 
-![Register](src/assets/images/register.png "Register")
+![Register](client/src/assets/images/register.png "Register")
 
 ### Home Page
 
-![Home](src/assets/images/home.png "Home")
+![Home](client/src/assets/images/home.png "Home")
 
 ### Movies/TV Shows Page
 
-![Movies](src/assets/images/movies.png "Movies")
+![Movies](client/src/assets/images/movies.png "Movies")
 
 ### Celebrities Page
 
-![Celebrities](src/assets/images/celebrity.png "Celebrities")
+![Celebrities](client/src/assets/images/celebrity.png "Celebrities")
 
 ### Profile Page
 
-![Profile](src/assets/images/profile.png "Profile")
+![Profile](client/src/assets/images/profile.png "Profile")
 
 ## Tech used
 
