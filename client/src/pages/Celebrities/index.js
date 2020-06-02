@@ -175,7 +175,7 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
   useEffect(() => {
     const existingFavoriteCeleb = celebrities.filter((el) => el.celeb_name === state.name)
     existingFavoriteCeleb.length > 0 ? ($('.favorite').hide()) : ($('.favorite').show());
-  }, [celebrities]);
+  }, [state]);
 
 
   useEffect(() => {
