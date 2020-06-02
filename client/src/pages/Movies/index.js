@@ -6,13 +6,10 @@ import { Container, Row, Col } from "react-materialize";
 import ResultsCard from "../../components/ResultsCard";
 import SearchBar from "../../components/SearchBar";
 import Trailer from "../../components/Trailer";
-import TrailerDefault from "../../components/TrailerDefault";
 import Favorites from "../../components/Favorites";
 import FavoritesDefault from "../../components/FavoritesDefault";
-import TrendingDefault from "../../components/TrendingDefault";
 import Trending from "../../components/Trending";
 import RelatedCard from "../../components/RelatedCard";
-import RelatedCardDefault from "../../components/RelatedCardDefault";
 import DiscoverCardDefault from "../../components/DiscoverCardDefault";
 import Upcoming from "../../components/Upcoming";
 import API from "../../utils/API";
@@ -93,7 +90,6 @@ const MoviePage = ({ favorites, setFavorites, token, communityFavorites, setComm
     director2,
     logo,
     provider,
-    tvTrailerInfo
   } = state;
 
   const imageURL = "https://image.tmdb.org/t/p/w500";
@@ -504,7 +500,7 @@ const MoviePage = ({ favorites, setFavorites, token, communityFavorites, setComm
                 />
               </Col>
               <Col m={7}>
-              <Upcoming
+                <Upcoming
                 />
               </Col>
             </Row>

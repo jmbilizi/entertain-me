@@ -18,22 +18,7 @@ const Trending = (props) => {
     trending10: "",
   });
 
-  const {
-    trending1,
-    trending2,
-    trending3,
-    trending4,
-    trending5,
-    trending6,
-    trending7,
-    trending8,
-    trending9,
-    trending10,
-
-  } = state;
-
   const imageURL = "https://image.tmdb.org/t/p/w500";
-  const trailerURL = "https://www.youtube.com/embed/";
 
   const type = 'tv'
 
@@ -167,11 +152,11 @@ const Trending = (props) => {
 
 
   return (
-    <div className='center-align title'>
+    <div >
       <h6 className='title'>TRENDING TV</h6>
       <br></br>
       <Slider
-        className="frame"
+        className="frame slide"
         fullscreen={false}
         options={{
           duration: 500,

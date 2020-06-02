@@ -1,10 +1,10 @@
-h5 {
+ h5 {
     font-size: 1.5em;
 }
 
 .default-text {
-    color: #bdbdbd;
-}
+    color: #bdbdbd;  
+} 
 
 .staff-picks {
     margin-left: 50px;
@@ -38,9 +38,9 @@ h5 {
     background-color: #111111
 }
 
-.title {
+/* .title {
     font-size: 20px;
-}
+} */
 
 #home-message {
     min-height: 20em;
@@ -63,6 +63,6 @@ h5 {
     color: #bdbdbd;
 }
 
-.main {
+/* .main {
     color: #cfb53b;
-}
+} */
