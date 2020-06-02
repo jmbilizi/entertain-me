@@ -156,7 +156,7 @@ input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
 }
 
 .celeb-welcome {
-  color: white;
+  color: #bdbdbd;
 }
 
 .celeb-welcome-div {
