@@ -63,6 +63,7 @@ const Profile = (props) => {
               data-caption="blank profile picture"
               width="250"
               src={require('../../assets/images/blank-profile-picture.png')}
+              alt=''
             ></img>
           </Col>
           <Col s={6}>

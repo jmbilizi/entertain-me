@@ -1,6 +1,5 @@
 import React from 'react';
 import { MediaBox } from 'react-materialize';
-import _ from 'lodash';
 
 const ResultsCardDefault = () => {
    return (
