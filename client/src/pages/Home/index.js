@@ -2,65 +2,11 @@ import React from "react";
 import "materialize-css";
 import { Container, Row, Col } from "react-materialize";
 import Headlines from "../../components/Headlines";
-import Chat from "../../components/Chat/Chat";
 import "./style.css";
-import API from "../../utils/API.js";
 import $ from "jquery";
 
-// const users = [
-//   {
-//     "name": {
-//       "first": "Fred",
-//       "last": "Thomas"
-//     }
-//   },
-//   {
-//     "name": {
-//       "first": "Sandy",
-//       "last": "Davis"
-//     }
-//   },
-//   {
-//     "name": {
-//       "first": "Erica",
-//       "last": "Lane"
-//     }
-//   },
-//   {
-//     "name": {
-//       "first": "Roger",
-//       "last": "Willis"
-//     }
-//   },
-//   {
-//     "name": {
-//       "first": "Roxanna",
-//       "last": "Garcia"
-//     }
-//   },
-// ];
-
-// export default class Home extends Component {
-//   state = {
-//     Users: [],
-//     filteredUsers: []
-//   };
-
-//   componentDidMount() {
-//     API.getRandomUsers().then(users => {
-//       console.log(users);
-//       this.setState({
-//         Users: users.data.results,
-//         filteredUsers: users.data.results
-//       });
-//     });
-//   }
-
-// }
-
 const Home = (props) => {
-  const { token } = props;
-
+ 
   setTimeout(function () {
     $("#home-message").html(
       `<br><br><h5 id='home-text1'>DISCOVER YOUR NEXT FAVORITE <span class ='main'>MOVIE</span>.</h5>`
@@ -136,8 +82,9 @@ const Home = (props) => {
             <img
               src="https://www.emmys.com/sites/default/files/styles/marquee_main/public/marquees/cta-2020-40th-900x600.jpg?itok=PYFZdWI0"
               className="home-image"
+              alt=''
             />
-            <div className="default-text">
+            <div className='default-text'>
               <p>
                 <strong>Date: </strong>September 20, 2020
               </p>
@@ -161,6 +108,7 @@ const Home = (props) => {
               <img
                 src={require("../../assets/images/countdown.gif")}
                 id="home-image"
+                alt=''
               />
             </div>
 
@@ -196,14 +144,7 @@ const Home = (props) => {
               <li>Katy Perry</li>
             </ul>
             <br></br>
-            {/* 
-            CHAT FEATURE
-            <br></br>
-            <hr className="divider"></hr>
-            <br></br>
-            {token ? (<Chat />) : (console.log('User not logged in'))} */}
-
-          </div>
+                    </div>
         </Col>
       </Row>
     </Container>

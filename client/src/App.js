@@ -10,7 +10,7 @@ import SiteFooter from "./components/SiteFooter";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Logout from "./pages/Logout";
-import { user } from "./utils/helpers";
+
 
 const App = () => {
   const [token, setToken] = useState(null);

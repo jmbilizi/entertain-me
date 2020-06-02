@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col, Slide, Caption, Parallax } from "react-materialize";
-import _ from "lodash";
+import { Container, Row, Col } from "react-materialize";
 import API from "../../utils/API";
 import moment from 'moment';
 
@@ -13,10 +12,6 @@ const Upcoming = (props) => {
     upcoming4: "",
     upcoming5: "",
     upcoming6: "",
-    upcoming7: "",
-    upcoming8: "",
-    upcoming9: "",
-    upcoming10: "",
   });
 
   const {
@@ -26,11 +21,6 @@ const Upcoming = (props) => {
     upcoming4,
     upcoming5,
     upcoming6,
-    upcoming7,
-    upcoming8,
-    upcoming9,
-    upcoming10,
-
   } = state;
 
   const imageURL = "https://image.tmdb.org/t/p/w500";
@@ -106,46 +96,6 @@ const Upcoming = (props) => {
             : [
               `${imageURL}` + upcomingInfo.results[5].poster_path,
               upcomingInfo.results[5].title, upcomingInfo.results[5].release_date
-            ],
-        upcoming7:
-          upcomingInfo.results[6].name
-            ? [
-              `${imageURL}` + upcomingInfo.results[6].poster_path,
-              upcomingInfo.results[6].name, upcomingInfo.results[6].release_date
-            ]
-            : [
-              `${imageURL}` + upcomingInfo.results[6].poster_path,
-              upcomingInfo.results[6].title, upcomingInfo.results[6].release_date
-            ],
-        upcoming8:
-          upcomingInfo.results[7].name
-            ? [
-              `${imageURL}` + upcomingInfo.results[7].poster_path,
-              upcomingInfo.results[7].name, upcomingInfo.results[7].release_date
-            ]
-            : [
-              `${imageURL}` + upcomingInfo.results[7].poster_path,
-              upcomingInfo.results[7].title, upcomingInfo.results[7].release_date
-            ],
-        upcoming9:
-          upcomingInfo.results[8].name
-            ? [
-              `${imageURL}` + upcomingInfo.results[8].poster_path,
-              upcomingInfo.results[8].name, upcomingInfo.results[8].release_date
-            ]
-            : [
-              `${imageURL}` + upcomingInfo.results[8].poster_path,
-              upcomingInfo.results[8].title, upcomingInfo.results[8].release_date
-            ],
-        upcoming10:
-          upcomingInfo.results[9].name
-            ? [
-              `${imageURL}` + upcomingInfo.results[9].poster_path,
-              upcomingInfo.results[9].name, upcomingInfo.results[9].release_date
-            ]
-            : [
-              `${imageURL}` + upcomingInfo.results[9].poster_path,
-              upcomingInfo.results[9].title, upcomingInfo.results[9].release_date
             ]
       });
     }
@@ -156,33 +106,23 @@ const Upcoming = (props) => {
   console.log('STATE: ', state)
 
 
-
-
-
-
-
-
-
-
-
-
   return (
-    <div className='center-align title'>
+    <div className='center-align'>
       <h6 className='title'>UPCOMING MOVIES</h6>
       <br></br>
-      <Container>
+      <Container className='upcoming'>
         <Row>
-
-          <Col m={2} className>
+          <Col m={2}>
             <img className='upcoming-img' alt="" src={upcoming1[0]} />
           </Col>
-          <Col m={4} className>
+          <Col m={3}>
             <div className='upcoming-info' >
               <h6>{upcoming1[1]}</h6>
               <span className='upcoming-info-text'>Coming: {moment(upcoming1[2]).format('MMM Do, YYYY')}</span>
             </div>
           </Col>
-          <Col m={2}>
+          <Col m={1}></Col>
+          <Col m={2} className=''>
             <img className='upcoming-img' alt="" src={upcoming2[0]} />
           </Col>
           <Col m={4}>
@@ -197,17 +137,18 @@ const Upcoming = (props) => {
           <Col m={2} className>
             <img className='upcoming-img' alt="" src={upcoming3[0]} />
           </Col>
-          <Col m={4} className>
+          <Col m={3} className>
             <div className='upcoming-info' >
               <h6>{upcoming3[1]}</h6>
               <span className='upcoming-info-text'>Coming: {moment(upcoming3[2]).format('MMM Do, YYYY')}</span>
             </div>
           </Col>
-          <Col m={2}>
+          <Col m={1}></Col>
+          <Col m={2} className=''>
             <img className='upcoming-img' alt="" src={upcoming4[0]} />
           </Col>
           <Col m={4}>
-            <div className='upcoming-info' >
+            <div className='upcoming-info ' >
               <h6>{upcoming4[1]}</h6>
               <span className='upcoming-info-text'>Coming: {moment(upcoming4[2]).format('MMM Do, YYYY')}</span>
             </div>
@@ -218,17 +159,18 @@ const Upcoming = (props) => {
           <Col m={2} className>
             <img className='upcoming-img' alt="" src={upcoming5[0]} />
           </Col>
-          <Col m={4} className>
+          <Col m={3} className>
             <div className='upcoming-info' >
               <h6>{upcoming5[1]}</h6>
               <span className='upcoming-info-text'>Coming: {moment(upcoming5[2]).format('MMM Do, YYYY')}</span>
             </div>
           </Col>
-          <Col m={2}>
+          <Col m={1}></Col>
+          <Col m={2} className=''>
             <img className='upcoming-img' alt="" src={upcoming6[0]} />
           </Col>
           <Col m={4}>
-            <div className='upcoming-info' >
+            <div className='upcoming-info ' >
               <h6>{upcoming6[1]}</h6>
               <span className='upcoming-info-text'>Coming: {moment(upcoming6[2]).format('MMM Do, YYYY')}</span>
             </div>

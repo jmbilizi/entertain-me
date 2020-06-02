@@ -1,6 +1,5 @@
 import React from 'react';
 import { Row, Col, Card } from 'react-materialize';
-import _ from 'lodash';
 
 const Trending = (props) => {
   return (
