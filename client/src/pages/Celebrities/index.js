@@ -98,7 +98,16 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
   const imageURL = "https://image.tmdb.org/t/p/w500";
 
   async function celebSearch(entry) {
-    !entry ? alert("Enter a celebrity name.") : console.log('na');
+
+    if (!entry) {
+      $('.celeb-search-empty').show()
+      setTimeout(() => {
+        $('.celeb-search-empty').hide()
+      }, 2000)
+      return;
+    }
+    $('.celeb-search-empty').hide();
+
     const mainData = await API.celebSearch(entry);
     if (!mainData.data.results[0]) {
       $('.celeb-search-fail').show()
@@ -226,6 +235,7 @@ const Celebrities = ({ celebrities, setCelebrities, token, communityCelebrities,
         <Col m={4}>
           <>
             <div className='celeb-search-fail'>No results found for <strong>{userInput.toUpperCase()}</strong>.</div>
+            <div className='celeb-search-empty'>Enter a celebrity name.</div>
             <CelebSearchBar
               handleInputChange={handleInputChange}
               handleFormSubmit={handleFormSubmit}
