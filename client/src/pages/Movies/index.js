@@ -116,7 +116,21 @@ const MoviePage = ({ favorites, setFavorites, token, communityFavorites, setComm
   }
 
   async function mediaSearch(entry) {
-    !entry ? alert("Enter a movie or tv show title.") : console.log('na');
+    // !entry ? alert("Enter a movie or tv show title.") : console.log('na');
+
+
+    if (!entry) {
+      $('.search-empty').show()
+      setTimeout(() => {
+        $('.search-empty').hide()
+      }, 2000)
+      return;
+    }
+    $('.search-empty').hide();
+
+
+
+
     const mainData = await API.mainSearch(entry);
     if (!mainData.data.results[0]) {
       $('.search-fail').show()
@@ -354,6 +368,7 @@ const MoviePage = ({ favorites, setFavorites, token, communityFavorites, setComm
         <Col m={4}>
           <>
             <div className='search-fail'>No results found for <strong>{userInput.toUpperCase()}</strong>.</div>
+            <div className='search-empty'>Enter a movie or tv show title.</div>
             <SearchBar
               className='search-box'
               handleInputChange={handleInputChange}
