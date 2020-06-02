@@ -6,9 +6,17 @@
   display: none;
 }
 
-.celeb-search-fail {
+/* .celeb-search-fail {
   color: white;
   margin-left: 1em;
+  display: none;
+  position: fixed;
+} */
+
+.celeb-search-fail, .celeb-search-empty {
+  color: red;
+  margin-left: 1em;
+  top: 5em;
   display: none;
   position: fixed;
 }
