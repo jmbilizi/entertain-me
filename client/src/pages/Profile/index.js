@@ -6,7 +6,7 @@ import { Redirect } from "react-router-dom";
 import { user } from "../../utils/helpers";
 import "./style.css";
 import Axios from "axios";
-import { MdEdit } from 'react-icons/md'
+import { MdEdit } from "react-icons/md";
 
 const Profile = (props) => {
   const { token } = props;
@@ -17,7 +17,7 @@ const Profile = (props) => {
   useEffect(() => {
     getUser();
   }, []);
-  
+
   //get user info axios call
   async function getUser() {
     let userId = await user()._id;
@@ -62,8 +62,8 @@ const Profile = (props) => {
               className="materialboxed"
               data-caption="blank profile picture"
               width="250"
-              src={require('../../assets/images/blank-profile-picture.png')}
-              alt=''
+              src={require("../../assets/images/blank-profile-picture.png")}
+              alt=""
             ></img>
           </Col>
           <Col s={6}>
@@ -131,13 +131,13 @@ const Profile = (props) => {
         </Row>
         <Row className="center-align">
           <Col s={4}>
-            <h6>Favorites movies</h6>
+            <h6>Favorite Movies</h6>
           </Col>
           <Col s={4}>
-            <h6>Favorites TV shows</h6>
+            <h6>Favorite TV shows</h6>
           </Col>
           <Col s={4}>
-            <h6>Favorites Celebrities</h6>
+            <h6>Favorite Celebrities</h6>
           </Col>
         </Row>
       </Container>
