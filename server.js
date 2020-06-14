@@ -15,7 +15,7 @@ const user = require("./routes/user");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Serve the static files from the React app
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, "client/build")));
 
 // morgan, bodyparser, connectionHistory
 app.use(logger("dev"));
@@ -40,8 +40,8 @@ app.get("/test", (req, res) => {
 });
 
 // Handles any requests that don't match the ones above
-app.get('*', (req, res) =>{
-    res.sendFile(path.join(__dirname+'/client/build/index.html'));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/client/build/index.html"));
 });
 
 // Mongodb connection
@@ -51,6 +51,8 @@ mongoose.connect(
   {
     useNewUrlParser: true,
     useFindAndModify: false,
+    useUnifiedTopology: true,
+    useCreateIndex: true, 
   },
   () => {
     console.log("connected to mongodb");
