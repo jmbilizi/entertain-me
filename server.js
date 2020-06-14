@@ -14,10 +14,9 @@ const user = require("./routes/user");
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
+// Serve the static files from the React app
+app.use(express.static(path.join(__dirname, 'client/build')));
+
 // morgan, bodyparser, connectionHistory
 app.use(logger("dev"));
 app.use(bodyParser.json());
@@ -40,18 +39,9 @@ app.get("/test", (req, res) => {
   res.send("test from server");
 });
 
-// Send every other request to the React app
-// Define any API routes before this runs
-// app.get("/", (req, res) => {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
-
-app.get("*", (req, res) => {
-  let url = path.join(__dirname, "./client/build", "index.html");
-  if (!url.startsWith("/app/"))
-    // since we're on local windows
-    url = url.substring(1);
-  res.sendFile(url);
+// Handles any requests that don't match the ones above
+app.get('*', (req, res) =>{
+    res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 
 // Mongodb connection
